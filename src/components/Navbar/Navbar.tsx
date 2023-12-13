@@ -1,11 +1,12 @@
 "use client";
 
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import cn from "@/utils/cn";
 import Link from "next/link";
 import Image from "next/image";
 import { AppContext } from "../AppContextWrapper/AppContextWrapper";
 import Catalogue from "../Catalogue/Catalogue";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 
 export const catalogueItems = {
   spotify: {
@@ -195,7 +196,8 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
     <div className={cn("navbar h-16 shadow-md")}>
       <div className="flex w-full max-w-[1240px] h-[64px] mx-auto">
         <div
-          className="flex-1 h-full items-center" /*  style={colorPallette ? { color: catalogueItems[colorPallette].foregroundColor } : {}} */
+          className="flex-1 h-full items-center"
+          style={colorPallette ? { color: catalogueItems[colorPallette].foregroundColor } : {}}
         >
           <div className="flex h-full w-full items-center justify-start">
             <Link className="flex gap-2 items-center justify-start" href="/">
@@ -259,6 +261,7 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
             </button>
           )} */}
           {/* <ToggleTheme /> */}
+          <ThemeSwitcher />
         </div>
         <div className="flex items-center flex-none lg:hidden">
           {/* <MobileMenu
