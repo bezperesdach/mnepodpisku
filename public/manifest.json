@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "pstopup",
+  "short_name": "Пополнение баланса PSN",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Пополни баланс своего PS store аккаунта в несколько кликов."
+}

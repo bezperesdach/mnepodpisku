@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /payment/verification
+Disallow: /wb
+Disallow: /guides
+Disallow: /digi
+Disallow: /activate
