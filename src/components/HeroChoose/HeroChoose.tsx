@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function HeroChoose({ firstText, secondText, thirdText }: Props) {
-  const { showCatalogue, toggleCatalogue } = useContext(AppContext);
+  const { toggleCatalogue } = useContext(AppContext);
 
   return (
     <div className="grid grid-rows-3 grid-cols-1 md:grid-rows-2 lg:grid-rows-1 md:grid-cols-2 lg:grid-cols-3 justify-center lg:justify-start gap-6 mt-6 px-2">
