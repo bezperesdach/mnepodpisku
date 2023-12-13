@@ -1,4 +1,4 @@
-import { useState } from "react";
+"use client";
 
 type Props = {
   title: string;
@@ -7,7 +7,6 @@ type Props = {
 };
 
 const Question = ({ title, open, children }: Props) => {
-  const [isOpen, setOpen] = useState(open ?? false);
   return (
     <details className="group bg-base-200 rounded-2xl mt-6" open={open}>
       <summary className="flex justify-between items-center text-xl font-medium cursor-pointer list-none px-4 py-4">
