@@ -1,0 +1,259 @@
+import React from "react";
+import HeroChoose from "@/components/HeroChoose/HeroChoose";
+import Faq from "@/components/Faq/Faq";
+import Question from "@/components/Faq/Question";
+import Instruction from "@/components/Instructions/Instruction";
+import InstructionsSection from "@/components/Instructions/InstructionsSection";
+
+type Props = {};
+
+export default function Home({}: Props) {
+  return (
+    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
+      <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
+        <h1 className="text-3xl lg:text-4xl font-bold text-center min-[1240px]:text-left" id="heading">
+          ПОПОЛНЕНИЕ ТУРЕЦКОГО АККАУНТА PLAYSTATION В РОССИИ
+        </h1>
+        <div className="flex items-center gap-4 bg-base-300 rounded-lg px-4 py-1">
+          <p className="font-medium text-base">Только для турецких аккаунтов</p>
+          <div
+            className="tooltip cursor-pointer max-[524px]:before:-translate-x-[90%] max-[524px]:max-w-xs min-[1200px]:before:-translate-x-[90%]"
+            data-tip='Вам необходимо зарегистрировать аккаунт PSN с регионом турция и прислать его данные после оплаты. Подробнее в разделе "Вопрос-Ответ".'
+          >
+            <button className="flex justify-center items-center p-2 w-7 h-7 bg-white rounded-[100%] text-secondary font-bold">?</button>
+          </div>
+        </div>
+      </div>
+
+      {/* <Form>
+        <fieldset disabled={loginForm.submitting}>
+          <div className="flex flex-col md:flex-row mt-4 md:mt-14 gap-4 sm:gap-8 md:gap-16">
+            <div className="flex flex-col gap-1 lg:gap-6 w-full md:w-1/2">
+              <Field name="amount" type="number">
+                {(field, props) => (
+                  <div className="flex flex-col gap-2 mb-2 md:mb-4 lg:mb-0">
+                    <p className="label font-medium">Выберите количество ЛИР к зачислению:</p>
+                    <TextInput
+                      {...props}
+                      value={field.value}
+                      error={field.error}
+                      type="number"
+                      inputMode="numeric"
+                      pattern="[0-9]*"
+                      placeholder="Количество лир к пополнению"
+                    />
+                  </div>
+                )}
+              </Field>
+              <AmountOptions store={loginForm} />
+              {/* <AmountOptionsBlackFriday store={loginForm} /> */}
+
+      {/* <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex lg:mt-0">
+        <button type="submit" className="btn btn-secondary w-full text-white items-center">
+          <GoLock16 className="text-white text-xl" />
+          Оплатить
+        </button>
+        <p className="text-center text-gray-500">
+          После нажатия вы будете перенаправлены на страницу оплаты{" "}
+         
+        </p>
+      </div> */}
+      {/* </div> */}
+      {/* <div className="flex flex-col w-full md:w-1/2"> */}
+      {/* <PaymentOptions /> */}
+
+      {/* <Field name="paymentOption" type="string">
+              {(field) => <PaymentOptions value={field.value} store={loginForm} />}
+            </Field> */}
+
+      {/* BLACK FRIDAY STYLE */}
+      {/* <BlackFridayPrice calculatedAmount={calculatedAmount} showReceive /> */}
+
+      {/* <PriceComponent calculatedAmount={calculatedAmount} showReceive />
+
+              <DiscountMeter calculatedAmount={calculatedAmount} /> */}
+
+      {/* <div className="w-full flex flex-col gap-1 items-center mt-2 md:hidden">
+                <button type="submit" className="btn btn-secondary w-full text-white flex items-center mt-2 md:hidden">
+                  {loginForm.submitting && <span className="loading loading-spinner" />}
+                  <GoLock16 className="text-white text-xl" />
+                  Оплатить
+                </button>
+                <p className="text-center text-gray-500">
+                  После нажатия вы будете перенаправлены на страницу оплаты{" "}
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </Form> */}
+      {/* <PsPlus changeValue={setPsPlusValue} /> */}
+      <div className="mt-10">
+        <h2 className="text-xl lg:text-2xl font-bold" id="description">
+          Описание
+        </h2>
+        <p className="text-lg font-medium mt-4">
+          Сервис МНЕПОДПИСКУ позволит вам быстро и удобно пополнить свой кошелек турецкого playstation аккаунта. Пополнение происходит в
+          три простых этапа
+          <br />
+          Если по каким-либо причинам вне нашего контроля пополнение на ваш аккаунт не проходит - услуга превращается в выкуп корзины
+        </p>
+        <HeroChoose
+          firstText="Введите данные и сумму к пополнению"
+          secondText="Оплатите удобным для вас способом"
+          thirdText="Получите деньги на аккаунт playstation"
+        />
+      </div>
+
+      <Faq>
+        <Question title="Пополнение кошелька PlayStation в Турции: Как происходит пополнение?" open>
+          <p>
+            Пополнение вашего кошелька PlayStation происходит через Турцию с помощью турецкой банковской карты и входа в ваш аккаунт
+            PlayStation. Наши сотрудники осуществят пополнение вашего кошелька, используя этот способ.
+            <br />
+            <br />
+            <span className="font-semibold">Важно!</span> Для успешного пополнения необходимо иметь аккаунт PlayStation Network с
+            регионом Турция. В случае, если у вас нет турецкого аккаунта, вы можете{" "}
+            <a className="link text-secondary" href="/playstation_account" target="_blank" rel="noopener noreferrer">
+              приобрести его создание у нас
+            </a>{" "}
+            по скромной цене.
+            <br />
+            <br /> Кроме того, при пополнении кошелька на сумму от 1500 лир мы предоставляем вам аккаунт PlayStation в подарок. Это
+            отличная возможность получить дополнительные преимущества и доступ к эксклюзивному контенту.
+          </p>
+        </Question>
+
+        <Question title="Как быстро происходит пополнение?">
+          <p>
+            После выполнения всех инструкций среднее время обработки заказа 10-15 минут при обращении в часы указанные в секции нашей
+            стороны время активации может увеличиться.
+          </p>
+        </Question>
+
+        {/* <Question title="Почему вы пополняете баланс кошелька только на суммы до 400 ЛИР?">
+        <p>
+          Sony сделали очень странную систему пополнения кошелька где за раз можно пополнить только на 200 ЛИР, по этой причине мы
+          пополняем кошелек только на суммы до 400 ЛИР <span className="font-semibold">включительно</span>.
+          <br />
+          <br />
+          При покупке пополнения выше 400 ЛИР, мы выкупим все предметы находящиеся в вашей корзине. Также внимательно смотрите на
+          сумму в корзине, сумма приобретенная у нас должна совпадать с суммой которая пишется в корзине.
+          <br />
+          <br />
+          При этом остаток в любом размере будет переведен на ваш кошелек в сумме кратной 10. Например, вы приобрели 800 ЛИР, в
+          корзине у вас были предметы на 765 ЛИР. Остаток в 30 ЛИР будет переведен на ваш кошелек PSN.
+        </p>
+      </Question> */}
+
+        <Question title="Почему нужен именно турецкий аккаунт PSN?">
+          <p>
+            Так как пополнение вашего аккаунта PlayStation происходит с помощью турецкой банковской карты, аккаунт должен быть
+            зарегистрирован в турецком регионе.
+            <br />
+            <br />
+            Такой аккаунт вы можете создать сами по инструкции `&quot;`Как создать турецкий аккаунт PSN`&quot;` ниже
+            <br />
+            <br />
+            Или можете воспользоваться нашей услугой по созданию аккаунта нажав{" "}
+            <a className="link text-secondary" href="/playstation_account" target="_blank" rel="noopener noreferrer">
+              сюда
+            </a>
+          </p>
+        </Question>
+
+        <Question title="Что делать после оплаты пополнения кошелька PlayStation в Турции">
+          <p>
+            После успешной оплаты произойдет переадресация на страницу с информацией о вашем заказе. На этой странице вы также получите
+            уникальный код, который необходимо сообщить продавцу через переписку на этой же странице. Продавец увидит ваше сообщение и
+            свяжется с вами в кратчайшие сроки. Вам следует внимательно следовать инструкциям, предоставленным продавцом, для завершения
+            процесса пополнения. <br />
+            <br />
+            Если случайно произошло закрытие вкладки или переадресация не произошла, вы можете воспользоваться сервисом oplata.info.
+            Здесь будет сохранена ваша история покупок, и вы сможете восстановить информацию о вашем заказе. Для этого необходимо
+            указать вашу электронную почту, которую вы указывали при оформлении заказа. После этого вам будет отправлен список ваших
+            покупок на указанный адрес электронной почты.
+          </p>
+        </Question>
+
+        <Question title="Почему именно Турция?">
+          <p>
+            Одной из основных причин выбора Турции является значительная экономия на покупке игр и подписок в сравнении с Россией. Игры
+            и подписки в турецком регионе PlayStation Store доступны по гораздо более низким ценам. <br />
+            <br />
+            Цены на игры и подписки в Турции существенно отличаются от российских цен, и позволяют сэкономить значительную сумму денег.{" "}
+            <br />
+            <br />
+            Таким образом, пополнение кошелька в Турции позволяет игрокам приобретать игры и подписки по более выгодной цене, и получать
+            больше контента за свои средства.
+          </p>
+        </Question>
+      </Faq>
+      <InstructionsSection>
+        <Instruction name="Как включить 2FA на аккаунте PSN?" file="kak_vkluchit_2fa_na_akaunte_psn" />
+        <Instruction name="Где найти резервные коды аккаунта PSN?" file="gde_posmotret_rezervnyi_kod" />
+        <Instruction name="Как изменить почту на PSN аккаунте" file="psn/how-to-change-email-psn.pdf" />
+        <Instruction name="Как создать турецкий аккаунт PSN" file="psn/how-to-create-turkish-psn.pdf" />
+        <Instruction name="Как добавить нового пользователя на PS4?" file="kak_dobavit_novogo_polzovatelya_na_PS4" />
+        <Instruction name="Как добавить нового пользователя на PS5?" file="kak_dobavit_novogo_polzovatelya_na_PS5" />
+      </InstructionsSection>
+
+      {/* <div
+        className={cn("relative z-10 pointer-events-none", {
+          "pointer-events-auto": loginForm.response.message === "success",
+        })}
+        aria-labelledby="modal-title"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div
+          className={cn("fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity duration-300 opacity-0", {
+            "opacity-100": loginForm.response.message === "success",
+          })}
+        ></div>
+
+        <div className="fixed inset-0 z-10 overflow-y-auto">
+          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div
+              className={cn(
+                "relative transform transition-all duration-300 overflow-hidden rounded-lg bg-base-100 text-center shadow-xl sm:my-8 sm:w-full sm:max-w-lg opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
+                {
+                  "opacity-100 translate-y-0 sm:scale-100": loginForm.response.message === "success",
+                }
+              )}
+            >
+              <div className="flex flex-col items-center px-4 py-8 mx-1 sm:mx-4">
+                <p className="text-lg sm:text-2xl lg:text-2xl font-medium text-center">Перенаправляем вас на страницу оплаты</p>
+                <p className="sm:text-lg lg:text-xlfont-medium mt-10 text-center">
+                  Нажмите "Далее", если не происходит переход на страницу оплаты{" "}
+                </p>
+
+                <a className="btn btn-secondary btn-wide mt-10 text-white" href={loginForm.response.data?.paymentUrl}>
+                  Далее
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> */}
+    </div>
+  );
+}
+
+// export const head: DocumentHead = {
+//   title: "МНЕПОДПИСКУ",
+//   meta: [
+//     {
+//       name: "description",
+//       content:
+//         "Сервис для приобретения подписок на различные онлайн сервисы. Принимаем к оплате карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
+//     },
+//   ],
+//   links: [
+//     {
+//       rel: "canonical",
+//       href: "https://mnepodpisku.ru/",
+//     },
+//   ],
+// };
