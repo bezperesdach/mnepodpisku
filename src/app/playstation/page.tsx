@@ -6,9 +6,18 @@ import Instruction from "@/components/Instructions/Instruction";
 import InstructionsSection from "@/components/Instructions/InstructionsSection";
 import FormComponent from "./FormComponent";
 
-type Props = {};
+type Props = {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
-export default function Home({}: Props) {
+const isAmountValid = (amount: string | string[] | undefined) => {
+  if (amount && !isNaN(Number(amount))) {
+    return Number(amount);
+  }
+  return undefined;
+};
+
+export default function Home({ searchParams }: Props) {
   return (
     <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
@@ -26,7 +35,7 @@ export default function Home({}: Props) {
         </div>
       </div>
 
-      <FormComponent />
+      <FormComponent amount={isAmountValid(searchParams["amount"])} />
 
       {/* <Form>
         <fieldset disabled={loginForm.submitting}>
