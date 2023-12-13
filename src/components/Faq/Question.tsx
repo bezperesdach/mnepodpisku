@@ -15,7 +15,7 @@ const Question = ({ title, open, children }: Props) => {
           <svg
             fill="none"
             height="24"
-            shape-rendering="geometricPrecision"
+            shapeRendering="geometricPrecision"
             stroke="currentColor"
             strokeLinecap="round"
             strokeLinejoin="round"
