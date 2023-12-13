@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useAppContext } from "../AppContextWrapper/AppContextWrapper";
 
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer = () => {
+  const contextValue = useAppContext();
   return (
     <footer className="mt-auto shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),0_-2px_4px_-2px_rgba(0,0,0,.1)]">
       <div className="w-full max-w-[1240px] mx-auto px-4 py-2">
@@ -50,7 +50,7 @@ const Footer = (props: Props) => {
             <p className="text-lg font-bold">Меню</p>
             <div className="flex flex-wrap gap-10">
               <div className="flex flex-col justify-start items-start gap-1">
-                {/* <button onClick$={() => (showCatalogue.value = true)}>Каталог</button> */}
+                <button onClick={() => contextValue.showCatalogue}>Каталог</button>
                 <Link href="/guides">Инструкции</Link>
               </div>
               <div className="flex flex-col justify-start items-start gap-1">

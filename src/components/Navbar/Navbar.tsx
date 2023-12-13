@@ -1,7 +1,11 @@
-import { useEffect } from "react";
+"use client";
+
+import { useContext, useEffect } from "react";
 import cn from "@/utils/cn";
 import Link from "next/link";
 import Image from "next/image";
+import { AppContext } from "../AppContextWrapper/AppContextWrapper";
+import Catalogue from "../Catalogue/Catalogue";
 
 export const catalogueItems = {
   spotify: {
@@ -10,8 +14,14 @@ export const catalogueItems = {
     backgroundColor: "#191414",
     hoverColor: "hover:text-[#69CF81]",
     logo: (
-      <div className="w-12 h-12 flex justify-center items-center">
-        <Image className="w-auto h-full" src="/catalogue_icons/spotify.png" alt="Spotify логотип" />
+      <div className="relative w-12 h-12 flex justify-center items-center">
+        <Image
+          className="w-auto h-full"
+          src="/catalogue_icons/spotify.png"
+          alt="Spotify логотип"
+          fill
+          style={{ objectFit: "contain" }}
+        />
       </div>
     ),
   },
@@ -21,8 +31,8 @@ export const catalogueItems = {
     backgroundColor: "#fff",
     hoverColor: "hover:text-[#E55F66]",
     logo: (
-      <div className="w-12 h-12 flex justify-center items-center">
-        <Image className="w-auto h-full" src="/catalogue_icons/netflix.png" alt="Netflix логотип" />
+      <div className="relative w-12 h-12 flex justify-center items-center">
+        <Image src="/catalogue_icons/netflix.png" alt="Netflix логотип" fill style={{ objectFit: "contain" }} />
       </div>
     ),
   },
@@ -32,8 +42,14 @@ export const catalogueItems = {
     backgroundColor: "#fff",
     hoverColor: "hover:text-[#747FF2]",
     logo: (
-      <div className="w-12 h-12 flex justify-center items-center">
-        <Image className="w-auto h-full" src="/catalogue_icons/discord.png" alt="Discord логотип" />
+      <div className="relative w-12 h-12 flex justify-center items-center">
+        <Image
+          className="w-auto h-full"
+          src="/catalogue_icons/discord.png"
+          alt="Discord логотип"
+          fill
+          style={{ objectFit: "contain" }}
+        />
       </div>
     ),
   },
@@ -43,8 +59,8 @@ export const catalogueItems = {
     backgroundColor: "#fff",
     hoverColor: "hover:text-[#FD87AA]",
     logo: (
-      <div className="w-12 h-12 flex justify-center items-center">
-        <Image className="w-auto h-full" src="/catalogue_icons/tinder.png" alt="Tinder логотип" />
+      <div className="relative w-12 h-12 flex justify-center items-center">
+        <Image className="w-auto h-full" src="/catalogue_icons/tinder.png" alt="Tinder логтип" fill style={{ objectFit: "contain" }} />
       </div>
     ),
   },
@@ -54,8 +70,8 @@ export const catalogueItems = {
     backgroundColor: "#fff",
     hoverColor: "hover:text-[#419242]",
     logo: (
-      <div className="w-12 h-12 flex justify-center items-center">
-        <Image className="w-auto h-full" src="/catalogue_icons/xbox.png" alt="Xbox логотип" />
+      <div className="relative w-12 h-12 flex justify-center items-center">
+        <Image className="w-auto h-full" src="/catalogue_icons/xbox.png" alt="Xbox логотип" fill style={{ objectFit: "contain" }} />
       </div>
     ),
   },
@@ -65,8 +81,14 @@ export const catalogueItems = {
     backgroundColor: "#ffff",
     hoverColor: "hover:text-[#4C76A6]",
     logo: (
-      <div className="w-12 h-12 flex justify-center items-center">
-        <Image className="w-auto h-full" src="/catalogue_icons/playstation.png" alt="Playstation логотип" />
+      <div className="relative w-12 h-12 flex justify-center items-center">
+        <Image
+          className="w-auto h-full"
+          src="/catalogue_icons/playstation.png"
+          alt="Playstation логотип"
+          fill
+          style={{ objectFit: "contain" }}
+        />
       </div>
     ),
   },
@@ -76,8 +98,14 @@ export const catalogueItems = {
     backgroundColor: "#ffff",
     hoverColor: "hover:text-[#4C76A6]",
     logo: (
-      <div className="w-12 h-12 flex justify-center items-center">
-        <Image className="w-auto h-full" src="/catalogue_icons/playstation.png" alt="Playstation логотип" />
+      <div className="relative w-12 h-12 flex justify-center items-center">
+        <Image
+          className="w-auto h-full"
+          src="/catalogue_icons/playstation.png"
+          alt="Playstation логотип"
+          fill
+          style={{ objectFit: "contain" }}
+        />
       </div>
     ),
   },
@@ -87,8 +115,14 @@ export const catalogueItems = {
     backgroundColor: "#ffff",
     hoverColor: "hover:text-[#4C76A6]",
     logo: (
-      <div className="w-12 h-12 flex justify-center items-center">
-        <Image className="w-auto h-full" src="/catalogue_icons/ps_plus.png" alt="Ps plus логотип" />
+      <div className="relative w-12 h-12 flex justify-center items-center">
+        <Image
+          className="w-auto h-full"
+          src="/catalogue_icons/ps_plus.png"
+          alt="Ps plus логотип"
+          fill
+          style={{ objectFit: "contain" }}
+        />
       </div>
     ),
   },
@@ -98,8 +132,14 @@ export const catalogueItems = {
     backgroundColor: "#ffff",
     hoverColor: "hover:text-[#4C76A6]",
     logo: (
-      <div className="w-12 h-12 flex justify-center items-center">
-        <Image className="w-auto h-full" src="/catalogue_icons/ea_play.png" alt="Ps Ea play логотип" />
+      <div className="relative w-12 h-12 flex justify-center items-center">
+        <Image
+          className="w-auto h-full"
+          src="/catalogue_icons/ea_play.png"
+          alt="Ps Ea play логотип"
+          fill
+          style={{ objectFit: "contain" }}
+        />
       </div>
     ),
   },
@@ -109,8 +149,14 @@ export const catalogueItems = {
     backgroundColor: "#fff",
     hoverColor: "hover:text-[#CD5D5C]",
     logo: (
-      <div className="w-12 h-12 flex justify-center items-center">
-        <Image className="w-auto h-full" src="/catalogue_icons/youtube.png" alt="Youtube логотип" />
+      <div className="relative w-12 h-12 flex justify-center items-center">
+        <Image
+          className="w-auto h-full"
+          src="/catalogue_icons/youtube.png"
+          alt="Youtube логотип"
+          fill
+          style={{ objectFit: "contain" }}
+        />
       </div>
     ),
   },
@@ -120,8 +166,14 @@ export const catalogueItems = {
     backgroundColor: "#fff",
     hoverColor: "hover:text-[#d40d00]",
     logo: (
-      <div className="w-12 h-12 flex justify-center items-center">
-        <Image className="w-auto h-full" src="/catalogue_icons/adobe_cc.png" alt="Adobecc логотип" />
+      <div className="relative w-12 h-12 flex justify-center items-center">
+        <Image
+          className="w-auto h-full"
+          src="/catalogue_icons/adobe_cc.png"
+          alt="Adobe Creative Cloud логотип"
+          fill
+          style={{ objectFit: "contain" }}
+        />
       </div>
     ),
   },
@@ -137,6 +189,8 @@ type Props = {
 // export const CatalogueContext = createContextId<Signal<boolean>>("showNavbar");
 
 export default function Navbar({ colorPallette, isNotFound }: Props) {
+  const { showCatalogue, toggleCatalogue } = useContext(AppContext);
+
   return (
     <div className={cn("navbar h-16 shadow-md")}>
       <div className="flex w-full max-w-[1240px] h-[64px] mx-auto">
@@ -148,7 +202,7 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
               {colorPallette ? (
                 catalogueItems[colorPallette].logo
               ) : (
-                <Image className="rounded-full" src="/catalogue_icons/logo.jpg" width={48} height={48} alt="Логотип" />
+                <Image className="rounded-full" src="/catalogue_icons/logo.jpg" width={48} height={48} alt="логотип" />
               )}
               <p className="text-2xl font-bold">МНЕПОДПИСКУ.РФ</p>
             </Link>
@@ -160,8 +214,10 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
           // style={colorPallette ? { color: catalogueItems[colorPallette].foregroundColor } : {}}
         >
           <button
-          // className={cn(`hover:text-secondary`, { [`${catalogueItems[colorPallette!]?.hoverColor}`]: colorPallette })}
-          // onClick$={() => (showCatalogue.value = true)}
+            className={cn({ "text-2xl": showCatalogue })}
+            onClick={toggleCatalogue}
+            // className={cn(`hover:text-secondary`, { [`${catalogueItems[colorPallette!]?.hoverColor}`]: colorPallette })}
+            // onClick$={() => (showCatalogue.value = true)}
           >
             Каталог
           </button>
@@ -212,17 +268,17 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
           /> */}
         </div>
       </div>
-      {/* <div
+      <div
         className={cn(
           "fixed transform transition-all duration-300 opacity-0 flex flex-col right-0 left-0 top-0 bottom-0 z-[9999999] justify-end lg:justify-start pb-2 bg-black/90 pointer-events-none",
           {
-            "opacity-100 pointer-events-auto": showCatalogue.value,
+            "opacity-100 pointer-events-auto": showCatalogue,
           }
         )}
       >
-        <Catalogue showCatalogue={showCatalogue} />
+        <Catalogue toggleCatalogue={toggleCatalogue} />
       </div>
-      <div className="fixed bottom-0 left-0 right-0 top-0 z-[10] pointer-events-none flex items-end justify-end p-2 ">
+      {/* <div className="fixed bottom-0 left-0 right-0 top-0 z-[10] pointer-events-none flex items-end justify-end p-2 ">
         <div className="pointer-events-auto lg:pointer-events-none lg:opacity-0 bg-base-200 w-12 h-12 rounded-full">
           <MobileMenu scrollInView={scrollInView} showCatalogue={showCatalogue} dropdownDirection="top" isNotFound={isNotFound} />
         </div>
