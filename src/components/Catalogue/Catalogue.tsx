@@ -82,7 +82,7 @@ const Catalogue = ({ toggleCatalogue }: Props) => {
             {pathname === `/${item}` ? (
               <button className={cn("absolute bottom-0 right-0 top-0 left-0")} onClick={toggleCatalogue} />
             ) : (
-              <Link className={cn("absolute bottom-0 right-0 top-0 left-0")} href={`/${item}`} />
+              <Link className={cn("absolute bottom-0 right-0 top-0 left-0")} href={`/${item}`} onClick={toggleCatalogue} />
             )}
           </div>
           // )}
