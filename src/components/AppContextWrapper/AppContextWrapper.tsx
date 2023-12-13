@@ -12,7 +12,7 @@ type Context = {
 };
 
 const contextInitialState = {
-  showCatalogue: true,
+  showCatalogue: false,
   toggleCatalogue: () => {},
 };
 
