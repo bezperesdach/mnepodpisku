@@ -4,7 +4,7 @@ import React from "react";
 import { catalogueItems } from "../Navbar/Navbar";
 import cn from "@/utils/cn";
 import { XIcon } from "@primer/octicons-react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 type Props = {
@@ -94,23 +94,3 @@ const Catalogue = ({ toggleCatalogue }: Props) => {
 };
 
 export default Catalogue;
-// export const Catalogue = component$(({ showCatalogue }: Props) => {
-//   const location = useLocation();
-//   const loading = useSignal(false);
-
-//   useVisibleTask$(({ track }) => {
-//     track(() => location.isNavigating);
-
-//     if (location.isNavigating === false) {
-//       showCatalogue.value = false;
-//       loading.value = false;
-//     }
-//   });
-
-//   // SALE ITEMS
-//   // const saleItems = ["adobe_creative_cloud", "playstation_account", "playstation"];
-
-//   return (
-
-//   );
-// });
