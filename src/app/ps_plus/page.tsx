@@ -5,6 +5,7 @@ import Question from "@/components/Faq/Question";
 import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
+import { isSearchParamValid } from "@/utils/utils";
 
 export const metadata: Metadata = {
   title: "Купить подписку PS PLUS 2023",
@@ -18,7 +19,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PlayStationAccount() {
+type Props = {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default function PlayStationAccount({ searchParams }: Props) {
   return (
     <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
@@ -36,7 +41,10 @@ export default function PlayStationAccount() {
         </div>
       </div>
 
-      <FormComponent />
+      <FormComponent
+        receivedDuration={isSearchParamValid(searchParams["dur"])}
+        receivedSubscriptionType={isSearchParamValid(searchParams["sub"])}
+      />
 
       <div className="mt-10">
         <h2 className="text-xl lg:text-2xl font-bold" id="description">
