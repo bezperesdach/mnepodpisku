@@ -6,6 +6,7 @@ import Instruction from "@/components/Instructions/Instruction";
 import InstructionsSection from "@/components/Instructions/InstructionsSection";
 import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
+import { Metadata } from "next";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -16,6 +17,15 @@ const isAmountValid = (amount: string | string[] | undefined) => {
     return amount;
   }
   return undefined;
+};
+
+export const metadata: Metadata = {
+  title: "Пополнение PS Store(PSN) турция с карты РФ от 100 TL!",
+  description: "Простое, выгодное и быстрое пополнение турецкого аккаунта Playstation от надежного продавца 2023",
+  openGraph: {
+    title: "Пополнение PS Store(PSN) турция с карты РФ от 100 TL!",
+    description: "Простое, выгодное и быстрое пополнение турецкого аккаунта Playstation от надежного продавца 2023",
+  },
 };
 
 export default function Home({ searchParams }: Props) {
