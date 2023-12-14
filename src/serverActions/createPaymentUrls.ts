@@ -132,3 +132,40 @@ export async function getPsEaPlayPaymentLink(duration: string) {
     data: { paymentUrl: paymentUrl.toString() },
   };
 }
+
+export async function getSpotifyPaymentLink(values: { subscriptionType: string; duration: string }) {
+  const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      product_id: process.env.DIGISELLER_SPOTIFY_BASE_ID,
+      options: [
+        {
+          id: process.env.DIGISELLER_SPOTIFY_OPTION_ID,
+          value: {
+            id: process.env[`DIGISELLER_SPOTIFY_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
+          },
+        },
+      ],
+      lang: "ru-RU",
+      ip: "127.0.0.1",
+    }),
+  });
+  const { id_po } = await paramsRes.json();
+
+  const paymentUrl = new URL("https://oplata.info/asp2/pay_rk.asp");
+
+  paymentUrl.searchParams.append("id_d", process.env.DIGISELLER_SPOTIFY_BASE_ID!);
+  paymentUrl.searchParams.append("id_po", id_po);
+  paymentUrl.searchParams.append("curr", "RBX");
+  paymentUrl.searchParams.append("lang", "ru-RU");
+  paymentUrl.searchParams.append("failpage", "https://mnepodpisku.ru/spotify");
+
+  return {
+    status: "success",
+    message: "success",
+    data: { paymentUrl: paymentUrl.toString() },
+  };
+}
