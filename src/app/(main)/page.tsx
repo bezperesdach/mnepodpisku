@@ -14,8 +14,6 @@ export default function Home({}: Props) {
         </h1>
       </div>
 
-      <HeroChoose />
-
       <div className="mt-10">
         <h2 className="text-xl lg:text-2xl font-bold" id="description">
           Описание
@@ -25,6 +23,8 @@ export default function Home({}: Props) {
           снова купить premium для spotify, пополнить кошелек playstation, приобрести подписку discord nitro full и многое другое.
         </p>
       </div>
+
+      <HeroChoose />
       <Faq>
         <Question title="Как происходит получение нужной подписки?">
           <p>
