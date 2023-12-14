@@ -8,7 +8,7 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <Navbar colorPallette="playstation_account" />
+      <Navbar colorPallette="ps_plus" />
       {children}
       <Footer />
     </>
