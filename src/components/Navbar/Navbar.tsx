@@ -236,7 +236,7 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
           }
         )}
       >
-        <Catalogue toggleCatalogue={toggleCatalogue} />
+        <Catalogue showCatalogue={showCatalogue} toggleCatalogue={toggleCatalogue} />
       </div>
       <div className="fixed bottom-0 left-0 right-0 top-0 z-[10] pointer-events-none flex items-end justify-end p-2 ">
         <div className="pointer-events-auto lg:pointer-events-none lg:opacity-0 bg-base-200 w-12 h-12 rounded-full">
