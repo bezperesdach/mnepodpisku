@@ -245,8 +245,15 @@ export async function getYoutubePaymentLink(duration: string) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      product_id: process.env.DIGISELLER_PSN_BASE_ID,
-
+      product_id: process.env.DIGISELLER_YOUTUBE_PREMIUM_BASE_ID,
+      options: [
+        {
+          id: process.env.DIGISELLER_YOUTUBE_PREMIUM_OPTION_ID,
+          value: {
+            id: process.env[`DIGISELLER_YOUTUBE_PREMIUM_${duration.toUpperCase()}_VARIANT_ID`],
+          },
+        },
+      ],
       lang: "ru-RU",
       ip: "127.0.0.1",
     }),
@@ -255,7 +262,7 @@ export async function getYoutubePaymentLink(duration: string) {
 
   const paymentUrl = new URL("https://oplata.info/asp2/pay_rk.asp");
 
-  paymentUrl.searchParams.append("id_d", process.env.DIGISELLER_PSN_BASE_ID!);
+  paymentUrl.searchParams.append("id_d", process.env.DIGISELLER_YOUTUBE_PREMIUM_BASE_ID!);
   paymentUrl.searchParams.append("id_po", id_po);
   paymentUrl.searchParams.append("curr", "RBX");
   paymentUrl.searchParams.append("lang", "ru-RU");
