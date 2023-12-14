@@ -11,8 +11,9 @@ type Props = {
 };
 
 const isAmountValid = (amount: string | string[] | undefined) => {
-  if (amount && !isNaN(Number(amount))) {
-    return Number(amount);
+
+  if (amount && typeof amount === "string" && !isNaN(Number(amount)) ) {
+    return amount;
   }
   return undefined;
 };
@@ -35,7 +36,7 @@ export default function Home({ searchParams }: Props) {
         </div>
       </div>
 
-      <FormComponent amount={isAmountValid(searchParams["amount"])} />
+      <FormComponent receivedAmount={isAmountValid(searchParams["amount"])} />
 
       {/* <Form>
         <fieldset disabled={loginForm.submitting}>
