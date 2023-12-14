@@ -10,6 +10,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "МнеПодписку.рф",
   description: "Сервис оформления подписок на различные сервис. Безопасно, быстро, дешево.",
+  metadataBase: new URL("https://mnepodpisku.ru"),
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

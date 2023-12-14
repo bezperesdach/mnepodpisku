@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     title: "Пополнение PS Store(PSN) турция с карты РФ от 100 TL!",
     description: "Простое, выгодное и быстрое пополнение турецкого аккаунта Playstation от надежного продавца 2023",
   },
+  alternates: {
+    canonical: "/playstation",
+  },
 };
 
 export default function Home({ searchParams }: Props) {
