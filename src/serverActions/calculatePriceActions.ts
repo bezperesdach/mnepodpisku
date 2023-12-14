@@ -42,7 +42,8 @@ export async function getPsnBalance(amount: number) {
 
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
-      throw new Error(`Failed to fetch data. Status: ${response.status}`);
+      // throw new Error(`Failed to fetch data. Status: ${response.status}`);
+      return { calculated: undefined, sale: undefined };
     }
 
     const responseData = await response.json();
@@ -64,10 +65,14 @@ export async function getPsnBalance(amount: number) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
       console.error("Error in getPsnBalance:", error.message);
+      return { calculated: undefined, sale: undefined };
+
       // throw error; // Rethrow the error to propagate it to the calling code
     } else {
       // Handle other types of errors (if any)
       console.error("Unknown error in getPsnBalance:", error);
+      return { calculated: undefined, sale: undefined };
+
       // throw new Error("An unknown error occurred."); // Rethrow a new error
     }
   }
