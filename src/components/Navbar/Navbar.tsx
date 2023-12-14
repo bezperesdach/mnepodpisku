@@ -216,7 +216,6 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
           // style={colorPallette ? { color: catalogueItems[colorPallette].foregroundColor } : {}}
         >
           <button
-            className={cn({ "text-2xl": showCatalogue })}
             onClick={toggleCatalogue}
             // className={cn(`hover:text-secondary`, { [`${catalogueItems[colorPallette!]?.hoverColor}`]: colorPallette })}
             // onClick$={() => (showCatalogue.value = true)}
