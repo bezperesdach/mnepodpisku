@@ -189,7 +189,7 @@ type Props = {
 
 // export const CatalogueContext = createContextId<Signal<boolean>>("showNavbar");
 
-export default function Navbar({ colorPallette, isNotFound }: Props) {
+export default function Navbar({ colorPallette }: Props) {
   const { showCatalogue, toggleCatalogue } = useContext(AppContext);
 
   return (
