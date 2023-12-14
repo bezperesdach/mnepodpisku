@@ -5,7 +5,7 @@ import cn from "@/utils/cn";
 import AppContext from "@/components/AppContextWrapper/AppContextWrapper";
 import { cookies } from "next/headers";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ weight: ["100", "300", "400", "500", "700", "900"], subsets: ["cyrillic"] });
 
 export const metadata: Metadata = {
   title: "МнеПодписку.рф",
