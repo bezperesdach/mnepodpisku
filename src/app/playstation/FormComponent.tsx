@@ -61,7 +61,6 @@ export default function FormComponent({ receivedAmount }: Props) {
       router.replace(`${pathname}${query}`);
 
       const updatedPrices = await getPsnBalance(value);
-      console.log(updatedPrices);
       setCalculatedAmount(updatedPrices.calculated);
       setValue(updatedPrices.sale);
       setLoading(false);
@@ -85,6 +84,7 @@ export default function FormComponent({ receivedAmount }: Props) {
       setCalculatedAmount(undefined);
       setValue(undefined);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formik.values.amount, formik.errors.amount]);
 
   return (
