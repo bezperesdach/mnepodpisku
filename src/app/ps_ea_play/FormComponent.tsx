@@ -6,6 +6,7 @@ import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
 import { getPsEaPlayPrice } from "@/serverActions/calculatePriceActions";
 import { getPsEaPlayPaymentLink } from "@/serverActions/createPaymentUrls";
+import cn from "@/utils/cn";
 import { LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
@@ -82,8 +83,15 @@ export default function FormComponent({ receivedDuration }: Props) {
               />
             </div>
             <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex ">
-              <button type="submit" className="btn btn-secondary w-full text-white items-center">
-                <LockIcon className="text-white text-xl" />
+              <button
+                type="submit"
+                className={cn("btn btn-secondary w-full text-white items-center", { "btn-disabled": formik.isSubmitting })}
+              >
+                {formik.isSubmitting ? (
+                  <span className="loading loading-spinner loading-xl flex-shrink-0" />
+                ) : (
+                  <LockIcon className="text-white text-xl" />
+                )}
                 Оплатить
               </button>
               <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
