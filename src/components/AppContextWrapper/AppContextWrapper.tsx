@@ -9,11 +9,16 @@ type Props = {
 type Context = {
   showCatalogue: boolean;
   toggleCatalogue: () => void;
+  paymentLink: string;
+  // eslint-disable-next-line no-unused-vars
+  setPaymentLink: (link: string) => void;
 };
 
-const contextInitialState = {
+const contextInitialState: Context = {
   showCatalogue: false,
   toggleCatalogue: () => {},
+  paymentLink: "",
+  setPaymentLink: () => {},
 };
 
 export const AppContext = createContext<Context>(contextInitialState);
@@ -25,9 +30,13 @@ const AppContextWrapper = ({ children }: Props) => {
     setShowCatalogue((prevValue) => !prevValue);
   };
 
+  const [paymentLink, setPaymentLink] = useState<string>(contextInitialState.paymentLink);
+
   const contextValue: Context = {
     showCatalogue,
     toggleCatalogue,
+    paymentLink,
+    setPaymentLink,
   };
 
   return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
