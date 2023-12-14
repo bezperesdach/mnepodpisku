@@ -1,5 +1,6 @@
 import cn from "@/utils/cn";
 import { DetailedHTMLProps, InputHTMLAttributes } from "react";
+import InputError from "./InputError";
 
 type TextInputProps = {
   icon: React.ReactNode;
@@ -48,7 +49,7 @@ const TextInput = ({ icon, error, ...props }: InputProps) => {
           )} */}
         </div>
       </div>
-      {/* <InputError name={name} error={error} /> */}
+      <InputError error={error} />
     </div>
   );
 };
