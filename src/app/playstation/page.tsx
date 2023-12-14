@@ -5,14 +5,14 @@ import Question from "@/components/Faq/Question";
 import Instruction from "@/components/Instructions/Instruction";
 import InstructionsSection from "@/components/Instructions/InstructionsSection";
 import FormComponent from "./FormComponent";
+import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
 const isAmountValid = (amount: string | string[] | undefined) => {
-
-  if (amount && typeof amount === "string" && !isNaN(Number(amount)) ) {
+  if (amount && typeof amount === "string" && !isNaN(Number(amount))) {
     return amount;
   }
   return undefined;
@@ -38,70 +38,6 @@ export default function Home({ searchParams }: Props) {
 
       <FormComponent receivedAmount={isAmountValid(searchParams["amount"])} />
 
-      {/* <Form>
-        <fieldset disabled={loginForm.submitting}>
-          <div className="flex flex-col md:flex-row mt-4 md:mt-14 gap-4 sm:gap-8 md:gap-16">
-            <div className="flex flex-col gap-1 lg:gap-6 w-full md:w-1/2">
-              <Field name="amount" type="number">
-                {(field, props) => (
-                  <div className="flex flex-col gap-2 mb-2 md:mb-4 lg:mb-0">
-                    <p className="label font-medium">Выберите количество ЛИР к зачислению:</p>
-                    <TextInput
-                      {...props}
-                      value={field.value}
-                      error={field.error}
-                      type="number"
-                      inputMode="numeric"
-                      pattern="[0-9]*"
-                      placeholder="Количество лир к пополнению"
-                    />
-                  </div>
-                )}
-              </Field>
-              <AmountOptions store={loginForm} />
-              {/* <AmountOptionsBlackFriday store={loginForm} /> */}
-
-      {/* <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex lg:mt-0">
-        <button type="submit" className="btn btn-secondary w-full text-white items-center">
-          <GoLock16 className="text-white text-xl" />
-          Оплатить
-        </button>
-        <p className="text-center text-gray-500">
-          После нажатия вы будете перенаправлены на страницу оплаты{" "}
-         
-        </p>
-      </div> */}
-      {/* </div> */}
-      {/* <div className="flex flex-col w-full md:w-1/2"> */}
-      {/* <PaymentOptions /> */}
-
-      {/* <Field name="paymentOption" type="string">
-              {(field) => <PaymentOptions value={field.value} store={loginForm} />}
-            </Field> */}
-
-      {/* BLACK FRIDAY STYLE */}
-      {/* <BlackFridayPrice calculatedAmount={calculatedAmount} showReceive /> */}
-
-      {/* <PriceComponent calculatedAmount={calculatedAmount} showReceive />
-
-              <DiscountMeter calculatedAmount={calculatedAmount} /> */}
-
-      {/* <div className="w-full flex flex-col gap-1 items-center mt-2 md:hidden">
-                <button type="submit" className="btn btn-secondary w-full text-white flex items-center mt-2 md:hidden">
-                  {loginForm.submitting && <span className="loading loading-spinner" />}
-                  <GoLock16 className="text-white text-xl" />
-                  Оплатить
-                </button>
-                <p className="text-center text-gray-500">
-                  После нажатия вы будете перенаправлены на страницу оплаты{" "}
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-      </Form> */}
-      {/* <PsPlus changeValue={setPsPlusValue} /> */}
       <div className="mt-10">
         <h2 className="text-xl lg:text-2xl font-bold" id="description">
           Описание
@@ -183,44 +119,7 @@ export default function Home({ searchParams }: Props) {
         <Instruction name="Как добавить нового пользователя на PS5?" file="kak_dobavit_novogo_polzovatelya_na_PS5" />
       </InstructionsSection>
 
-      {/* <div
-        className={cn("relative z-10 pointer-events-none", {
-          "pointer-events-auto": loginForm.response.message === "success",
-        })}
-        aria-labelledby="modal-title"
-        role="dialog"
-        aria-modal="true"
-      >
-        <div
-          className={cn("fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity duration-300 opacity-0", {
-            "opacity-100": loginForm.response.message === "success",
-          })}
-        ></div>
-
-        <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-            <div
-              className={cn(
-                "relative transform transition-all duration-300 overflow-hidden rounded-lg bg-base-100 text-center shadow-xl sm:my-8 sm:w-full sm:max-w-lg opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
-                {
-                  "opacity-100 translate-y-0 sm:scale-100": loginForm.response.message === "success",
-                }
-              )}
-            >
-              <div className="flex flex-col items-center px-4 py-8 mx-1 sm:mx-4">
-                <p className="text-lg sm:text-2xl lg:text-2xl font-medium text-center">Перенаправляем вас на страницу оплаты</p>
-                <p className="sm:text-lg lg:text-xlfont-medium mt-10 text-center">
-                  Нажмите "Далее", если не происходит переход на страницу оплаты{" "}
-                </p>
-
-                <a className="btn btn-secondary btn-wide mt-10 text-white" href={loginForm.response.data?.paymentUrl}>
-                  Далее
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
+      <RedirectingToPayment />
     </div>
   );
 }
