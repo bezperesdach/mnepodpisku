@@ -11,11 +11,6 @@ import { LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
-import * as Yup from "yup";
-
-const PsPlusSchema = Yup.object().shape({
-  duration: Yup.string().required("Необходимо заполнить"),
-});
 
 type Props = {
   receivedDuration?: string;
@@ -33,7 +28,6 @@ export default function FormComponent({ receivedDuration }: Props) {
 
   const formik = useFormik({
     initialValues: { duration: receivedDuration ?? "1month" },
-    validationSchema: PsPlusSchema,
     onSubmit: async (values) => {
       formik.setSubmitting(true);
 
