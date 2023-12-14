@@ -206,3 +206,33 @@ export async function getTinderPaymentLink(values: { subscriptionType: string; d
     data: { paymentUrl: paymentUrl.toString() },
   };
 }
+
+// eslint-disable-next-line no-unused-vars
+export async function getXboxPaymentLink(values: { subscriptionType: string; duration: string }) {
+  const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      product_id: process.env.DIGISELLER_XBOX_GAME_PASS_ULTIMATE_BASE_ID,
+      lang: "ru-RU",
+      ip: "127.0.0.1",
+    }),
+  });
+  const { id_po } = await paramsRes.json();
+
+  const paymentUrl = new URL("https://oplata.info/asp2/pay_rk.asp");
+
+  paymentUrl.searchParams.append("id_d", process.env.DIGISELLER_XBOX_GAME_PASS_ULTIMATE_BASE_ID!);
+  paymentUrl.searchParams.append("id_po", id_po);
+  paymentUrl.searchParams.append("curr", "RBX");
+  paymentUrl.searchParams.append("lang", "ru-RU");
+  paymentUrl.searchParams.append("failpage", "https://mnepodpisku.ru/xbox");
+
+  return {
+    status: "success",
+    message: "success",
+    data: { paymentUrl: paymentUrl.toString() },
+  };
+}

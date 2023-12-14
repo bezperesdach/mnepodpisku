@@ -4,8 +4,8 @@ import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
 import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
 import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
-import { getTinderPrice } from "@/serverActions/calculatePriceActions";
-import { getTinderPaymentLink } from "@/serverActions/createPaymentUrls";
+import { getXboxPrice } from "@/serverActions/calculatePriceActions";
+import { getXboxPaymentLink } from "@/serverActions/createPaymentUrls";
 import cn from "@/utils/cn";
 import { LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
@@ -32,7 +32,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
     onSubmit: async (values) => {
       formik.setSubmitting(true);
 
-      const res = await getTinderPaymentLink(values);
+      const res = await getXboxPaymentLink(values);
 
       setPaymentLink(res.data.paymentUrl);
       formik.setSubmitting(false);
@@ -50,7 +50,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
       const query = search ? `?${search}` : "";
       router.replace(`${pathname}${query}`);
 
-      const updatedPrices = await getTinderPrice(values);
+      const updatedPrices = await getXboxPrice(values);
       setCalculatedAmount(updatedPrices.calculated);
       setValue(updatedPrices.sale);
       setLoading(false);
@@ -71,9 +71,11 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
             <div className="flex flex-col gap-2">
               <p className="label font-medium">Выберите тип подписки:</p>
               <ToggleSelect
-                options={[{ name: "ULTIMATE", value: "lutimate" }]}
+                options={[{ name: "ULTIMATE", value: "ultimate" }]}
                 value={formik.values.subscriptionType}
-                onSelect={(value) => formik.setFieldValue("subscriptionType", value)}
+                onSelect={(value) => {
+                  formik.setFieldValue("subscriptionType", value);
+                }}
               />
             </div>
 
@@ -88,16 +90,15 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
             <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex ">
               <button
                 type="submit"
-                className={cn("btn btn-disabled w-full text-white items-center", { "btn-disabled": formik.isSubmitting })}
+                className={cn("btn btn-secondary w-full text-white items-center", { "btn-disabled": formik.isSubmitting })}
               >
                 {formik.isSubmitting ? (
                   <span className="loading loading-spinner loading-xl flex-shrink-0" />
                 ) : (
-                  <LockIcon className="text-white/20 text-xl" />
+                  <LockIcon className="text-white text-xl" />
                 )}
                 Оплатить
               </button>
-              <p>Нет в наличии</p>
               <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
             </div>
           </div>
