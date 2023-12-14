@@ -4,8 +4,8 @@ import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
 import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
 import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
-import { getSpotifyPrice } from "@/serverActions/calculatePriceActions";
-import { getSpotifyPaymentLink } from "@/serverActions/createPaymentUrls";
+import { getDiscordPrice } from "@/serverActions/calculatePriceActions";
+import { getDiscordPaymentLink } from "@/serverActions/createPaymentUrls";
 import cn from "@/utils/cn";
 import { LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
@@ -13,26 +13,11 @@ import { usePathname, useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 
 type Props = {
-  receivedSubscriptionType?: string;
   receivedDuration?: string;
+  receivedSubscriptionType?: string;
 };
 
-interface Durations {
-  [index: string]: any;
-}
-
-const durations: Durations = {
-  individual: [
-    { name: "1 мес.", value: "1month" },
-    { name: "3 мес.", value: "3month" },
-    { name: "6 мес.", value: "6month" },
-    { name: "12 мес.", value: "12month" },
-  ],
-  duo: [{ name: "1 мес.", value: "1month" }],
-  family: [{ name: "1 мес.", value: "1month" }],
-};
-
-export default function FormComponent({ receivedSubscriptionType, receivedDuration }: Props) {
+export default function FormComponent({ receivedDuration, receivedSubscriptionType }: Props) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -43,11 +28,11 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
   const [loading, setLoading] = useState(true);
 
   const formik = useFormik({
-    initialValues: { duration: receivedDuration ?? "1month", subscriptionType: receivedSubscriptionType ?? "individual" },
+    initialValues: { duration: receivedDuration ?? "1month", subscriptionType: receivedSubscriptionType ?? "nitro_full" },
     onSubmit: async (values) => {
       formik.setSubmitting(true);
 
-      const res = await getSpotifyPaymentLink(values);
+      const res = await getDiscordPaymentLink(values);
 
       setPaymentLink(res.data.paymentUrl);
       formik.setSubmitting(false);
@@ -65,7 +50,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
       const query = search ? `?${search}` : "";
       router.replace(`${pathname}${query}`);
 
-      const updatedPrices = await getSpotifyPrice(values);
+      const updatedPrices = await getDiscordPrice(values);
       setCalculatedAmount(updatedPrices.calculated);
       setValue(updatedPrices.sale);
       setLoading(false);
@@ -73,9 +58,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
 
     setLoading(true);
 
-    const values = formik.values;
-
-    updatePrices(values);
+    updatePrices(formik.values);
   }, [router, pathname, formik.values]);
 
   return (
@@ -83,29 +66,24 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
       <form className="flex flex-col md:flex-row mt-4 md:mt-14 gap-4 sm:gap-8 md:gap-16" onSubmit={formik.handleSubmit}>
         <div className="flex flex-col gap-1 lg:gap-6 w-full md:w-1/2">
           <div className="flex flex-col gap-2 md:mb-4">
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 md:mb-4">
               <p className="label font-medium">Выберите тип подписки:</p>
               <ToggleSelect
                 options={[
-                  { name: "Individual", value: "individual" },
-                  { name: "Duo", value: "duo" },
-                  { name: "Family", value: "family" },
+                  { name: "Nitro Basic", value: "nitro_basic" },
+                  { name: "Nitro Full", value: "nitro_full" },
                 ]}
                 value={formik.values.subscriptionType}
-                onSelect={(value) => {
-                  const duration = formik.values.duration;
-                  if (duration !== durations[value][0]) {
-                    formik.setFieldValue("duration", durations[value][0].value);
-                  }
-                  formik.setFieldValue("subscriptionType", value);
-                }}
+                onSelect={(value) => formik.setFieldValue("subscriptionType", value)}
               />
             </div>
-
             <div className="flex flex-col gap-2 md:mb-4">
               <p className="label font-medium">Выберите срок подписки:</p>
               <ToggleSelect
-                options={durations[formik.values.subscriptionType ?? "individual"]}
+                options={[
+                  { name: "1 мес.", value: "1month" },
+                  { name: "12 мес.", value: "12month" },
+                ]}
                 value={formik.values.duration}
                 onSelect={(value) => formik.setFieldValue("duration", value)}
               />
