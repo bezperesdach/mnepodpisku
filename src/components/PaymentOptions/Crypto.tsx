@@ -24,13 +24,13 @@ const Crypto = ({ className }: Props) => {
           gradientTransform="matrix(233 0 0 233 15268.4 -70606.6)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#111d2e" />
-          <stop offset=".2" stop-color="#051839" />
-          <stop offset=".4" stop-color="#0a1b48" />
-          <stop offset=".6" stop-color="#132e62" />
-          <stop offset=".7" stop-color="#144b7e" />
-          <stop offset=".9" stop-color="#136497" />
-          <stop offset="1" stop-color="#1387b8" />
+          <stop offset="0" stopColor="#111d2e" />
+          <stop offset=".2" stopColor="#051839" />
+          <stop offset=".4" stopColor="#0a1b48" />
+          <stop offset=".6" stopColor="#132e62" />
+          <stop offset=".7" stopColor="#144b7e" />
+          <stop offset=".9" stopColor="#136497" />
+          <stop offset="1" stopColor="#1387b8" />
         </linearGradient>
         <mask id="b" width="351" height="350.9" x="180.1" y="371.2" data-name="mask" maskUnits="userSpaceOnUse">
           <g data-name="uuid-a2a6a1bc-4668-4873-ae34-82fc6d6bcddd">
@@ -64,12 +64,12 @@ const Crypto = ({ className }: Props) => {
       </g>
       <path
         fill="#50af95"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="m993 21.6-74.3 155.7c-.5 1.2-.3 2.7.7 3.5l200.1 191.8c1.2 1.2 3 1.2 4.2 0l200.1-191.8c1-.8 1.2-2.3.7-3.5l-74.2-155.7c-.5-1-1.5-1.8-2.7-1.8H995.4c-1.2 0-2.3.6-2.8 1.6l.3.2Z"
       />
       <path
         fill="#fff"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M1147.5 193.3c-1.5 0-8.8.5-25.5.5-13.1 0-22.4-.3-25.8-.5-50.9-2.2-89-11.2-89-21.8s38-19.5 89-21.8v34.6c3.4.2 12.8.8 26.1.8a265 265 0 0 0 25.2-.8v-34.6c50.7 2.3 88.7 11.1 88.7 21.8s-38 19.5-88.7 21.6v.2Zm0-47.1v-31h70.9V68h-193v47.2h70.8v31c-57.5 2.7-101 14.2-101 27.8s43.3 25.1 101 27.8V301h51.3v-99.3c57.5-2.7 100.8-14 100.8-27.8s-43.3-25.2-100.8-27.8Zm0 0Z"
       />
       <circle cx="922.4" cy="526.9" r="150" fill="#fff" />

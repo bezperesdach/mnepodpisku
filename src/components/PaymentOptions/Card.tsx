@@ -17,8 +17,8 @@ const Card = ({ className }: Props) => {
           gradientTransform="translate(0 -758.4)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#1f5cd7" />
-          <stop offset="1" stop-color="#02aeff" />
+          <stop offset="0" stopColor="#1f5cd7" />
+          <stop offset="1" stopColor="#02aeff" />
         </linearGradient>
         <linearGradient
           id="b"
@@ -29,16 +29,16 @@ const Card = ({ className }: Props) => {
           gradientTransform="translate(0 -758.4)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#1f5cd7" />
-          <stop offset="1" stop-color="#02aeff" />
+          <stop offset="0" stopColor="#1f5cd7" />
+          <stop offset="1" stopColor="#02aeff" />
         </linearGradient>
       </defs>
       <path
         fill="#0f754e"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M4.2 22.3c.4 0 1.6 0 2 1.6.4 1.2 1 3 1.7 5.7h.3a873 873 0 0 1 1.7-5.7c.5-1.7 1.7-1.6 2.3-1.6h4v12.3H12v-7.2h-.3l-2.2 7.2h-3l-2.3-7.2H4v7.2H0V22.3h4.2Zm17.7 0v7.3h.3l2.7-6a2.2 2.2 0 0 1 1.7-1.3h4v12.3h-4.2v-7.2h-.3l-2.7 6c-.5 1.1-1.7 1.2-1.7 1.2h-4V22.3H22Zm22.8 5.9c-.6 1.6-2.4 2.8-4.4 2.8H36v3.6h-3.9v-6.4h12.6Z"
       />
-      <path fill="url(#a)" fill-rule="evenodd" d="M40.5 22.3H32c.2 2.8 2.6 5.1 5 5.1h8c.6-2.2-1-5-4.4-5Z" />
+      <path fill="url(#a)" fillRule="evenodd" d="M40.5 22.3H32c.2 2.8 2.6 5.1 5 5.1h8c.6-2.2-1-5-4.4-5Z" />
       <path fill="#ff5f00" d="M17.6 2h-6.9v12.3h7V1.9Z" />
       <path fill="#eb001b" d="M11.2 8.1c0-2.5 1.1-4.7 3-6.2a7.9 7.9 0 1 0 0 12.4 7.9 7.9 0 0 1-3-6.2Z" />
       <path fill="#f79e1b" d="M26.9 8.1a7.9 7.9 0 0 1-12.7 6.2 7.9 7.9 0 0 0 0-12.4 7.9 7.9 0 0 1 12.7 6.2Z" />
@@ -46,10 +46,10 @@ const Card = ({ className }: Props) => {
       <path d="M38.3.3h-5.7v.2C37 1.7 39.9 4.4 41 7.7L40 1.4C39.7.5 39.1.3 38.3.3Z" />
       <path
         fill="#0f754e"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M63 22.6v.1l.1.3.1-.3h.4v.6h-.3v-.4.4H63l-.2-.4v.4h-.2v-.7h.2Zm.9 0v.4l.1-.3H64.3v.6h-.2v-.4l-.1.3H63.7v-.6h.2Zm1.2.3-.2.2h-.3v.2h-.2v-.4h.7Z"
       />
-      <path fill="url(#b)" fill-rule="evenodd" d="M64.9 22.6h-.5c0 .2.1.3.3.3h.4c0-.1 0-.3-.2-.3Z" />
+      <path fill="url(#b)" fillRule="evenodd" d="M64.9 22.6h-.5c0 .2.1.3.3.3h.4c0-.1 0-.3-.2-.3Z" />
       <path fill="#ff5f00" d="M63.4 21.4H63v.6h.4v-.6Z" />
       <path fill="#eb001b" d="M63 21.7c0-.1 0-.3.2-.3l-.3-.1c-.2 0-.4.2-.4.4s.2.4.4.4h.3a.4.4 0 0 1-.2-.4Z" />
       <path fill="#f79e1b" d="M63.9 21.7a.4.4 0 0 1-.7.3.4.4 0 0 0 0-.6l.2-.1c.3 0 .5.2.5.4Z" />
