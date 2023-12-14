@@ -7,3 +7,17 @@ export function roundDownToMaxHundreds(inputNumber: number): number {
 
   return hundreds - 1;
 }
+
+export const isAmountValid = (amount: string | string[] | undefined) => {
+  if (amount && typeof amount === "string" && !isNaN(Number(amount))) {
+    return amount;
+  }
+  return undefined;
+};
+
+export const isSearchParamValid = (searchParam: string | string[] | undefined) => {
+  if (searchParam && typeof searchParam === "string" && searchParam.length > 0) {
+    return searchParam;
+  }
+  return undefined;
+};
