@@ -12,6 +12,7 @@ import { getPsnBalancePaymentLink } from "@/serverActions/createPaymentUrls";
 import cn from "@/utils/cn";
 import { HashIcon, LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
+import { usePathname, useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import * as Yup from "yup";
 
@@ -29,6 +30,9 @@ const TopUpSchema = Yup.object().shape({
 });
 
 export default function FormComponent({ receivedAmount }: Props) {
+  const pathname = usePathname();
+  const router = useRouter();
+
   const { setPaymentLink } = useContext(AppContext);
   const [calculatedAmount, setCalculatedAmount] = useState<number | undefined>();
   const [value, setValue] = useState<number | undefined>();
@@ -50,6 +54,12 @@ export default function FormComponent({ receivedAmount }: Props) {
 
   useEffect(() => {
     const updatePrices = async (value: number) => {
+      const current = new URLSearchParams();
+      current.set("amount", value.toString());
+      const search = current.toString();
+      const query = search ? `?${search}` : "";
+      router.replace(`${pathname}${query}`);
+
       const updatedPrices = await getPsnBalance(value);
       console.log(updatedPrices);
       setCalculatedAmount(updatedPrices.calculated);
