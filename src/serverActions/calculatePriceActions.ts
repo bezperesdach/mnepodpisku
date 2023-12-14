@@ -37,6 +37,8 @@ export async function getPsnBalance(amount: number) {
 
   const response = await fetch(calcUrl.toString());
 
+  console.log(response.json());
+
   const data: {
     price: number;
     count: number;
