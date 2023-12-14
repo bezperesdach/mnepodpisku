@@ -7,16 +7,10 @@ import InstructionsSection from "@/components/Instructions/InstructionsSection";
 import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
+import { isAmountValid } from "@/utils/utils";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
-};
-
-const isAmountValid = (amount: string | string[] | undefined) => {
-  if (amount && typeof amount === "string" && !isNaN(Number(amount))) {
-    return amount;
-  }
-  return undefined;
 };
 
 export const metadata: Metadata = {
@@ -31,7 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home({ searchParams }: Props) {
+export default function Playstation({ searchParams }: Props) {
   return (
     <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
