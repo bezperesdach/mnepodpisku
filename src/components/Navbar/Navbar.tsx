@@ -7,6 +7,7 @@ import Image from "next/image";
 import { AppContext } from "../AppContextWrapper/AppContextWrapper";
 import Catalogue from "../Catalogue/Catalogue";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import MobileMenu from "./MobileMenu";
 
 export const catalogueItems = {
   spotify: {
@@ -22,6 +23,7 @@ export const catalogueItems = {
           alt="Spotify логотип"
           fill
           style={{ objectFit: "contain" }}
+          sizes="20vw"
         />
       </div>
     ),
@@ -189,7 +191,7 @@ type Props = {
 
 // export const CatalogueContext = createContextId<Signal<boolean>>("showNavbar");
 
-export default function Navbar({ colorPallette }: Props) {
+export default function Navbar({ colorPallette, isNotFound }: Props) {
   const { showCatalogue, toggleCatalogue } = useContext(AppContext);
 
   return (
@@ -209,65 +211,21 @@ export default function Navbar({ colorPallette }: Props) {
               <p className="text-2xl font-bold">МНЕПОДПИСКУ.РФ</p>
             </Link>
           </div>
-          {/* <div className="bg-[url('/logo.png')] h-full w-[200px] bg-no-repeat bg-[contain] bg-center" /> */}
         </div>
-        <div
-          className="flex-none gap-4 md:text-lg font-medium items-center hidden lg:flex "
-          // style={colorPallette ? { color: catalogueItems[colorPallette].foregroundColor } : {}}
-        >
-          <button
-            onClick={toggleCatalogue}
-            // className={cn(`hover:text-secondary`, { [`${catalogueItems[colorPallette!]?.hoverColor}`]: colorPallette })}
-            // onClick$={() => (showCatalogue.value = true)}
-          >
-            Каталог
-          </button>
-          {/* {loc.url.pathname !== "/" && (
-            <button
-              className={cn(`hover:text-secondary`, { [`${catalogueItems[colorPallette!]?.hoverColor}`]: colorPallette })}
-              onClick$={() => scrollInView("description")}
-            >
-              Описание
-            </button>
-          )} */}
-          {/* <Link className="hover:text-secondary" href="#">
-            Отзывы
-          </Link> */}
+        <div className="flex-none gap-4 md:text-lg font-medium items-center hidden lg:flex ">
+          <button onClick={toggleCatalogue}>Каталог</button>
 
-          <a
-            // className={cn(`hover:text-secondary`, { [`${catalogueItems[colorPallette!]?.hoverColor}`]: colorPallette })}
-            href="https://vk.com/topic-221413404_49184185"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://vk.com/topic-221413404_49184185" target="_blank" rel="noopener noreferrer">
             Отзывы
           </a>
-          <a
-            // className={cn(`hover:text-secondary`, { [`${catalogueItems[colorPallette!]?.hoverColor}`]: colorPallette })}
-            href="https://oplata.info/info/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://oplata.info/info/" target="_blank" rel="noopener noreferrer">
             Мои покупки
           </a>
 
-          {/* {loc.url.pathname !== "/" && !isNotFound && (
-            <button
-              // className={cn(`hover:text-secondary`, { [`${catalogueItems[colorPallette!]?.hoverColor}`]: colorPallette })}
-              onClick$={() => scrollInView("contacts")}
-            >
-              Контакты
-            </button>
-          )} */}
-          {/* <ToggleTheme /> */}
           <ThemeSwitcher />
         </div>
         <div className="flex items-center flex-none lg:hidden">
-          {/* <MobileMenu
-            scrollInView={scrollInView}
-            color={colorPallette ? catalogueItems[colorPallette].foregroundColor : ""}
-            showCatalogue={showCatalogue}
-          /> */}
+          <MobileMenu /* color={colorPallette ? catalogueItems[colorPallette].foregroundColor : ""} */ />
         </div>
       </div>
       <div
@@ -280,11 +238,11 @@ export default function Navbar({ colorPallette }: Props) {
       >
         <Catalogue toggleCatalogue={toggleCatalogue} />
       </div>
-      {/* <div className="fixed bottom-0 left-0 right-0 top-0 z-[10] pointer-events-none flex items-end justify-end p-2 ">
+      <div className="fixed bottom-0 left-0 right-0 top-0 z-[10] pointer-events-none flex items-end justify-end p-2 ">
         <div className="pointer-events-auto lg:pointer-events-none lg:opacity-0 bg-base-200 w-12 h-12 rounded-full">
-          <MobileMenu scrollInView={scrollInView} showCatalogue={showCatalogue} dropdownDirection="top" isNotFound={isNotFound} />
+          <MobileMenu dropdownDirection="top" isNotFound={isNotFound} />
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
