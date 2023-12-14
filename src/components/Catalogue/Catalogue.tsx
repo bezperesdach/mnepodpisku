@@ -13,12 +13,12 @@ type Props = {
 };
 
 const Catalogue = ({ showCatalogue, toggleCatalogue }: Props) => {
-  const [savedScrollPos, setSavedScrollPos] = useState(0);
+  const [savedScrollPos, setSavedScrollPos] = useState(-1);
   const pathname = usePathname();
 
   useEffect(() => {
     if (showCatalogue) {
-      if (savedScrollPos === 0) {
+      if (savedScrollPos === -1) {
         setSavedScrollPos(window.scrollY);
         document.body.style.top = `-${window.scrollY}px`;
         document.body.style.position = "fixed";
@@ -26,7 +26,7 @@ const Catalogue = ({ showCatalogue, toggleCatalogue }: Props) => {
         document.body.style.right = "0";
       }
     } else {
-      if (savedScrollPos > 0) {
+      if (savedScrollPos >= 0) {
         document.body.style.setProperty("left", null);
         document.body.style.setProperty("right", null);
         document.body.style.setProperty("position", "static");
@@ -34,7 +34,7 @@ const Catalogue = ({ showCatalogue, toggleCatalogue }: Props) => {
           top: savedScrollPos,
           behavior: "instant",
         });
-        setSavedScrollPos(0);
+        setSavedScrollPos(-1);
       }
     }
 
