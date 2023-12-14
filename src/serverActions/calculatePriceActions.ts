@@ -385,3 +385,57 @@ export async function getXboxPrice(values: { subscriptionType: string; duration:
     }
   }
 }
+
+export async function getYoutubePrice(duration: string) {
+  try {
+    const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
+
+    calcUrl.searchParams.append("product_id", process.env.DIGISELLER_YOUTUBE_PREMIUM_BASE_ID!);
+    calcUrl.searchParams.append("currency", "RBX");
+
+    if (duration !== "1month") {
+      calcUrl.searchParams.append(
+        "options[]",
+        `${process.env.DIGISELLER_YOUTUBE_PREMIUM_OPTION_ID!}:${process.env[
+          `DIGISELLER_YOUTUBE_PREMIUM_${duration.toUpperCase()}_VARIANT_ID`
+        ]!}`
+      );
+    }
+
+    const response = await fetch(calcUrl.toString());
+
+    if (!response.ok) {
+      // Handle non-successful HTTP response (e.g., 404, 500, etc.)
+      // throw new Error(`Failed to fetch data. Status: ${response.status}`);
+      return { calculated: undefined, sale: undefined };
+    }
+
+    const responseData = await response.json();
+
+    const data: {
+      price: number;
+      count: number;
+      amount: number;
+      currency: string;
+      commission: number;
+      free_pay: boolean | null;
+      sale_info: { common_base_price: number; sale_percent: number };
+    } = responseData.data;
+
+    return { calculated: Math.round(data.price * data.count), sale: data.amount };
+  } catch (error) {
+    if (error instanceof Error) {
+      // Check if the error is an instance of the Error class
+      console.error("Error in getTinderPrice:", error.message);
+      return { calculated: undefined, sale: undefined };
+
+      // throw error; // Rethrow the error to propagate it to the calling code
+    } else {
+      // Handle other types of errors (if any)
+      console.error("Unknown error in getTinderPrice:", error);
+      return { calculated: undefined, sale: undefined };
+
+      // throw new Error("An unknown error occurred."); // Rethrow a new error
+    }
+  }
+}
