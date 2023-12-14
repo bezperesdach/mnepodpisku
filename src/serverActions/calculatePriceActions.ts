@@ -38,8 +38,6 @@ export async function getPsnBalance(amount: number) {
 
     const response = await fetch(calcUrl.toString());
 
-    console.log("price_link", calcUrl.toString());
-
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
       // throw new Error(`Failed to fetch data. Status: ${response.status}`);
@@ -47,8 +45,6 @@ export async function getPsnBalance(amount: number) {
     }
 
     const responseData = await response.json();
-
-    console.log("price_response", responseData);
 
     const data: {
       price: number;
