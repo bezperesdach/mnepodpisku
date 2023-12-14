@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { catalogueItems } from "../Navbar/Navbar";
 import cn from "@/utils/cn";
 import { XIcon } from "@primer/octicons-react";
@@ -8,11 +8,41 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 type Props = {
+  showCatalogue: boolean;
   toggleCatalogue: () => void;
 };
 
-const Catalogue = ({ toggleCatalogue }: Props) => {
+const Catalogue = ({ showCatalogue, toggleCatalogue }: Props) => {
+  const [savedScrollPos, setSavedScrollPos] = useState(0);
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (showCatalogue) {
+      if (savedScrollPos === 0) {
+        setSavedScrollPos(window.scrollY);
+        document.body.style.top = `-${window.scrollY}px`;
+        document.body.style.position = "fixed";
+        document.body.style.left = "0";
+        document.body.style.right = "0";
+      }
+    } else {
+      if (savedScrollPos > 0) {
+        document.body.style.setProperty("left", null);
+        document.body.style.setProperty("right", null);
+        document.body.style.setProperty("position", "static");
+        window.scrollTo({
+          top: savedScrollPos,
+          behavior: "instant",
+        });
+        setSavedScrollPos(0);
+      }
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [savedScrollPos, showCatalogue]);
+
   return (
     <>
       <div className="flex flex-col w-full max-w-[1240px] h-[64px] mx-auto pt-2 lg:pt-8">
