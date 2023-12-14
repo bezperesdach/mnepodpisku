@@ -28,7 +28,7 @@ const salesCalculator = (amount: number, price: number) => {
   return Math.round(discountAmount);
 };
 
-export async function getPsnBalance(amount: number) {
+export async function getPsnBalancePrice(amount: number) {
   try {
     const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
@@ -60,13 +60,59 @@ export async function getPsnBalance(amount: number) {
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
-      console.error("Error in getPsnBalance:", error.message);
+      console.error("Error in getPsnBalancePrice:", error.message);
       return { calculated: undefined, sale: undefined };
 
       // throw error; // Rethrow the error to propagate it to the calling code
     } else {
       // Handle other types of errors (if any)
-      console.error("Unknown error in getPsnBalance:", error);
+      console.error("Unknown error in getPsnBalancePrice:", error);
+      return { calculated: undefined, sale: undefined };
+
+      // throw new Error("An unknown error occurred."); // Rethrow a new error
+    }
+  }
+}
+
+export async function getAcc(amount: number) {
+  try {
+    const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
+
+    calcUrl.searchParams.append("product_id", process.env.DIGISELLER_PSN_BASE_ID!);
+    calcUrl.searchParams.append("currency", "RBX");
+    calcUrl.searchParams.append("unit_cnt", amount.toString());
+
+    const response = await fetch(calcUrl.toString());
+
+    if (!response.ok) {
+      // Handle non-successful HTTP response (e.g., 404, 500, etc.)
+      // throw new Error(`Failed to fetch data. Status: ${response.status}`);
+      return { calculated: undefined, sale: undefined };
+    }
+
+    const responseData = await response.json();
+
+    const data: {
+      price: number;
+      count: number;
+      amount: number;
+      currency: string;
+      commission: number;
+      free_pay: boolean | null;
+      sale_info: { common_base_price: number; sale_percent: number };
+    } = responseData.data;
+
+    return { calculated: salesCalculator(data.count, data.amount), sale: Math.round(data.amount) };
+  } catch (error) {
+    if (error instanceof Error) {
+      // Check if the error is an instance of the Error class
+      console.error("Error in getPsnBalancePrice:", error.message);
+      return { calculated: undefined, sale: undefined };
+
+      // throw error; // Rethrow the error to propagate it to the calling code
+    } else {
+      // Handle other types of errors (if any)
+      console.error("Unknown error in getPsnBalancePrice:", error);
       return { calculated: undefined, sale: undefined };
 
       // throw new Error("An unknown error occurred."); // Rethrow a new error

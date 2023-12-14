@@ -7,7 +7,7 @@ import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
 import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import SubscriptionsSelector from "@/components/SubscriptionsSelector/SubscriptionsSelector";
 import TextInput from "@/components/TextInput/TextInput";
-import { getPsnBalance } from "@/serverActions/calculatePriceActions";
+import { getPsnBalancePrice } from "@/serverActions/calculatePriceActions";
 import { getPsnBalancePaymentLink } from "@/serverActions/createPaymentUrls";
 import cn from "@/utils/cn";
 import { HashIcon, LockIcon } from "@primer/octicons-react";
@@ -60,7 +60,7 @@ export default function FormComponent({ receivedAmount }: Props) {
       const query = search ? `?${search}` : "";
       router.replace(`${pathname}${query}`);
 
-      const updatedPrices = await getPsnBalance(value);
+      const updatedPrices = await getPsnBalancePrice(value);
       setCalculatedAmount(updatedPrices.calculated);
       setValue(updatedPrices.sale);
       setLoading(false);
