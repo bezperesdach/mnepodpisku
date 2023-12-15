@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import React from "react";
 import GoBack from "../GoBack";
@@ -112,7 +113,7 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
-              2. Нажмите на кнопку <strong>&quot;Создать учетную запись&quot; </strong>
+              2. Нажмите на кнопку <strong>"Создать учетную запись" </strong>
               <br />
             </li>
 
@@ -127,7 +128,7 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
-              3. Нажмите на кнопку <strong>&quot;Создать&quot;</strong>
+              3. Нажмите на кнопку <strong>"Создать"</strong>
               <br />
             </li>
 
@@ -156,7 +157,7 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
-              5. Выберите <strong>Дату рождения</strong> и нажмите кнопку <strong>&quot;Next&quot;</strong> <br />
+              5. Выберите <strong>Дату рождения</strong> и нажмите кнопку <strong>"Next"</strong> <br />
               ❗️ Обязательно введите корректную дату или запишите дату рождения, чтобы не забыть. При восстановлении аккаунта PSN
               попросит ввести именно ее для восстановления
             </li>
@@ -172,7 +173,7 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
-              6. Введите <strong>почту</strong> и <strong>пароль</strong>, после нажмите кнопку <strong>&quot;Next&quot;</strong> <br />
+              6. Введите <strong>почту</strong> и <strong>пароль</strong>, после нажмите кнопку <strong>"Next"</strong> <br />
               ❗️ Рекомендуется использовать почту gmail, которая ранее не была зарегистрирована в PSN
             </li>
             <Image
@@ -190,7 +191,7 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
               Пример: <br /> <strong>City: Istanbul</strong> <br />
               <strong>Province: Maltepe</strong> <br />
               <strong>Postcode: 34872</strong> <br />
-              После этого нажмите <strong> &quot;Next&quot;</strong> <br />
+              После этого нажмите <strong> "Next"</strong> <br />
             </li>
             <Image
               src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/7.png"
@@ -204,7 +205,7 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
           <ul>
             <li className="mb-2 py-2 pt-10">
               8. Далее Вам необходимо выбрать свободный <strong>Online ID</strong> и ввести <strong> Имя (Name) </strong> <br />
-              После этого нажмите <strong> &quot;Next&quot;</strong> <br />
+              После этого нажмите <strong> "Next"</strong> <br />
             </li>
             <Image
               src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/8.png"
@@ -217,7 +218,7 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
-              9. На последнем этапе просто нажимаем на кнопку <strong>&quot;Agree and Create Account&quot;</strong>
+              9. На последнем этапе просто нажимаем на кнопку <strong>"Agree and Create Account"</strong>
             </li>
             <Image
               src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/9.png"
@@ -248,7 +249,7 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
         </div>
         <div className="text-1xl justify-center  px-6 py-4 max-md:max-w-full ">
           Если вы столкнулись со сложностями или попросту нет времени, не отчаивайтесь! <br />
-          Самый простой способ решения проблемы купить турецкий аккаунт PS за символическую сумму в &quot;мнеподписку.рф&quot; <br />
+          Самый простой способ решения проблемы купить турецкий аккаунт PS за символическую сумму в "мнеподписку.рф" <br />
           Мы создадим его для вас сами на вашу почту, а все его данные вы сможете сменить позже <br />
         </div>
         <Link href="/playstation_account" className="btn btn-secondary font-black text-2xl w-full max-w-full text-white">

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import cn from "@/utils/cn";
@@ -41,7 +42,7 @@ const RedirectingToPayment = () => {
             <div className="flex flex-col items-center px-4 py-8 mx-1 sm:mx-4">
               <p className="text-lg sm:text-2xl lg:text-2xl font-medium text-center">Перенаправляем вас на страницу оплаты</p>
               <p className="sm:text-lg lg:text-xlfont-medium mt-10 text-center">
-                Нажмите &quot;Далее&quot;, если не происходит переход на страницу оплаты{" "}
+                Нажмите "Далее", если не происходит переход на страницу оплаты{" "}
               </p>
 
               <a className="btn btn-secondary btn-wide mt-10 text-white" href={paymentLink}>

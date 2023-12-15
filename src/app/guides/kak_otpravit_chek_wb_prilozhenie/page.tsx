@@ -1,0 +1,131 @@
+/* eslint-disable react/no-unescaped-entities */
+import React from "react";
+import GoBack from "../GoBack";
+import Link from "next/link";
+import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Как отправить чек ВБ через мобильное приложение",
+  description: "Как отправить чек ВБ через мобильное приложение",
+  openGraph: {
+    title: "Как отправить чек ВБ через мобильное приложение",
+    description: "Как отправить чек ВБ через мобильное приложение",
+  },
+  alternates: {
+    canonical: "/guides/kak_otpravit_chek_wb_prilozhenie",
+  },
+};
+
+function page() {
+  return (
+    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
+      <GoBack />
+      <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
+        Как отправить чек ВБ через мобильное приложение?
+      </h1>
+
+      <div role="tablist" className="tabs tabs-boxed mt-4">
+        <Link role="tab" className="tab" href="/guides/kak_otpravit_chek_wb_komputer">
+          Компьютер
+        </Link>
+
+        <p role="tab" className="tab tab-active">
+          Моб. Приложение
+        </p>
+
+        <Link role="tab" className="tab" href="/guides/kak_otpravit_chek_wb_telefon">
+          Телефон
+        </Link>
+      </div>
+
+      <p className="my-4">
+        Для отправки чека с приложения телефона Вам необходимо открыть приложение Wildberries и войти под пользователем, который
+        осуществлял покупку карточки
+      </p>
+
+      <p className="my-4">
+        После успешного входа в аккаунт перейдите в раздел <strong>"Профиль"</strong>
+      </p>
+      <Image
+        src="/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_1.png"
+        alt="Открыть профиль"
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
+      />
+
+      <p className="my-4">
+        После этого Вам необходимо перейти в раздел <strong>"Финансы"</strong>
+      </p>
+      <Image
+        src="/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_2.png"
+        alt="Открыть раздел финансы"
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
+      />
+
+      <p className="my-4">
+        После Вам необходимо перейти в раздел <strong>"Эл. чеки"</strong>
+      </p>
+
+      <Image
+        src="/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_3.png"
+        alt="Открыть раздел финансы эл. чеки"
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
+      />
+      <div className="my-4 inline-flex items-center gap-2">
+        <p>После найдите чек, в котором указана наша карточка и нажмите на значок</p>
+        <Image
+          src="/guides_data/kak_otpravit_chek_wb_prilozhenie/send_email_icon.png"
+          alt="Значок отправки чеки"
+          width={0}
+          height={0}
+          sizes="10vw"
+          className="w-9 h-9"
+        />
+      </div>
+      <p className="my-4">
+        Данный значок является кнопкой <strong>"Отправить на Email"</strong>
+      </p>
+      <Image
+        src="/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_4.png"
+        alt="Открыть раздел финансы эл. чеки"
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
+      />
+
+      <p className="my-4">
+        В открывшемся окне укажите нашу почту: <br />
+        <span className="text-lg font-bold">help@mnepodpisku.ru</span>
+        <br /> и нажмите <strong>"Отправить"</strong>
+      </p>
+      <Image
+        src="/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_5.png"
+        alt="Окно отправки чека"
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
+      />
+      <Image
+        src="/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_6.png"
+        alt="Успешная отправка чека"
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="mt-4 mb-10 justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
+      />
+    </div>
+  );
+}
+
+export default page;

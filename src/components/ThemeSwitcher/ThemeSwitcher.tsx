@@ -44,7 +44,7 @@ export default function ThemeSwitcher({ mobile }: Props) {
           {mobile ? (
             <button className="flex justify-between items-center hover:text-secondary" onClick={toggleTheme}>
               <p>Темная тема</p>
-              <input type="checkbox" className="toggle toggle-secondary" checked={currentTheme === "dark"} />
+              <input type="checkbox" className="toggle toggle-secondary" checked={currentTheme === "dark"} onChange={toggleTheme} />
             </button>
           ) : (
             <label className="swap swap-rotate w-11 h-auto">

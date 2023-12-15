@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import HeroChoose from "@/components/HeroChoose/HeroChoose";
 import Faq from "@/components/Faq/Faq";
@@ -94,7 +95,7 @@ export default function Playstation({ searchParams }: Props) {
             зарегистрирован в турецком регионе.
             <br />
             <br />
-            Такой аккаунт вы можете создать сами по инструкции `&quot;`Как создать турецкий аккаунт PSN`&quot;` ниже
+            Такой аккаунт вы можете создать сами по инструкции "Как создать турецкий аккаунт PSN" ниже
             <br />
             <br />
             Или можете воспользоваться нашей услугой по созданию аккаунта нажав{" "}
