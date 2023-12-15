@@ -58,7 +58,7 @@ export async function getPsnBalancePrice(amount: number) {
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { calculated: salesCalculator(data.count, data.amount), sale: Math.round(data.amount) };
+    return { calculated: data.count >= 300 ? salesCalculator(data.count, data.amount) : undefined, sale: Math.round(data.amount) };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -156,7 +156,7 @@ export async function getPsnPsPlusPrice(values: { subscriptionType: string; dura
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { calculated: Math.round(data.price * data.count), sale: data.amount };
+    return { sale: data.amount };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -208,7 +208,7 @@ export async function getPsEaPlayPrice(duration: string) {
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { calculated: Math.round(data.price * data.count), sale: data.amount };
+    return { sale: data.amount };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -261,7 +261,7 @@ export async function getSpotifyPrice(values: { subscriptionType: string; durati
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { calculated: Math.round(data.price * data.count), sale: data.amount };
+    return { sale: data.amount };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -314,7 +314,7 @@ export async function getTinderPrice(values: { subscriptionType: string; duratio
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { calculated: Math.round(data.price * data.count), sale: data.amount };
+    return { sale: data.amount };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -368,7 +368,7 @@ export async function getXboxPrice(values: { subscriptionType: string; duration:
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { calculated: Math.round(data.price * data.count), sale: data.amount };
+    return { sale: data.amount };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -422,7 +422,7 @@ export async function getYoutubePrice(duration: string) {
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { calculated: Math.round(data.price * data.count), sale: data.amount };
+    return { sale: data.amount };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -475,7 +475,7 @@ export async function getAdobeCCPrice(duration: string) {
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { calculated: Math.round(data.price * data.count), sale: data.amount };
+    return { sale: data.amount };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -528,7 +528,7 @@ export async function getDiscordPrice(values: { subscriptionType: string; durati
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { calculated: Math.round(data.price * data.count), sale: data.amount };
+    return { sale: data.amount };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -581,7 +581,7 @@ export async function getNetflixPrice(values: { subscriptionType: string; durati
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { calculated: Math.round(data.price * 1.3), sale: data.amount };
+    return { sale: data.amount };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class

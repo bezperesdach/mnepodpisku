@@ -16,14 +16,14 @@ const PriceComponent = ({ loading, value, sale, amount, showReceive = false }: P
           <span className="loading loading-spinner loading-xl flex-shrink-0"></span>
         ) : (
           <>
-            {value && sale && (
-              <p className="flex-shrink-0 font-semibold text-xl">
+            <p className="flex-shrink-0 font-semibold text-xl">
+              {value && (
                 <span className="relative text-lg mr-2 font-medium after:w-[110%] after:-rotate-[15deg] after:absolute after:-left-[5%] after:top-1/2 after:h-[0.15em] after:bg-warning/75">
                   {value}₽
                 </span>
-                {sale}₽
-              </p>
-            )}
+              )}
+              {sale && sale + "₽"}
+            </p>
           </>
         )}
       </div>
