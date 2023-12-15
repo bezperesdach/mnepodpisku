@@ -3,6 +3,19 @@ import React from "react";
 import HeroChoose from "@/components/HeroChoose/HeroChoose";
 import Faq from "@/components/Faq/Faq";
 import Question from "@/components/Faq/Question";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Приобретай подписки выгодно и быстро!",
+  description: "Сервис МнеПодписку позволяет приобретать подписки на различные сервисы быстро, безопасно и выгодно!",
+  openGraph: {
+    title: "Приобретай подписки выгодно и быстро!",
+    description: "Сервис МнеПодписку позволяет приобретать подписки на различные сервисы быстро, безопасно и выгодно!",
+  },
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
