@@ -105,6 +105,21 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
         <div className="flex flex-col w-full md:w-1/2">
           <PaymentOptions />
           <PriceComponent loading={loading} value={calculatedAmount} sale={value} />
+          <div className="w-full flex-col gap-1 items-center md:hidden mt-4">
+            <button
+              type="submit"
+              className={cn("btn btn-disabled w-full text-white items-center", { "btn-disabled": formik.isSubmitting })}
+            >
+              {formik.isSubmitting ? (
+                <span className="loading loading-spinner loading-xl flex-shrink-0" />
+              ) : (
+                <LockIcon className="text-white/20 text-xl" />
+              )}
+              Оплатить
+            </button>
+            <p>Нет в наличии</p>
+            <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
+          </div>
         </div>
       </form>
     </>

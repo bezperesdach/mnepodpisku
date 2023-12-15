@@ -140,6 +140,20 @@ export default function FormComponent({ receivedAmount }: Props) {
               showReceive
             />
             <DiscountMeter value={formik.values.amount !== "" ? Number(formik.values.amount) : undefined} />
+            <div className="w-full flex-col gap-1 items-center md:hidden mt-4 ">
+              <button
+                type="submit"
+                className={cn("btn btn-secondary w-full text-white items-center", { "btn-disabled": formik.isSubmitting })}
+              >
+                {formik.isSubmitting ? (
+                  <span className="loading loading-spinner loading-xl flex-shrink-0" />
+                ) : (
+                  <LockIcon className="text-white text-xl" />
+                )}
+                Оплатить
+              </button>
+              <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
+            </div>
           </div>
         </div>
       </form>
