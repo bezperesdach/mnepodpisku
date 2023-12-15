@@ -14,11 +14,16 @@ const dropdownDirectionclassName = {
 };
 
 const MobileMenu = ({ dropdownDirection = "bottom" }: Props) => {
-  const { showMobileMenu, toggleMobileMenu, toggleCatalogue } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
 
   return (
     <div className={`dropdown ${dropdownDirectionclassName[dropdownDirection]} dropdown-end`}>
-      <label htmlFor="mobile-menu-dropdown" tabIndex={0} className="btn btn-square btn-ghost" onClick={toggleMobileMenu}>
+      <label
+        htmlFor="mobile-menu-dropdown"
+        tabIndex={0}
+        className="btn btn-square btn-ghost"
+        onClick={() => dispatch({ type: "toggle_mobile_menu" })}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -32,15 +37,15 @@ const MobileMenu = ({ dropdownDirection = "bottom" }: Props) => {
       <ul
         id="mobile-menu-dropdown"
         tabIndex={0}
-        className={cn("dropdown-content z-[1] menu p-2 shadow-xl bg-base-100 rounded-box w-52", { hidden: !showMobileMenu })}
+        className={cn("dropdown-content z-[1] menu p-2 shadow-xl bg-base-100 rounded-box w-52", { hidden: !state.showMobileMenu })}
         // ref={dropdownMenuRef}
       >
         <li>
           <button
             className="hover:text-secondary"
             onClick={() => {
-              toggleMobileMenu();
-              toggleCatalogue();
+              dispatch({ type: "toggle_catalogue" });
+              dispatch({ type: "toggle_mobile_menu" });
             }}
           >
             Каталог
@@ -50,7 +55,7 @@ const MobileMenu = ({ dropdownDirection = "bottom" }: Props) => {
         <li>
           <a
             className="hover:text-secondary"
-            onClick={toggleMobileMenu}
+            onClick={() => dispatch({ type: "toggle_mobile_menu" })}
             href="https://vk.com/topic-221413404_49184185"
             target="_blank"
             rel="noopener noreferrer"
@@ -62,7 +67,7 @@ const MobileMenu = ({ dropdownDirection = "bottom" }: Props) => {
         <li>
           <a
             className="hover:text-secondary"
-            onClick={toggleMobileMenu}
+            onClick={() => dispatch({ type: "toggle_mobile_menu" })}
             href="https://oplata.info/info/"
             target="_blank"
             rel="noopener noreferrer"

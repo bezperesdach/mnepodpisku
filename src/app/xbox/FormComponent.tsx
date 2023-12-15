@@ -21,7 +21,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
   const router = useRouter();
   const pathname = usePathname();
 
-  const { setPaymentLink } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   const [calculatedAmount, setCalculatedAmount] = useState<number | undefined>();
   const [value, setValue] = useState<number | undefined>();
 
@@ -34,7 +34,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
 
       const res = await getXboxPaymentLink(values);
 
-      setPaymentLink(res.data.paymentUrl);
+      dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
       formik.setSubmitting(false);
     },
     validateOnBlur: true,

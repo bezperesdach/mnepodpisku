@@ -10,7 +10,7 @@ import { LockIcon } from "@primer/octicons-react";
 import { useContext, useEffect, useState } from "react";
 
 export default function FormComponent() {
-  const { setPaymentLink } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   const [calculatedAmount, setCalculatedAmount] = useState<number | undefined>();
   const [value, setValue] = useState<number | undefined>();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,7 +31,7 @@ export default function FormComponent() {
   const generatePaymentLink = async () => {
     setIsSubmitting(true);
     const res = await getPsnAccountPaymentLink();
-    setPaymentLink(res.data.paymentUrl);
+    dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
   };
 
   return (

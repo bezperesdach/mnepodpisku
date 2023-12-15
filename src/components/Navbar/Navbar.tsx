@@ -192,7 +192,7 @@ type Props = {
 // export const CatalogueContext = createContextId<Signal<boolean>>("showNavbar");
 
 export default function Navbar({ colorPallette, isNotFound }: Props) {
-  const { showCatalogue, toggleCatalogue } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
 
   return (
     <div className={cn("navbar h-16 shadow-md")}>
@@ -213,7 +213,7 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
           </div>
         </div>
         <div className="flex-none gap-4 md:text-lg font-medium items-center hidden lg:flex ">
-          <button onClick={toggleCatalogue}>Каталог</button>
+          <button onClick={() => dispatch({ type: "toggle_catalogue" })}>Каталог</button>
 
           <a href="https://vk.com/topic-221413404_49184185" target="_blank" rel="noopener noreferrer">
             Отзывы
@@ -232,11 +232,11 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
         className={cn(
           "fixed transform transition-all duration-300 opacity-0 flex flex-col right-0 left-0 top-0 bottom-0 z-[9999999] justify-end lg:justify-start pb-2 bg-black/90 pointer-events-none",
           {
-            "opacity-100 pointer-events-auto": showCatalogue,
+            "opacity-100 pointer-events-auto": state.showCatalogue,
           }
         )}
       >
-        <Catalogue showCatalogue={showCatalogue} toggleCatalogue={toggleCatalogue} />
+        <Catalogue showCatalogue={state.showCatalogue} toggleCatalogue={() => dispatch({ type: "toggle_catalogue" })} />
       </div>
       <div className="fixed bottom-0 left-0 right-0 top-0 z-[10] pointer-events-none flex items-end justify-end p-2 ">
         <div className="pointer-events-auto lg:pointer-events-none lg:opacity-0 bg-base-200 w-12 h-12 rounded-full">
@@ -246,36 +246,3 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
     </div>
   );
 }
-
-// export default component$(({ colorPallette, isNotFound = false }: Props) => {
-//   const scrollInView = $((id: string) => {
-//     const elem = document.getElementById(id);
-//     if (elem) {
-//       scrollIntoView(elem, { time: 350, maxSynchronousAlignments: 1, align: { top: 0 } });
-//     }
-//   });
-
-//   const showCatalogue = useContext(CatalogueContext);
-
-//   useVisibleTask$(({ track }) => {
-//     track(() => showCatalogue.value);
-
-//     let scrollPos;
-//     if (showCatalogue.value) {
-//       document.body.style.top = `-${scrollPos}px`;
-//       document.body.style.position = "fixed";
-//       document.body.style.left = "0";
-//       document.body.style.right = "0";
-//     } else {
-//       scrollPos = window.scrollY;
-//       document.body.style.setProperty("left", null);
-//       document.body.style.setProperty("right", null);
-//       document.body.style.setProperty("position", "static");
-//     }
-//   });
-
-// 	useEffect(()=>{
-
-// 	},[])
-
-// });

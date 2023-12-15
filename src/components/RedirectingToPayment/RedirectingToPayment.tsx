@@ -6,18 +6,18 @@ import React, { useContext, useEffect } from "react";
 import { AppContext } from "../AppContextWrapper/AppContextWrapper";
 
 const RedirectingToPayment = () => {
-  const { paymentLink } = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
   useEffect(() => {
-    if (paymentLink) {
-      setTimeout(() => (window.location.href = paymentLink), 200);
+    if (state.paymentLink) {
+      setTimeout(() => (window.location.href = state.paymentLink), 200);
     }
-  }, [paymentLink]);
+  }, [state.paymentLink]);
 
   return (
     <div
       className={cn("relative z-10 pointer-events-none", {
-        "pointer-events-auto": paymentLink,
+        "pointer-events-auto": state.paymentLink,
       })}
       aria-labelledby="modal-title"
       role="dialog"
@@ -25,7 +25,7 @@ const RedirectingToPayment = () => {
     >
       <div
         className={cn("fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity duration-300 opacity-0", {
-          "opacity-100": paymentLink,
+          "opacity-100": state.paymentLink,
         })}
       ></div>
 
@@ -35,7 +35,7 @@ const RedirectingToPayment = () => {
             className={cn(
               "relative transform transition-all duration-300 overflow-hidden rounded-lg bg-base-100 text-center shadow-xl sm:my-8 sm:w-full sm:max-w-lg opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
               {
-                "opacity-100 translate-y-0 sm:scale-100": paymentLink,
+                "opacity-100 translate-y-0 sm:scale-100": state.paymentLink,
               }
             )}
           >
@@ -45,7 +45,7 @@ const RedirectingToPayment = () => {
                 Нажмите "Далее", если не происходит переход на страницу оплаты{" "}
               </p>
 
-              <a className="btn btn-secondary btn-wide mt-10 text-white" href={paymentLink}>
+              <a className="btn btn-secondary btn-wide mt-10 text-white" href={state.paymentLink}>
                 Далее
               </a>
             </div>

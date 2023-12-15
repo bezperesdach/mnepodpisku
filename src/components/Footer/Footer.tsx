@@ -6,7 +6,8 @@ import Link from "next/link";
 import { AppContext } from "../AppContextWrapper/AppContextWrapper";
 
 const Footer = () => {
-  const { toggleCatalogue } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
+
   return (
     <footer className="mt-auto shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),0_-2px_4px_-2px_rgba(0,0,0,.1)]">
       <div className="w-full max-w-[1240px] mx-auto px-4 py-2">
@@ -47,7 +48,7 @@ const Footer = () => {
             <p className="text-lg font-bold">Меню</p>
             <div className="flex flex-wrap gap-10">
               <div className="flex flex-col justify-start items-start gap-1">
-                <button onClick={toggleCatalogue}>Каталог</button>
+                <button onClick={() => dispatch({ type: "toggle_catalogue" })}>Каталог</button>
                 <Link href="/guides">Инструкции</Link>
               </div>
               <div className="flex flex-col justify-start items-start gap-1">

@@ -33,7 +33,7 @@ export default function FormComponent({ receivedAmount }: Props) {
   const pathname = usePathname();
   const router = useRouter();
 
-  const { setPaymentLink } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   const [calculatedAmount, setCalculatedAmount] = useState<number | undefined>();
   const [value, setValue] = useState<number | undefined>();
 
@@ -46,7 +46,7 @@ export default function FormComponent({ receivedAmount }: Props) {
       formik.setSubmitting(true);
 
       const res = await getPsnBalancePaymentLink(Number(values.amount));
-      setPaymentLink(res.data.paymentUrl);
+      dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
       formik.setSubmitting(false);
     },
     validateOnBlur: true,
