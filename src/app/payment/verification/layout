@@ -1,0 +1,159 @@
+// import { component$, useSignal, useTask$, useVisibleTask$, Slot } from "@builder.io/qwik";
+// import type { DocumentHead, RequestHandler } from "@builder.io/qwik-city";
+// import { server$, useNavigate } from "@builder.io/qwik-city";
+// import VkLogo from "@/media/vk_compact.png?jsx";
+// import TgLogo from "@/media/telegram_icon.png?jsx";
+// import WhatsappLogo from "@/media/whatsapp_icon.png?jsx";
+// import { getDIGISellerToken } from "@/utils/digiServerUtils";
+// import { isDateDifferenceGreaterThanOneDay } from "@/utils/utils";
+// import { Footer } from "@/components/Footer";
+// import Navbar from "@/components/Navbar/Navbar";
+
+// export const onGet: RequestHandler = async ({ cacheControl }) => {
+//   // Control caching for this request for best performance and to reduce hosting costs:
+//   // https://qwik.builder.io/docs/caching/
+//   cacheControl({
+//     public: false,
+//     maxAge: 0,
+//     sMaxAge: 0,
+//     staleWhileRevalidate: 0,
+//   });
+// };
+
+// export const verifyPayment = server$(async function () {
+//   const searchParams = this.url.searchParams;
+//   const uniquecode = searchParams.get("uniquecode");
+
+//   if (!uniquecode) {
+//     return { verified: false, error: false, notFound: true, code: "" };
+//   }
+
+//   const token = await getDIGISellerToken(this.env.get("DIGISELLERID"), this.env.get("DIGISELLERAPIKET"));
+
+//   if (!token) {
+//     // console.log("failed to get digi token");
+//     return { verified: false, error: true, notFound: false, code: "" };
+//   }
+
+//   try {
+//     const verifyPaymentRequest = await fetch(`https://api.digiseller.ru/api/purchases/unique-code/${uniquecode}?token=${token}`);
+
+//     if (!verifyPaymentRequest.ok) {
+//       const err = await verifyPaymentRequest.json();
+//       if (err.retdesc && err.retdesc === "отсутствует или неверно задан параметр unique_code") {
+//         return { verified: false, error: false, notFound: true, code: "" };
+//       }
+
+//       // console.log("failed to verify payment:", err.retdesc);
+//       return { verified: false, error: true, notFound: false, code: "" };
+//     }
+
+//     const data = await verifyPaymentRequest.json();
+
+//     if (isDateDifferenceGreaterThanOneDay(data?.unique_code_state?.date_check)) {
+//       return { verified: false, error: false, notFound: true, code: "" };
+//     }
+
+//     // const verifyPaymentRes = await verifyPaymentRequest.json();
+//     // const delivered = verifyPaymentRes?.unique_code_state?.date_check;
+//     // if (delivered) {
+//     //   // console.log(delivered);
+//     //   return { verified: false, error: false, notFound: false };
+//     // }
+//     return { verified: true, error: false, notFound: false, code: uniquecode };
+//   } catch (err) {
+//     // console.log("Unexpected error:", err);
+//     return { verified: false, error: true, notFound: false, code: "" };
+//   }
+// });
+
+// export default component$(() => {
+//   const nav = useNavigate();
+
+//   const loading = useSignal(true);
+//   const error = useSignal(false);
+//   const redirect = useSignal(false);
+
+//   useTask$(async () => {
+//     const result = await verifyPayment();
+//     if (result.notFound) {
+//       redirect.value = true;
+//     }
+
+//     if (result.error) {
+//       loading.value = false;
+//       error.value = true;
+//     }
+
+//     if (result.verified) {
+//       loading.value = false;
+//     }
+//   });
+
+//   useVisibleTask$(() => {
+//     if (redirect.value) {
+//       nav("/");
+//     }
+//   });
+
+//   return (
+//     <div class="h-[100svh]">
+//       <Navbar isNotFound />
+//       <main class="min-h-[calc(100%-128px)] flex flex-col justify-start items-center px-2 sm:px-4">
+//         <>
+//           {!loading.value ? (
+//             <>
+//               {!error.value ? (
+//                 <Slot />
+//               ) : (
+//                 <div class="flex-1 flex flex-col justify-center items-center h-full">
+//                   <h1 class="text-4xl font-bold mt-6 lg:mt-4  text-center">Произошла ошибка</h1>
+//                   <p class="text-lg max-w-2xl text-center mt-1">Пожалуйста, свяжитесь с нами</p>
+//                   <div class="flex gap-4 mt-2">
+//                     <a href="https://vk.com/mnepodpisku" target="_blank" rel="noopener noreferrer">
+//                       <VkLogo class="w-[48px] h-[48px]" />
+//                     </a>
+
+//                     <a href="https://t.me/pstopup" target="_blank" rel="noopener noreferrer">
+//                       <TgLogo class="w-[48px] h-[48px]" />
+//                     </a>
+
+//                     <a
+//                       class="flex gap-1 items-center"
+//                       href="https://wa.me/79939011007?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%8F%20%D0%B1%D1%8B%20%D1%85%D0%BE%D1%82%D0%B5%D0%BB%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C"
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                     >
+//                       <WhatsappLogo class="w-[48px] h-[48px]" />
+//                     </a>
+//                   </div>
+//                 </div>
+//               )}
+//             </>
+//           ) : (
+//             <div class="flex-1 flex flex-col justify-center h-full">
+//               <span class="loading loading-bars loading-xs" />
+//             </div>
+//           )}
+//         </>
+//       </main>
+//       <Footer />
+//     </div>
+//   );
+// });
+
+// export const head: DocumentHead = {
+//   title: "Благодарим за покупку!",
+//   meta: [
+//     {
+//       name: "description",
+//       content: "Спасибо что приобрели у нас товар!",
+//     },
+//   ],
+//   links: [
+//     {
+//       rel: "canonical",
+//       href: "https://mnepodpisku.ru/payment/verification",
+//     },
+//   ],
+// };
