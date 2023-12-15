@@ -3,11 +3,9 @@ import HeroChoose from "@/components/HeroChoose/HeroChoose";
 import Faq from "@/components/Faq/Faq";
 import Question from "@/components/Faq/Question";
 
-type Props = {};
-
-export default function Home({}: Props) {
+export default function Home() {
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
+    <main className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
         <h1 className="text-3xl lg:text-4xl font-bold text-center min-[1240px]:text-left">
           Помогаем приобретать подписки на зарубежные сервисы
@@ -43,23 +41,6 @@ export default function Home({}: Props) {
           </p>
         </Question>
       </Faq>
-    </div>
+    </main>
   );
 }
-
-// export const head: DocumentHead = {
-//   title: "МНЕПОДПИСКУ",
-//   meta: [
-//     {
-//       name: "description",
-//       content:
-//         "Сервис для приобретения подписок на различные онлайн сервисы. Принимаем к оплате карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
-//     },
-//   ],
-//   links: [
-//     {
-//       rel: "canonical",
-//       href: "https://mnepodpisku.ru/",
-//     },
-//   ],
-// };
