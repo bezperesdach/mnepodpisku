@@ -22,6 +22,7 @@ const ActivationStep2: React.FC<Props> = ({ email, password, accessCode, onChang
 
   useEffect(() => {
     changeTitle("Ввод данных");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const validateInput = (e: ChangeEvent<HTMLInputElement>) => {
