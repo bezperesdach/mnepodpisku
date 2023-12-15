@@ -1,7 +1,7 @@
 import { verifyCode } from "@/serverActions/verifyCode";
 import { isSearchParamValid } from "@/utils/utils";
 import { redirect } from "next/navigation";
-import VerificationFailClient from "./verificationFailClient";
+import VerificationFailClient from "@/app/payment/verification/VerificationFailClient";
 import VerificationSuccessClient from "./VerificationSuccessClient";
 
 type Props = {
