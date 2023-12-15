@@ -11,7 +11,7 @@ type Props = {
   code: string;
 };
 
-function VerificationClient({ code }: Props) {
+function VerificationSuccessClient({ code }: Props) {
   const [canCopyCode, setCanCopyCode] = useState(true);
 
   const copyCode = () => {
@@ -54,12 +54,7 @@ function VerificationClient({ code }: Props) {
           <Image src="/socials_icons/telegram_icon.png" alt="telegram" width={48} height={48} />
         </a>
 
-        <a
-          className="flex gap-1 items-center"
-          href="https://wa.me/79939011007?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%83%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B5%D1%81%D1%82%D1%8C%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D0%BE%20%D0%BC%D0%BE%D0%B5%D0%BC%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D1%83"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a className="flex gap-1 items-center" href="https://wa.me/79939011007" target="_blank" rel="noopener noreferrer">
           <Image src="/socials_icons/whatsapp_icon.png" alt="whatsapp" width={48} height={48} />
         </a>
       </div>
@@ -86,4 +81,4 @@ function VerificationClient({ code }: Props) {
   );
 }
 
-export default VerificationClient;
+export default VerificationSuccessClient;

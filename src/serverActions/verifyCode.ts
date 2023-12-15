@@ -6,6 +6,8 @@ import { isDateDifferenceGreaterThanOneDay } from "@/utils/utils";
 // }
 
 export async function verifyCode(code?: string) {
+  return { verified: false, error: true, notFound: false, code: "" };
+
   if (!code) {
     return { verified: false, error: false, notFound: true, code: "" };
   }
