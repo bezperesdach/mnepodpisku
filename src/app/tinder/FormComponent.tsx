@@ -28,7 +28,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
   const [loading, setLoading] = useState(true);
 
   const formik = useFormik({
-    initialValues: { duration: receivedDuration ?? "1month", subscriptionType: receivedSubscriptionType ?? "ultimate" },
+    initialValues: { duration: receivedDuration ?? "1month", subscriptionType: receivedSubscriptionType ?? "plus" },
     onSubmit: async (values) => {
       formik.setSubmitting(true);
 
@@ -71,7 +71,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
             <div className="flex flex-col gap-2">
               <p className="label font-medium">Выберите тип подписки:</p>
               <ToggleSelect
-                options={[{ name: "ULTIMATE", value: "lutimate" }]}
+                options={[{ name: "Плюс", value: "plus" }]}
                 value={formik.values.subscriptionType}
                 onSelect={(value) => formik.setFieldValue("subscriptionType", value)}
               />
