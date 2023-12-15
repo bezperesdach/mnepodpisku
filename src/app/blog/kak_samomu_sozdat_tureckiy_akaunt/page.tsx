@@ -253,7 +253,7 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
           Мы создадим его для вас сами на вашу почту, а все его данные вы сможете сменить позже <br />
         </div>
         <Link href="/playstation_account" className="btn btn-secondary font-black text-2xl w-full max-w-full text-white">
-          Купить турецкий аккаунт
+          КУПИТЬ
         </Link>
       </div>
     </div>
