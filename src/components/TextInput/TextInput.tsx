@@ -4,6 +4,8 @@ import InputError from "./InputError";
 import { QuestionIcon } from "@primer/octicons-react";
 
 type TextInputProps = {
+  hidden?: boolean;
+  maxWidth?: boolean;
   icon?: React.ReactNode;
   classNameName?: string;
   label?: string;
@@ -13,9 +15,9 @@ type TextInputProps = {
 
 type InputProps = TextInputProps & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-const TextInput = ({ icon, label, toolTip, error, ...props }: InputProps) => {
+const TextInput = ({ hidden = false, maxWidth = false, icon, label, toolTip, error, ...props }: InputProps) => {
   return (
-    <div className="form-control w-full">
+    <div className={cn("form-control w-full", { "max-w-xs": maxWidth, "opacity-0": hidden })}>
       {label && (
         <div className="label">
           <div
@@ -49,22 +51,7 @@ const TextInput = ({ icon, label, toolTip, error, ...props }: InputProps) => {
           type={props.type}
         />
         {icon && <div className="absolute left-0 top-0 bottom-0 flex items-center justify-center pl-3">{icon}</div>}
-        <div className="absolute right-0 top-0 bottom-0 flex items-center z-10">
-          {/* {props.type === "password" && (
-            <label
-              aria-label={!showPassword.value ? "Показать пароль" : "Спрятать пароль"}
-              className="swap swap-rotate h-full w-10"
-            >
-              <input
-                id="show-password"
-                type="checkbox"
-                checked={showPassword.value}
-                onChange$={() => (showPassword.value = !showPassword.value)}
-              />
-              {!showPassword.value ? <GoEye24 /> : <GoEyeClosed24 />}
-            </label>
-          )} */}
-        </div>
+        <div className="absolute right-0 top-0 bottom-0 flex items-center z-10"></div>
       </div>
       <InputError error={error} />
     </div>
