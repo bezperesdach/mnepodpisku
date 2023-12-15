@@ -40,6 +40,11 @@ const SubscriptionsSelector = ({ changeValue }: Props) => {
   const [selectedValue, setSelectedValue] = useState(0);
 
   const setMinAmount = (amount: number) => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+
     if (amount < 100) {
       return changeValue(100);
     }
