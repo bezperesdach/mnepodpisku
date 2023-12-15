@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import React from "react";
 import HeroChoose from "@/components/HeroChoose/HeroChoose";
 import Faq from "@/components/Faq/Faq";

@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 /* eslint-disable react/no-unescaped-entities */
 import GoBack from "../GoBack";
 import Link from "next/link";
