@@ -100,7 +100,15 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
                 Перейти
               </a>
             </li>
-            <Image src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/1.png" alt="Открыть сайт PlayStation" />
+
+            <Image
+              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/1.png"
+              alt="Открыть сайт PlayStation"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full h-auto"
+            />
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
@@ -108,20 +116,43 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
               <br />
             </li>
 
-            <Image src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/2.png" alt="Нажать кнопку создать учетную запись" />
+            <Image
+              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/2.png"
+              alt="Нажать кнопку создать учетную запись"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-1/2 h-auto"
+            />
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
               3. Нажмите на кнопку <strong>&quot;Создать&quot;</strong>
               <br />
             </li>
-            <Image src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/3.png" alt="Нажать кнопку создать" />
+
+            <Image
+              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/3.png"
+              alt="Нажать кнопку создать"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-1/2 h-auto"
+            />
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
               4. Выберите <strong>Turkey</strong> в качестве региона
             </li>
-            <Image src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/4.png" alt="выбрать turkey" />
+
+            <Image
+              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/4.png"
+              alt="выбрать turkey"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-1/2 h-auto"
+            />
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
@@ -129,14 +160,29 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
               ❗️ Обязательно введите корректную дату или запишите дату рождения, чтобы не забыть. При восстановлении аккаунта PSN
               попросит ввести именно ее для восстановления
             </li>
-            <Image src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/5.png" alt="выбрать дату рождения" />
+
+            <Image
+              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/5.png"
+              alt="выбрать дату рождения"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-1/2 h-auto"
+            />
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
               6. Введите <strong>почту</strong> и <strong>пароль</strong>, после нажмите кнопку <strong>&quot;Next&quot;</strong> <br />
               ❗️ Рекомендуется использовать почту gmail, которая ранее не была зарегистрирована в PSN
             </li>
-            <Image src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/6.png" alt="Введите почту" />
+            <Image
+              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/6.png"
+              alt="Введите почту"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-1/2 h-auto"
+            />
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
@@ -146,26 +192,54 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
               <strong>Postcode: 34872</strong> <br />
               После этого нажмите <strong> &quot;Next&quot;</strong> <br />
             </li>
-            <Image src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/7.png" alt="Указать город" />
+            <Image
+              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/7.png"
+              alt="Указать город"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-1/2 h-auto"
+            />
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
               8. Далее Вам необходимо выбрать свободный <strong>Online ID</strong> и ввести <strong> Имя (Name) </strong> <br />
               После этого нажмите <strong> &quot;Next&quot;</strong> <br />
             </li>
-            <Image src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/8.png" alt="Выберите никнейм" />
+            <Image
+              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/8.png"
+              alt="Выберите никнейм"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-1/2 h-auto"
+            />
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
               9. На последнем этапе просто нажимаем на кнопку <strong>&quot;Agree and Create Account&quot;</strong>
             </li>
-            <Image src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/9.png" alt="Создать аккаунт" />
+            <Image
+              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/9.png"
+              alt="Создать аккаунт"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-1/2 h-auto"
+            />
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
               <strong>ПОЗДРАВЛЯЕМ, ВАШ АККАУНТ СОЗДАН</strong>
             </li>
-            <Image src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/10.png" alt="Создать аккаунт" />
+            <Image
+              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/10.png"
+              alt="Создать аккаунт"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full lg:w-1/2 h-auto"
+            />
           </ul>
         </div>
 
