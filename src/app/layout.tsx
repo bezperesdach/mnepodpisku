@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import cn from "@/utils/cn";
-import AppContext from "@/components/AppContextWrapper/AppContextWrapper";
+import { AppContextProvider } from "@/components/AppContextWrapper/AppContextWrapper";
 import { cookies } from "next/headers";
 import Script from "next/script";
 
@@ -34,17 +34,21 @@ const yandexMetrica = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   // Get theme based on the cookie "theme".
+
+  // this line breaks redirects
   const themeCookie = cookies().get("theme");
   // If the cookie "theme" does not exist, set theme to the first index of Themes.
   const currentTheme = themeCookie ? themeCookie.value : "light";
 
   return (
     <html lang="ru" data-theme={currentTheme}>
-      <AppContext>
-        <Script id="Yandex-Metrica" strategy="afterInteractive">
-          {yandexMetrica}
-        </Script>
-        <Script id="Copy-Code">{`window.Clipboard = (function(window, document, navigator) {
+      <AppContextProvider>
+        <body className={cn(inter.className, "font-sans flex flex-col min-h-screen")}>{children}</body>
+      </AppContextProvider>
+      <Script id="Yandex-Metrica" strategy="afterInteractive">
+        {yandexMetrica}
+      </Script>
+      <Script id="Copy-Code">{`window.Clipboard = (function(window, document, navigator) {
 
 let scrollPos;
 
@@ -104,8 +108,6 @@ return {
     copy: copy
 };
 })(window, document, navigator);`}</Script>
-        <body className={cn(inter.className, "font-sans flex flex-col min-h-screen")}>{children}</body>
-      </AppContext>
     </html>
   );
 }
