@@ -69,7 +69,7 @@ const reducer = (state: StateType, action: ActionType) => {
       return state;
     }
     case "decrease_activation_step": {
-      console.log(state.activationStep);
+      // console.log(state.activationStep);
       if (state.activationStep > 0) {
         return { ...state, activationStep: state.activationStep - 1 };
       } else {
