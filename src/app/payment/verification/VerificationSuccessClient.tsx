@@ -70,7 +70,7 @@ function VerificationSuccessClient({ code }: Props) {
           Clipboard.copy(`Мой код активации - ${code}`);
         }}
       >
-        <p>{canCopyCode ? `Мой код активации - ${code}` : "Скопировано"}</p>
+        {canCopyCode ? `Мой код активации - ${code}` : "Скопировано"}
         <CopyIcon />
       </button>
 
