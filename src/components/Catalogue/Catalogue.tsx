@@ -46,17 +46,10 @@ const Catalogue = ({ showCatalogue, toggleCatalogue }: Props) => {
   return (
     <>
       <div className="flex flex-col w-full max-w-[1240px] h-[64px] mx-auto pt-2 lg:pt-8">
-        <div className={cn("flex w-full justify-end items-center" /* , { "cursor-wait": loading.value } */)}>
+        <div className={cn("flex w-full justify-end items-center")}>
           <button onClick={toggleCatalogue}>
             {" "}
-            <XIcon
-              className={cn(
-                "cursor-pointer h-14 w-14 text-white transition-transform" /* , {
-              "cursor-wait": loading.value,
-              "hover:scale-125": !loading.value,
-            } */
-              )}
-            />
+            <XIcon className={cn("cursor-pointer h-14 w-14 text-white transition-transform hover:scale-125")} />
           </button>
         </div>
       </div>
@@ -99,24 +92,20 @@ const Catalogue = ({ showCatalogue, toggleCatalogue }: Props) => {
           <div
             key={item}
             className={cn(
-              "relative flex justify-start items-center gap-2 md:gap-4 bg-base-200 rounded-lg p-2 md:p-4 transition-transform min-h-[80px]"
-              // {
-              //   "cursor-wait after:absolute after:top-0 after:bottom-0 after:left-0 after:right-0 after:bg-black after:rounded-lg after:opacity-30":
-              //     loading.value,
-              //   "hover:scale-[105%]": location.url.pathname !== `/${item}` && !loading.value,
-              // }
+              "relative flex justify-start items-center gap-2 md:gap-4 bg-base-200 rounded-lg p-2 md:p-4 transition-transform min-h-[80px]",
+              {
+                "hover:scale-[105%]": pathname !== `/${item}`,
+              }
             )}
           >
             {catalogueItems[item as keyof typeof catalogueItems].logo}
             <p className="text-xl md:text-2xl font-semibold">{catalogueItems[item as keyof typeof catalogueItems].name}</p>
             {pathname === `/${item}` ? (
-              <button className={cn("absolute bottom-0 right-0 top-0 left-0")} onClick={toggleCatalogue} />
+              <button className={cn("absolute bottom-0 right-0 top-0 left-0 cursor-default")} onClick={toggleCatalogue} />
             ) : (
               <Link className={cn("absolute bottom-0 right-0 top-0 left-0")} href={`/${item}`} onClick={toggleCatalogue} />
             )}
           </div>
-          // )}
-          // </>
         ))}
       </div>
     </>
