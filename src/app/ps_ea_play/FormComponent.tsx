@@ -45,7 +45,7 @@ export default function FormComponent({ receivedDuration }: Props) {
       current.set("dur", duration);
       const search = current.toString();
       const query = search ? `?${search}` : "";
-      router.replace(`${pathname}${query}`);
+      router.replace(`${pathname}${query}`, { scroll: false });
 
       const updatedPrices = await getPsEaPlayPrice(duration);
       setCalculatedAmount(updatedPrices.calculated);

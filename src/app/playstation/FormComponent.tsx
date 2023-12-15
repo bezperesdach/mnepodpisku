@@ -58,13 +58,13 @@ export default function FormComponent({ receivedAmount }: Props) {
       current.set("amount", value.toString());
       const search = current.toString();
       const query = search ? `?${search}` : "";
-      router.replace(`${pathname}${query}`);
+      router.replace(`${pathname}${query}`, { scroll: false });
 
       const updatedPrices = await getPsnBalancePrice(value);
       setCalculatedAmount(updatedPrices.calculated);
       setValue(updatedPrices.sale);
       setLoading(false);
-      console.log("updated");
+      // console.log("updated");
     };
 
     setLoading(true);

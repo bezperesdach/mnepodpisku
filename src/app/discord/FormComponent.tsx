@@ -48,7 +48,7 @@ export default function FormComponent({ receivedDuration, receivedSubscriptionTy
 
       const search = current.toString();
       const query = search ? `?${search}` : "";
-      router.replace(`${pathname}${query}`);
+      router.replace(`${pathname}${query}`, { scroll: false });
 
       const updatedPrices = await getDiscordPrice(values);
       setCalculatedAmount(updatedPrices.calculated);

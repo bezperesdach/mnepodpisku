@@ -47,7 +47,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
       current.set("dur", values.duration);
       const search = current.toString();
       const query = search ? `?${search}` : "";
-      router.replace(`${pathname}${query}`);
+      router.replace(`${pathname}${query}`, { scroll: false });
 
       const updatedPrices = await getPsnPsPlusPrice(values);
       setCalculatedAmount(updatedPrices.calculated);

@@ -48,7 +48,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
 
       const search = current.toString();
       const query = search ? `?${search}` : "";
-      router.replace(`${pathname}${query}`);
+      router.replace(`${pathname}${query}`, { scroll: false });
 
       const updatedPrices = await getNetflixPrice(values);
       setCalculatedAmount(updatedPrices.calculated);
