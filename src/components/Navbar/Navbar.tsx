@@ -8,6 +8,18 @@ import { AppContext } from "../AppContextWrapper/AppContextWrapper";
 import Catalogue from "../Catalogue/Catalogue";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import MobileMenu from "./MobileMenu";
+
+import spotifyImg from "../../../public/catalogue_icons/spotify.png";
+import netflixImg from "../../../public/catalogue_icons/netflix.png";
+import discordImg from "../../../public/catalogue_icons/discord.png";
+import tinderImg from "../../../public/catalogue_icons/tinder.png";
+import xboxImg from "../../../public/catalogue_icons/xbox.png";
+import playstationImg from "../../../public/catalogue_icons/playstation.png";
+import psplusImg from "../../../public/catalogue_icons/ps_plus.png";
+import eaplayImg from "../../../public/catalogue_icons/ea_play.png";
+import youtubeImg from "../../../public/catalogue_icons/youtube.png";
+import adobeccImage from "../../../public/catalogue_icons/adobe_cc.png";
+
 export const catalogueItems = {
   spotify: {
     name: "Spotify",
@@ -18,7 +30,7 @@ export const catalogueItems = {
       <div className="relative w-12 h-12 flex justify-center items-center">
         <Image
           className="w-auto h-full"
-          src="/catalogue_icons/spotify.png"
+          src={spotifyImg}
           alt="Spotify логотип"
           fill
           style={{ objectFit: "contain" }}
@@ -35,7 +47,7 @@ export const catalogueItems = {
     hoverColor: "hover:text-[#E55F66]",
     logo: (
       <div className="relative w-12 h-12 flex justify-center items-center">
-        <Image src="/catalogue_icons/netflix.png" alt="Netflix логотип" fill style={{ objectFit: "contain" }} sizes="20vw" priority />
+        <Image src={netflixImg} alt="Netflix логотип" fill style={{ objectFit: "contain" }} sizes="20vw" priority />
       </div>
     ),
   },
@@ -48,7 +60,7 @@ export const catalogueItems = {
       <div className="relative w-12 h-12 flex justify-center items-center">
         <Image
           className="w-auto h-full"
-          src="/catalogue_icons/discord.png"
+          src={discordImg}
           alt="Discord логотип"
           fill
           style={{ objectFit: "contain" }}
@@ -67,7 +79,7 @@ export const catalogueItems = {
       <div className="relative w-12 h-12 flex justify-center items-center">
         <Image
           className="w-auto h-full"
-          src="/catalogue_icons/tinder.png"
+          src={tinderImg}
           alt="Tinder логтип"
           fill
           style={{ objectFit: "contain" }}
@@ -84,15 +96,7 @@ export const catalogueItems = {
     hoverColor: "hover:text-[#419242]",
     logo: (
       <div className="relative w-12 h-12 flex justify-center items-center">
-        <Image
-          className="w-auto h-full"
-          src="/catalogue_icons/xbox.png"
-          alt="Xbox логотип"
-          fill
-          style={{ objectFit: "contain" }}
-          sizes="20vw"
-          priority
-        />
+        <Image className="w-auto h-full" src={xboxImg} alt="Xbox логотип" fill style={{ objectFit: "contain" }} sizes="20vw" priority />
       </div>
     ),
   },
@@ -105,7 +109,7 @@ export const catalogueItems = {
       <div className="relative w-12 h-12 flex justify-center items-center">
         <Image
           className="w-auto h-full"
-          src="/catalogue_icons/playstation.png"
+          src={playstationImg}
           alt="Playstation логотип"
           fill
           style={{ objectFit: "contain" }}
@@ -124,7 +128,7 @@ export const catalogueItems = {
       <div className="relative w-12 h-12 flex justify-center items-center">
         <Image
           className="w-auto h-full"
-          src="/catalogue_icons/playstation.png"
+          src={playstationImg}
           alt="Playstation логотип"
           fill
           style={{ objectFit: "contain" }}
@@ -143,7 +147,7 @@ export const catalogueItems = {
       <div className="relative w-12 h-12 flex justify-center items-center">
         <Image
           className="w-auto h-full"
-          src="/catalogue_icons/ps_plus.png"
+          src={psplusImg}
           alt="Ps plus логотип"
           fill
           style={{ objectFit: "contain" }}
@@ -162,7 +166,7 @@ export const catalogueItems = {
       <div className="relative w-12 h-12 flex justify-center items-center">
         <Image
           className="w-auto h-full"
-          src="/catalogue_icons/ea_play.png"
+          src={eaplayImg}
           alt="Ps Ea play логотип"
           fill
           style={{ objectFit: "contain" }}
@@ -181,7 +185,7 @@ export const catalogueItems = {
       <div className="relative w-12 h-12 flex justify-center items-center">
         <Image
           className="w-auto h-full"
-          src="/catalogue_icons/youtube.png"
+          src={youtubeImg}
           alt="Youtube логотип"
           fill
           style={{ objectFit: "contain" }}
@@ -200,7 +204,7 @@ export const catalogueItems = {
       <div className="relative w-12 h-12 flex justify-center items-center">
         <Image
           className="w-auto h-full"
-          src="/catalogue_icons/adobe_cc.png"
+          src={adobeccImage}
           alt="Adobe Creative Cloud логотип"
           fill
           style={{ objectFit: "contain" }}
