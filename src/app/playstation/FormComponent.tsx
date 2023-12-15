@@ -64,6 +64,7 @@ export default function FormComponent({ receivedAmount }: Props) {
       setCalculatedAmount(updatedPrices.calculated);
       setValue(updatedPrices.sale);
       setLoading(false);
+      console.log("updated");
     };
 
     setLoading(true);
@@ -72,7 +73,9 @@ export default function FormComponent({ receivedAmount }: Props) {
     const error = formik.errors.amount;
 
     if (value && !error) {
-      updatePrices(Number(value));
+      if (Number(value) >= 100) {
+        updatePrices(Number(value));
+      }
     } else {
       setLoading(false);
       setCalculatedAmount(undefined);
@@ -127,7 +130,13 @@ export default function FormComponent({ receivedAmount }: Props) {
               loading={loading}
               value={calculatedAmount}
               sale={value}
-              amount={formik.values.amount !== "" ? Number(formik.values.amount) : undefined}
+              amount={
+                formik.values.amount !== ""
+                  ? Number(formik.values.amount) > 100
+                    ? Number(formik.values.amount)
+                    : undefined
+                  : undefined
+              }
               showReceive
             />
             <DiscountMeter value={formik.values.amount !== "" ? Number(formik.values.amount) : undefined} />
