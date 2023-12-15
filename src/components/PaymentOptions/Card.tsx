@@ -6,7 +6,7 @@ type Props = {
 
 const Card = ({ className }: Props) => {
   return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.2 35.3">
+    <svg width="100%" height="100%" className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.2 35.3">
       <defs>
         <linearGradient
           id="a"

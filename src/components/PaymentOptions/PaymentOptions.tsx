@@ -23,7 +23,7 @@ function PaymentOptions() {
             // onClick$={() => setValue(store, "paymentOption", "card")}
             // aria-label="Оплата картой"
           >
-            <Card className="fill-base-content" />
+            <Card className="fill-base-content w-[65%] lg:w-full lg:h-full" />
           </div>
           <div
             // type="button"

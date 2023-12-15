@@ -9,8 +9,8 @@ const Crypto = ({ className }: Props) => {
     <svg
       className={className}
       xmlns="http://www.w3.org/2000/svg"
-      width="1324.8"
-      height="722.1"
+      width="100%"
+      height="100%"
       data-name="uuid-b5a2fc15-3d8e-4b62-bcb1-11a9489c204e"
       viewBox="0 0 1340.4 722.1"
     >
