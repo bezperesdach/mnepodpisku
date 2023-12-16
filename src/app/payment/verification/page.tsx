@@ -1,8 +1,8 @@
 import { verifyCode } from "@/serverActions/verifyCode";
 import { isSearchParamValid } from "@/utils/utils";
-import { redirect } from "next/navigation";
 import VerificationFailClient from "@/app/payment/verification/VerificationFailClient";
 import VerificationSuccessClient from "./VerificationSuccessClient";
+import VerificationNotFound from "./VerificationNotFound";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -12,7 +12,7 @@ async function Page({ searchParams }: Props) {
   const uniquecode = await verifyCode(isSearchParamValid(searchParams["uniquecode"]));
 
   if (uniquecode.notFound) {
-    redirect("/");
+    return <VerificationNotFound />;
   }
 
   if (uniquecode.error) {

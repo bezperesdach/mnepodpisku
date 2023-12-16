@@ -1,10 +1,11 @@
 import { verifyCode } from "@/serverActions/verifyCode";
 import { isSearchParamValid } from "@/utils/utils";
-import { redirect } from "next/navigation";
 import VerificationFailClient from "@/app/payment/verification/VerificationFailClient";
 import PsnBalanceClient from "../PsnBalanceClient";
 import { ActivationTypes, verifyActivationType } from "@/utils/activationUtils";
 import PsPlusClient from "../PsPlusClient";
+import VerificationNotFound from "../VerificationNotFound";
+import VerificationSuccessClient from "../VerificationSuccessClient";
 
 type Props = {
   params: { slug: string };
@@ -18,7 +19,7 @@ async function Page({ searchParams, params }: Props) {
   const uniquecode = await verifyCode(code);
 
   if (uniquecode.notFound) {
-    redirect("/");
+    return <VerificationNotFound />;
   }
 
   if (uniquecode.error) {
@@ -26,7 +27,7 @@ async function Page({ searchParams, params }: Props) {
   }
 
   if (!verifyActivationType(params.slug)) {
-    redirect(`/payment/verification?uniquecode=${uniquecode.code}`);
+    return <VerificationSuccessClient code={uniquecode.code} />;
   }
 
   switch (activationTypes) {
