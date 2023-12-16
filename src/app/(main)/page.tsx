@@ -21,9 +21,7 @@ export default function Home() {
   return (
     <main className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
-        <h1 className="text-3xl lg:text-4xl font-bold text-center min-[1240px]:text-left">
-          Помогаем приобретать подписки на зарубежные сервисы
-        </h1>
+        <h1 className="text-3xl lg:text-4xl font-bold">Помогаем приобретать подписки на зарубежные сервисы</h1>
       </div>
 
       <div className="mt-10">
