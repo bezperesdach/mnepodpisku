@@ -71,7 +71,7 @@ const SubscriptionsSelector = ({ changeValue }: Props) => {
                 <p className="text-lg lg:text-sm font-semibold text-[#ffffff] text-start">Больше всего возможностей</p>
               </div>
 
-              <label className={cn("swap text-6xl swap-rotate inline-gride lg:hidden", { "swap-active": selectedValue === 0 })}>
+              <label className={cn("swap text-6xl swap-rotate inline-gride lg:hidden h-4", { "swap-active": selectedValue === 0 })}>
                 <div className="swap-on">
                   <DashIcon className="text-[#fcc000]" />
                 </div>
@@ -113,7 +113,7 @@ const SubscriptionsSelector = ({ changeValue }: Props) => {
                 <p className="text-lg lg:text-sm font-semibold text-[#0d0f12] text-start">Самая выгодная</p>
               </div>
 
-              <label className={cn("swap text-6xl swap-rotate inline-gride lg:hidden", { "swap-active": selectedValue === 1 })}>
+              <label className={cn("swap text-6xl swap-rotate inline-gride lg:hidden h-4", { "swap-active": selectedValue === 1 })}>
                 <div className="swap-on">
                   <DashIcon />
                 </div>
@@ -154,7 +154,7 @@ const SubscriptionsSelector = ({ changeValue }: Props) => {
                 <p className="text-lg lg:text-sm font-semibold text-base-content">Самая дешевая</p>
               </div>
 
-              <label className={cn("swap text-6xl swap-rotate inline-gride lg:hidden", { "swap-active": selectedValue === 2 })}>
+              <label className={cn("swap text-6xl swap-rotate inline-grid lg:hidden h-4", { "swap-active": selectedValue === 2 })}>
                 <div className="swap-on">
                   <DashIcon />
                 </div>
@@ -196,12 +196,12 @@ const SubscriptionsSelector = ({ changeValue }: Props) => {
                 <p className="text-lg lg:text-sm font-semibold text-white">Разблокируй мир EA</p>
               </div>
 
-              <label className={cn("swap text-6xl swap-rotate inline-gride lg:hidden", { "swap-active": selectedValue === 4 })}>
+              <label className={cn("swap text-6xl swap-rotate inline-gride lg:hidden h-4", { "swap-active": selectedValue === 4 })}>
                 <div className="swap-on">
-                  <DashIcon />
+                  <DashIcon className="text-white" />
                 </div>
                 <div className="swap-off">
-                  <PlusIcon />
+                  <PlusIcon className="text-white" />
                 </div>
               </label>
             </button>
