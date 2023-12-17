@@ -17,9 +17,10 @@ export const metadata: Metadata = {
       "Быстрая онлайн покупка подписки на Netflix. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
     url: "/netflix",
     images: ["/catalogue_icons/netflix.png"],
+    type: "website",
   },
   alternates: {
-    canonical: "/tinder",
+    canonical: "/netflix",
   },
 };
 

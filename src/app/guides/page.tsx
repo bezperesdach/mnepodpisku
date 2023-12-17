@@ -42,6 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Инструкции",
     description: "Страница со всеми инструкциями",
+    type: "website",
   },
   alternates: {
     canonical: "/guides",

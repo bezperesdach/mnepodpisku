@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       "Быстрая покупка подписки xbox game pass на личный аккаунт. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
     url: "/xbox",
     images: ["/catalogue_icons/xbox.png"],
+    type: "website",
   },
   alternates: {
     canonical: "/xbox",

@@ -3,6 +3,22 @@ import Link from "next/link";
 import React from "react";
 import GoBack from "../GoBack";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Как создать Турецкий PlayStation аккаунт",
+  description: "Как самостоятельно создать Турецкий PlayStation аккаунт 2023 без VPN и не получить бан",
+  openGraph: {
+    title: "Как создать Турецкий PlayStation аккаунт 2023",
+    description: "Как самостоятельно создать Турецкий PlayStation аккаунт 2023 без VPN и не получить бан",
+    url: "/blog/kak_samomu_sozdat_tureckiy_akaunt",
+    images: ["/catalogue_icons/playstation.png"],
+    type: "article",
+  },
+  alternates: {
+    canonical: "/blog/kak_samomu_sozdat_tureckiy_akaunt",
+  },
+};
 
 function KakSamomuSozdatTureckiyAkaunt({}) {
   return (
@@ -19,20 +35,20 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
         style={{ background: "#00439C", borderRadius: "30px" }}
       >
         <div className="flex w-full max-w-[1029px] flex-col mb-8 max-md:max-w-full">
-          <div className="text-white text-4xl font-black self-stretch mt-12 max-md:max-w-full max-md:mt-10">
+          <h2 className="text-white text-4xl font-black self-stretch mt-12 max-md:max-w-full max-md:mt-10">
             Как создать турецкий аккаунт в PSN в 2023 <br />и не словить бан?
-          </div>
+          </h2>
           <div className="bg-white self-stretch shrink-0 h-px mt-6 max-md:max-w-full"></div>
           <div className="text-white text-2xl self-stretch mt-10 max-md:max-w-full">
             В данной статье вы узнаете:{" "}
             <ul>
               <li>
-                <Link className="underline" href="/blog/kak_samomu_sodat_tureckiy_account#kak-sozdat-tureckiy-ak">
+                <Link className="underline" href="/blog/kak_samomu_sozdat_tureckiy_akaunt#kak-sozdat-tureckiy-ak">
                   1. Как создать турецкий аккаунт из России
                 </Link>
               </li>
               <li>
-                <Link className="underline" href="/blog/kak_samomu_sodat_tureckiy_account#kak-kupit-ak">
+                <Link className="underline" href="/blog/kak_samomu_sozdat_tureckiy_akaunt#kak-kupit-ak">
                   2. К кому обратиться за помощью по созданию аккаунта
                 </Link>
               </li>

@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       "Быстрая покупка подписки tinder gold, tinder platinum. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
     url: "/tinder",
     images: ["/catalogue_icons/tinder.png"],
+    type: "website",
   },
   alternates: {
     canonical: "/tinder",

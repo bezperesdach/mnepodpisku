@@ -10,11 +10,11 @@ import { isSearchParamValid } from "@/utils/utils";
 export const metadata: Metadata = {
   title: "Купить подписку Adobe Creative Cloud",
   description:
-    "Быстрая онлайн покупка подписки на Adobe Creative Cloud. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
+    "Быстрая онлайн-покупка подписки на Adobe Creative Cloud. Оплата картами МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и другими системами.",
   openGraph: {
     title: "Купить подписку Adobe Creative Cloud 2023",
     description:
-      "Быстрая онлайн покупка подписки на Adobe Creative Cloud. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
+      "Быстрая онлайн-покупка подписки на Adobe Creative Cloud. Оплата картами МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и другими системами.",
     url: "/adobe_creative_cloud",
     images: ["/catalogue_icons/adobe_cc.png"],
   },

@@ -16,12 +16,15 @@ type Props = {
 
 export const metadata: Metadata = {
   title: "Пополнение PS Store(PSN) турция с карты РФ от 100 TL!",
-  description: "Простое, выгодное и быстрое пополнение турецкого аккаунта Playstation от надежного продавца 2023",
+  description:
+    "Быстрое и беззаботное пополнение турецкого аккаунта PlayStation в 2023 от проверенного продавца. Просто, выгодно и надежно!",
   openGraph: {
     title: "Пополнение PS Store(PSN) турция с карты РФ от 100 TL!",
-    description: "Простое, выгодное и быстрое пополнение турецкого аккаунта Playstation от надежного продавца 2023",
+    description:
+      "Быстрое и беззаботное пополнение турецкого аккаунта PlayStation в 2023 от проверенного продавца. Просто, выгодно и надежно!",
     url: "/playstation",
     images: ["/catalogue_icons/playstation.png"],
+    type: "website",
   },
   alternates: {
     canonical: "/playstation",

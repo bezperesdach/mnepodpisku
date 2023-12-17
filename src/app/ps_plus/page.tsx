@@ -9,12 +9,13 @@ import { isSearchParamValid } from "@/utils/utils";
 
 export const metadata: Metadata = {
   title: "Купить подписку PS PLUS 2023",
-  description: "Приобретите быстро и безопасно подписку PS PLUS на свой аккаунт PlayStation",
+  description: "Быстро и безопасно приобретите подписку PS PLUS для своего аккаунта PlayStation. Новые привилегии уже ждут вас!",
   openGraph: {
     title: "Купить подписку PS PLUS 2023",
-    description: "Приобретите быстро и безопасно подписку PS PLUS на свой аккаунт PlayStation",
+    description: "Быстро и безопасно приобретите подписку PS PLUS для своего аккаунта PlayStation. Новые привилегии уже ждут вас!",
     url: "/ps_plus",
     images: ["/catalogue_icons/ps_plus.png"],
+    type: "website",
   },
   alternates: {
     canonical: "/ps_plus",

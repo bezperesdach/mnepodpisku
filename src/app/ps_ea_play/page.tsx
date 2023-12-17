@@ -9,12 +9,13 @@ import { isSearchParamValid } from "@/utils/utils";
 
 export const metadata: Metadata = {
   title: "Купить подписку EA PLAY на PlayStation 2023",
-  description: "Приобретите быстро и безопасно подписку EA PLAY на свой аккаунт PlayStation",
+  description: "Быстро и безопасно приобретите подписку EA PLAY для своего аккаунта PlayStation. Новые возможности ждут вас!",
   openGraph: {
     title: "Купить подписку EA PLAY на PlayStation 2023",
-    description: "Приобретите быстро и безопасно подписку EA PLAY на свой аккаунт PlayStation",
+    description: "Быстро и безопасно приобретите подписку EA PLAY для своего аккаунта PlayStation. Новые возможности ждут вас!",
     url: "/ps_ea_play",
     images: ["/catalogue_icons/ea_play.png"],
+    type: "website",
   },
   alternates: {
     canonical: "/ps_ea_play",
