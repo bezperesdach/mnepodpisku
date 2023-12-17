@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     title: "Купить подписку Adobe Creative Cloud 2023",
     description:
       "Быстрая онлайн покупка подписки на Adobe Creative Cloud. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
+    url: "/adobe_creative_cloud",
+    images: ["/catalogue_icons/adobe_cc.png"],
   },
   alternates: {
     canonical: "/adobe_creative_cloud",

@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     title: "Купить Spotify Premium 2023 Россия",
     description:
       "Купить spotify premium быстро и дешево в россии. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
+    url: "/spotify",
+    images: ["/catalogue_icons/spotify.png"],
   },
   alternates: {
     canonical: "/spotify",

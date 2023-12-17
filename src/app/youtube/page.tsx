@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     title: "Купить Youtube premium 2023 Россия",
     description:
       "Быстро купить youtube premium на личный аккуант. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
+    url: "/youtube",
+    images: ["/catalogue_icons/youtube.png"],
   },
   alternates: {
     canonical: "/youtube",

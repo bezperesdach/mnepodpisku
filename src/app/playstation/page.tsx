@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Пополнение PS Store(PSN) турция с карты РФ от 100 TL!",
     description: "Простое, выгодное и быстрое пополнение турецкого аккаунта Playstation от надежного продавца 2023",
+    url: "/playstation",
+    images: ["/catalogue_icons/playstation.png"],
   },
   alternates: {
     canonical: "/playstation",
@@ -50,6 +52,10 @@ export default function Playstation({ searchParams }: Props) {
         <h2 className="text-xl lg:text-2xl font-bold" id="description">
           Описание
         </h2>
+        <p className="text-lg font-medium mt-4">
+          <strong>ВНИМАНИЕ!</strong> Из-за проблем со стороны PlayStation на данный момент невозможно пополнить аккаунты
+          зарегистрированные после 20 ноября 2023 года.
+        </p>
         <p className="text-lg font-medium mt-4">
           Сервис МНЕПОДПИСКУ позволит вам быстро и удобно пополнить свой кошелек турецкого playstation аккаунта. Пополнение происходит в
           три простых этапа
@@ -115,6 +121,16 @@ export default function Playstation({ searchParams }: Props) {
             <br />
             Таким образом, пополнение кошелька в Турции позволяет игрокам приобретать игры и подписки по более выгодной цене, и получать
             больше контента за свои средства.
+          </p>
+        </Question>
+
+        <Question title="Что будет если вам не удастся пополнить мой аккаунт?">
+          <p>
+            Если по каким-либо причинам находящимся вне нашего контроля нам не удастся пополнить ваш аккаунт, мы можем сделать возврат
+            всей суммы - 15%.
+            <br />
+            <br />
+            Если проблема будет с нашей стороны, мы сделаем возврат всей суммы - комиссия за обработку перевода.
           </p>
         </Question>
       </Faq>

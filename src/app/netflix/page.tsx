@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     title: "Купить подписку Netflix 2023 Промокод",
     description:
       "Быстрая онлайн покупка подписки на Netflix. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
+    url: "/netflix",
+    images: ["/catalogue_icons/netflix.png"],
   },
   alternates: {
     canonical: "/tinder",

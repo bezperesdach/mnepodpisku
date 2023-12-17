@@ -17,6 +17,8 @@ export const metadata: Metadata = {
     title: "Cоздание турецкого аккаунта playstation",
     description:
       "Хотите купить услугу по созданию турецкого аккаунта PlayStation на личную почту, но не знаете как это сделать? Мы предлагаем подробную инструкцию и профессиональную помощь по созданию турецкого аккаунта PSN. У нас вы сможете купить услугу по созданию турецкого аккаунта PlayStation на личную почту.",
+    url: "/playstation_account",
+    images: ["/catalogue_icons/playstation.png"],
   },
   alternates: {
     canonical: "/playstation_account",

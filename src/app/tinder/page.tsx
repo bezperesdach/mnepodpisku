@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     title: "Купить подписку Tinder 2023 Россия",
     description:
       "Быстрая покупка подписки tinder gold, tinder platinum. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
+    url: "/tinder",
+    images: ["/catalogue_icons/tinder.png"],
   },
   alternates: {
     canonical: "/tinder",
