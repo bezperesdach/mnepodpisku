@@ -34,7 +34,7 @@ export default function PlayStationAccount({ searchParams }: Props) {
         <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
           КУПИТЬ ПОДПИСКУ PS PLUS ДЛЯ PLAYSTATION В РОССИИ
         </h1>
-        <div className="flex items-center gap-4 bg-base-300 rounded-lg px-4 py-1">
+        <div className="flex items-center gap-4 bg-base-300 rounded-lg px-4 py-1 self-end">
           <p className="font-medium text-base">Только для турецких аккаунтов</p>
           <div
             className="tooltip cursor-pointer max-[524px]:before:-translate-x-[90%] max-[524px]:max-w-xs min-[1200px]:before:-translate-x-[90%]"

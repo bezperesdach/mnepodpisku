@@ -39,10 +39,10 @@ export default function Playstation({ searchParams }: Props) {
         <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
           ПОПОЛНЕНИЕ ТУРЕЦКОГО АККАУНТА PLAYSTATION В РОССИИ
         </h1>
-        <div className="flex items-center gap-4 bg-base-300 rounded-lg px-4 py-1">
+        <div className="flex items-center gap-4 bg-base-300 rounded-lg px-4 py-1 self-end">
           <p className="font-medium text-base">Только для турецких аккаунтов</p>
           <div
-            className="tooltip cursor-pointer max-[524px]:before:-translate-x-[90%] max-[524px]:max-w-xs min-[1200px]:before:-translate-x-[90%]"
+            className="tooltip cursor-pointer before:-translate-x-[90%] max-w-xs"
             data-tip='Вам необходимо зарегистрировать аккаунт PSN с регионом турция и прислать его данные после оплаты. Подробнее в разделе "Вопрос-Ответ".'
           >
             <button className="flex justify-center items-center p-2 w-7 h-7 bg-white rounded-[100%] text-secondary font-bold">?</button>
