@@ -6,6 +6,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 
+import Image1 from "@/../public/guides_data/kak_dobavit_novogo_polzovatelya_na_PS5/add_ac_1.png";
+import Image2 from "@/../public/guides_data/kak_dobavit_novogo_polzovatelya_na_PS5/add_ac_2.png";
+import Image3 from "@/../public/guides_data/kak_dobavit_novogo_polzovatelya_na_PS5/add_ac_3.png";
+
 export const metadata: Metadata = {
   title: "Как добавить нового пользователя на PS5?",
   description: "Как добавить нового пользователя на PS5?",
@@ -43,11 +47,12 @@ function page() {
 
       <p className="my-4">1. Выберите на начальном экране фотографию профиля.</p>
       <Image
-        src="/guides_data/kak_dobavit_novogo_polzovatelya_na_PS5/add_ac_1.png"
+        src={Image1}
         alt="Профиль"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md w-full"
       />
 
@@ -56,11 +61,12 @@ function page() {
         <strong>"Добавить пользователя в эту систему PS5"</strong> <br />
       </p>
       <Image
-        src="/guides_data/kak_dobavit_novogo_polzovatelya_na_PS5/add_ac_2.png"
+        src={Image2}
         alt="Добавление пользователя"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md w-full"
       />
 
@@ -69,11 +75,12 @@ function page() {
         <strong>"Войти в сеть"</strong>
       </p>
       <Image
-        src="/guides_data/kak_dobavit_novogo_polzovatelya_na_PS5/add_ac_3.png"
+        src={Image3}
         alt="Добавление пользователя"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md w-full"
       />
 

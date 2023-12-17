@@ -5,6 +5,23 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 
+import ImageAuthenticator1 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/google_authenticator_1.png";
+import ImageAuthenticator2 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/google_authenticator_2.png";
+
+import Image1 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_1.png";
+import Image2 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_2.png";
+import Image3 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_3.png";
+import Image4 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_4.png";
+import Image5 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_5.png";
+import Image6 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_6.png";
+import Image7 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_7.png";
+import Image8 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_8.png";
+import Image9 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_9.png";
+import Image10 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_10.png";
+import Image11 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_11.png";
+import Image12 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_12.png";
+import Image13 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_13.png";
+
 export const metadata: Metadata = {
   title: "Как включить 2FA на аккаунте PSN ",
   description: "Как включить 2FA на аккаунте PSN через телефон",
@@ -49,21 +66,23 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_1.png"
+        src={Image1}
         alt="Войти на сайт"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
       <p className="my-6">Нажмите на свой аватар</p>
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_2.png"
+        src={Image2}
         alt="Открыть меню"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -72,11 +91,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_3.png"
+        src={Image3}
         alt="Перейти в Account Settings"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -85,11 +105,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_4.png"
+        src={Image4}
         alt="Перейти в Security"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -98,11 +119,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_5.png"
+        src={Image5}
         alt="Нажать continue"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -118,11 +140,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_6.png"
+        src={Image6}
         alt="Нажать на Edit"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -132,11 +155,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_7.png"
+        src={Image7}
         alt="Выбрать authenticator app"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -149,11 +173,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_8.png"
+        src={Image8}
         alt="Введите код и нажмите verify"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -169,11 +194,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/google_authenticator_1.png"
+        src={ImageAuthenticator1}
         alt="Добавить вручную"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -185,11 +211,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/google_authenticator_2.png"
+        src={ImageAuthenticator2}
         alt="Заполнить поля account и key"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -199,11 +226,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_9.png"
+        src={Image9}
         alt="Нажмите continue"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -214,11 +242,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_10.png"
+        src={Image10}
         alt="Введите код и нажмите verify"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -229,11 +258,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_11.png"
+        src={Image11}
         alt="Сохранение резервных кодов"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -243,11 +273,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_12.png"
+        src={Image12}
         alt="Нажать пустой квадрат и OK"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -260,11 +291,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_13.png"
+        src={Image13}
         alt="Нажать пустой квадрат и OK"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 

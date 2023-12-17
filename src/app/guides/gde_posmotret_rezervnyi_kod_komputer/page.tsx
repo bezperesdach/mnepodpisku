@@ -6,6 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 
+import Image1 from "@/../public/guides_data/gde_posmotret_rezervnyi_kod_komputer/2fa_1.png";
+import Image2 from "@/../public/guides_data/gde_posmotret_rezervnyi_kod_komputer/2fa_2.png";
+import Image3 from "@/../public/guides_data/gde_posmotret_rezervnyi_kod_komputer/2fa_3.png";
+import Image4 from "@/../public/guides_data/gde_posmotret_rezervnyi_kod_komputer/2fa_4.png";
+import Image5 from "@/../public/guides_data/gde_posmotret_rezervnyi_kod_komputer/2fa_5.png";
+
 export const metadata: Metadata = {
   title: "Где найти резервный код от 2FA для PSN аккаунта?",
   description: "Где найти резервный код от 2FA для PSN аккаунта?",
@@ -51,12 +57,13 @@ function page() {
         Перейти на официальный сайт
       </a>
       <Image
-        src="/guides_data/gde_posmotret_rezervnyi_kod_komputer/2fa_1.png"
+        src={Image1}
         alt="Зайти на сайт"
         width={0}
         height={0}
         sizes="100vw"
         className="mt-4 w-full h-auto rounded-md"
+        placeholder="blur"
       />
 
       <p className="my-4">
@@ -64,36 +71,39 @@ function page() {
         <strong>"Настройки профиля"</strong>/<strong>"Account Settings"</strong>
       </p>
       <Image
-        src="/guides_data/gde_posmotret_rezervnyi_kod_komputer/2fa_2.png"
+        src={Image2}
         alt="Открыть настройки профиля"
         width={0}
         height={0}
         sizes="100vw"
         className="mt-4 w-full h-auto rounded-md"
+        placeholder="blur"
       />
 
       <p className="my-4">
         В открывшемся окне необходимо перейти во вкладку <strong>"Безопасность"</strong>/<strong>"Security"</strong>
       </p>
       <Image
-        src="/guides_data/gde_posmotret_rezervnyi_kod_komputer/2fa_3.png"
+        src={Image3}
         alt="Зайти в раздел безопасность"
         width={0}
         height={0}
         sizes="100vw"
         className="mt-4 w-full h-auto rounded-md"
+        placeholder="blur"
       />
 
       <p className="my-4">
         В открывшемся окне найдите пункт <strong>"Резервные коды"</strong>/<strong>"Backup Codes"</strong>
       </p>
       <Image
-        src="/guides_data/gde_posmotret_rezervnyi_kod_komputer/2fa_4.png"
+        src={Image4}
         alt="Зайти в раздел резервные коды"
         width={0}
         height={0}
         sizes="100vw"
         className="mt-4 w-full h-auto rounded-md"
+        placeholder="blur"
       />
 
       <p className="my-4">
@@ -101,12 +111,13 @@ function page() {
         Сохраните один код и отправьте нам.
       </p>
       <Image
-        src="/guides_data/gde_posmotret_rezervnyi_kod_komputer/2fa_5.png"
+        src={Image5}
         alt="Увидеть резервные коды"
         width={0}
         height={0}
         sizes="100vw"
         className="mt-4 w-full h-auto rounded-md"
+        placeholder="blur"
       />
     </div>
   );

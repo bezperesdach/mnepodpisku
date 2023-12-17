@@ -6,6 +6,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 
+import Image1 from "@/../public//guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_1.png";
+import Image2 from "@/../public//guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_2.png";
+import Image3 from "@/../public//guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_3.png";
+import Image4 from "@/../public//guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_4.png";
+import Image5 from "@/../public//guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_5.png";
+import Image6 from "@/../public//guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_6.png";
+import Image7 from "@/../public//guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_7.png";
+
 export const metadata: Metadata = {
   title: "Где найти резервный код от 2FA для PSN аккаунта?",
   description: "Где найти резервный код от 2FA для PSN аккаунта?",
@@ -44,11 +52,12 @@ function page() {
         Перейти на официальный сайт
       </a>
       <Image
-        src="/guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_1.png"
+        src={Image1}
         alt="Зайти на сайт"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="mt-4 justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -57,19 +66,21 @@ function page() {
         <strong>"Настройки профиля"</strong>/<strong>"Account Settings"</strong>
       </p>
       <Image
-        src="/guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_2.png"
+        src={Image2}
         alt="Открыть меню"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
       <Image
-        src="/guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_3.png"
+        src={Image3}
         alt="Зайти в раздел настройки профиля"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="mt-4 justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -78,19 +89,21 @@ function page() {
         действие
       </p>
       <Image
-        src="/guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_4.png"
+        src={Image4}
         alt="Зайти в раздел безопасность"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
       <Image
-        src="/guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_5.png"
+        src={Image5}
         alt="Подтвердить вход в раздел безопасность"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="mt-4 justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -98,11 +111,12 @@ function page() {
         В открывшемся окне пролистайте страницу до пункта <strong>"Резервные коды"</strong>/<strong>"Backup Codes"</strong>
       </p>
       <Image
-        src="/guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_6.png"
+        src={Image6}
         alt="Зайти в раздел резервные коды"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -111,11 +125,12 @@ function page() {
         Сохраните один код и отправьте нам.
       </p>
       <Image
-        src="/guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_7.png"
+        src={Image7}
         alt="Увидеть резервные коды"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
     </div>

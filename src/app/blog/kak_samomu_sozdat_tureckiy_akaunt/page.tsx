@@ -5,6 +5,17 @@ import GoBack from "../GoBack";
 import Image from "next/image";
 import { Metadata } from "next";
 
+import Image1 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/1.png";
+import Image2 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/2.png";
+import Image3 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/3.png";
+import Image4 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/4.png";
+import Image5 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/5.png";
+import Image6 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/6.png";
+import Image7 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/7.png";
+import Image8 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/8.png";
+import Image9 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/9.png";
+import Image10 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/10.png";
+
 export const metadata: Metadata = {
   title: "Как создать Турецкий PlayStation аккаунт",
   description: "Как самостоятельно создать Турецкий PlayStation аккаунт в 2023 для PS4/PS5 без VPN и не получить бан на аккаунт",
@@ -119,12 +130,13 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
             </li>
 
             <Image
-              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/1.png"
+              src={Image1}
               alt="Открыть сайт PlayStation"
               width={0}
               height={0}
               sizes="100vw"
               className="w-full h-auto"
+              placeholder="blur"
             />
           </ul>
           <ul>
@@ -134,12 +146,13 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
             </li>
 
             <Image
-              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/2.png"
+              src={Image2}
               alt="Нажать кнопку создать учетную запись"
               width={0}
               height={0}
               sizes="100vw"
               className="w-full lg:w-1/2 h-auto"
+              placeholder="blur"
             />
           </ul>
           <ul>
@@ -149,12 +162,13 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
             </li>
 
             <Image
-              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/3.png"
+              src={Image3}
               alt="Нажать кнопку создать"
               width={0}
               height={0}
               sizes="100vw"
               className="w-full lg:w-1/2 h-auto"
+              placeholder="blur"
             />
           </ul>
           <ul>
@@ -162,14 +176,7 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
               4. Выберите <strong>Turkey</strong> в качестве региона
             </li>
 
-            <Image
-              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/4.png"
-              alt="выбрать turkey"
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="w-full lg:w-1/2 h-auto"
-            />
+            <Image src={Image4} alt="выбрать turkey" width={0} height={0} sizes="100vw" className="w-full lg:w-1/2 h-auto" />
           </ul>
           <ul>
             <li className="mb-2 py-2 pt-10">
@@ -179,12 +186,13 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
             </li>
 
             <Image
-              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/5.png"
+              src={Image5}
               alt="выбрать дату рождения"
               width={0}
               height={0}
               sizes="100vw"
               className="w-full lg:w-1/2 h-auto"
+              placeholder="blur"
             />
           </ul>
           <ul>
@@ -193,12 +201,13 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
               ❗️ Рекомендуется использовать почту gmail, которая ранее не была зарегистрирована в PSN
             </li>
             <Image
-              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/6.png"
+              src={Image6}
               alt="Введите почту"
               width={0}
               height={0}
               sizes="100vw"
               className="w-full lg:w-1/2 h-auto"
+              placeholder="blur"
             />
           </ul>
           <ul>
@@ -210,12 +219,13 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
               После этого нажмите <strong> "Next"</strong> <br />
             </li>
             <Image
-              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/7.png"
+              src={Image7}
               alt="Указать город"
               width={0}
               height={0}
               sizes="100vw"
               className="w-full lg:w-1/2 h-auto"
+              placeholder="blur"
             />
           </ul>
           <ul>
@@ -224,12 +234,13 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
               После этого нажмите <strong> "Next"</strong> <br />
             </li>
             <Image
-              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/8.png"
+              src={Image8}
               alt="Выберите никнейм"
               width={0}
               height={0}
               sizes="100vw"
               className="w-full lg:w-1/2 h-auto"
+              placeholder="blur"
             />
           </ul>
           <ul>
@@ -237,12 +248,13 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
               9. На последнем этапе просто нажимаем на кнопку <strong>"Agree and Create Account"</strong>
             </li>
             <Image
-              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/9.png"
+              src={Image9}
               alt="Создать аккаунт"
               width={0}
               height={0}
               sizes="100vw"
               className="w-full lg:w-1/2 h-auto"
+              placeholder="blur"
             />
           </ul>
           <ul>
@@ -250,12 +262,13 @@ function KakSamomuSozdatTureckiyAkaunt({}) {
               <strong>ПОЗДРАВЛЯЕМ, ВАШ АККАУНТ СОЗДАН</strong>
             </li>
             <Image
-              src="/blog_data/kak_samomu_sozdat_tureckiy_akaunt/10.png"
+              src={Image10}
               alt="Создать аккаунт"
               width={0}
               height={0}
               sizes="100vw"
               className="w-full lg:w-1/2 h-auto"
+              placeholder="blur"
             />
           </ul>
         </div>

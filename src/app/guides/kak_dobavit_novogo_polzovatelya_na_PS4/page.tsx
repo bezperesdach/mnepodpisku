@@ -6,6 +6,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 
+import Image1 from "@/../public/guides_data/kak_dobavit_novogo_polzovatelya_na_PS4/add_ac_1.png";
+import Image2 from "@/../public/guides_data/kak_dobavit_novogo_polzovatelya_na_PS4/add_ac_2.png";
+
 export const metadata: Metadata = {
   title: "Как добавить нового пользователя на PS4?",
   description: "Как добавить нового пользователя на PS4?",
@@ -46,11 +49,12 @@ function page() {
       </p>
 
       <Image
-        src="/guides_data/kak_dobavit_novogo_polzovatelya_na_PS4/add_ac_1.png"
+        src={Image1}
         alt="Войти на сайт"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="mt-4 justify-center rounded-md w-full h-auto"
       />
 
@@ -60,11 +64,12 @@ function page() {
         После этого нажмите на кнопку <strong>Войти в сеть</strong>
       </p>
       <Image
-        src="/guides_data/kak_dobavit_novogo_polzovatelya_na_PS4/add_ac_2.png"
+        src={Image2}
         alt="Профиль"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md w-full h-auto"
       />
 

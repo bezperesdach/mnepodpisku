@@ -4,6 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 
+import Image1 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_1.png";
+import Image2 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_2.png";
+import Image3 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_3.png";
+import Image4 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_4.png";
+import Image5 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_5.png";
+import Image6 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_6.png";
+import Image7 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_7.png";
+import Image8 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_8.png";
+
 export const metadata: Metadata = {
   title: "Как отправить сообщение продавцу ВБ",
   description: "Как отправить сообщение продавцу ВБ через телефон",
@@ -33,13 +42,15 @@ function page() {
         </p>
       </div>
 
+      <p className="mt-4 border-2 border-warning p-2 rounded-lg">
+        <strong>ВНИМАНИЕ!</strong> Отправить сообщение продавцу можно только с сайта Wildberries, в приложении такого функционала нет!
+      </p>
+
       <p className="my-4">
         Для того чтобы отправить сообщение продавцу на Wildberries необходимо перейти на официальный сайт Wildberries <br />
         Убедитесь, что вы вошли под учетной записью, через которую была совершена покупка
       </p>
-      <p className="my-4">
-        <strong>ВНИМАНИЕ!</strong> Отправить сообщение продавцу можно только с сайта Wildberries, в приложении такого функционала нет!
-      </p>
+
       <a
         href="https://www.wildberries.ru/security/login?returnUrl=https%3A%2F%2Fwww.wildberries.ru%2Fsecurity%2Flogin%2F/"
         className="btn btn-outline mt-2"
@@ -50,11 +61,12 @@ function page() {
       </a>
 
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_1.png"
+        src={Image1}
         alt="Войти на сайт"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="mt-4 justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -63,11 +75,12 @@ function page() {
         <strong> &quout;Профиль&quout;</strong> который находится в правом нижнем углу
       </p>
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_2.png"
+        src={Image2}
         alt="Перейти в профиль"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -75,11 +88,12 @@ function page() {
         В открывшемся окне вам необходимо перейти в раздел <strong>&quout;Покупки&quout;</strong>
       </p>
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_3.png"
+        src={Image3}
         alt="Перейти в покупки"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -88,19 +102,21 @@ function page() {
         <strong>&quout;Чат с продавцом&quout;</strong>
       </p>
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_4.png"
+        src={Image4}
         alt="Три точки"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_5.png"
+        src={Image5}
         alt="Чат с продавцом"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="mt-4 justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -110,11 +126,12 @@ function page() {
         <strong>Обязательно отправьте данное сообщение</strong>
       </p>
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_6.png"
+        src={Image6}
         alt="Отправка сообщения от WB"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -123,11 +140,12 @@ function page() {
         который изображен на полученной карточке и состоит из 8 знаков
       </p>
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_7.png"
+        src={Image7}
         alt="Отправка кода активации"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -137,11 +155,12 @@ function page() {
         информацию.
       </p>
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_8.png"
+        src={Image8}
         alt="Как выглядит изображение"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
     </div>

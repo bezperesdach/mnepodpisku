@@ -5,6 +5,15 @@ import GoBack from "../GoBack";
 import Image from "next/image";
 import { Metadata } from "next";
 
+import Image1 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_1.png";
+import Image2 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_2.png";
+import Image3 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_3.png";
+import Image4 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_4.png";
+import Image5 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_5.png";
+import Image6 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_6.png";
+import Image7 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_7.png";
+import Image8 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_8.png";
+
 export const metadata: Metadata = {
   title: "Как отправить сообщение продавцу ВБ",
   description: "Как отправить сообщение продавцу ВБ через компьютер",
@@ -46,11 +55,12 @@ function page() {
         Войти на Wildberries под своей учетной записью
       </a>
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_1.png"
+        src={Image1}
         alt="Войти на сайт"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="mt-4 justify-center rounded-md w-full h-auto"
       />
 
@@ -59,19 +69,21 @@ function page() {
         <strong>"Профиль"</strong> и перейдите в <strong> "Покупки"</strong>
       </p>
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_2.png"
+        src={Image2}
         alt="Профиль"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md w-full h-auto"
       />
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_3.png"
+        src={Image3}
         alt="Покупки"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="mt-4 justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -80,19 +92,21 @@ function page() {
         Снизу от изображения товара вы найдете надпись <strong>"Чат с продавцом"</strong> - Вам необходимо перейти по данной кнопке
       </p>
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_4.png"
+        src={Image4}
         alt="Карточка товара"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md"
       />
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_5.png"
+        src={Image5}
         alt="Чат с продавцом"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="mt-6 justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -102,11 +116,12 @@ function page() {
         <strong>Обязательно отправьте данное сообщение</strong>
       </p>
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_6.png"
+        src={Image6}
         alt="Отправка сообщения от WB"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md w-full h-auto"
       />
 
@@ -115,11 +130,12 @@ function page() {
         который изображен на полученной карточке и состоит из 8 знаков
       </p>
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_7.png"
+        src={Image7}
         alt="Отправка кода активации"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md w-full h-auto"
       />
 
@@ -129,11 +145,12 @@ function page() {
         информацию.
       </p>
       <Image
-        src="/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_8.png"
+        src={Image8}
         alt="Как должны выглядеть сообщения"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md w-full h-auto"
       />
     </div>

@@ -1,8 +1,21 @@
+/* eslint-disable react/no-unescaped-entities */
 export const dynamic = "force-static";
 import GoBack from "../GoBack";
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
+
+import Image1 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_1.png";
+import Image2 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_2.png";
+import Image3 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_3.png";
+import Image4 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_4.png";
+import Image5 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_5.png";
+import Image6 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_6.png";
+import Image7 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_7.png";
+import Image8 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_8.png";
+import Image9 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_9.png";
+import Image10 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_10.png";
+import Image11 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_11.png";
 
 export const metadata: Metadata = {
   title: "Как включить 2FA на аккаунте PSN ",
@@ -48,22 +61,24 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_1.png"
+        src={Image1}
         alt="Войти на сайт"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md  w-full h-auto"
       />
 
       <p className="my-6">Нажмите на свой аватар</p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_2.png"
+        src={Image2}
         alt="Открыть меню"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md  w-full h-auto"
       />
 
@@ -72,11 +87,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_3.png"
+        src={Image3}
         alt="Перейти в Account Settings"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md  w-full h-auto"
       />
 
@@ -85,11 +101,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_4.png"
+        src={Image4}
         alt="Перейти в Security"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md  w-full h-auto"
       />
 
@@ -105,11 +122,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_5.png"
+        src={Image5}
         alt="Включить 2FA"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md  w-full h-auto"
       />
 
@@ -119,11 +137,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_6.png"
+        src={Image6}
         alt="Выбрать Authenticator App"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md  w-full h-auto"
       />
 
@@ -134,11 +153,12 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_7.png"
+        src={Image7}
         alt="Подтвердить пароль и установить приложение"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md  w-full h-auto"
       />
 
@@ -147,11 +167,61 @@ function Page() {
       </p>
 
       <Image
-        src="/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_8.png"
+        src={Image8}
         alt="Отсканировать QR-код или ввести резервный код"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
+        className="justify-center rounded-md  w-full h-auto"
+      />
+
+      <p className="my-6">
+        Вы почти у цели, коды на экране - это ваши <strong>резервные коды</strong>, вы можете их сфотографировать или куда-то записать,
+        каждый код можно использовать только один раз для входа в ваш аккаунт
+        <br />
+      </p>
+
+      <Image
+        src={Image9}
+        alt="Сохранение резервных кодов"
+        width={0}
+        height={0}
+        sizes="100vw"
+        placeholder="blur"
+        className="justify-center rounded-md  w-full h-auto"
+      />
+
+      <p className="my-6">
+        Теперь <strong>ОБЯЗАТЕЛЬНО нажмите</strong> на пустой квадрат рядом с надписью{" "}
+        <strong>"I saved these backup codes for future use"</strong> и нажмите кнопку <strong>OK</strong>
+      </p>
+
+      <Image
+        src={Image10}
+        alt="Нажать пустой квадрат и OK"
+        width={0}
+        height={0}
+        sizes="100vw"
+        placeholder="blur"
+        className="justify-center rounded-md  w-full h-auto"
+      />
+
+      <p className="my-6">
+        Если все было сделано успешно, то после нажатия кнопки <strong>OK</strong> вас перебросит на страницу входа в аккаунт
+        <br />
+        Выполнив вход используя код из приложения-аутентификатора вы попадете обратно на страницу включения 2FA
+        <br />
+        На этой странице справа от надписи <strong>Status</strong> вы увидите текст <strong>Active</strong>
+      </p>
+
+      <Image
+        src={Image11}
+        alt="Нажать пустой квадрат и OK"
+        width={0}
+        height={0}
+        sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md  w-full h-auto"
       />
 

@@ -6,6 +6,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 
+import ImageIcon from "@/../public/guides_data/kak_otpravit_chek_wb_prilozhenie/send_email_icon.png";
+import Image1 from "@/../public/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_1.png";
+import Image2 from "@/../public/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_2.png";
+import Image3 from "@/../public/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_3.png";
+import Image4 from "@/../public/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_4.png";
+import Image5 from "@/../public/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_5.png";
+import Image6 from "@/../public/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_6.png";
+
 export const metadata: Metadata = {
   title: "Как отправить чек ВБ через мобильное приложение",
   description: "Как отправить чек ВБ через мобильное приложение",
@@ -49,11 +57,12 @@ function page() {
         После успешного входа в аккаунт перейдите в раздел <strong>"Профиль"</strong>
       </p>
       <Image
-        src="/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_1.png"
+        src={Image1}
         alt="Открыть профиль"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -61,11 +70,12 @@ function page() {
         После этого Вам необходимо перейти в раздел <strong>"Финансы"</strong>
       </p>
       <Image
-        src="/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_2.png"
+        src={Image2}
         alt="Открыть раздел финансы"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -74,33 +84,28 @@ function page() {
       </p>
 
       <Image
-        src="/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_3.png"
+        src={Image3}
         alt="Открыть раздел финансы эл. чеки"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
       <div className="my-4 inline-flex items-center gap-2">
         <p>После найдите чек, в котором указана наша карточка и нажмите на значок</p>
-        <Image
-          src="/guides_data/kak_otpravit_chek_wb_prilozhenie/send_email_icon.png"
-          alt="Значок отправки чеки"
-          width={0}
-          height={0}
-          sizes="10vw"
-          className="w-9 h-9"
-        />
+        <Image src={ImageIcon} alt="Значок отправки чеки" width={0} height={0} sizes="10vw" className="w-9 h-9" />
       </div>
       <p className="my-4">
         Данный значок является кнопкой <strong>"Отправить на Email"</strong>
       </p>
       <Image
-        src="/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_4.png"
+        src={Image4}
         alt="Открыть раздел финансы эл. чеки"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
@@ -110,19 +115,21 @@ function page() {
         <br /> и нажмите <strong>"Отправить"</strong>
       </p>
       <Image
-        src="/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_5.png"
+        src={Image5}
         alt="Окно отправки чека"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
       <Image
-        src="/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_6.png"
+        src={Image6}
         alt="Успешная отправка чека"
         width={0}
         height={0}
         sizes="100vw"
+        placeholder="blur"
         className="mt-4 mb-10 justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
     </div>
