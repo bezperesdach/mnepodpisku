@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Купить подписку EA PLAY на PlayStation 2023",
     description: "Быстро и безопасно приобретите подписку EA PLAY для своего аккаунта PlayStation. Новые возможности ждут вас!",
     url: "/ps_ea_play",
-    images: ["/catalogue_icons/ea_play.png"],
+    images: ["/og_images/ps_ea_play.png"],
     type: "website",
   },
   alternates: {

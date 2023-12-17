@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description:
       "МнеПодписку: быстро, безопасно, выгодно! Получайте подписки на различные сервисы на ваш личный аккаунт или в виде промокода.",
     type: "website",
-    images: ["/og_images/main/main.png"],
+    images: ["/og_images/main.png"],
     url: "/",
   },
   alternates: {

@@ -14,7 +14,8 @@ export const metadata: Metadata = {
     title: "Купить подписку PS PLUS 2023",
     description: "Быстро и безопасно приобретите подписку PS PLUS для своего аккаунта PlayStation. Новые привилегии уже ждут вас!",
     url: "/ps_plus",
-    images: ["/catalogue_icons/ps_plus.png"],
+    images: ["/og_images/ps_plus.png"],
+
     type: "website",
   },
   alternates: {

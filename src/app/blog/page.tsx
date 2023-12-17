@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Блог сервиса МнеПодписку",
     description: "Исследуйте наш блог: все посты на одной странице. Узнавайте последние новости и интересные статьи в одном месте!",
     url: "/blog",
-    images: ["/og_images/blog/blog.png"],
+    images: ["/og_images/blog.png"],
   },
   alternates: {
     canonical: "/blog",

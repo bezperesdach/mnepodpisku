@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     title: "Инструкции",
     description: "Страница со всеми инструкциями",
     type: "website",
+    images: ["/og_images/guides.png"],
   },
   alternates: {
     canonical: "/guides",

@@ -23,7 +23,8 @@ export const metadata: Metadata = {
     description:
       "Быстрое и беззаботное пополнение турецкого аккаунта PlayStation в 2023 от проверенного продавца. Просто, выгодно и надежно!",
     url: "/playstation",
-    images: ["/catalogue_icons/playstation.png"],
+    images: ["/og_images/playstation.png"],
+
     type: "website",
   },
   alternates: {

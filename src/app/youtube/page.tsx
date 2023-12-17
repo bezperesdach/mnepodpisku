@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       "Быстро купить youtube premium на личный аккуант. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
     url: "/youtube",
-    images: ["/catalogue_icons/youtube.png"],
+    images: ["/og_images/youtube.png"],
     type: "website",
   },
   alternates: {
