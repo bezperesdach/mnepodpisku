@@ -82,11 +82,11 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
 
             // @ts-ignore: Clipboard.copy defined in root.tsx
             Clipboard.copy(
-              `${actionName(userData.type)}\nКОД АКТИВАЦИИ ${userData.code}\n${chequeSent ? "ЧЕК" : ""}${
-                chatMessageSent ? "СООБЩЕНИЕ" : ""
-              } НА СУММУ ${userData.price} - ${userData.priceDate}\nEMAIL - ${userData.email}\nПАРОЛЬ - ${
-                userData.password
-              }\nРЕЗЕРВНЫЙ КОД - ${userData.accessCode}`
+              `${actionName(userData.type)}\nКОД АКТИВАЦИИ ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}\n${
+                chequeSent ? "ЧЕК" : ""
+              }${chatMessageSent ? "СООБЩЕНИЕ" : ""} НА СУММУ ${userData.price} - ${userData.priceDate}\nEMAIL - ${userData.email}${
+                userData.password ? "\nПАРОЛЬ - " + userData.password : ""
+              }${userData.accessCode ? "\nРЕЗЕРВНЫЙ КОД - " + userData.accessCode : ""}`
             );
           }}
         >
