@@ -1,14 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 const defaultTheme = require("tailwindcss/defaultTheme");
 
-
 const config: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     screens: {
       xs: "320px",
@@ -40,13 +35,9 @@ const config: Config = {
       },
     ],
     darkTheme: "dark",
-   
-  
+
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
-    themeRoot: ":root",
-   
-    // rtl: "false",
   },
   plugins: [require("daisyui")],
-}
-export default config
+};
+export default config;

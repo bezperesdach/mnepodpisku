@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import cn from "@/utils/cn";
 import { AppContextProvider } from "@/components/AppContextWrapper/AppContextWrapper";
-import { cookies } from "next/headers";
+
 import Script from "next/script";
 
 const inter = Inter({ weight: ["100", "300", "400", "500", "700", "900"], subsets: ["cyrillic"] });
@@ -12,10 +12,20 @@ export const metadata: Metadata = {
   title: "МнеПодписку.рф",
   description: "Сервис оформления подписок на различные сервис. Безопасно, быстро, дешево.",
   metadataBase: new URL("https://mnepodpisku.ru"),
-  alternates: {
-    canonical: "/",
-  },
 };
+
+const setInitialTheme = `
+    function getUserPreference() {
+      if(window.localStorage.getItem('theme')) {
+        return window.localStorage.getItem('theme')
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+    }
+
+    document.documentElement.dataset.theme = getUserPreference();
+  `;
 
 const yandexMetrica = `
   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -33,18 +43,20 @@ const yandexMetrica = `
   `;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Get theme based on the cookie "theme".
-
-  // this line breaks redirects
-  const themeCookie = cookies().get("theme");
-  // If the cookie "theme" does not exist, set theme to the first index of Themes.
-  const currentTheme = themeCookie ? themeCookie.value : "light";
-
   return (
-    <html lang="ru" data-theme={currentTheme}>
+    <html lang="ru">
       <AppContextProvider>
-        <body className={cn(inter.className, "font-sans flex flex-col min-h-screen")}>{children}</body>
+        <body className={cn(inter.className, "font-sans flex flex-col min-h-screen")}>
+          <script
+            id="theme-switcher"
+            dangerouslySetInnerHTML={{
+              __html: setInitialTheme,
+            }}
+          />
+          {children}
+        </body>
       </AppContextProvider>
+
       <Script id="Yandex-Metrica" strategy="afterInteractive">
         {yandexMetrica}
       </Script>
