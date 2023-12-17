@@ -53,7 +53,7 @@ const SubscriptionsSelector = ({ changeValue }: Props) => {
 
   return (
     <div>
-      <h1 className="text-3xl lg:text-4xl font-bold text-center min-[1240px]:text-left mt-10">КУПИТЬ PS PLUS</h1>
+      <h1 className="text-3xl lg:text-4xl font-bold mt-10">КУПИТЬ PS PLUS</h1>
       <div className="flex flex-col mt-4">
         <div className="flex flex-col gap-2 lg:gap-0 lg:flex-row">
           <div

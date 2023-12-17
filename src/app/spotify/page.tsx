@@ -29,7 +29,7 @@ export default function PsEaPlay({ searchParams }: Props) {
   return (
     <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
-        <h1 className="text-3xl lg:text-4xl font-bold text-center min-[1240px]:text-left" id="heading">
+        <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
           КУПИТЬ ПОДПИСКУ НА SPOTIFY PREMIUM В РОССИИ
         </h1>
       </div>
