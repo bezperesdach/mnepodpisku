@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       "Быстрая онлайн-покупка подписки на Adobe Creative Cloud. Оплата картами МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и другими системами.",
     url: "/adobe_creative_cloud",
     images: ["/catalogue_icons/adobe_cc.png"],
+    type: "website",
   },
   alternates: {
     canonical: "/adobe_creative_cloud",

@@ -7,10 +7,10 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Как создать Турецкий PlayStation аккаунт",
-  description: "Как самостоятельно создать Турецкий PlayStation аккаунт 2023 без VPN и не получить бан",
+  description: "Как самостоятельно создать Турецкий PlayStation аккаунт в 2023 для PS4/PS5 без VPN и не получить бан на аккаунт",
   openGraph: {
     title: "Как создать Турецкий PlayStation аккаунт 2023",
-    description: "Как самостоятельно создать Турецкий PlayStation аккаунт 2023 без VPN и не получить бан",
+    description: "Как самостоятельно создать Турецкий PlayStation аккаунт в 2023 для PS4/PS5 без VPN и не получить бан на аккаунт",
     url: "/blog/kak_samomu_sozdat_tureckiy_akaunt",
     images: ["/catalogue_icons/playstation.png"],
     type: "article",
