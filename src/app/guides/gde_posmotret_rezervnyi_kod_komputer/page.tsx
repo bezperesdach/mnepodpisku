@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Где найти резервный код от 2FA для PSN аккаунта?",
     description: "Где найти резервный код от 2FA для PSN аккаунта?",
+    url: "/guides/gde_posmotret_rezervnyi_kod_komputer",
+    images: ["/og_images/gde_posmotret_rezervnyi_kod/rezervnie_kodi_komputer.png"],
   },
   alternates: {
     canonical: "/guides/gde_posmotret_rezervnyi_kod_komputer",

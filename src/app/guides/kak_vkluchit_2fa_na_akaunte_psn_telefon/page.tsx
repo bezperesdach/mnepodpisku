@@ -28,6 +28,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Как включить 2FA на аккаунте PSN",
     description: "Как включить 2FA на аккаунте PSN через телефон",
+    url: "/guides/kak_vkluchit_2fa_na_akaunte_psn_komputer",
+    images: ["/og_images/kak_vkluchit_2fa_na_akaunte_psn/2FA_telefon.png"],
   },
   alternates: {
     canonical: "/guides/kak_vkluchit_2fa_na_akaunte_psn_telefon",

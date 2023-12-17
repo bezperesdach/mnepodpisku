@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Как отправить сообщение продавцу ВБ",
     description: "Как отправить сообщение продавцу ВБ через компьютер",
+    url: "/guides/kak_otrpavit_soobshenie_prodavcu_wb_komputer",
+    images: ["/og_images/kak_otrpavit_soobshenie_prodavcu_wb/kak_otrpavit_soobshenie_prodavcu_wb_komputer.png"],
   },
   alternates: {
     canonical: "/guides/kak_otrpavit_soobshenie_prodavcu_wb_komputer",

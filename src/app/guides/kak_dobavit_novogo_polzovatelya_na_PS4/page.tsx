@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Как добавить нового пользователя на PS4?",
     description: "Как добавить нового пользователя на PS4?",
+    url: "/guides/kak_dobavit_novogo_polzovatelya_na_PS4",
+    images: ["/og_images/kak_dobavit_novogo_polzovatelya_na_PS4.png"],
   },
   alternates: {
     canonical: "/guides/kak_dobavit_novogo_polzovatelya_na_PS4",

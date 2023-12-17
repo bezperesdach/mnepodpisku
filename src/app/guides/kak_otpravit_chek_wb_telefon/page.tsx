@@ -20,9 +20,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Как отправить чек ВБ через телефон",
     description: "Как отправить чек ВБ через телефон",
+    url: "/guides/kak_otpravit_chek_wb_telefon",
+    images: ["/og_images/kak_otpravit_chek_wb/kak_otpravit_chek_wb_telefon.png"],
   },
   alternates: {
-    canonical: "/guides/kak_otpravit_chek_wb",
+    canonical: "/guides/kak_otpravit_chek_wb_telefon",
   },
 };
 

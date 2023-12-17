@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Как отправить чек ВБ",
     description: "Как отправить чек ВБ",
+    url: "/guides/kak_otpravit_chek_wb",
+    images: ["/og_images/kak_otpravit_chek_wb/kak_otpravit_chek_wb.png"],
   },
   alternates: {
     canonical: "/guides/kak_otpravit_chek_wb",
