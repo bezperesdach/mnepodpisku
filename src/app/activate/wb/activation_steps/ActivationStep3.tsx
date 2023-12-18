@@ -70,6 +70,10 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
           setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может быть больше 8 символов" }));
         }
 
+        if (value.indexOf(" ") !== -1) {
+          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Код не может содержать пробелов" }));
+        }
+
         if (value.length < 4) {
           setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может быть меньше 4 символов" }));
         }

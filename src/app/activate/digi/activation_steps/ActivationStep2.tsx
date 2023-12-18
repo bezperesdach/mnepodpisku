@@ -59,6 +59,8 @@ const ActivationStep2: React.FC<Props> = ({ email, password, accessCode, onChang
           setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может быть больше 8 символов" }));
         } else if (value.length < 4) {
           setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может быть меньше 4 символов" }));
+        } else if (value.indexOf(" ") !== -1) {
+          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Код не может содержать пробелов" }));
         } else {
           setErrors((prevErrors) => ({ ...prevErrors, accessCode: "" }));
         }
