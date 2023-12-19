@@ -37,3 +37,4 @@ next-env.d.ts
 
 #ignore generated og images
 /public/og_images_generated
+/dist
