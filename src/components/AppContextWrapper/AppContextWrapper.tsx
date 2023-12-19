@@ -1,5 +1,6 @@
 "use client";
 
+import { ym } from "@/utils/ym";
 import React, { Dispatch, createContext, useEffect, useReducer } from "react";
 
 type StateType = {
@@ -33,8 +34,13 @@ const reducer = (state: StateType, action: ActionType) => {
   switch (action.type) {
     case "toggle_mobile_menu":
       return { ...state, showMobileMenu: !state.showMobileMenu };
-    case "toggle_catalogue":
+    case "toggle_catalogue": {
+      if (!state.showCatalogue) {
+        ym("reachGoal", "openCatalogue");
+      }
       return { ...state, showCatalogue: !state.showCatalogue };
+    }
+
     case "change_payment_link":
       return { ...state, paymentLink: action.payload };
     case "set_theme":

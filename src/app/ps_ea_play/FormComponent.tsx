@@ -7,6 +7,7 @@ import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
 import { getPsEaPlayPrice } from "@/serverActions/calculatePriceActions";
 import { getPsEaPlayPaymentLink } from "@/serverActions/createPaymentUrls";
 import cn from "@/utils/cn";
+import { ym } from "@/utils/ym";
 import { LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
@@ -30,6 +31,7 @@ export default function FormComponent({ receivedDuration }: Props) {
     initialValues: { duration: receivedDuration ?? "1month" },
     onSubmit: async (values) => {
       formik.setSubmitting(true);
+      ym("reachGoal", "psEaPlayRequest");
 
       const res = await getPsEaPlayPaymentLink(values.duration);
 

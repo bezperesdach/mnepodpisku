@@ -7,6 +7,7 @@ import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
 import { getXboxPrice } from "@/serverActions/calculatePriceActions";
 import { getXboxPaymentLink } from "@/serverActions/createPaymentUrls";
 import cn from "@/utils/cn";
+import { ym } from "@/utils/ym";
 import { LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
@@ -31,6 +32,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
     initialValues: { duration: receivedDuration ?? "1month", subscriptionType: receivedSubscriptionType ?? "ultimate" },
     onSubmit: async (values) => {
       formik.setSubmitting(true);
+      ym("reachGoal", "xboxRequest");
 
       const res = await getXboxPaymentLink(values);
 

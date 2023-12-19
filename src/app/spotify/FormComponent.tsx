@@ -7,6 +7,7 @@ import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
 import { getSpotifyPrice } from "@/serverActions/calculatePriceActions";
 import { getSpotifyPaymentLink } from "@/serverActions/createPaymentUrls";
 import cn from "@/utils/cn";
+import { ym } from "@/utils/ym";
 import { LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
@@ -46,6 +47,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
     initialValues: { duration: receivedDuration ?? "1month", subscriptionType: receivedSubscriptionType ?? "individual" },
     onSubmit: async (values) => {
       formik.setSubmitting(true);
+      ym("reachGoal", "spotifyRequest");
 
       const res = await getSpotifyPaymentLink(values);
 

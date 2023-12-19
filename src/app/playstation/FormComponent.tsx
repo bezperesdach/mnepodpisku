@@ -10,6 +10,7 @@ import TextInput from "@/components/TextInput/TextInput";
 import { getPsnBalancePrice } from "@/serverActions/calculatePriceActions";
 import { getPsnBalancePaymentLink } from "@/serverActions/createPaymentUrls";
 import cn from "@/utils/cn";
+import { ym } from "@/utils/ym";
 import { HashIcon, LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
@@ -44,6 +45,7 @@ export default function FormComponent({ receivedAmount }: Props) {
     validationSchema: TopUpSchema,
     onSubmit: async (values) => {
       formik.setSubmitting(true);
+      ym("reachGoal", "playstationRequest");
 
       const res = await getPsnBalancePaymentLink(Number(values.amount));
       dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });

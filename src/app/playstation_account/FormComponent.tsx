@@ -6,6 +6,7 @@ import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import { getPsnAccountPrice } from "@/serverActions/calculatePriceActions";
 import { getPsnAccountPaymentLink } from "@/serverActions/createPaymentUrls";
 import cn from "@/utils/cn";
+import { ym } from "@/utils/ym";
 import { LockIcon } from "@primer/octicons-react";
 import { useContext, useEffect, useState } from "react";
 
@@ -30,6 +31,7 @@ export default function FormComponent() {
 
   const generatePaymentLink = async () => {
     setIsSubmitting(true);
+    ym("reachGoal", "playstationAccountRequest");
     const res = await getPsnAccountPaymentLink();
     dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
   };
