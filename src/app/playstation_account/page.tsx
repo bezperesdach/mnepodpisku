@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description:
       "Узнайте, как получить турецкий аккаунт PlayStation! Предлагаем профессиональную помощь и инструкции по регистрации. Купите услугу прямо сейчас!",
     url: "/playstation_account",
-    images: ["/og_images/playstation_account.png"],
+    images: ["/og_images_catalogue/playstation_account.png"],
 
     type: "website",
   },

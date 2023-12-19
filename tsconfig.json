@@ -1,4 +1,29 @@
 {
+  "ts-node": {
+    "compilerOptions": {
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+      ],
+      "jsx": "react-jsx",
+      "module": "commonjs",
+      "isolatedModules": false,
+      "skipLibCheck": true,
+      "paths": {
+        "@/*": [
+          "./src/*"
+        ]
+      },
+      "strict": false,
+    },
+    "exclude": [
+      "node_modules"
+    ],
+    "require": [
+      "tsconfig-paths/register"
+    ]
+  },
   "compilerOptions": {
     "target": "es5",
     "lib": [

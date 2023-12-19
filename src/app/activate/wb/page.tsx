@@ -1,4 +1,5 @@
 export const dynamic = "force-static";
+
 import { Metadata } from "next";
 import WbActivate from "./WbClient";
 
@@ -8,13 +9,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Активация",
     description: "Страница активации услуги",
+    images: "og_images_generated/activate/wb/og_image.png",
+    url: "/activate/wb",
   },
   alternates: {
     canonical: "/activate/wb",
   },
 };
 
-function Page() {
+async function Page() {
   return <WbActivate />;
 }
 

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "Как добавить нового пользователя на PS5?",
     description: "Как добавить нового пользователя на PS5?",
     url: "/guides/kak_dobavit_novogo_polzovatelya_na_PS5",
-    images: ["/og_images/kak_dobavit_novogo_polzovatelya_na_PS5.png"],
+    images: ["/og_images_generated/guides/kak_dobavit_novogo_polzovatelya_na_PS5/og_image.png"],
   },
   alternates: {
     canonical: "/guides/kak_dobavit_novogo_polzovatelya_na_PS5",

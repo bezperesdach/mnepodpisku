@@ -18,16 +18,16 @@ import Image10 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_kom
 import Image11 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_komputer/pc_image_11.png";
 
 export const metadata: Metadata = {
-  title: "Как включить 2FA на аккаунте PSN ",
+  title: "Как включить 2FA на аккаунте PSN через компьютер",
   description: "Как включить 2FA на аккаунте PSN через компьютер",
   openGraph: {
-    title: "Как включить 2FA на аккаунте PSN",
+    title: "Как включить 2FA на аккаунте PSN через компьютер",
     description: "Как включить 2FA на аккаунте PSN через компьютер",
-    url: "/guides/kak_vkluchit_2fa_na_akaunte_psn_telefon",
-    images: ["/og_images/kak_vkluchit_2fa_na_akaunte_psn/2FA_komputer.png"],
+    url: "/guides/kak_vkluchit_2fa_na_akaunte_psn_komputer",
+    images: ["/og_images_generated/guides/kak_vkluchit_2fa_na_akaunte_psn_komputer/og_image.png"],
   },
   alternates: {
-    canonical: "/guides/kak_vkluchit_2fa_na_akaunte_psn_telefon",
+    canonical: "/guides/kak_vkluchit_2fa_na_akaunte_psn_komputer",
   },
 };
 

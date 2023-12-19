@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Как отправить чек ВБ",
     description: "Как отправить чек ВБ",
     url: "/guides/kak_otpravit_chek_wb",
-    images: ["/og_images/kak_otpravit_chek_wb/kak_otpravit_chek_wb.png"],
+    images: ["/og_images_generated/guides/kak_otpravit_chek_wb/og_image.png"],
   },
   alternates: {
     canonical: "/guides/kak_otpravit_chek_wb",

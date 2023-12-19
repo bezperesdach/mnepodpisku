@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Блог сервиса МнеПодписку",
     description: "Исследуйте наш блог: все посты на одной странице. Узнавайте последние новости и интересные статьи в одном месте!",
+    images: ["/og_images_generated/blog/og_image.png"],
     url: "/blog",
-    images: ["/og_images/blog.png"],
   },
   alternates: {
     canonical: "/blog",

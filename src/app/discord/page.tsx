@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       "Купить Discord Nitro на личный аккаунт. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
     url: "/discord",
-    images: ["/og_images/discord.png"],
+    images: ["/og_images_catalogue/discord.png"],
     type: "website",
   },
   alternates: {

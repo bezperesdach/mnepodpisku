@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Где посмотреть резервный код аккаунта PSN",
     description: "Где посмотреть резервный код аккаунта PSN",
     url: "/guides/gde_posmotret_rezervnyi_kod",
-    images: ["/og_images/gde_posmotret_rezervnyi_kod/rezervnie_kodi.png"],
+    images: ["/og_images_generated/guides/gde_posmotret_rezervnyi_kod/og_image.png"],
   },
   alternates: {
     canonical: "/guides/gde_posmotret_rezervnyi_kod",

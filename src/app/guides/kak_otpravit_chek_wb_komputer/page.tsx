@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Как отправить чек ВБ с компьютера",
     description: "Как отправить чек ВБ с компьютера",
-    url: "/guides/kak_otpravit_chek_komputer_wb",
-    images: ["/og_images/kak_otpravit_chek_wb/kak_otpravit_chek_wb_komputer.png"],
+    url: "/guides/kak_otpravit_chek_wb_komputer",
+    images: ["/og_images_generated/guides/kak_otpravit_chek_wb_komputer/og_image.png"],
   },
   alternates: {
     canonical: "/guides/kak_otpravit_chek_wb_komputer",

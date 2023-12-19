@@ -15,13 +15,13 @@ import Image7 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_
 import Image8 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_8.png";
 
 export const metadata: Metadata = {
-  title: "Как отправить сообщение продавцу ВБ",
+  title: "Как отправить сообщение продавцу ВБ через компьютер",
   description: "Как отправить сообщение продавцу ВБ через компьютер",
   openGraph: {
-    title: "Как отправить сообщение продавцу ВБ",
+    title: "Как отправить сообщение продавцу ВБ через компьютер",
     description: "Как отправить сообщение продавцу ВБ через компьютер",
     url: "/guides/kak_otrpavit_soobshenie_prodavcu_wb_komputer",
-    images: ["/og_images/kak_otrpavit_soobshenie_prodavcu_wb/kak_otrpavit_soobshenie_prodavcu_wb_komputer.png"],
+    images: ["/og_images_generated/guides/kak_otrpavit_soobshenie_prodavcu_wb_komputer/og_image.png"],
   },
   alternates: {
     canonical: "/guides/kak_otrpavit_soobshenie_prodavcu_wb_komputer",

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Как отправить чек ВБ через телефон",
     description: "Как отправить чек ВБ через телефон",
     url: "/guides/kak_otpravit_chek_wb_telefon",
-    images: ["/og_images/kak_otpravit_chek_wb/kak_otpravit_chek_wb_telefon.png"],
+    images: ["/og_images_generated/guides/kak_otpravit_chek_wb_telefon/og_image.png"],
   },
   alternates: {
     canonical: "/guides/kak_otpravit_chek_wb_telefon",

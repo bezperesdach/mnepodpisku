@@ -1,5 +1,5 @@
 export const dynamic = "force-static";
-import React from "react";
+
 import HeroChoose from "@/components/HeroChoose/HeroChoose";
 import Faq from "@/components/Faq/Faq";
 import Question from "@/components/Faq/Question";
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description:
       "МнеПодписку: быстро, безопасно, выгодно! Получайте подписки на различные сервисы на ваш личный аккаунт или в виде промокода.",
     type: "website",
-    images: ["/og_images/main.png"],
+    images: ["/og_images_generated/og_image.png"],
     url: "/",
   },
   alternates: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">

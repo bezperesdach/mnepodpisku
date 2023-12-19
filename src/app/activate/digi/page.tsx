@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Активация",
     description: "Страница активации услуги",
+    images: ["/og_images_generated/activate/digi/og_image.png"],
+    url: "/activate/digi",
   },
   alternates: {
     canonical: "/activate/digi",

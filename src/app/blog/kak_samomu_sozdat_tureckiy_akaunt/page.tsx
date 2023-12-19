@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 /* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import React from "react";
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     title: "Как создать Турецкий PlayStation аккаунт 2023",
     description: "Как самостоятельно создать Турецкий PlayStation аккаунт в 2023 для PS4/PS5 без VPN и не получить бан на аккаунт",
     url: "/blog/kak_samomu_sozdat_tureckiy_akaunt",
-    images: ["/catalogue_icons/playstation.png"],
+    images: ["/og_images_generated/blog/kak_samomu_sozdat_tureckiy_akaunt/og_image.png"],
     type: "article",
   },
   alternates: {
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
   },
 };
 
-function KakSamomuSozdatTureckiyAkaunt({}) {
+async function KakSamomuSozdatTureckiyAkaunt({}) {
   return (
     <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-10">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">

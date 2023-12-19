@@ -13,13 +13,13 @@ import Image4 from "@/../public/guides_data/gde_posmotret_rezervnyi_kod_komputer
 import Image5 from "@/../public/guides_data/gde_posmotret_rezervnyi_kod_komputer/2fa_5.png";
 
 export const metadata: Metadata = {
-  title: "Где найти резервный код от 2FA для PSN аккаунта?",
-  description: "Где найти резервный код от 2FA для PSN аккаунта?",
+  title: "Где найти резервный код от 2FA для PSN аккаунта на компьютере?",
+  description: "Где найти резервный код от 2FA для PSN аккаунта на компьютере?",
   openGraph: {
-    title: "Где найти резервный код от 2FA для PSN аккаунта?",
-    description: "Где найти резервный код от 2FA для PSN аккаунта?",
+    title: "Где найти резервный код от 2FA для PSN аккаунта на компьютере?",
+    description: "Где найти резервный код от 2FA для PSN аккаунта на компьютере?",
     url: "/guides/gde_posmotret_rezervnyi_kod_komputer",
-    images: ["/og_images/gde_posmotret_rezervnyi_kod/rezervnie_kodi_komputer.png"],
+    images: ["/og_images_generated/guides/gde_posmotret_rezervnyi_kod_komputer/og_image.png"],
   },
   alternates: {
     canonical: "/guides/gde_posmotret_rezervnyi_kod_komputer",
