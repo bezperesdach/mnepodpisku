@@ -1,14 +1,3 @@
-// require('esbuild').buildSync({
-// 	entryPoints: ['src/utils/generateOgImages/generateOgImages.tsx'],
-// 	platform: 'node',
-// 	bundle: true,
-// 	minify: true,
-// 	loader: { ".png": "dataurl", ".tsx": "tsx" },
-// 	external: ["@resvg/resvg-js"],
-// 	jsx: "automatic",
-// 	outfile: '/dist/out.js',
-// })
-
 const esbuild = require('esbuild');
 
 const build = async () => {
@@ -21,7 +10,7 @@ const build = async () => {
 			loader: { ".png": "dataurl", ".tsx": "tsx" },
 			external: ["@resvg/resvg-js"],
 			jsx: "automatic",
-			outfile: '/dist/out.js',
+			outfile: 'dist/out.js',
 		});
 		console.log(result);
 	} catch (err) {
