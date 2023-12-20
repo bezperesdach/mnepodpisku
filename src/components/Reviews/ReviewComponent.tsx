@@ -59,24 +59,24 @@ function ReviewComponent({ item }: Props) {
         </button>
       )}
 
-      <div className="flex flex-nowrap gap-y-2 justify-between">
-        <div className="flex gap-1 bg-base-100 rounded-md items-center py-1 px-3">
+      <a
+        className="flex flex-nowrap gap-y-2 justify-between"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={item.platform === "WB" ? "https://www.wildberries.ru/seller/820694" : "https://vk.com/topic-221413404_49184185"}
+      >
+        <div className="flex gap-1 items-center py-1 px-3">
           <PersonFillIcon />
 
           <p className="font-semibold">{item.name}</p>
         </div>
-        <a
-          className="flex gap-2 bg-base-100 rounded-md items-center py-1 px-3 cursor-pointer"
-          target="_blank"
-          rel="noopener noreferrer"
-          href={item.platform === "WB" ? "https://www.wildberries.ru/seller/820694" : "https://vk.com/topic-221413404_49184185"}
-        >
+        <div className="flex gap-2 items-center py-1 px-3 cursor-pointer">
           {item.rating && item.rating > 3 && <ThumbsupIcon className=" text-green-400" />}
           {item.rating && item.rating <= 3 && <ThumbsdownIcon className=" text-red-400" />}
 
           <PlatformComponent platform={item.platform} />
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
   );
 }
