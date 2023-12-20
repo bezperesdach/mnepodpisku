@@ -1,4 +1,4 @@
-export const YANDEX_METRIKA_ID = process.env.PUBLIC_YANDEX_METRIKA_ID!;
+export const YANDEX_METRIKA_ID = process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID!;
 
 export const ym = (goal: string, goalName: string) => {
   if (process.env.NODE_ENV === "development") {
