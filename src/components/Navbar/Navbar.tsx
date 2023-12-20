@@ -249,9 +249,9 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
         <div className="flex-none gap-4 md:text-lg font-medium items-center hidden lg:flex ">
           <button onClick={() => dispatch({ type: "toggle_catalogue" })}>Каталог</button>
 
-          <a href="https://vk.com/topic-221413404_49184185" target="_blank" rel="noopener noreferrer">
+          {/* <a href="https://vk.com/topic-221413404_49184185" target="_blank" rel="noopener noreferrer">
             Отзывы
-          </a>
+          </a> */}
           <a href="https://oplata.info/info/" target="_blank" rel="noopener noreferrer">
             Мои покупки
           </a>

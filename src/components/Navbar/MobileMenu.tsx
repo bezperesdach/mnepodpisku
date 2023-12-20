@@ -52,7 +52,7 @@ const MobileMenu = ({ dropdownDirection = "bottom" }: Props) => {
           </button>
         </li>
 
-        <li>
+        {/* <li>
           <a
             className="hover:text-secondary"
             onClick={() => dispatch({ type: "toggle_mobile_menu" })}
@@ -62,7 +62,7 @@ const MobileMenu = ({ dropdownDirection = "bottom" }: Props) => {
           >
             Отзывы
           </a>
-        </li>
+        </li> */}
 
         <li>
           <a

@@ -52,9 +52,9 @@ const Footer = () => {
                 <Link href="/guides">Инструкции</Link>
               </div>
               <div className="flex flex-col justify-start items-start gap-1">
-                <a href="https://vk.com/topic-221413404_49184185" target="_blank" rel="noopener noreferrer">
+                {/* <a href="https://vk.com/topic-221413404_49184185" target="_blank" rel="noopener noreferrer">
                   Отзывы
-                </a>
+                </a> */}
                 <a href="https://oplata.info/info/" target="_blank" rel="noopener noreferrer">
                   Мои покупки
                 </a>
