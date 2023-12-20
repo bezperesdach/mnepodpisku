@@ -22,6 +22,7 @@ import { metadata as kak_otrpavit_soobshenie_prodavcu_wb_telefon } from "@/app/g
 import { metadata as kak_vkluchit_2fa_na_akaunte_psn } from "@/app/guides/kak_vkluchit_2fa_na_akaunte_psn/page";
 import { metadata as kak_vkluchit_2fa_na_akaunte_psn_komputer } from "@/app/guides/kak_vkluchit_2fa_na_akaunte_psn_komputer/page";
 import { metadata as kak_vkluchit_2fa_na_akaunte_psn_telefon } from "@/app/guides/kak_vkluchit_2fa_na_akaunte_psn_telefon/page";
+import { metadata as get_discount } from "@/app/get_discount/page";
 
 type Page = {
   path?: string | URL;
@@ -109,6 +110,10 @@ const pages: Page[] = [
   {
     path: kak_vkluchit_2fa_na_akaunte_psn_telefon.openGraph?.url,
     text: kak_vkluchit_2fa_na_akaunte_psn_telefon.openGraph?.title,
+  },
+  {
+    path: get_discount.openGraph?.url,
+    text: get_discount.openGraph?.title,
   },
 ];
 
