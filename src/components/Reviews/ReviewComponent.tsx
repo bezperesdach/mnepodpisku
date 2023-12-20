@@ -61,9 +61,8 @@ function ReviewComponent({ item }: Props) {
 
       <div className="flex flex-nowrap gap-y-2 justify-between">
         <div className="flex gap-1 bg-base-100 rounded-md items-center py-1 px-3">
-          <div className="justify-center items-center rounded-md">
-            <PersonFillIcon />
-          </div>
+          <PersonFillIcon />
+
           <p className="font-semibold">{item.name}</p>
         </div>
         <a
