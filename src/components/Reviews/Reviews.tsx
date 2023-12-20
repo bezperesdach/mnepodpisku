@@ -490,7 +490,7 @@ function Reviews() {
 
       {width !== 0 ? (
         <CarouselProvider
-          interval={3000}
+          interval={6000}
           isPlaying={true}
           touchEnabled={false}
           dragEnabled={false}
