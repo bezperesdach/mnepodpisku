@@ -6,6 +6,7 @@ import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isSearchParamValid } from "@/utils/utils";
+import Reviews from "@/components/Reviews/Reviews";
 
 export const metadata: Metadata = {
   title: "Купить Spotify Premium 2023",
@@ -66,6 +67,8 @@ export default function PsEaPlay({ searchParams }: Props) {
           thirdText="Получите EA Play на ваш Турецкий аккаунт"
         />
       </div>
+
+      <Reviews />
 
       <Faq>
         <Question title="Нужен ли турецкий аккаунт Spotify?" open>

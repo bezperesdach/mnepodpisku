@@ -4,6 +4,7 @@ import HeroChoose from "@/components/HeroChoose/HeroChoose";
 import Faq from "@/components/Faq/Faq";
 import Question from "@/components/Faq/Question";
 import { Metadata } from "next";
+import Reviews from "@/components/Reviews/Reviews";
 
 export const metadata: Metadata = {
   title: "Приобретай подписки выгодно и быстро!",
@@ -40,6 +41,7 @@ export default async function Home() {
       </div>
 
       <HeroChoose />
+      <Reviews />
       <Faq>
         <Question title="Как происходит получение нужной подписки?">
           <p>

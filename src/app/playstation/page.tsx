@@ -9,6 +9,7 @@ import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isAmountValid } from "@/utils/utils";
+import Reviews from "@/components/Reviews/Reviews";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -72,6 +73,8 @@ export default function Playstation({ searchParams }: Props) {
           thirdText="Получите деньги на аккаунт playstation"
         />
       </div>
+
+      <Reviews />
 
       <Faq>
         <Question title="Пополнение кошелька PlayStation в Турции: Как происходит пополнение?" open>
@@ -138,6 +141,7 @@ export default function Playstation({ searchParams }: Props) {
           </p>
         </Question>
       </Faq>
+
       <InstructionsSection>
         <Instruction name="Как включить 2FA на аккаунте PSN?" file="kak_vkluchit_2fa_na_akaunte_psn" />
         <Instruction name="Где найти резервные коды аккаунта PSN?" file="gde_posmotret_rezervnyi_kod" />

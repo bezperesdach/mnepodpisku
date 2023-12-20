@@ -8,6 +8,7 @@ import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import Link from "next/link";
+import Reviews from "@/components/Reviews/Reviews";
 
 export const metadata: Metadata = {
   title: "Cоздание турецкого аккаунта playstation",
@@ -51,6 +52,8 @@ export default function PlayStationAccount() {
           thirdText="Получите турецкий аккаунт"
         />
       </div>
+
+      <Reviews />
 
       <Faq>
         <Question title="Как происходит регистрация турецкого аккаунта Playstation?" open>

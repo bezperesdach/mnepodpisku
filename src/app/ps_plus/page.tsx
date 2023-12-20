@@ -6,6 +6,7 @@ import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isSearchParamValid } from "@/utils/utils";
+import Reviews from "@/components/Reviews/Reviews";
 
 export const metadata: Metadata = {
   title: "Купить подписку PS PLUS 2023",
@@ -70,6 +71,8 @@ export default function PlayStationAccount({ searchParams }: Props) {
           thirdText="Получите PS PLUS на ваш Турецкий аккаунт"
         />
       </div>
+
+      <Reviews />
 
       <Faq>
         <Question title="Как происходит приобретение PS PLUS на мой аккаунт?" open>

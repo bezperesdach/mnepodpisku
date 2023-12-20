@@ -57,3 +57,16 @@ export function isDateDifferenceGreaterThanOneDay(dateString: string) {
   // Return true if the difference is more than 1 day, otherwise false
   return differenceInDays > 1;
 }
+
+export function shuffle(originalArray: any[]) {
+  // Create a copy of the original array to avoid modifying it directly
+  let shuffledArray = originalArray.slice();
+
+  // Fisher-Yates (aka Knuth) Shuffle
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+
+  return shuffledArray;
+}

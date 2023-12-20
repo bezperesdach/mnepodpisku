@@ -6,6 +6,7 @@ import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isSearchParamValid } from "@/utils/utils";
+import Reviews from "@/components/Reviews/Reviews";
 
 export const metadata: Metadata = {
   title: "Подписка XBOX GAME PASS",
@@ -58,6 +59,8 @@ export default function PsEaPlay({ searchParams }: Props) {
           thirdText="Получите подписку XBOX GAME PASS"
         />
       </div>
+
+      <Reviews />
 
       <Faq>
         <Question title="Безопасно ли такое приобретение подписки?" open>

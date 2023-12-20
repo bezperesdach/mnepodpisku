@@ -6,6 +6,7 @@ import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isSearchParamValid } from "@/utils/utils";
+import Reviews from "@/components/Reviews/Reviews";
 
 export const metadata: Metadata = {
   title: "Купить подписку Tinder 2023 Россия",
@@ -61,6 +62,8 @@ export default function PsEaPlay({ searchParams }: Props) {
           thirdText="Получите промокод для самостоятельной активации"
         />
       </div>
+
+      <Reviews />
 
       <Faq>
         <Question title="Работает ли Tinder в России?" open>
