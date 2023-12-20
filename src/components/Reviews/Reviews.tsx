@@ -459,10 +459,6 @@ function Reviews() {
   // Current width of element
   const { width } = useWindowSize();
 
-  useEffect(() => {
-    console.log(width);
-  }, [width]);
-
   const visibleItemsCalculate = (width: number) => {
     if (width > 1020) {
       return 3;
