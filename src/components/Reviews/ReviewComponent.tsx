@@ -23,7 +23,7 @@ type Props = {
     name: string;
     platform: "VK" | "WB";
     review: string;
-    rating: number;
+    rating?: number;
   };
 };
 
@@ -71,9 +71,8 @@ function ReviewComponent({ item }: Props) {
           rel="noopener noreferrer"
           href={item.platform === "WB" ? "https://www.wildberries.ru/seller/820694" : "https://vk.com/topic-221413404_49184185"}
         >
-          <div className="flex gap-2 items-center">
-            {item.rating > 3 ? <ThumbsupIcon className=" text-green-400" /> : <ThumbsdownIcon className=" text-red-400" />}
-          </div>
+          {item.rating && item.rating > 3 && <ThumbsupIcon className=" text-green-400" />}
+          {item.rating && item.rating <= 3 && <ThumbsdownIcon className=" text-red-400" />}
 
           <PlatformComponent platform={item.platform} />
         </a>
