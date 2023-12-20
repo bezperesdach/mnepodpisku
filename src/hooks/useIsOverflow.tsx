@@ -12,7 +12,7 @@ export const useIsOverflow = (ref: MutableRefObject<any>, { callback }: UseIsOve
     const { current } = ref;
 
     const trigger = () => {
-      const hasOverflow = current.scrollHeight > current.clientHeight;
+      const hasOverflow = current.scrollHeight - 8 > current.clientHeight;
 
       setIsOverflow(hasOverflow);
 

@@ -43,9 +43,9 @@ function ReviewComponent({ item }: Props) {
         { "max-h-[999px]": showMore }
       )}
     >
-      <div className="flex flex-1 justify-center items-center">
+      <div className={cn("flex flex-1 justify-center px-2 rounded-md mb-6 bg-base-100 items-center", { "mb-0": isOverflow })}>
         <p
-          className={cn("text-center bg-base-100 p-2 rounded-md max-h-[148px] overflow-hidden", {
+          className={cn("text-center max-h-[132px] overflow-hidden text-sm md:text-base", {
             "overflow-auto max-h-[999px]": showMore,
           })}
           ref={reviewRef}
