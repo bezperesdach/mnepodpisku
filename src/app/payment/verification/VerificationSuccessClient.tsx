@@ -1,8 +1,7 @@
 "use client";
 
+import LeaveVkReview from "@/components/LeaveVkReview/LeaveVkReview";
 import cn from "@/utils/cn";
-import { ym } from "@/utils/ym";
-import { CopyIcon } from "@primer/octicons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -23,29 +22,28 @@ function VerificationSuccessClient({ code }: Props) {
 
   return (
     <div className="flex flex-col justify-start items-center">
-      <a
-        className="flex flex-col w-full justify-center items-center mt-6 lg:mt-10 shadow-lg rounded-xl p-8 bg-secondary mb-4 "
-        href="https://vk.com/topic-221413404_49184185"
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => {
-          ym("reachGoal", "leaveVkReview");
-        }}
-      >
-        <p className="text-2xl font-bold text-white text-center">Оставь отзыв в ВК</p>
-        <p className="text-xl mt-2 text-white text-center">Получи скидку на следующую покупку!</p>
-        <div className="btn mt-4">ОСТАВИТЬ ОТЗЫВ</div>
-      </a>
+      <LeaveVkReview />
       <h1 className="text-4xl font-bold mt-6 lg:mt-4  text-center">Благодарим за покупку!</h1>
       <p className="text-lg max-w-2xl text-center mt-1">
-        Мы успешно проверили вашу оплата! Скором мы с вами свяжемся и активируем приобретенный вами товар!
+        Мы успешно проверили вашу оплата! Отправьте нам сообщение ниже в любой удобный для вас мессенджер!
       </p>
-      <div className="relative flex w-full py-2 items-center max-w-2xl px-2 lg:px-24">
-        <div className="flex-grow border-t border-base-content/30 border-dashed"></div>
-        <span className="flex-shrink mx-4 text-base-content/80 ">или</span>
-        <div className="flex-grow border-t border-base-content/30 border-dashed "></div>
-      </div>
-      <div className="flex gap-4 mt-2">
+      <p className="flex gap-2 justify-between items-center p-3 mt-2 mb-4 bg-base-300 rounded-md cursor-pointer">
+        Мой код активации - {code}
+      </p>
+      <button
+        className={cn("btn btn-primary", {
+          "pointer-events-none": !canCopyCode,
+        })}
+        onClick={() => {
+          copyCode();
+
+          // @ts-ignore: Clipboard.copy defined in root.tsx
+          Clipboard.copy(`Мой код активации - ${code}`);
+        }}
+      >
+        {canCopyCode ? `НАЖМИТЕ, ЧТОБЫ СКОПИРОВАТЬ` : "СКОПИРОВАНО"}
+      </button>
+      <div className="flex gap-4 mt-6">
         <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
           <Image src="/socials_icons/vk_compact.png" alt="vk" width={48} height={48} />
         </a>
@@ -58,23 +56,8 @@ function VerificationSuccessClient({ code }: Props) {
           <Image src="/socials_icons/whatsapp_icon.png" alt="whatsapp" width={48} height={48} />
         </a>
       </div>
-      <p className="text-center mt-2">Свяжитесь с нами самостоятельно написав нам:</p>
-      <button
-        className={cn("flex gap-2 justify-between items-center p-3 mt-2 mb-4 bg-base-300 rounded-md cursor-pointer", {
-          "pointer-events-none": !canCopyCode,
-        })}
-        onClick={() => {
-          copyCode();
 
-          // @ts-ignore: Clipboard.copy defined in root.tsx
-          Clipboard.copy(`Мой код активации - ${code}`);
-        }}
-      >
-        {canCopyCode ? `Мой код активации - ${code}` : "Скопировано"}
-        <CopyIcon />
-      </button>
-
-      <Link className="btn btn-secondary text-white mt-4 mb-12" href="/">
+      <Link className="btn btn-secondary text-white mt-12 mb-12" href="/">
         На главную
       </Link>
     </div>
