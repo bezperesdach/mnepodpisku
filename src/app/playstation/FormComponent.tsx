@@ -19,6 +19,7 @@ import * as Yup from "yup";
 
 type Props = {
   receivedAmount?: string;
+  ip: string | null;
 };
 
 const TopUpSchema = Yup.object().shape({
@@ -30,7 +31,7 @@ const TopUpSchema = Yup.object().shape({
     .test("Кратное 10", "Сумма должна быть кратна 10", (value) => value % 10 === 0),
 });
 
-export default function FormComponent({ receivedAmount }: Props) {
+export default function FormComponent({ receivedAmount, ip }: Props) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -47,7 +48,7 @@ export default function FormComponent({ receivedAmount }: Props) {
       formik.setSubmitting(true);
       ym("reachGoal", "playstationRequest");
 
-      const res = await getPsnBalancePaymentLink(Number(values.amount));
+      const res = await getPsnBalancePaymentLink(Number(values.amount), ip);
       dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
       formik.setSubmitting(false);
     },

@@ -1,6 +1,8 @@
 "use server";
 
-export async function getPsnBalancePaymentLink(amount: number) {
+export async function getPsnBalancePaymentLink(amount: number, ip: string | null) {
+  console.log(ip);
+
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
     method: "POST",
     headers: {
@@ -10,10 +12,12 @@ export async function getPsnBalancePaymentLink(amount: number) {
       product_id: process.env.DIGISELLER_PSN_BASE_ID,
       unit_cnt: amount,
       lang: "ru-RU",
-      ip: "127.0.0.1",
+      ip: ip ?? "127.0.0.1",
     }),
   });
   const { id_po } = await paramsRes.json();
+
+  console.log(id_po);
 
   const paymentUrl = new URL("https://oplata.info/asp2/pay_rk.asp");
 

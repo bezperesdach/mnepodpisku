@@ -10,6 +10,7 @@ import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingT
 import { Metadata } from "next";
 import { isAmountValid } from "@/utils/utils";
 import Reviews from "@/components/Reviews/Reviews";
+import { headers } from "next/headers";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -34,6 +35,8 @@ export const metadata: Metadata = {
 };
 
 export default function Playstation({ searchParams }: Props) {
+  const ip = headers().get("x-forwarded-for");
+
   return (
     <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
@@ -51,7 +54,7 @@ export default function Playstation({ searchParams }: Props) {
         </div>
       </div>
 
-      <FormComponent receivedAmount={isAmountValid(searchParams["amount"])} />
+      <FormComponent receivedAmount={isAmountValid(searchParams["amount"])} ip={ip} />
 
       <div className="mt-10">
         <h2 className="text-xl lg:text-2xl font-bold" id="description">
