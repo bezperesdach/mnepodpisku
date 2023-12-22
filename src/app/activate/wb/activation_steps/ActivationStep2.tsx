@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import cn from "@/utils/cn";
 import TextInput from "@/components/TextInput/TextInput";
+import { CopyIcon } from "@primer/octicons-react";
 
 type Props = {
   userData: {
@@ -42,6 +43,14 @@ const ActivationStep2 = ({
 }: Props) => {
   const [noCheque, setNoCheque] = useState(false);
   const [inputError, setInputError] = useState("");
+  const [canCopyCode, setCanCopyCode] = useState(true);
+
+  const copyCode = () => {
+    setCanCopyCode(false);
+    setTimeout(() => {
+      setCanCopyCode(true);
+    }, 1000);
+  };
 
   useEffect(() => {
     changeTitle("Подтверждение покупки");
@@ -96,8 +105,22 @@ const ActivationStep2 = ({
           <div className="flex flex-col justify-start items-center gap-2 w-full">
             <p className="text-lg text-center">
               Отправьте сообщение <span className="font-bold">через Wildberries</span> в <strong>чат с продавцом</strong> по инструкции
-              ниже
+              ниже, заранее скопируйте свой код активации, он понадобится дальше
             </p>
+            <div className="flex gap-2 p-1 bg-base-300 items-center justify-center rounded-md ">
+              <p>{canCopyCode ? `Код активации - ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}` : "Скопировано"}</p>
+              <button
+                className="flex justify-center items-center p-2 bg-base-100 rounded-md"
+                onClick={() => {
+                  copyCode();
+
+                  // @ts-ignore: Clipboard.copy defined in root.tsx
+                  Clipboard.copy(`Код активации - ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}`);
+                }}
+              >
+                <CopyIcon />
+              </button>
+            </div>
             <div className="flex flex-col gap-3">
               <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otrpavit_soobshenie_prodavcu_wb">
                 Как отправить сообщение продавцу?
@@ -153,9 +176,9 @@ const ActivationStep2 = ({
         <>
           <div className="flex flex-col justify-start items-center gap-2 w-full">
             <p className="text-lg">
-              Отправьте чек <span className="font-bold">СТРОГО</span> по инструкции ниже
+              Отправьте чек <span className="font-bold text-warning">СТРОГО ПО ИНСТРУКЦИИ</span> ниже
             </p>
-            <p className="text-sm">Скриншоты, пдф файлы или сообщения с личной почты не принимаем</p>
+
             <div className="flex flex-col gap-3">
               <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otpravit_chek_wb">
                 Как отправить чек?
@@ -197,8 +220,8 @@ const ActivationStep2 = ({
                 hidden: !chequeSent,
               })}
             >
-              При ошибочном или намеренном несоблюдении инструкций мы оставляем за собой право в переносе активации на установленный
-              нами срок и/или отказе в активации
+              Скриншоты, пдф файлы или сообщения с личной почты не принимаем. При ошибочном или намеренном несоблюдении инструкций мы
+              оставляем за собой право в переносе активации на установленный нами срок и/или отказе в активации
             </p>
           </div>
           {!chequeSent && (
