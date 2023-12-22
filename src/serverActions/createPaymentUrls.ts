@@ -1,7 +1,13 @@
 "use server";
 
 export async function getPsnBalancePaymentLink(amount: number, ip: string | null) {
-  console.log(ip);
+  let singleIp = null;
+  if (ip !== null) {
+    if (ip.indexOf(",") !== -1) {
+      singleIp = ip.split(",")[0];
+    }
+  }
+  console.log(singleIp);
 
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
     method: "POST",
@@ -12,7 +18,7 @@ export async function getPsnBalancePaymentLink(amount: number, ip: string | null
       product_id: process.env.DIGISELLER_PSN_BASE_ID,
       unit_cnt: amount,
       lang: "ru-RU",
-      ip: ip ?? "127.0.0.1",
+      ip: singleIp ?? "127.0.0.1",
     }),
   });
   const { id_po } = await paramsRes.json();
