@@ -2,7 +2,6 @@
 
 import { useReducer } from "react";
 import { Metadata } from "next";
-import { XIcon } from "@primer/octicons-react";
 import ActivationStep1 from "./activation_steps/ActivationStep1";
 import ActivationStep2 from "./activation_steps/ActivationStep2";
 import ActivationStep3 from "./activation_steps/ActivationStep3";
@@ -106,9 +105,10 @@ function DigiClient({ activationCode, activationName }: Props) {
     <div className="flex flex-col items-center w-full max-w-[1240px] mx-auto px-2 sm:px-4 mb-8">
       <div className="w-full border-2 border-secondary rounded-xl max-w-2xl mt-6">
         <div className="flex justify-between items-center gap-2 px-2 lg:px-6 py-4 w-full border-b-2 border-secondary mb-6">
-          <div className="w-12 h-auto">{state.activationStep !== 3 && <p>{state.activationStep + 1}/3</p>}</div>
+          <div className="w-12 h-auto font-bold text-lg lg:text-3xl">
+            <p>{state.activationStep + 1}/3</p>
+          </div>
           <p className="text-lg lg:text-3xl font-bold text-center">{state.title}</p>
-          <XIcon className="w-12 h-auto" />
         </div>
         <>
           {state.activationStep === 0 && (
