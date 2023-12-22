@@ -5,6 +5,7 @@ import cn from "@/utils/cn";
 import { AppContextProvider } from "@/components/AppContextWrapper/AppContextWrapper";
 
 import Script from "next/script";
+import WeAreOnBrakerBanner from "@/components/WeAreOnBrakeBanner/WeAreOnBrakerBanner";
 
 const inter = Inter({ weight: ["100", "300", "400", "500", "700", "900"], subsets: ["cyrillic"] });
 
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               __html: setInitialTheme,
             }}
           />
+          <WeAreOnBrakerBanner />
           {children}
         </body>
       </AppContextProvider>
