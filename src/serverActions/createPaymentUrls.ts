@@ -7,7 +7,6 @@ export async function getPsnBalancePaymentLink(amount: number, ip: string | null
       singleIp = ip.split(",")[0];
     }
   }
-  console.log(singleIp);
 
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
     method: "POST",
@@ -22,8 +21,6 @@ export async function getPsnBalancePaymentLink(amount: number, ip: string | null
     }),
   });
   const { id_po } = await paramsRes.json();
-
-  console.log(id_po);
 
   const paymentUrl = new URL("https://oplata.info/asp2/pay_rk.asp");
 
