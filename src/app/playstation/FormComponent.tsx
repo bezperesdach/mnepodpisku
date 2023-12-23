@@ -160,9 +160,9 @@ export default function FormComponent({ receivedAmount, ip }: Props) {
         </div>
       </form>
       <div className="flex flex-col gap-1 mt-10">
-        <p className="font-bold text-xl lg:text-2xl">Хочешь купить PS PLUS или EA PLAY подписку на свой аккаунт?</p>
+        <p className="font-bold text-xl lg:text-2xl">Хотите купить PS PLUS или EA PLAY подписку на свой аккаунт?</p>
         <p>
-          Для приобретения подписки PS PLUS или EA PLAY на свой аккаунт, воспользуйтесь{" "}
+          Для приобретения подписки PS PLUS или EA PLAY на свой аккаунт, нажмите на{" "}
           <button className="underline text-secondary" onClick={() => dispatch({ type: "toggle_catalogue" })}>
             каталогом
           </button>
