@@ -97,11 +97,23 @@ export async function GET() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${process.env.VK_SERVICE_KEY}`,
         },
-        next: { revalidate: 60 * 60 * 24 * 2 },
+        next: { revalidate: 60 * 60 * 24 * 3 },
       }
     );
 
+    if (commentsVk.status !== 200) {
+      return new Response("vk request response is not 200", {
+        status: 500,
+      });
+    }
+
     const result: VkResponse = (await commentsVk.json()).response;
+
+    if (result === undefined || result.items === undefined || result.profiles === undefined) {
+      return new Response("undefined vk result", {
+        status: 500,
+      });
+    }
 
     const comments = result.items.filter((item) => item.from_id !== -221413404);
     const reviewsVk = result.profiles.map((item) => {
@@ -117,11 +129,25 @@ export async function GET() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${process.env.WB_GET_REVIEWS_TOKEN}`,
         },
-        next: { revalidate: 60 * 60 * 24 * 2 },
+        next: { revalidate: 60 * 60 * 24 * 3 },
       }
     );
 
-    const wbRes: WbResponse[] = (await wbRequestReviews.json()).data.feedbacks;
+    if (wbRequestReviews.status !== 200) {
+      return new Response("wb request response is not 200", {
+        status: 500,
+      });
+    }
+
+    const res = await wbRequestReviews.json();
+
+    if (res.data === undefined || res.data.feedbacks === undefined) {
+      return new Response("wb request undefined", {
+        status: 500,
+      });
+    }
+
+    const wbRes: WbResponse[] = res.data.feedbacks;
 
     const filteredReviewsWb = wbRes.filter((item) => item.text);
     const finalReviewsWb = filteredReviewsWb.map((item) => {
@@ -136,7 +162,7 @@ export async function GET() {
     return Response.json(combineAndShuffleArrays(reviewsVk, finalReviewsWb));
   } catch (err) {
     console.log("error in api/reviews/get_reviews/", err);
-    return new Response("Error", {
+    return new Response("Unexpected error", {
       status: 500,
     });
   }
