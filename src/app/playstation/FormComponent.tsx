@@ -5,7 +5,6 @@ import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
 import DiscountMeter from "@/components/DiscountMeter/DiscountMeter";
 import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
 import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
-import SubscriptionsSelector from "@/components/SubscriptionsSelector/SubscriptionsSelector";
 import TextInput from "@/components/TextInput/TextInput";
 import { getPsnBalancePrice } from "@/serverActions/calculatePriceActions";
 import { getPsnBalancePaymentLink } from "@/serverActions/createPaymentUrls";
@@ -160,7 +159,15 @@ export default function FormComponent({ receivedAmount, ip }: Props) {
           </div>
         </div>
       </form>
-      <SubscriptionsSelector changeValue={(value) => formik.setFieldValue("amount", value)} />
+      <div className="flex flex-col gap-1 mt-10">
+        <p className="font-bold text-xl lg:text-2xl">Хочешь купить PS PLUS или EA PLAY подписку на свой аккаунт?</p>
+        <p>
+          Для приобретения подписки PS PLUS или EA PLAY на свой аккаунт, воспользуйтесь{" "}
+          <button className="underline text-secondary" onClick={() => dispatch({ type: "toggle_catalogue" })}>
+            каталогом
+          </button>
+        </p>
+      </div>
     </>
   );
 }
