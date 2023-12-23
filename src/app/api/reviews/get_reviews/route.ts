@@ -116,9 +116,15 @@ export async function GET() {
     }
 
     const comments = result.items.filter((item) => item.from_id !== -221413404);
+
     const reviewsVk = result.profiles.map((item) => {
       const comment = comments.find((item_comment) => item_comment.from_id === item.id);
-      return { review: comment?.text, name: item.first_name, platform: "VK" };
+      return {
+        review: comment?.text,
+        name: item.first_name,
+        platform: "VK",
+        link: `https://vk.com/topic-221413404_49184185?post=${comment!.id}`,
+      };
     });
 
     const wbRequestReviews = await fetch(
@@ -156,6 +162,7 @@ export async function GET() {
         name: item.userName !== "" ? item.userName : "Покупатель",
         platform: "WB",
         rating: item.productValuation,
+        link: `https://www.wildberries.ru/catalog/${item.productDetails.nmId}/feedbacks?imtId=${item.productDetails.imtId}&size=${item.productDetails.size}#${item.id}`,
       };
     });
 

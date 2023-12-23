@@ -15,6 +15,7 @@ type Review = {
   platform: "VK" | "WB";
   review: string;
   rating?: number;
+  link: string;
 };
 
 const fetcher = (url: string | URL | Request) => fetch(url).then<Review[]>((r) => r.json());

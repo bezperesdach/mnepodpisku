@@ -24,6 +24,7 @@ type Props = {
     platform: "VK" | "WB";
     review: string;
     rating?: number;
+    link: string;
   };
 };
 
@@ -63,7 +64,8 @@ function ReviewComponent({ item }: Props) {
         className="flex flex-nowrap gap-y-2 justify-between"
         target="_blank"
         rel="noopener noreferrer"
-        href={item.platform === "WB" ? "https://www.wildberries.ru/seller/820694" : "https://vk.com/topic-221413404_49184185"}
+        // href={item.platform === "WB" ? "https://www.wildberries.ru/seller/820694" : "https://vk.com/topic-221413404_49184185"}
+        href={item.link}
       >
         <div className="flex gap-1 items-center py-1 px-3">
           <PersonFillIcon />
