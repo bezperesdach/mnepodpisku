@@ -71,11 +71,19 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
         }
 
         if (value.indexOf(" ") !== -1) {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Код не может содержать пробелов" }));
+          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный не может содержать пробелов" }));
         }
 
         if (value.length < 4) {
           setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может быть меньше 4 символов" }));
+        }
+
+        if (/[а-яА-Я]/.test(value)) {
+          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может содержать русских букв" }));
+        }
+
+        if (/^\d+$/.test(value)) {
+          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может состоять только из цифр" }));
         }
 
         onChange("accessCode", value);
@@ -185,7 +193,8 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
           <TextInput
             maxWidth
             label="Резервный код"
-            toolTip="Доступен при включенном 2FA. Обычно состоит из 6 символов. Пример - xsJsU1. Найти можно по инструкции выше"
+            placeholder="Например, FQ9aLc"
+            toolTip="Доступен при включенном 2FA. Обычно состоит из 6 символов. Пример - FQ9aLc. Найти можно по инструкции выше"
             value={userData.accessCode}
             onChange={validateInput}
             name="accessCode"

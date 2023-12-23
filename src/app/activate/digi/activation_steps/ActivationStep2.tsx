@@ -60,7 +60,11 @@ const ActivationStep2: React.FC<Props> = ({ email, password, accessCode, onChang
         } else if (value.length < 4) {
           setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может быть меньше 4 символов" }));
         } else if (value.indexOf(" ") !== -1) {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Код не может содержать пробелов" }));
+          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может содержать пробелов" }));
+        } else if (/[а-яА-Я]/.test(value)) {
+          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может содержать русских букв" }));
+        } else if (/^\d+$/.test(value)) {
+          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может состоять только из цифр" }));
         } else {
           setErrors((prevErrors) => ({ ...prevErrors, accessCode: "" }));
         }
@@ -146,6 +150,7 @@ const ActivationStep2: React.FC<Props> = ({ email, password, accessCode, onChang
         <TextInput
           maxWidth
           label="Резервный код"
+          placeholder="Например, FQ9aLc"
           value={accessCode}
           onChange={validateInput}
           name="accessCode"
