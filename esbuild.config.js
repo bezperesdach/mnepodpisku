@@ -8,7 +8,7 @@ const build = async () => {
 			bundle: true,
 			minify: true,
 			loader: { ".png": "dataurl", ".tsx": "tsx" },
-			external: ["@resvg/resvg-js"],
+			external: ["@resvg/resvg-js", "swr"],
 			jsx: "automatic",
 			outfile: 'dist/out.js',
 		});
