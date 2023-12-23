@@ -136,6 +136,8 @@ export async function GET() {
     return Response.json(combineAndShuffleArrays(reviewsVk, finalReviewsWb));
   } catch (err) {
     console.log("error in api/reviews/get_reviews/", err);
-    return Response;
+    return new Response("Error", {
+      status: 500,
+    });
   }
 }
