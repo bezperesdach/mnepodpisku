@@ -53,7 +53,7 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
         <p>Ваше сообщение активации готово</p>
         <div className="bg-base-200 p-4 rounded-lg">
           <p>{actionName(userData.type)}</p>
-          <p>КОД АКТИВАЦИИ ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}</p>
+          <p>КОД АКТИВАЦИИ {userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}</p>
           {chequeSent && (
             <p>
               ЧЕК НА {userData.price} - {userData.priceDate}
