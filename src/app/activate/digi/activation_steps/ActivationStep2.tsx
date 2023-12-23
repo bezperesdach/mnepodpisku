@@ -65,6 +65,8 @@ const ActivationStep2: React.FC<Props> = ({ email, password, accessCode, onChang
           setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может содержать русских букв" }));
         } else if (/^\d+$/.test(value)) {
           setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может состоять только из цифр" }));
+        } else if (value === "FQ9aLc") {
+          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может совпадать с примером" }));
         } else {
           setErrors((prevErrors) => ({ ...prevErrors, accessCode: "" }));
         }

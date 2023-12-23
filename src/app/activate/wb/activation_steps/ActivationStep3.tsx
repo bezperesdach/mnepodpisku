@@ -86,6 +86,10 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
           setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может состоять только из цифр" }));
         }
 
+        if (value === "FQ9aLc") {
+          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может совпадать с примером" }));
+        }
+
         onChange("accessCode", value);
         break;
     }
