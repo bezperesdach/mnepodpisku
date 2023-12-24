@@ -16,7 +16,9 @@ export const metadata: Metadata = {
 };
 
 function Page() {
-  return <RedirectBasedOnDevice mobileUrl="/guides/kak_otpravit_chek_wb_telefon" desktopUrl="/guides/kak_otpravit_chek_wb_komputer" />;
+  return (
+    <RedirectBasedOnDevice mobileUrl="/guides/kak_otpravit_chek_wb_prilozhenie" desktopUrl="/guides/kak_otpravit_chek_wb_komputer" />
+  );
 }
 
 export default Page;
