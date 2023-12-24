@@ -6,6 +6,7 @@ import ActivationStep1 from "./activation_steps/ActivationStep1";
 import ActivationStep2 from "./activation_steps/ActivationStep2";
 import ActivationStep3 from "./activation_steps/ActivationStep3";
 import { ActivationTypes } from "@/utils/activationUtils";
+import cn from "@/utils/cn";
 
 export const metadata: Metadata = {
   title: "Активация",
@@ -150,8 +151,11 @@ function DigiClient({ activationCode, activationName }: Props) {
           ) : (
             <div />
           )}
-          {state.activationStep !== totalSteps - 1 && state.allowedToNextStage ? (
-            <button className="btn btn-primary text-white" onClick={() => dispatch({ type: "increase_activation_step" })}>
+          {state.activationStep !== totalSteps - 1 ? (
+            <button
+              className={cn("btn btn-primary text-white", { "btn-disabled ": !state.allowedToNextStage })}
+              onClick={() => dispatch({ type: "increase_activation_step" })}
+            >
               Далее
             </button>
           ) : (
