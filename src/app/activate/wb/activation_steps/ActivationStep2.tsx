@@ -175,7 +175,7 @@ const ActivationStep2 = ({
       ) : (
         <>
           <div className="flex flex-col justify-start items-center gap-2 w-full">
-            <p className="text-lg">
+            <p className="text-lg text-center">
               Отправьте чек <span className="font-bold text-warning">СТРОГО ПО ИНСТРУКЦИИ</span> ниже
             </p>
 

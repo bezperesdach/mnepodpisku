@@ -94,7 +94,9 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
         </button>
       </div>
       <div className="flex flex-col justify-start items-center gap-2 w-full mt-8">
-        <p>Вышлите данное сообщение удобным для вас способом</p>
+        <p className="text-center">
+          Вышлите данное сообщение <strong className="text-warning font-bold">ТЕКСТОМ</strong> удобным для вас способом
+        </p>
         <div className="flex gap-4 mt-2 mb-2">
           <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
             <Image width={48} height={48} src="/socials_icons/vk_compact.png" alt="Вк лого" />
