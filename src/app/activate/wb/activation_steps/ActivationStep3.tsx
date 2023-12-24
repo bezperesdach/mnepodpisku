@@ -130,7 +130,7 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
     <div className="flex flex-col justify-between items-center px-6 py-2 w-full min-h-[320px]">
       {userData.type === "" && (
         <div className="flex flex-col flex-1 justify-evenly items-center gap-2 w-full h-full">
-          <p>Выберите какую услугу вы хотите активировать</p>
+          <p className="text-center">Выберите какую услугу вы хотите активировать</p>
           <button className="btn btn-primary text-white" onClick={() => onChange("type", "пополнение")}>
             ПОПОЛНЕНИЕ КОШЕЛЬКА
           </button>
@@ -144,7 +144,7 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
       )}
       {(userData.type === "пополнение" || userData.type === "игра") && (
         <div className="flex flex-col justify-start items-center gap-2 w-full">
-          <p>Введите данные своего PlayStation аккаунта</p>
+          <p className="text-center">Введите данные своего PlayStation аккаунта</p>
           <div className="flex flex-wrap justify-center items-center gap-2">
             <a
               className="btn btn-secondary text-white my-2"
@@ -214,9 +214,10 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
       )}
       {userData.type === "аккаунт" && (
         <div className="flex flex-col justify-start items-center gap-2 w-full">
-          <p>
-            Введите Email на который <span className="font-bold">НЕ ЗАРЕГИСТРИРОВАН</span> аккаунт PlayStation
+          <p className="text-center">
+            Введите Email на который <span className="font-bold text-warning">НЕ ЗАРЕГИСТРИРОВАН</span> аккаунт PlayStation
           </p>
+          <p className="text-center">На нее будет зарегистрирован новый Турецкий аккаунт PlayStation!</p>
 
           <TextInput
             maxWidth
