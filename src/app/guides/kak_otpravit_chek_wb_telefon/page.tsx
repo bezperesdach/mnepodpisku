@@ -33,7 +33,7 @@ function page() {
     <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
       <GoBack />
       <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
-        Как отправить чек ВБ через телефон?
+        Как отправить чек ВБ через телефон и сайт?
       </h1>
 
       <div role="tablist" className="tabs tabs-boxed mt-4">
