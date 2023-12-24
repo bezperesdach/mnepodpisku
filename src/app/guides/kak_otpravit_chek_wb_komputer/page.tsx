@@ -41,11 +41,11 @@ function page() {
         </p>
 
         <Link role="tab" className="tab" href="/guides/kak_otpravit_chek_wb_prilozhenie">
-          Моб. Приложение
+          Приложение
         </Link>
 
         <Link role="tab" className="tab" href="/guides/kak_otpravit_chek_wb_telefon">
-          Телефон
+          Моб. Сайт
         </Link>
       </div>
 
