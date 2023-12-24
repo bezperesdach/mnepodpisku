@@ -19,6 +19,7 @@ import psplusImg from "../../../public/catalogue_icons/ps_plus.png";
 import eaplayImg from "../../../public/catalogue_icons/ea_play.png";
 import youtubeImg from "../../../public/catalogue_icons/youtube.png";
 import adobeccImage from "../../../public/catalogue_icons/adobe_cc.png";
+import na_chai from "../../../public/catalogue_icons/na_chai.png";
 
 export const catalogueItems = {
   spotify: {
@@ -167,7 +168,7 @@ export const catalogueItems = {
         <Image
           className="w-auto h-full"
           src={eaplayImg}
-          alt="Ps Ea play логотип"
+          alt="Ps ea play логотип"
           fill
           style={{ objectFit: "contain" }}
           sizes="20vw"
@@ -206,6 +207,25 @@ export const catalogueItems = {
           className="w-auto h-full"
           src={adobeccImage}
           alt="Adobe Creative Cloud логотип"
+          fill
+          style={{ objectFit: "contain" }}
+          sizes="20vw"
+          priority
+        />
+      </div>
+    ),
+  },
+  na_chai: {
+    name: "На чай",
+    foregroundColor: "#2450aa",
+    backgroundColor: "#fff",
+    hoverColor: "hover:text-[#1D4088]",
+    logo: (
+      <div className="relative w-12 h-12 flex justify-center items-center">
+        <Image
+          className="w-auto h-full"
+          src={na_chai}
+          alt="На чай логотип"
           fill
           style={{ objectFit: "contain" }}
           sizes="20vw"

@@ -1,4 +1,4 @@
-export const activationTypesNames = ["ps_ea_play", "ps_plus", "psn_balance", "psn_account"] as const;
+export const activationTypesNames = ["ps_ea_play", "ps_plus", "psn_balance", "psn_account", "na_chai"] as const;
 
 export const activationTypes: Record<ActivationTypes, string> = activationTypesNames.reduce((acc, command) => {
   acc[command] = command;

@@ -7,6 +7,7 @@ import PsPlusClient from "../PsPlusClient";
 import VerificationNotFound from "../VerificationNotFound";
 import VerificationSuccessClient from "../VerificationSuccessClient";
 import PsnAccountClient from "../PsnAccountClient";
+import NaChaiClient from "../NaChaiClient";
 
 type Props = {
   params: { slug: string };
@@ -40,6 +41,8 @@ async function Page({ searchParams, params }: Props) {
       return <PsPlusClient code={uniquecode.code} />;
     case "ps_ea_play":
       return <PsPlusClient code={uniquecode.code} />;
+    case "na_chai":
+      return <NaChaiClient />;
   }
 }
 
