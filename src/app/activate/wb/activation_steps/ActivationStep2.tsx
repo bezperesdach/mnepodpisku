@@ -196,6 +196,15 @@ const ActivationStep2 = ({
               </label>
             </div>
 
+            <p
+              className={cn("text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2", {
+                hidden: !chequeSent,
+              })}
+            >
+              <strong>СКРИНШОТЫ, ПДФ ФАЙЛЫ ИЛИ СООБЩЕНИЯ С ЛИЧНОЙ ПОЧТЫ НЕ ПРИНИМАЕМ.</strong> При ошибочном или намеренном несоблюдении
+              инструкций мы оставляем за собой право в переносе активации на установленный нами срок и/или отказе в активации
+            </p>
+
             <TextInput
               maxWidth
               label="Укажите сумму чека"
@@ -215,14 +224,6 @@ const ActivationStep2 = ({
               autoCapitalize="off"
               error={inputError}
             />
-            <p
-              className={cn("text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2", {
-                hidden: !chequeSent,
-              })}
-            >
-              Скриншоты, пдф файлы или сообщения с личной почты не принимаем. При ошибочном или намеренном несоблюдении инструкций мы
-              оставляем за собой право в переносе активации на установленный нами срок и/или отказе в активации
-            </p>
           </div>
           {!chequeSent && (
             <button className="text-secondary underline" onClick={() => setNoCheque(!noCheque)}>
