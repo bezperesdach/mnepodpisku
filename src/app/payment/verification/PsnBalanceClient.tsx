@@ -23,7 +23,7 @@ function PsnBalanceClient({ code }: Props) {
         className="btn btn-secondary text-white mt-2"
         href={`/activate/digi?uniquecode=${code}&name=${activationTypes.psn_balance}`}
       >
-        Открыть инструкцию
+        Получить лиры
       </Link>
 
       <Link className="btn btn-secondary text-white mt-10 mb-12" href="/">
