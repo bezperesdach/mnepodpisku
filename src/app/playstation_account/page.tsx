@@ -78,6 +78,9 @@ export default function PlayStationAccount() {
         <Question title="Нужен ли VPN для игры по сети на турецком аккаунте в России">
           <p>Нет, вы сможете пользоваться абсолютно всеми услугами Playstation на территории России без VPN</p>
         </Question>
+        <Question title="Как быстро происходит создание аккаунта?">
+          <p>После выполнения всех инструкций среднее время обработки заказа 5-30 минут при обращении в рабочие часы.</p>
+        </Question>
       </Faq>
       <InstructionsSection>
         <Instruction name="Как включить 2FA на аккаунте PSN?" file="kak_vkluchit_2fa_na_akaunte_psn" />
