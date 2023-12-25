@@ -8,10 +8,10 @@ import { headers } from "next/headers";
 
 export const metadata: Metadata = {
   title: "На чай и печеньки",
-  description: "Страница приема пожертвований",
+  description: "Страница приема безвозмездных пожертвований, помоги нам приобрести чай и печеньки и сделать наш сервис еще лучше :3",
   openGraph: {
     title: "На чай и печеньки",
-    description: "Страница приема пожертвований",
+    description: "Страница приема безвозмездных пожертвований, помоги нам приобрести чай и печеньки и сделать наш сервис еще лучше :3",
     url: "/na_chai",
     images: ["/og_images_catalogue/na_chai.png"],
     type: "website",
