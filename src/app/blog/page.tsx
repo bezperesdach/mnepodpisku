@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description: "Исследуйте наш блог: все посты на одной странице. Узнавайте последние новости и интересные статьи в одном месте!",
     images: ["/og_images_generated/blog/og_image.png"],
     url: "/blog",
+    type: "website",
   },
   alternates: {
     canonical: "/blog",
