@@ -10,7 +10,7 @@ function WeAreOnBrakerBanner() {
           <p>График работы на</p>
           <p>26.12.23-06.01.24</p>
         </div>
-        <a className="text-center md:text-end underline decoration-warning">Узнать подробности</a>
+        <p className="text-center md:text-end underline decoration-warning">Узнать подробности</p>
       </a>
     </div>
   );
