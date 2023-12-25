@@ -3,7 +3,7 @@ function WeAreOnBrakerBanner() {
     <div className="w-full bg-base-300 py-1">
       <a
         className="flex text-lg p-1 gap-1 md:gap-2 w-full max-w-[1240px] mx-auto justify-between font-medium flex-col md:flex-row"
-        target="_blank"
+        href="https://vk.com/mnepodpisku?w=wall-221413404_58"
         rel="noopener noreferrer"
       >
         <div className="flex gap-2 justify-between md:justify-start font-bold">
