@@ -14,17 +14,14 @@ const Footer = () => {
         <div className="w-full flex flex-col">
           <div className="flex flex-wrap justify-between">
             <div className="flex flex-col">
-              <p className="font-bold">Поддержка</p>
+              <p className="font-bold">Часы работы</p>
 
               <div className="flex flex-col lg:flex-row flex-wrap gap-1 lg:gap-4">
                 <p className="mt-1 font-medium ">
                   ВТ-ПТ: <span className="text-secondary">13:00-21:00 МСК</span>
                 </p>
                 <p className="mt-1 font-medium">
-                  СБ: <span className="text-secondary">14:00-18:00 МСК</span>
-                </p>
-                <p className="mt-1 font-medium">
-                  ВС: <span className="text-secondary">14:00-18:00 МСК</span>
+                  СБ-ВС: <span className="text-secondary">14:00-18:00 МСК</span>
                 </p>
               </div>
             </div>
