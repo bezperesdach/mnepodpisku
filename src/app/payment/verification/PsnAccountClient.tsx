@@ -30,7 +30,11 @@ function PsnAccountClient({ code }: Props) {
     if (value === "") {
       setError("поле не может быть пустым");
     } else if (/^[\w\-.]+@([\w-]+\.)+[\w-]{2,}$/.test(value)) {
-      setError("");
+      if (!value.toLowerCase().endsWith(".ru")) {
+        setError("");
+      } else {
+        setError("Email не должен оканчиваться на '.ru'");
+      }
     } else {
       setError("Неверный email");
     }

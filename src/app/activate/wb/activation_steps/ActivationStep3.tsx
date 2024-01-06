@@ -39,7 +39,15 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
         }
 
         if (/^[\w\-.]+@([\w-]+\.)+[\w-]{2,}$/.test(value)) {
-          setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
+          if (userData.type === "аккаунт") {
+            if (!value.toLowerCase().endsWith(".ru")) {
+              setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
+            } else {
+              setErrors((prevErrors) => ({ ...prevErrors, email: "Email не должен оканчиваться на '.ru'" }));
+            }
+          } else {
+            setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
+          }
         } else {
           setErrors((prevErrors) => ({ ...prevErrors, email: "Неверный email" }));
         }
