@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               __html: setInitialTheme,
             }}
           />
-          <WeAreOnBrakerBanner />
+          {/* <WeAreOnBrakerBanner /> */}
           {children}
         </body>
       </AppContextProvider>
