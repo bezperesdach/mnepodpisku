@@ -9,7 +9,7 @@ import {
   ThumbsdownIcon,
   ThumbsupIcon,
 } from "@primer/octicons-react";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const PlatformComponent = ({ platform }: { platform: "VK" | "WB" }) => {
   if (platform === "VK") {
@@ -40,12 +40,20 @@ type Props = {
 function ReviewComponent({ item }: Props) {
   const [showResponse, setShowResponse] = useState(item.platform === "WB" && item.rating && item.rating <= 3 ? true : false);
   const reviewRef = useRef<HTMLParagraphElement>(null);
-  const isOverflow = useIsOverflow(reviewRef);
+  const { isOverflow, recalculateOverflow } = useIsOverflow(reviewRef);
   const [showMore, setShowMore] = useState(false);
 
   const toggleShowMore = (state?: boolean) => {
     setShowMore(state ?? !showMore);
   };
+
+  useEffect(() => {
+    if (!showResponse) {
+      recalculateOverflow();
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showResponse]);
 
   return (
     <div
@@ -107,7 +115,14 @@ function ReviewComponent({ item }: Props) {
       {item.reply && (
         <button
           className="btn btn-outline btn-primary absolute top-2 right-2 w-6 h-6 min-h-[24px]"
-          onClick={() => setShowResponse(!showResponse)}
+          onClick={() => {
+            setShowResponse(!showResponse);
+            if (!showResponse) {
+              setShowMore(true);
+            } else {
+              setShowMore(false);
+            }
+          }}
         >
           <ArrowSwitchIcon />
         </button>
