@@ -4,11 +4,12 @@ type Props = {
   title: string;
   open?: boolean;
   children: React.ReactNode;
+  id?: string;
 };
 
-const Question = ({ title, open, children }: Props) => {
+const Question = ({ id, title, open, children }: Props) => {
   return (
-    <details className="group bg-base-200 rounded-2xl mt-6" open={open}>
+    <details className="group bg-base-200 rounded-2xl mt-6" open={open} id={id}>
       <summary className="flex justify-between items-center text-xl font-medium cursor-pointer list-none px-4 py-4">
         <span className="pr-4">{title}</span>
         <span className="transition group-open:rotate-180">
