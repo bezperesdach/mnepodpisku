@@ -38,9 +38,9 @@ const Catalogue = ({ showCatalogue, toggleCatalogue }: Props) => {
       }
     }
 
-    return () => {
-      document.body.style.overflow = "auto";
-    };
+    // return () => {
+    //   document.body.style.overflow = "auto";
+    // };
   }, [savedScrollPos, showCatalogue]);
 
   return (
