@@ -1,6 +1,14 @@
 import { useIsOverflow } from "@/hooks/useIsOverflow";
 import cn from "@/utils/cn";
-import { FoldDownIcon, FoldUpIcon, PersonFillIcon, ThumbsdownIcon, ThumbsupIcon } from "@primer/octicons-react";
+import {
+  ArrowSwitchIcon,
+  CheckCircleFillIcon,
+  FoldDownIcon,
+  FoldUpIcon,
+  PersonFillIcon,
+  ThumbsdownIcon,
+  ThumbsupIcon,
+} from "@primer/octicons-react";
 import React, { useRef, useState } from "react";
 
 const PlatformComponent = ({ platform }: { platform: "VK" | "WB" }) => {
@@ -25,10 +33,12 @@ type Props = {
     review: string;
     rating?: number;
     link: string;
+    reply?: string;
   };
 };
 
 function ReviewComponent({ item }: Props) {
+  const [showResponse, setShowResponse] = useState(item.platform === "WB" && item.rating && item.rating <= 3 ? true : false);
   const reviewRef = useRef<HTMLParagraphElement>(null);
   const isOverflow = useIsOverflow(reviewRef);
   const [showMore, setShowMore] = useState(false);
@@ -40,7 +50,7 @@ function ReviewComponent({ item }: Props) {
   return (
     <div
       className={cn(
-        "flex flex-col justify-between py-4 px-2 lg:px-4 bg-base-200 rounded-lg shadow-md min-h-[240px] max-h-[240px] md:mx-1",
+        "flex relative flex-col justify-between py-4 px-2 lg:px-4 bg-base-200 rounded-lg shadow-md min-h-[240px] max-h-[240px] md:mx-1",
         { "max-h-[999px]": showMore }
       )}
     >
@@ -51,7 +61,14 @@ function ReviewComponent({ item }: Props) {
           })}
           ref={reviewRef}
         >
-          {item.review}
+          {showResponse ? (
+            <>
+              <span className=" font-bold">Ответ представителя: </span>
+              {item.reply}
+            </>
+          ) : (
+            item.review
+          )}
         </p>
       </div>
       {isOverflow && (
@@ -60,25 +77,41 @@ function ReviewComponent({ item }: Props) {
         </button>
       )}
 
-      <a
-        className="flex flex-nowrap gap-y-2 justify-between"
-        target="_blank"
-        rel="noopener noreferrer"
-        // href={item.platform === "WB" ? "https://www.wildberries.ru/seller/820694" : "https://vk.com/topic-221413404_49184185"}
-        href={item.link}
-      >
-        <div className="flex gap-1 items-center py-1 px-3">
-          <PersonFillIcon />
+      <div className="flex flex-nowrap gap-y-2 justify-between">
+        {showResponse ? (
+          <div className="flex gap-1 items-center py-1 px-3">
+            <CheckCircleFillIcon />
+            <p className="font-semibold">МнеПодписку</p>
+          </div>
+        ) : (
+          <div className="flex gap-1 items-center py-1 px-3">
+            <PersonFillIcon />
 
-          <p className="font-semibold">{item.name}</p>
-        </div>
-        <div className="flex gap-2 items-center py-1 px-3 cursor-pointer">
+            <p className="font-semibold">{item.name}</p>
+          </div>
+        )}
+        <a
+          className="flex gap-2 items-center py-1 px-3 cursor-pointer"
+          target="_blank"
+          rel="noopener noreferrer"
+          // href={item.platform === "WB" ? "https://www.wildberries.ru/seller/820694" : "https://vk.com/topic-221413404_49184185"}
+          href={item.link}
+        >
           {item.rating && item.rating > 3 && <ThumbsupIcon className=" text-green-400" />}
           {item.rating && item.rating <= 3 && <ThumbsdownIcon className=" text-red-400" />}
 
           <PlatformComponent platform={item.platform} />
-        </div>
-      </a>
+        </a>
+      </div>
+
+      {item.reply && (
+        <button
+          className="btn btn-outline btn-primary absolute top-2 right-2 w-6 h-6 min-h-[24px]"
+          onClick={() => setShowResponse(!showResponse)}
+        >
+          <ArrowSwitchIcon />
+        </button>
+      )}
     </div>
   );
 }

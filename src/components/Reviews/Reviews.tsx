@@ -45,12 +45,11 @@ function Reviews() {
 
   return (
     <div className="flex flex-col gap-2 mt-10 overflow-hidden" ref={ref}>
-      <p className="text-xl lg:text-2xl font-bold" id="description">
-        Отзывы
-      </p>
       <div className="flex justify-between flex-wrap">
-        <p className="text-medium text-lg lg:text-xl">Всем бы такую репутацию</p>
-        <p className="text-medium text-lg lg:text-xl">
+        <p className="text-xl lg:text-2xl font-bold" id="description">
+          Отзывы
+        </p>
+        <p className="text-xl lg:text-2xl font-semibold">
           Средняя оценка{" "}
           <span className={cn("font-bold text-xl lg:text-2xl", { "opacity-0": satisfiedCustomers < 0 })}>
             {satisfiedCustomers.toFixed(1)}
@@ -79,7 +78,7 @@ function Reviews() {
               </Slide>
             ))}
           </Slider>
-          <div className="flex gap-1 mt-2">
+          <div className="flex gap-1 mt-2 mb-2">
             <div className="flex flex-1 items-center justify-center lg:justify-end">
               <ButtonBack className="btn text-secondary w-full lg:w-12">
                 <ChevronLeftIcon size={36} />

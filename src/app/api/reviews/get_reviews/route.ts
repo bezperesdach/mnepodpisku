@@ -31,7 +31,11 @@ type WbResponse = {
   text: string;
   productValuation: number;
   createdDate: string;
-  answer: string;
+  answer: {
+    text: string;
+    state: string;
+    editable: boolean;
+  };
   state: string;
   productDetails: {
     imtId: number;
@@ -56,36 +60,36 @@ type WbResponse = {
   bables: boolean;
 };
 
-function shuffleArray<T>(array: T[]): T[] {
-  let currentIndex = array.length;
-  let temporaryValue: T;
-  let randomIndex: number;
+// function shuffleArray<T>(array: T[]): T[] {
+//   let currentIndex = array.length;
+//   let temporaryValue: T;
+//   let randomIndex: number;
 
-  // While there remain elements to shuffle...
-  while (currentIndex !== 0) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
+//   // While there remain elements to shuffle...
+//   while (currentIndex !== 0) {
+//     // Pick a remaining element...
+//     randomIndex = Math.floor(Math.random() * currentIndex);
+//     currentIndex--;
 
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
+//     // And swap it with the current element.
+//     temporaryValue = array[currentIndex];
+//     array[currentIndex] = array[randomIndex];
+//     array[randomIndex] = temporaryValue;
+//   }
 
-  return array;
-}
+//   return array;
+// }
 
 // Combine two arrays and shuffle the items
-function combineAndShuffleArrays(array1: any[], array2: any[]): any[] {
-  // Combine arrays
-  const combinedArray = array1.concat(array2);
+// function combineAndShuffleArrays(array1: any[], array2: any[]): any[] {
+//   // Combine arrays
+//   const combinedArray = array1.concat(array2);
 
-  // Shuffle the combined array
-  const shuffledArray = shuffleArray(combinedArray);
+//   // Shuffle the combined array
+//   const shuffledArray = shuffleArray(combinedArray);
 
-  return shuffledArray;
-}
+//   return shuffledArray;
+// }
 
 export async function GET() {
   try {
@@ -120,10 +124,11 @@ export async function GET() {
     const reviewsVk = result.profiles.map((item) => {
       const comment = comments.find((item_comment) => item_comment.from_id === item.id);
       return {
-        review: comment?.text,
+        review: comment!.text.replace(/\[club221413404:bp-221413404_4\|МнеПодписку\], /, ""),
         name: item.first_name,
         platform: "VK",
         link: `https://vk.com/topic-221413404_49184185?post=${comment!.id}`,
+        date: comment!.date,
       };
     });
 
@@ -156,6 +161,7 @@ export async function GET() {
     const wbRes: WbResponse[] = res.data.feedbacks;
 
     const filteredReviewsWb = wbRes.filter((item) => item.text);
+
     const finalReviewsWb = filteredReviewsWb.map((item) => {
       return {
         review: item.text,
@@ -163,10 +169,18 @@ export async function GET() {
         platform: "WB",
         rating: item.productValuation,
         link: `https://www.wildberries.ru/catalog/${item.productDetails.nmId}/feedbacks?imtId=${item.productDetails.imtId}&size=${item.productDetails.size}#${item.id}`,
+        date: new Date(item.createdDate).getTime() / 1000,
+        reply: item.answer.text,
       };
     });
 
-    return Response.json(combineAndShuffleArrays(reviewsVk, finalReviewsWb));
+    console.log(finalReviewsWb);
+
+    const combined = [...reviewsVk, ...finalReviewsWb];
+
+    combined.sort((a, b) => b.date - a.date);
+
+    return Response.json(combined);
   } catch (err) {
     console.log("error in api/reviews/get_reviews/", err);
     return new Response("Unexpected error", {
