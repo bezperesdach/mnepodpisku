@@ -174,8 +174,6 @@ export async function GET() {
       };
     });
 
-    console.log(finalReviewsWb);
-
     const combined = [...reviewsVk, ...finalReviewsWb];
 
     combined.sort((a, b) => b.date - a.date);
