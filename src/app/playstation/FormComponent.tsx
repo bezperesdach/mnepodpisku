@@ -164,8 +164,9 @@ export default function FormComponent({ receivedAmount, ip }: Props) {
         <p>
           Для приобретения подписки PS PLUS или EA PLAY на свой аккаунт, нажмите на{" "}
           <button className="underline text-secondary" onClick={() => dispatch({ type: "toggle_catalogue" })}>
-            каталогом
-          </button>
+            каталог
+          </button>{" "}
+          и выберите интересующую вас подписку!
         </p>
       </div>
     </>
