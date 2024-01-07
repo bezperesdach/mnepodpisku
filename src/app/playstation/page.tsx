@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import HeroChoose from "@/components/HeroChoose/HeroChoose";
 import Faq from "@/components/Faq/Faq";
 import Question from "@/components/Faq/Question";
 import Instruction from "@/components/Instructions/Instruction";
@@ -11,6 +10,7 @@ import { Metadata } from "next";
 import { isAmountValid } from "@/utils/utils";
 import Reviews from "@/components/Reviews/Reviews";
 import { headers } from "next/headers";
+import Description from "./Description";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -56,31 +56,7 @@ export default function Playstation({ searchParams }: Props) {
 
       <FormComponent receivedAmount={isAmountValid(searchParams["amount"])} ip={ip} />
 
-      <div className="mt-10">
-        <h2 className="text-xl lg:text-2xl font-bold" id="description">
-          Описание
-        </h2>
-        <p className="text-lg font-medium mt-4">
-          <strong>ВНИМАНИЕ!</strong> Из-за проблем со стороны PlayStation на данный момент наблюдаются сложности при пополнении
-          аккаунтов зарегистрированных после 1.12.2023. При возникновении трудностей пополнение может быть преобразовано в приобретение
-          предметов из корзины или отложено на некоторый срок.{" "}
-          <a className="text-secondary underline" href="/playstation#NewAccountProblems">
-            Подробнее
-          </a>
-        </p>
-        <p className="text-lg font-medium mt-4">
-          Сервис МНЕПОДПИСКУ позволит вам быстро и удобно пополнить свой кошелек турецкого playstation аккаунта. Пополнение происходит в
-          три простых этапа
-          <br />
-          Если по каким-либо причинам вне нашего контроля пополнение на ваш аккаунт не проходит - услуга превращается в выкуп корзины
-        </p>
-
-        <HeroChoose
-          firstText="Введите данные и сумму к пополнению"
-          secondText="Оплатите удобным для вас способом"
-          thirdText="Получите деньги на аккаунт playstation"
-        />
-      </div>
+      <Description />
 
       <Reviews />
 
@@ -161,8 +137,8 @@ export default function Playstation({ searchParams }: Props) {
             Выберите в каталоге PS EA PLAY и приобретите
           </p>
         </Question>
-        <Question title="Почему возникают проблемы с новыми аккаунтами?">
-          <p id="NewAccountProblems">
+        <Question title="Почему возникают проблемы с новыми аккаунтами?" id="NewAccountProblems">
+          <p>
             Начиная от 01.11.23 Sony изменили что-то в своей системе, если раньше после создания аккаунт можно было пополнять без особых
             проблем спустя неделю после создания, то теперь после создания аккаунт стабильно удается пополнять только спустя месяц.
             <br />
