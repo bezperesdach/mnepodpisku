@@ -55,6 +55,9 @@ const Footer = () => {
                 <a href="https://oplata.info/info/" target="_blank" rel="noopener noreferrer">
                   Мои покупки
                 </a>
+                <a href="/oferta.docx" target="_blank" rel="noopener noreferrer">
+                  Оферта
+                </a>
               </div>
               <div className="flex flex-col justify-start items-start gap-1">
                 <Link href="/blog/">Блог</Link>
