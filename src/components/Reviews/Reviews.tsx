@@ -62,7 +62,7 @@ function Reviews() {
           interval={6000}
           isPlaying={true}
           touchEnabled={false}
-          dragEnabled={false}
+          // dragEnabled={false}
           disableKeyboard
           infinite
           visibleSlides={visibleItemsCalculate(width)}
@@ -71,9 +71,9 @@ function Reviews() {
           naturalSlideHeight={360}
           totalSlides={data.length}
         >
-          <Slider classNameTray="md:gap-4 ">
+          <Slider classNameTray="md:gap-4 !mb-2">
             {data.map((item, i) => (
-              <Slide index={i} key={item.name + item.review + item.platform}>
+              <Slide index={i} key={i}>
                 <ReviewComponent item={item} />
               </Slide>
             ))}
