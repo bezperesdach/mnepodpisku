@@ -1,3 +1,5 @@
+"use client";
+
 import HeroChoose from "@/components/HeroChoose/HeroChoose";
 
 const Description = () => {
