@@ -5,13 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { AppContext } from "../AppContextWrapper/AppContextWrapper";
 import { usePathname } from "next/navigation";
-import path from "path";
 
 const Footer = () => {
   const { dispatch } = useContext(AppContext);
   const pathname = usePathname();
-
-  console.log(pathname);
 
   return (
     <footer className="mt-auto shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),0_-2px_4px_-2px_rgba(0,0,0,.1)]">
