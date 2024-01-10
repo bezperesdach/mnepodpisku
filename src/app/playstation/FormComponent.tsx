@@ -18,6 +18,7 @@ import * as Yup from "yup";
 
 type Props = {
   receivedAmount?: string;
+  card?: string;
   ip: string | null;
 };
 
@@ -28,9 +29,10 @@ const TopUpSchema = Yup.object().shape({
     .test("Сумма меньше 5000", "Не может быть больше 5000", (value) => value <= 5000)
 
     .test("Кратное 10", "Сумма должна быть кратна 10", (value) => value % 10 === 0),
+  oneTimeCard: Yup.boolean(),
 });
 
-export default function FormComponent({ receivedAmount, ip }: Props) {
+export default function FormComponent({ receivedAmount, ip, card }: Props) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -41,13 +43,13 @@ export default function FormComponent({ receivedAmount, ip }: Props) {
   const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
-    initialValues: { amount: receivedAmount ?? "" },
+    initialValues: { amount: receivedAmount ?? "", oneTimeCard: !!card ?? false },
     validationSchema: TopUpSchema,
     onSubmit: async (values) => {
       formik.setSubmitting(true);
       ym("reachGoal", "playstationRequest");
 
-      const res = await getPsnBalancePaymentLink(Number(values.amount), ip);
+      const res = await getPsnBalancePaymentLink(values, ip);
       dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
       formik.setSubmitting(false);
     },
@@ -55,14 +57,18 @@ export default function FormComponent({ receivedAmount, ip }: Props) {
   });
 
   useEffect(() => {
-    const updatePrices = async (value: number) => {
+    const updatePrices = async (values: { amount: string; oneTimeCard: boolean }) => {
       const current = new URLSearchParams();
-      current.set("amount", value.toString());
+      current.set("amount", values.amount.toString());
+      if (values.oneTimeCard) {
+        current.set("card", "1");
+      }
+
       const search = current.toString();
       const query = search ? `?${search}` : "";
       router.replace(`${pathname}${query}`, { scroll: false });
 
-      const updatedPrices = await getPsnBalancePrice(value);
+      const updatedPrices = await getPsnBalancePrice(values);
       setCalculatedAmount(updatedPrices.calculated);
       setValue(updatedPrices.sale);
       setLoading(false);
@@ -71,12 +77,12 @@ export default function FormComponent({ receivedAmount, ip }: Props) {
 
     setLoading(true);
 
-    const value = formik.values.amount;
+    const values = formik.values;
     const error = formik.errors.amount;
 
-    if (value && !error) {
-      if (Number(value) >= 100) {
-        updatePrices(Number(value));
+    if (values.amount && !error) {
+      if (Number(values.amount) >= 100) {
+        updatePrices(values);
       }
     } else {
       setLoading(false);
@@ -90,7 +96,7 @@ export default function FormComponent({ receivedAmount, ip }: Props) {
       setValue(undefined);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formik.values.amount, formik.errors.amount]);
+  }, [formik.values, formik.errors.amount]);
 
   return (
     <>
@@ -109,6 +115,38 @@ export default function FormComponent({ receivedAmount, ip }: Props) {
                 {...formik.getFieldProps("amount")}
               />
               <AmountOptions setValue={(value) => formik.setFieldValue("amount", value)} />
+              <div className="flex gap-2 items-center mt-2">
+                <input
+                  type="checkbox"
+                  className="checkbox checkbox-secondary"
+                  checked={formik.values.oneTimeCard}
+                  onChange={() => formik.setFieldValue("oneTimeCard", !formik.values.oneTimeCard)}
+                />
+
+                <div className="flex items-center rounded-lg self-end ">
+                  <div
+                    className="tooltip cursor-pointer max-w-xs"
+                    data-tip="Позволит вам активировать пополнение самостоятельно без передачи данных аккаунта. Доступно для приобретения игр/dlc/донатов. Нельзя приобретать подписки"
+                  >
+                    <button
+                      className="font-medium flex gap-1 items-center"
+                      type="button"
+                      onClick={() => {
+                        const elem = document.getElementById("OneTimeCard");
+
+                        elem!.setAttribute("open", "");
+
+                        window.scrollTo({
+                          top: elem!.offsetTop,
+                          behavior: "instant",
+                        });
+                      }}
+                    >
+                      Одноразовая карта<span className="bg-base-300 w-6 h-6 rounded-full">?</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex lg:mt-0">
@@ -123,6 +161,7 @@ export default function FormComponent({ receivedAmount, ip }: Props) {
                 )}
                 Оплатить
               </button>
+
               <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
             </div>
           </div>
@@ -134,7 +173,7 @@ export default function FormComponent({ receivedAmount, ip }: Props) {
               sale={value}
               amount={
                 formik.values.amount !== ""
-                  ? Number(formik.values.amount) > 100
+                  ? Number(formik.values.amount) >= 100
                     ? Number(formik.values.amount)
                     : undefined
                   : undefined

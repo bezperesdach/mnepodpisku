@@ -7,7 +7,7 @@ import InstructionsSection from "@/components/Instructions/InstructionsSection";
 import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
-import { isAmountValid } from "@/utils/utils";
+import { isAmountValid, isSearchParamValid } from "@/utils/utils";
 import Reviews from "@/components/Reviews/Reviews";
 import { headers } from "next/headers";
 import Description from "./Description";
@@ -54,7 +54,7 @@ export default function Playstation({ searchParams }: Props) {
         </div>
       </div>
 
-      <FormComponent receivedAmount={isAmountValid(searchParams["amount"])} ip={ip} />
+      <FormComponent receivedAmount={isAmountValid(searchParams["amount"])} card={isSearchParamValid(searchParams["card"])} ip={ip} />
 
       <Description />
 
@@ -147,6 +147,22 @@ export default function Playstation({ searchParams }: Props) {
             предметы из корзины на сумму до 4800 ЛИР включительно. После чего на аккаунт со стороны Sony накладывается временный
             &quot;блок&quot; и нужно будет подождать примерно месяц, перед тем как на аккаунт можно будет купить что-либо еще или
             произвести пополнение.
+          </p>
+        </Question>
+        <Question title="Что значит 'одноразовая карта' в форме заказа?" id="OneTimeCard">
+          <p>
+            Данная опция позволит вам получить от нас данные одноразовой турецкой карты с номиналом на сумму вашего пополнения.
+            <br />
+            <br />
+            С помощью данной карты вы сможете самостоятельно приобрести из корзины игры/dlc/донаты. Подписки с помощью данной карты
+            приобрести нельзя.
+            <br />
+            <br />
+            Карта будет действовать ровно 1 неделю со дня покупки. Карта действует 1 раз. При попытки списания суммы выше номинала карта
+            - она автоматически заблокируется.
+            <br />
+            <br />
+            Данный способ пополнения подойдет людям которые не хотят передавать данные своего аккаунта
           </p>
         </Question>
       </Faq>

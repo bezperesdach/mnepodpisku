@@ -37,7 +37,7 @@ export async function getDonationPaymentLink(amount: number, ip: string | null) 
   };
 }
 
-export async function getPsnBalancePaymentLink(amount: number, ip: string | null) {
+export async function getPsnBalancePaymentLink(values: { amount: string; oneTimeCard: boolean }, ip: string | null) {
   let singleIp = null;
   if (ip !== null) {
     if (ip.indexOf(",") !== -1) {
@@ -51,8 +51,8 @@ export async function getPsnBalancePaymentLink(amount: number, ip: string | null
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      product_id: process.env.DIGISELLER_PSN_BASE_ID,
-      unit_cnt: amount,
+      product_id: values.oneTimeCard ? process.env.DIGISELLER_PSN_ONETIMECARD_ID! : process.env.DIGISELLER_PSN_BASE_ID,
+      unit_cnt: Number(values.amount),
       lang: "ru-RU",
       ip: singleIp ?? "127.0.0.1",
     }),
@@ -61,7 +61,10 @@ export async function getPsnBalancePaymentLink(amount: number, ip: string | null
 
   const paymentUrl = new URL("https://oplata.info/asp2/pay_rk.asp");
 
-  paymentUrl.searchParams.append("id_d", process.env.DIGISELLER_PSN_BASE_ID!);
+  paymentUrl.searchParams.append(
+    "id_d",
+    values.oneTimeCard ? process.env.DIGISELLER_PSN_ONETIMECARD_ID! : process.env.DIGISELLER_PSN_BASE_ID!
+  );
   paymentUrl.searchParams.append("id_po", id_po);
   paymentUrl.searchParams.append("curr", "RBX");
   paymentUrl.searchParams.append("lang", "ru-RU");
