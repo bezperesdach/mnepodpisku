@@ -34,6 +34,11 @@ const instructions = [
     url: "/guides/kak_dobavit_novogo_polzovatelya_na_PS4",
     tags: ["psn", "playstation", "псн", "плейстейшн", "пс", "пользователь", "ps4"],
   },
+  {
+    name: "Как привязать карту к турецкому аккаунту PSN через компьютер?",
+    url: "/guides/kak_privyazat_kartu_k_turezkomu_akauntu_psn",
+    tags: ["psn", "playstation", "псн", "плейстейшн", "пс", "пользователь", "ps4", "карта", "добавить карту", "привязать карту", "ps5"],
+  },
 ];
 
 export const metadata: Metadata = {
