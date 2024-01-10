@@ -160,7 +160,7 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
               rel="noopener noreferrer"
               href="/guides/kak_vkluchit_2fa_na_akaunte_psn"
             >
-              Как включить 2FA?
+              У меня нет резервного кода
             </a>
             <a
               className="btn btn-secondary text-white my-2"
