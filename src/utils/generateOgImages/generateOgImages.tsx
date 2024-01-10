@@ -5,6 +5,7 @@ import { generateOgImage } from "./generateOgImage";
 import { metadata as HomePage } from "@/app/(main)/page";
 import { metadata as DigiPage } from "@/app/activate/digi/page";
 import { metadata as WbPage } from "@/app/activate/wb/page";
+import { metadata as WbPageV2 } from "@/app/wb/page";
 import { metadata as BlogPage } from "@/app/blog/page";
 import { metadata as kak_samomu_sozdat_tureckiy_akaunt } from "@/app/blog/kak_samomu_sozdat_tureckiy_akaunt/page";
 import { metadata as gde_posmotret_rezervnyi_kod } from "@/app/guides/gde_posmotret_rezervnyi_kod/page";
@@ -22,6 +23,10 @@ import { metadata as kak_otrpavit_soobshenie_prodavcu_wb_telefon } from "@/app/g
 import { metadata as kak_vkluchit_2fa_na_akaunte_psn } from "@/app/guides/kak_vkluchit_2fa_na_akaunte_psn/page";
 import { metadata as kak_vkluchit_2fa_na_akaunte_psn_komputer } from "@/app/guides/kak_vkluchit_2fa_na_akaunte_psn_komputer/page";
 import { metadata as kak_vkluchit_2fa_na_akaunte_psn_telefon } from "@/app/guides/kak_vkluchit_2fa_na_akaunte_psn_telefon/page";
+import { metadata as kak_privyazat_kartu_k_turezkomu_akauntu_psn } from "@/app/guides/kak_privyazat_kartu_k_turezkomu_akauntu_psn/page";
+import { metadata as kak_privyazat_kartu_k_turezkomu_akauntu_psn_komputer } from "@/app/guides/kak_privyazat_kartu_k_turezkomu_akauntu_psn_komputer/page";
+import { metadata as kak_privyazat_kartu_k_turezkomu_akauntu_psn_telefon } from "@/app/guides/kak_privyazat_kartu_k_turezkomu_akauntu_psn_telefon/page";
+
 import { metadata as get_discount } from "@/app/get_discount/page";
 
 type Page = {
@@ -42,6 +47,10 @@ const pages: Page[] = [
   {
     path: WbPage.openGraph?.url,
     text: WbPage.openGraph?.description,
+  },
+  {
+    path: WbPageV2.openGraph?.url,
+    text: WbPageV2.openGraph?.description,
   },
   {
     path: BlogPage.openGraph?.url,
@@ -110,6 +119,18 @@ const pages: Page[] = [
   {
     path: kak_vkluchit_2fa_na_akaunte_psn_telefon.openGraph?.url,
     text: kak_vkluchit_2fa_na_akaunte_psn_telefon.openGraph?.title,
+  },
+  {
+    path: kak_privyazat_kartu_k_turezkomu_akauntu_psn.openGraph?.url,
+    text: kak_privyazat_kartu_k_turezkomu_akauntu_psn.openGraph?.title,
+  },
+  {
+    path: kak_privyazat_kartu_k_turezkomu_akauntu_psn_komputer.openGraph?.url,
+    text: kak_privyazat_kartu_k_turezkomu_akauntu_psn_komputer.openGraph?.title,
+  },
+  {
+    path: kak_privyazat_kartu_k_turezkomu_akauntu_psn_telefon.openGraph?.url,
+    text: kak_privyazat_kartu_k_turezkomu_akauntu_psn_telefon.openGraph?.title,
   },
   {
     path: get_discount.openGraph?.url,
