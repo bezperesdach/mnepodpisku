@@ -54,6 +54,8 @@ const ActivationStep1 = ({ userData, changeCode, changeAllowToNextStage, changeT
   return (
     <div className="flex flex-col justify-center items-center gap-2 px-6 py-2 w-full min-h-[320px]">
       <p className="text-lg text-center">Добро пожаловать на страницу активации!</p>
+      <p className="text-lg text-center">Прохождение активации займет 5-10 минут, чтобы приступить - введите код с карточки</p>
+
       <TextInput
         maxWidth
         label="Код с карточки"
@@ -68,6 +70,9 @@ const ActivationStep1 = ({ userData, changeCode, changeAllowToNextStage, changeT
         autoCapitalize="off"
         error={inputError}
       />
+      <a className="btn btn-primary" href="/wb">
+        У меня нет кода активации
+      </a>
 
       <p className="font-sm text-center bg-base-300 py-2 px-1 lg:px-2 rounded-lg mt-6">
         Все данные введенные на любом из этапов остаются в вашем браузере и никуда не отправляются
