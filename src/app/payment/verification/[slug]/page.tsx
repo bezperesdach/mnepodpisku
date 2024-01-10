@@ -8,6 +8,7 @@ import VerificationNotFound from "../VerificationNotFound";
 import VerificationSuccessClient from "../VerificationSuccessClient";
 import PsnAccountClient from "../PsnAccountClient";
 import NaChaiClient from "../NaChaiClient";
+import PsnBalanceCardClient from "../PsnBalanceCardClient";
 
 type Props = {
   params: { slug: string };
@@ -35,12 +36,15 @@ async function Page({ searchParams, params }: Props) {
   switch (activationTypes) {
     case "psn_balance":
       return <PsnBalanceClient code={uniquecode.code} />;
+    case "psn_balance_card":
+      return <PsnBalanceCardClient code={uniquecode.code} />;
     case "psn_account":
       return <PsnAccountClient code={uniquecode.code} />;
     case "ps_plus":
       return <PsPlusClient code={uniquecode.code} />;
     case "ps_ea_play":
       return <PsPlusClient code={uniquecode.code} />;
+
     case "na_chai":
       return <NaChaiClient />;
   }
