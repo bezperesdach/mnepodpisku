@@ -125,7 +125,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
 
                 <div className="flex items-center rounded-lg self-end ">
                   <div
-                    className="tooltip cursor-pointer max-w-xs"
+                    className="tooltip cursor-pointer max-w-xs before:-translate-x-[20%]"
                     data-tip="Позволит вам активировать пополнение самостоятельно без передачи данных аккаунта. Доступно для приобретения игр/dlc/донатов. Нельзя приобретать подписки"
                   >
                     <button
