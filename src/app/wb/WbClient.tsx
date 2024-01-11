@@ -166,7 +166,7 @@ function WbActivate() {
 
         <div className="flex justify-between items-center gap-2 min-h-[82px] px-6 py-4 w-full border-t-2 border-secondary mt-6">
           {state.activationStep !== 0 ? (
-            <button className="btn btn-primary text-white" onClick={() => dispatch({ type: "decrease_activation_step" })}>
+            <button className="btn btn-secondary text-white" onClick={() => dispatch({ type: "decrease_activation_step" })}>
               Назад
             </button>
           ) : (
@@ -174,7 +174,7 @@ function WbActivate() {
           )}
           {state.activationStep !== totalSteps - 1 ? (
             <button
-              className={cn("btn btn-primary text-white", { "btn-disabled": !state.allowedToNextStage })}
+              className={cn("btn btn-secondary text-white", { "btn-disabled": !state.allowedToNextStage })}
               onClick={() => dispatch({ type: "increase_activation_step" })}
             >
               Далее
