@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import cn from "@/utils/cn";
 import TextInput from "@/components/TextInput/TextInput";
-import { CopyIcon } from "@primer/octicons-react";
 import { UserData } from "../WbClient";
 
 type Props = {
@@ -36,14 +35,14 @@ const ActivationStep2 = ({
 }: Props) => {
   const [noCheque, setNoCheque] = useState(false);
   const [inputError, setInputError] = useState("");
-  const [canCopyCode, setCanCopyCode] = useState(true);
+  // const [canCopyCode, setCanCopyCode] = useState(true);
 
-  const copyCode = () => {
-    setCanCopyCode(false);
-    setTimeout(() => {
-      setCanCopyCode(true);
-    }, 1000);
-  };
+  // const copyCode = () => {
+  //   setCanCopyCode(false);
+  //   setTimeout(() => {
+  //     setCanCopyCode(true);
+  //   }, 1000);
+  // };
 
   useEffect(() => {
     changeTitle("Подтверждение покупки");
@@ -97,10 +96,11 @@ const ActivationStep2 = ({
         <>
           <div className="flex flex-col justify-start items-center gap-2 w-full">
             <p className="text-lg text-center">
-              Отправьте сообщение <span className="font-bold">через Wildberries</span> в <strong>чат с продавцом</strong> по инструкции
-              ниже, заранее скопируйте свой код активации, он понадобится дальше
+              Отправьте сообщение <span className="font-bold text-warning">ЧЕРЕЗ WILDBERRIES</span> в{" "}
+              <span className="font-bold text-warning">ЧАТ С ПРОДАВЦОМ</span> по инструкции ниже, после этого переключите ползунок
+              сообщение отправлено, укажите сумму покупки и нажмите далее
             </p>
-            <div className="flex gap-2 p-1 bg-base-300 items-center justify-center rounded-md ">
+            {/* <div className="flex gap-2 p-1 bg-base-300 items-center justify-center rounded-md ">
               <p>{canCopyCode ? `Код активации - ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}` : "Скопировано"}</p>
               <button
                 className="flex justify-center items-center p-2 bg-base-100 rounded-md"
@@ -113,7 +113,7 @@ const ActivationStep2 = ({
               >
                 <CopyIcon />
               </button>
-            </div>
+            </div> */}
             <div className="flex flex-col gap-3">
               <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otrpavit_soobshenie_prodavcu_wb">
                 Как отправить сообщение продавцу?
@@ -169,7 +169,8 @@ const ActivationStep2 = ({
         <>
           <div className="flex flex-col justify-start items-center gap-2 w-full">
             <p className="text-lg text-center">
-              Отправьте чек <span className="font-bold text-warning">СТРОГО ПО ИНСТРУКЦИИ</span> ниже
+              Отправьте чек <span className="font-bold text-warning">СТРОГО ПО ИНСТРУКЦИИ</span> ниже, после чего переключите ползунок
+              чек отправлен, укажите сумму чека и нажмите далее
             </p>
 
             <div className="flex flex-col gap-3">

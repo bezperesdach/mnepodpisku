@@ -88,8 +88,9 @@ const ActivationStep2 = ({
         <>
           <div className="flex flex-col justify-start items-center gap-2 w-full">
             <p className="text-lg text-center">
-              Отправьте сообщение <span className="font-bold">через Wildberries</span> в <strong>чат с продавцом</strong> по инструкции
-              ниже, заранее скопируйте свой код активации, он понадобится дальше
+              Отправьте сообщение <span className="font-bold text-warning">ЧЕРЕЗ WILDBERRIES</span> в{" "}
+              <span className="font-bold text-warning">ЧАТ С ПРОДАВЦОМ</span> по инструкции ниже, после этого переключите ползунок
+              сообщение отправлено, укажите сумму покупки и нажмите далее
             </p>
 
             <div className="flex flex-col gap-3">
@@ -147,7 +148,8 @@ const ActivationStep2 = ({
         <>
           <div className="flex flex-col justify-start items-center gap-2 w-full">
             <p className="text-lg text-center">
-              Отправьте чек <span className="font-bold text-warning">СТРОГО ПО ИНСТРУКЦИИ</span> ниже
+              Отправьте чек <span className="font-bold text-warning">СТРОГО ПО ИНСТРУКЦИИ</span> ниже, после чего переключите ползунок
+              чек отправлен, укажите сумму чека и нажмите далее
             </p>
 
             <div className="flex flex-col gap-3">
