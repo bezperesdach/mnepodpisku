@@ -139,7 +139,7 @@ const ActivationStep2 = ({
             </p>
           </div>
           {!chatMessageSent && (
-            <button className="text-secondary underline" onClick={() => setNoCheque(!noCheque)}>
+            <button className="btn btn-secondary text-white my-2" onClick={() => setNoCheque(!noCheque)}>
               У меня есть чек
             </button>
           )}
@@ -199,7 +199,7 @@ const ActivationStep2 = ({
             />
           </div>
           {!chequeSent && (
-            <button className="text-secondary underline" onClick={() => setNoCheque(!noCheque)}>
+            <button className="btn btn-secondary text-white my-2" onClick={() => setNoCheque(!noCheque)}>
               У меня нет чека
             </button>
           )}
