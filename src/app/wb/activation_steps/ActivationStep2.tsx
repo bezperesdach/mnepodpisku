@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
 import cn from "@/utils/cn";
 import TextInput from "@/components/TextInput/TextInput";
+import { UserData } from "../WbClient";
 
 type Props = {
-  userData: {
-    type: "пополнение" | "игра" | "аккаунт" | "";
-
-    price: string;
-    email: string;
-    password: string;
-    accessCode: string;
-    priceDate: string;
-  };
+  userData: UserData;
   chatMessageSent: boolean;
   // eslint-disable-next-line no-unused-vars
   setChatMessageSent: (value: boolean) => void;

@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import cn from "@/utils/cn";
+import { Types, UserData } from "../WbClient";
 
 type Props = {
-  userData: {
-    type: "пополнение" | "игра" | "аккаунт" | "";
-
-    price: string;
-    email: string;
-    password: string;
-    accessCode: string;
-    priceDate: string;
-  };
+  userData: UserData;
   chatMessageSent: boolean;
 
   chequeSent: boolean;
@@ -34,14 +27,16 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const actionName = (type: string | undefined) => {
+  const actionName = (type: Types | undefined) => {
     switch (type) {
       case "пополнение":
-        return "АКТИВАЦИЯ ПОПОЛНЕНИЯ";
+        return "АКТИВАЦИЯ ПОПОЛНЕНИЯ PSN";
       case "игра":
-        return "АКТИВАЦИЯ ИГРЫ";
+        return "АКТИВАЦИЯ ИГРЫ PSN";
       case "аккаунт":
-        return "СОЗДАНИЕ АККАУНТА";
+        return "СОЗДАНИЕ АККАУНТА PSN";
+      case "одноразовая_карта":
+        return "ОДНОРАЗОВАЯ КАРТА PSN";
       default:
         return "";
     }

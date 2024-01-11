@@ -7,20 +7,25 @@ import ActivationStep3 from "./activation_steps/ActivationStep3";
 import ActivationStep4 from "./activation_steps/ActivationStep4";
 import cn from "@/utils/cn";
 
+export type Types = "пополнение" | "игра" | "аккаунт" | "одноразовая_карта" | "";
+
+export type UserData = {
+  type: Types;
+  code: string;
+  price: string;
+  email: string;
+  password: string;
+  accessCode: string;
+  priceDate: string;
+};
+
 type StateType = {
-  userData: {
-    type: "пополнение" | "игра" | "аккаунт" | "";
-    code: string;
-    price: string;
-    email: string;
-    password: string;
-    accessCode: string;
-    priceDate: string;
-  };
+  userData: UserData;
   chequeSent: boolean;
   chatMessageSent: boolean;
   title: string;
   activationStep: number;
+  accessCodeAcknowledge: boolean;
   allowedToNextStage: boolean;
 };
 
@@ -38,7 +43,8 @@ type ActionType =
   | { type: "change_user_data_value"; payload: { name: string; value: string } }
   | { type: "change_allow_to_next_stage"; payload: boolean }
   | { type: "change_cheque_sent"; payload: boolean }
-  | { type: "change_chat_message_sent"; payload: boolean };
+  | { type: "change_chat_message_sent"; payload: boolean }
+  | { type: "change_access_code_acknowledgement"; payload: boolean };
 
 const initialState: StateType = {
   userData: {
@@ -52,6 +58,7 @@ const initialState: StateType = {
   },
   chequeSent: false,
   chatMessageSent: false,
+  accessCodeAcknowledge: true,
   title: "Ввод кода активации",
   activationStep: 0,
   allowedToNextStage: false,
@@ -88,6 +95,8 @@ const reducer = (state: StateType, action: ActionType) => {
       return { ...state, chequeSent: action.payload };
     case "change_chat_message_sent":
       return { ...state, chatMessageSent: action.payload };
+    case "change_access_code_acknowledgement":
+      return { ...state, accessCodeAcknowledge: action.payload };
 
     default:
       return state;
@@ -130,8 +139,11 @@ function WbActivate() {
           {state.activationStep === 2 && (
             <ActivationStep3
               userData={state.userData}
+              accessCodeAcknowledge={state.accessCodeAcknowledge}
+              changeAccessCodeAcknowledgement={(value) => dispatch({ type: "change_access_code_acknowledgement", payload: value })}
               onChange={(name, value) => dispatch({ type: "change_user_data_value", payload: { name, value } })}
               changeAllowToNextStage={(value) => dispatch({ type: "change_allow_to_next_stage", payload: value })}
+              increaseActivationStep={() => dispatch({ type: "increase_activation_step" })}
               changeTitle={(title) => dispatch({ type: "change_title", payload: title })}
             />
           )}

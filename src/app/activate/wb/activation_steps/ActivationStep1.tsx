@@ -3,17 +3,10 @@
 import TextInput from "@/components/TextInput/TextInput";
 
 import { ChangeEvent, useEffect, useState } from "react";
+import { UserData } from "../WbClient";
 
 type Props = {
-  userData: {
-    type: "пополнение" | "игра" | "аккаунт" | "";
-    code: string;
-    price: string;
-    email: string;
-    password: string;
-    accessCode: string;
-    priceDate: string;
-  };
+  userData: UserData;
   // eslint-disable-next-line no-unused-vars
   changeCode: (value: string) => void;
   // eslint-disable-next-line no-unused-vars
@@ -70,13 +63,14 @@ const ActivationStep1 = ({ userData, changeCode, changeAllowToNextStage, changeT
         autoCapitalize="off"
         error={inputError}
       />
-      <a className="btn btn-primary" href="/wb">
-        У меня нет кода активации
-      </a>
 
       <p className="font-sm text-center bg-base-300 py-2 px-1 lg:px-2 rounded-lg mt-6">
         Все данные введенные на любом из этапов остаются в вашем браузере и никуда не отправляются
       </p>
+
+      <a className="btn btn-primary" href="/wb">
+        У меня нет кода активации
+      </a>
     </div>
   );
 };

@@ -1,29 +1,36 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import TextInput from "@/components/TextInput/TextInput";
+import { UserData } from "../WbClient";
+import cn from "@/utils/cn";
 
 type Props = {
-  userData: {
-    type: "пополнение" | "игра" | "аккаунт" | "";
-    code: string;
-    price: string;
-    email: string;
-    password: string;
-    accessCode: string;
-    priceDate: string;
-  };
+  userData: UserData;
+  accessCodeAcknowledge: boolean;
+  // eslint-disable-next-line no-unused-vars
+  changeAccessCodeAcknowledgement: (value: boolean) => void;
   // eslint-disable-next-line no-unused-vars
   onChange: (name: string, value: string) => void;
   // eslint-disable-next-line no-unused-vars
   changeAllowToNextStage: (value: boolean) => void;
+  increaseActivationStep: () => void;
   // eslint-disable-next-line no-unused-vars
   changeTitle: (title: string) => void;
 };
 
-const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNextStage, changeTitle }: Props) => {
+const ActivationStep3: React.FC<Props> = ({
+  userData,
+  accessCodeAcknowledge,
+  changeAccessCodeAcknowledgement,
+  increaseActivationStep,
+  onChange,
+  changeAllowToNextStage,
+  changeTitle,
+}: Props) => {
   const [errors, setErrors] = useState({
     email: "",
     password: "",
     accessCode: "",
+    accessCodeAcknowledge: "",
   });
 
   const validateInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -100,6 +107,14 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
 
         onChange("accessCode", value);
         break;
+      case "accessCodeAcknowledge":
+        if (!accessCodeAcknowledge) {
+          setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "" }));
+        } else {
+          setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "Вы должны согласиться" }));
+        }
+        changeAccessCodeAcknowledgement(!accessCodeAcknowledge);
+        break;
     }
   };
 
@@ -111,7 +126,9 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
         errors.password === "" &&
         userData.password.length > 0 &&
         errors.accessCode === "" &&
-        userData.accessCode.length > 0
+        userData.accessCode.length > 0 &&
+        errors.accessCodeAcknowledge === "" &&
+        accessCodeAcknowledge
       ) {
         changeAllowToNextStage(true);
       } else {
@@ -126,7 +143,8 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
     } else {
       changeAllowToNextStage(false);
     }
-  }, [userData, errors, changeAllowToNextStage]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userData, errors]);
 
   useEffect(() => {
     onChange("type", "");
@@ -140,37 +158,28 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
         <div className="flex flex-col flex-1 justify-evenly items-center gap-2 w-full h-full">
           <p className="text-center">Выберите какую услугу вы хотите активировать</p>
           <button className="btn btn-primary text-white" onClick={() => onChange("type", "пополнение")}>
-            ПОПОЛНЕНИЕ КОШЕЛЬКА
+            ПОПОЛНЕНИЕ АККАУНТА PSN
+          </button>
+          <button
+            className="btn btn-primary text-white"
+            onClick={() => {
+              onChange("type", "одноразовая_карта");
+              increaseActivationStep();
+            }}
+          >
+            ОДНОРАЗОВАЯ ТУРЕЦКАЯ КАРТА ДЛЯ PSN
           </button>
           <button className="btn btn-primary text-white" onClick={() => onChange("type", "игра")}>
-            ИГРА НА ВАШ АККАУНТ
+            ИГРА НА ТУРЕЦКИЙ АККАУНТ PSN
           </button>
           <button className="btn btn-primary text-white" onClick={() => onChange("type", "аккаунт")}>
-            ТУРЕЦКИЙ АККАУНТ
+            СОЗДАНИЕ ТУРЕЦКОГО АККАУНТА PSN
           </button>
         </div>
       )}
       {(userData.type === "пополнение" || userData.type === "игра") && (
         <div className="flex flex-col justify-start items-center gap-2 w-full">
           <p className="text-center">Введите данные своего PlayStation аккаунта</p>
-          <div className="flex flex-wrap justify-center items-center gap-2">
-            <a
-              className="btn btn-secondary text-white my-2"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="/guides/kak_vkluchit_2fa_na_akaunte_psn"
-            >
-              У меня нет резервного кода
-            </a>
-            <a
-              className="btn btn-secondary text-white my-2"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="/guides/gde_posmotret_rezervnyi_kod"
-            >
-              Где найти резервный код?
-            </a>
-          </div>
 
           <TextInput
             maxWidth
@@ -218,6 +227,40 @@ const ActivationStep3: React.FC<Props> = ({ userData, onChange, changeAllowToNex
             autoCapitalize="off"
             error={errors.accessCode}
           />
+
+          <div className="flex gap-2 items-start mt-2 max-w-xs ">
+            <input
+              name="accessCodeAcknowledge"
+              type="checkbox"
+              className={cn("checkbox checkbox-secondary", { "checkbox-error": !accessCodeAcknowledge })}
+              checked={accessCodeAcknowledge}
+              onChange={validateInput}
+            />
+
+            <p className="text-sm">
+              Я соглашаюсь с тем, что моя активация может быть отложена на неопределенный срок или отменена, если я выслал неверный или
+              ранее использованный резервный код
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center items-center gap-2">
+            <a
+              className="btn btn-secondary text-white my-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="/guides/kak_vkluchit_2fa_na_akaunte_psn"
+            >
+              У меня нет резервного кода
+            </a>
+            <a
+              className="btn btn-secondary text-white my-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="/guides/gde_posmotret_rezervnyi_kod"
+            >
+              Где найти резервный код?
+            </a>
+          </div>
         </div>
       )}
       {userData.type === "аккаунт" && (
