@@ -9,6 +9,7 @@ export async function getDonationPaymentLink(amount: number, ip: string | null) 
   }
 
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    next: { revalidate: 3600 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -46,6 +47,7 @@ export async function getPsnBalancePaymentLink(values: { amount: string; oneTime
   }
 
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    next: { revalidate: 3600 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -79,6 +81,7 @@ export async function getPsnBalancePaymentLink(values: { amount: string; oneTime
 
 export async function getPsnAccountPaymentLink() {
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    next: { revalidate: 3600 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -108,6 +111,7 @@ export async function getPsnAccountPaymentLink() {
 
 export async function getPsnPsPlusPaymentLink(values: { subscriptionType: string; duration: string }) {
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    next: { revalidate: 3600 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -145,6 +149,7 @@ export async function getPsnPsPlusPaymentLink(values: { subscriptionType: string
 
 export async function getPsEaPlayPaymentLink(duration: string) {
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    next: { revalidate: 3600 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -182,6 +187,7 @@ export async function getPsEaPlayPaymentLink(duration: string) {
 
 export async function getSpotifyPaymentLink(values: { subscriptionType: string; duration: string }) {
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    next: { revalidate: 3600 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -219,6 +225,7 @@ export async function getSpotifyPaymentLink(values: { subscriptionType: string; 
 
 export async function getTinderPaymentLink(values: { subscriptionType: string; duration: string }) {
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    next: { revalidate: 3600 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -257,6 +264,7 @@ export async function getTinderPaymentLink(values: { subscriptionType: string; d
 // eslint-disable-next-line no-unused-vars
 export async function getXboxPaymentLink(values: { subscriptionType: string; duration: string }) {
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    next: { revalidate: 3600 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -287,6 +295,7 @@ export async function getXboxPaymentLink(values: { subscriptionType: string; dur
 // eslint-disable-next-line no-unused-vars
 export async function getYoutubePaymentLink(duration: string) {
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    next: { revalidate: 3600 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -324,6 +333,7 @@ export async function getYoutubePaymentLink(duration: string) {
 
 export async function getAdobeCCPaymentLink(duration: string) {
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    next: { revalidate: 3600 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -362,6 +372,7 @@ export async function getAdobeCCPaymentLink(duration: string) {
 
 export async function getDiscordPaymentLink(values: { subscriptionType: string; duration: string }) {
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    next: { revalidate: 3600 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -399,6 +410,7 @@ export async function getDiscordPaymentLink(values: { subscriptionType: string; 
 
 export async function getNetflixPaymentLink(values: { subscriptionType: string; duration: string }) {
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    next: { revalidate: 3600 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
