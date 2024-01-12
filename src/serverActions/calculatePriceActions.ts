@@ -41,7 +41,7 @@ export async function getPsnBalancePrice(values: { amount: string; oneTimeCard: 
     calcUrl.searchParams.append("currency", "RBX");
     calcUrl.searchParams.append("unit_cnt", values.amount.toString());
 
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    const response = await fetch(calcUrl.toString(), { next: { revalidate: 60 } });
 
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
@@ -86,7 +86,7 @@ export async function getPsnAccountPrice() {
     calcUrl.searchParams.append("product_id", process.env.DIGISELLER_PSN_TURKEY_ACCOUNT_BASE_ID!);
     calcUrl.searchParams.append("currency", "RBX");
 
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    const response = await fetch(calcUrl.toString(), { next: { revalidate: 60 } });
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
       // throw new Error(`Failed to fetch data. Status: ${response.status}`);
@@ -139,7 +139,7 @@ export async function getPsnPsPlusPrice(values: { subscriptionType: string; dura
       );
     }
 
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    const response = await fetch(calcUrl.toString(), { next: { revalidate: 60 } });
 
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
@@ -191,7 +191,7 @@ export async function getPsEaPlayPrice(duration: string) {
       );
     }
 
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    const response = await fetch(calcUrl.toString(), { next: { revalidate: 60 } });
 
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
@@ -244,7 +244,7 @@ export async function getSpotifyPrice(values: { subscriptionType: string; durati
         }`
       );
     }
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    const response = await fetch(calcUrl.toString(), { next: { revalidate: 60 } });
 
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
@@ -297,7 +297,7 @@ export async function getTinderPrice(values: { subscriptionType: string; duratio
         }`
       );
     }
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    const response = await fetch(calcUrl.toString(), { next: { revalidate: 60 } });
 
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
@@ -351,7 +351,7 @@ export async function getXboxPrice(values: { subscriptionType: string; duration:
       );
     }
 
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    const response = await fetch(calcUrl.toString(), { next: { revalidate: 60 } });
 
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
@@ -405,7 +405,7 @@ export async function getYoutubePrice(duration: string) {
       );
     }
 
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    const response = await fetch(calcUrl.toString(), { next: { revalidate: 60 } });
 
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
@@ -458,7 +458,7 @@ export async function getAdobeCCPrice(duration: string) {
         ]!}`
       );
     }
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    const response = await fetch(calcUrl.toString(), { next: { revalidate: 60 } });
 
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
@@ -511,7 +511,7 @@ export async function getDiscordPrice(values: { subscriptionType: string; durati
         ]!}`
       );
     }
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    const response = await fetch(calcUrl.toString(), { next: { revalidate: 60 } });
 
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
@@ -564,7 +564,7 @@ export async function getNetflixPrice(values: { subscriptionType: string; durati
         }`
       );
     }
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    const response = await fetch(calcUrl.toString(), { next: { revalidate: 60 } });
 
     if (!response.ok) {
       // Handle non-successful HTTP response (e.g., 404, 500, etc.)
