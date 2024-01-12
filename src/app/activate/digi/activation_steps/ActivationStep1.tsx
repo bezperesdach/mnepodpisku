@@ -45,6 +45,7 @@ function ActivationStep1({ code, changeCode, changeAllowToNextStage, changeTitle
   return (
     <div className="flex flex-col justify-center items-center gap-2 px-6 py-2 w-full min-h-[320px]">
       <p className="text-lg text-center font-medium">Добро пожаловать на страницу активации!</p>
+      <p className="text-lg text-center">Прохождение активации займет 2-5 минут, чтобы приступить - введите уникальный код</p>
       <TextInput
         maxWidth
         label="Введите уникальный код"

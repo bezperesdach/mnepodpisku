@@ -20,16 +20,19 @@ export const metadata: Metadata = {
   },
 };
 
+export type UserData = {
+  code: string;
+  email: string;
+  password: string;
+  accessCode: string;
+};
+
 type StateType = {
-  userData: {
-    code: string;
-    email: string;
-    password: string;
-    accessCode: string;
-  };
+  userData: UserData;
   title: string;
   activationStep: number;
   allowedToNextStage: boolean;
+  accessCodeAcknowledge: boolean;
 };
 
 type ActionType =
@@ -44,7 +47,8 @@ type ActionType =
       payload: string;
     }
   | { type: "change_user_data_value"; payload: { name: string; value: string } }
-  | { type: "change_allow_to_next_stage"; payload: boolean };
+  | { type: "change_allow_to_next_stage"; payload: boolean }
+  | { type: "change_access_code_acknowledgement"; payload: boolean };
 
 const initialState: StateType = {
   userData: {
@@ -56,6 +60,7 @@ const initialState: StateType = {
   title: "Ввод кода активации",
   activationStep: 0,
   allowedToNextStage: false,
+  accessCodeAcknowledge: true,
 };
 
 const totalSteps = 3;
@@ -84,6 +89,9 @@ const reducer = (state: StateType, action: ActionType) => {
 
     case "change_allow_to_next_stage":
       return { ...state, allowedToNextStage: action.payload };
+
+    case "change_access_code_acknowledgement":
+      return { ...state, accessCodeAcknowledge: action.payload };
 
     default:
       return state;
@@ -125,6 +133,8 @@ function DigiClient({ activationCode, activationName }: Props) {
               email={state.userData.email}
               password={state.userData.password}
               accessCode={state.userData.accessCode}
+              accessCodeAcknowledge={state.accessCodeAcknowledge}
+              changeAccessCodeAcknowledgement={(value) => dispatch({ type: "change_access_code_acknowledgement", payload: value })}
               onChange={(name, value) => dispatch({ type: "change_user_data_value", payload: { name, value } })}
               changeAllowToNextStage={(value) => dispatch({ type: "change_allow_to_next_stage", payload: value })}
               changeTitle={(title) => dispatch({ type: "change_title", payload: title })}

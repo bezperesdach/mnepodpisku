@@ -2,14 +2,10 @@ import { ActivationTypes } from "@/utils/activationUtils";
 import cn from "@/utils/cn";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { UserData } from "../DigiClient";
 
 type Props = {
-  userData: {
-    code: string;
-    email: string;
-    password: string;
-    accessCode: string;
-  };
+  userData: UserData;
   activationType?: ActivationTypes;
   // eslint-disable-next-line no-unused-vars
   changeTitle: (title: string) => void;

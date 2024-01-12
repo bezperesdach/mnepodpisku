@@ -1,10 +1,14 @@
 import TextInput from "@/components/TextInput/TextInput";
+import cn from "@/utils/cn";
 import React, { ChangeEvent, useEffect, useState } from "react";
 
 type Props = {
   email: string;
   password: string;
   accessCode: string;
+  accessCodeAcknowledge: boolean;
+  // eslint-disable-next-line no-unused-vars
+  changeAccessCodeAcknowledgement: (value: boolean) => void;
   // eslint-disable-next-line no-unused-vars
   onChange: (name: string, value: string) => void;
   // eslint-disable-next-line no-unused-vars
@@ -13,11 +17,21 @@ type Props = {
   changeTitle: (title: string) => void;
 };
 
-const ActivationStep2: React.FC<Props> = ({ email, password, accessCode, onChange, changeAllowToNextStage, changeTitle }: Props) => {
+const ActivationStep2: React.FC<Props> = ({
+  email,
+  password,
+  accessCode,
+  accessCodeAcknowledge,
+  changeAccessCodeAcknowledgement,
+  onChange,
+  changeAllowToNextStage,
+  changeTitle,
+}: Props) => {
   const [errors, setErrors] = useState({
     email: "",
     password: "",
     accessCode: "",
+    accessCodeAcknowledge: "",
   });
 
   useEffect(() => {
@@ -73,6 +87,15 @@ const ActivationStep2: React.FC<Props> = ({ email, password, accessCode, onChang
         onChange(name, value);
         break;
 
+      case "accessCodeAcknowledge":
+        if (!accessCodeAcknowledge) {
+          setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "" }));
+        } else {
+          setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "Вы должны согласиться" }));
+        }
+        changeAccessCodeAcknowledgement(!accessCodeAcknowledge);
+        break;
+
       default:
         break;
     }
@@ -85,7 +108,9 @@ const ActivationStep2: React.FC<Props> = ({ email, password, accessCode, onChang
       errors.password === "" &&
       password.length > 0 &&
       errors.accessCode === "" &&
-      accessCode.length > 0
+      accessCode.length > 0 &&
+      errors.accessCodeAcknowledge === "" &&
+      accessCodeAcknowledge
     ) {
       changeAllowToNextStage(true);
     } else {
@@ -93,30 +118,13 @@ const ActivationStep2: React.FC<Props> = ({ email, password, accessCode, onChang
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [email, password, accessCode]);
+  }, [email, password, accessCode, accessCodeAcknowledge, errors]);
 
   return (
     <div className="flex flex-col justify-between items-center px-6 py-2 w-full min-h-[320px]">
       <div className="flex flex-col justify-start items-center gap-2 w-full">
         <p>Введите данные своего PlayStation аккаунта</p>
-        <div className="flex flex-wrap justify-center items-center gap-2">
-          <a
-            className="btn btn-secondary text-white my-2"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="/guides/kak_vkluchit_2fa_na_akaunte_psn"
-          >
-            Как включить 2FA?
-          </a>
-          <a
-            className="btn btn-secondary text-white my-2"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="/guides/gde_posmotret_rezervnyi_kod"
-          >
-            Где найти резервный код?
-          </a>
-        </div>
+
         {/* Other content here */}
 
         <TextInput
@@ -164,6 +172,40 @@ const ActivationStep2: React.FC<Props> = ({ email, password, accessCode, onChang
           autoCapitalize="off"
           error={errors.accessCode}
         />
+
+        <div className="flex gap-2 items-start mt-2 max-w-xs ">
+          <input
+            name="accessCodeAcknowledge"
+            type="checkbox"
+            className={cn("checkbox checkbox-secondary", { "checkbox-error": !accessCodeAcknowledge })}
+            checked={accessCodeAcknowledge}
+            onChange={validateInput}
+          />
+
+          <p className="text-sm">
+            Я соглашаюсь с тем, что моя активация может быть отложена на неопределенный срок или отменена, если я выслал неверный
+            логин/пароль/резервный код или ранее использованный резервный код
+          </p>
+        </div>
+
+        <div className="flex flex-wrap justify-center items-center gap-2">
+          <a
+            className="btn btn-secondary text-white my-2"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="/guides/kak_vkluchit_2fa_na_akaunte_psn"
+          >
+            У меня нет резервного кода
+          </a>
+          <a
+            className="btn btn-secondary text-white my-2"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="/guides/gde_posmotret_rezervnyi_kod"
+          >
+            Где найти резервный код?
+          </a>
+        </div>
       </div>
     </div>
   );
