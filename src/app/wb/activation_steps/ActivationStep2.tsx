@@ -43,7 +43,7 @@ const ActivationStep2 = ({
 
   useEffect(() => {
     const validatePrice = (value: string) => {
-      if (value.length > 0 && !/^[\d]+(?:[.,][\d]+)?$/.test(value)) {
+      if (value.length > 0 && !/^[\d]+(?:[.,]\d*)?$/.test(value)) {
         setInputError("Сумма должна состоять только из цифр");
       } else {
         setInputError("");
