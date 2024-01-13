@@ -79,9 +79,11 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
             Clipboard.copy(
               `${actionName(userData.type)}\nКОД АКТИВАЦИИ ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}\n${
                 chequeSent ? "ЧЕК" : ""
-              }${chatMessageSent ? "СООБЩЕНИЕ" : ""} НА СУММУ ${userData.price} - ${userData.priceDate}\nEMAIL - ${userData.email}${
-                userData.password ? "\nПАРОЛЬ - " + userData.password : ""
-              }${userData.accessCode ? "\nРЕЗЕРВНЫЙ КОД - " + userData.accessCode : ""}`
+              }${chatMessageSent ? "СООБЩЕНИЕ" : ""} НА СУММУ ${userData.price} - ${userData.priceDate}${
+                userData.email ? "\nEMAIL - " + userData.email : ""
+              }${userData.password ? "\nПАРОЛЬ - " + userData.password : ""}${
+                userData.accessCode ? "\nРЕЗЕРВНЫЙ КОД - " + userData.accessCode : ""
+              }`
             );
           }}
         >
