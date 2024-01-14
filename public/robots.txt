@@ -4,6 +4,8 @@ Disallow: /wb
 Disallow: /guides
 Disallow: /digi
 Disallow: /activate
+Disallow: /get_discount
+
 
 
 Clean-param: amount&dur&sub
