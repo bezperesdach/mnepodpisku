@@ -41,7 +41,7 @@ function PsnBalanceCardClient({ code }: Props) {
           copyCode();
 
           // @ts-ignore: Clipboard.copy defined in root.tsx
-          Clipboard.copy(`АКТИВАЦИЯ АККАУНТА PSN\nМой код активации - ${code}`);
+          Clipboard.copy(`АКТИВАЦИЯ PSN BALANCE КАРТА\nМой код активации - ${code}`);
         }}
       >
         {canCopyCode ? `НАЖМИТЕ, ЧТОБЫ СКОПИРОВАТЬ` : "СКОПИРОВАНО"}
