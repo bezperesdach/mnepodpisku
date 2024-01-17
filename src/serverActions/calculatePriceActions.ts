@@ -607,10 +607,10 @@ export async function getTurkeyCardPrice(values: { amount: string; service: stri
     const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
     calcUrl.searchParams.append("product_id", process.env.DIGISELLER_ONE_TIME_CARD_BASE_ID!);
-    calcUrl.searchParams.append("currency", "RBX");
+    calcUrl.searchParams.append("currency", "RUB");
 
     calcUrl.searchParams.append("product_id", process.env.DIGISELLER_ONE_TIME_CARD_BASE_ID!);
-    calcUrl.searchParams.append("currency", "RBX");
+    calcUrl.searchParams.append("currency", "RUB");
     calcUrl.searchParams.append("unit_cnt", values.amount.toString());
 
     const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
@@ -632,6 +632,8 @@ export async function getTurkeyCardPrice(values: { amount: string; service: stri
       free_pay: boolean | null;
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
+
+    console.log(data);
 
     return { sale: data.amount };
   } catch (error) {

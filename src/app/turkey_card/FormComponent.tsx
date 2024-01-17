@@ -117,7 +117,7 @@ export default function FormComponent({ receivedAmount, ip, service }: Props) {
               <select
                 className="select select-bordered w-full"
                 onChange={(ev) => formik.setFieldValue("service", ev.currentTarget.value)}
-                value={formik.values.service}
+                defaultValue={formik.values.service}
               >
                 <option disabled selected>
                   Выберите сервис
