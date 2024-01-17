@@ -59,6 +59,7 @@ export async function getPsnBalancePaymentLink(values: { amount: string; oneTime
       ip: singleIp ?? "127.0.0.1",
     }),
   });
+
   const { id_po } = await paramsRes.json();
 
   const paymentUrl = new URL("https://oplata.info/asp2/pay_rk.asp");
@@ -439,6 +440,53 @@ export async function getNetflixPaymentLink(values: { subscriptionType: string; 
   paymentUrl.searchParams.append("curr", "RBX");
   paymentUrl.searchParams.append("lang", "ru-RU");
   paymentUrl.searchParams.append("failpage", "https://mnepodpisku.ru/netflix");
+
+  return {
+    status: "success",
+    message: "success",
+    data: { paymentUrl: paymentUrl.toString() },
+  };
+}
+
+export async function getTurkeyCardPaymentLink(values: { amount: string; service: string }, ip: string | null) {
+  let singleIp = null;
+  if (ip !== null) {
+    if (ip.indexOf(",") !== -1) {
+      singleIp = ip.split(",")[0];
+    }
+  }
+
+  const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
+    cache: "no-store",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      product_id: process.env.DIGISELLER_ONE_TIME_CARD_BASE_ID,
+      unit_cnt: Number(values.amount),
+      options: [
+        {
+          id: process.env.DIGISELLER_ONE_TIME_CARD_OPTION_ID,
+          value: {
+            id: process.env[`DIGISELLER_ONE_TIME_CARD_${values.service.toUpperCase()}_VARIANT_ID`],
+          },
+        },
+      ],
+      lang: "ru-RU",
+      ip: singleIp ?? "127.0.0.1",
+    }),
+  });
+
+  const { id_po } = await paramsRes.json();
+
+  const paymentUrl = new URL("https://oplata.info/asp2/pay_rk.asp");
+
+  paymentUrl.searchParams.append("id_d", process.env.DIGISELLER_ONE_TIME_CARD_BASE_ID!);
+  paymentUrl.searchParams.append("id_po", id_po);
+  paymentUrl.searchParams.append("curr", "RBX");
+  paymentUrl.searchParams.append("lang", "ru-RU");
+  paymentUrl.searchParams.append("failpage", "https://mnepodpisku.ru/turkey_card");
 
   return {
     status: "success",
