@@ -119,7 +119,7 @@ export default function FormComponent({ receivedAmount, ip, service }: Props) {
                 onChange={(ev) => formik.setFieldValue("service", ev.currentTarget.value)}
                 defaultValue={formik.values.service}
               >
-                <option disabled selected>
+                <option disabled value="">
                   Выберите сервис
                 </option>
                 {availableServices.map((item) => (
