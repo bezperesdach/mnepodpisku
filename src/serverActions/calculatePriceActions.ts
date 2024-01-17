@@ -633,8 +633,6 @@ export async function getTurkeyCardPrice(values: { amount: string; service: stri
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    console.log(data);
-
     return { sale: data.amount };
   } catch (error) {
     if (error instanceof Error) {
