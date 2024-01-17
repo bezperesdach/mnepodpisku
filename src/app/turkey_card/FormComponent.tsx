@@ -23,7 +23,7 @@ type Props = {
 const TopUpSchema = Yup.object().shape({
   amount: Yup.number()
     .required("Необходимо заполнить")
-    .test("Сумма больше 10", "Не может быть меньше 10", (value) => value >= 10)
+    .test("Сумма больше 100", "Не может быть меньше 100", (value) => value >= 100)
     .test("Сумма меньше 5000", "Не может быть больше 5000", (value) => value <= 5000),
   service: Yup.string().required("Необходимо выбрать сервис"),
 });
