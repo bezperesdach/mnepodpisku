@@ -10,6 +10,7 @@ import cn from "@/utils/cn";
 export type Types = "пополнение" | "игра" | "аккаунт" | "одноразовая_карта" | "";
 
 export type UserData = {
+  code: string;
   type: Types;
   price: string;
   email: string;
@@ -47,6 +48,7 @@ type ActionType =
 
 const initialState: StateType = {
   userData: {
+    code: "",
     type: "",
     price: "",
     email: "",
@@ -116,6 +118,8 @@ function WbActivate() {
         <>
           {state.activationStep === 0 && (
             <ActivationStep1
+              userData={state.userData}
+              changeCode={(value) => dispatch({ type: "change_user_data_value", payload: { name: "code", value: value } })}
               changeAllowToNextStage={(value) => dispatch({ type: "change_allow_to_next_stage", payload: value })}
               changeTitle={(title) => dispatch({ type: "change_title", payload: title })}
             />
