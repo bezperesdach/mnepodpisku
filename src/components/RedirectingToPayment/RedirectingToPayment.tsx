@@ -10,7 +10,7 @@ const RedirectingToPayment = () => {
 
   useEffect(() => {
     if (state.paymentLink) {
-      setTimeout(() => (window.location.href = state.paymentLink), 200);
+      setTimeout(() => (window.location.href = state.paymentLink), 5000);
     }
   }, [state.paymentLink]);
 
@@ -41,6 +41,9 @@ const RedirectingToPayment = () => {
           >
             <div className="flex flex-col items-center px-4 py-8 mx-1 sm:mx-4">
               <p className="text-lg sm:text-2xl lg:text-2xl font-medium text-center">Перенаправляем вас на страницу оплаты</p>
+              <p className="text-lg sm:text-2xl lg:text-2xl font-medium text-center mt-4">
+                После успешной оплаты вы будете перенаправлены на страницу активации
+              </p>
               <p className="sm:text-lg lg:text-xlfont-medium mt-10 text-center">
                 Нажмите "Далее", если не происходит переход на страницу оплаты{" "}
               </p>
