@@ -44,8 +44,9 @@ function page() {
         </p>
       </div>
 
-      <p className="mt-4 border-2 border-warning p-2 rounded-lg">
-        <strong>ВНИМАНИЕ!</strong> Отправить сообщение продавцу можно только с сайта Wildberries, в приложении такого функционала нет!
+      <p className="mt-4 border-2 border-warning p-2 rounded-lg text-lg">
+        <span className="font-black">ВНИМАНИЕ!</span> Отправить сообщение продавцу можно только с сайта Wildberries,{" "}
+        <span className="font-black text-error">В ПРИЛОЖЕНИИ ТАКОГО ФУНКЦИОНАЛА НЕТ!</span>
       </p>
 
       <p className="my-4">
