@@ -140,7 +140,7 @@ export async function GET() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${process.env.WB_GET_REVIEWS_TOKEN}`,
         },
-        next: { revalidate: 60 * 60 * 24 * 3 },
+        next: { revalidate: 60 * 60 * 24 },
       }
     );
 
