@@ -54,14 +54,12 @@ function page() {
         Убедитесь, что вы вошли под учетной записью, через которую была совершена покупка
       </p>
 
-      <a
-        href="https://www.wildberries.ru/security/login?returnUrl=https%3A%2F%2Fwww.wildberries.ru%2Fsecurity%2Flogin%2F/"
-        className="btn btn-outline mt-2"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Войти на Wildberries под своей учетной записью
-      </a>
+      <p className="my-4">
+        Скопируйте ссылку ниже, откройте в браузере новую вкладку и вставьте ее туда
+        <br />
+        <br />
+        <span className="text-2xl font-bold">https://www.wildberries.ru/security/login</span>
+      </p>
 
       <Image
         src={Image1}
@@ -75,7 +73,7 @@ function page() {
 
       <p className="my-4">
         Как только вы введете учетные данные от вашего аккаунта и успешно войдете, перейдите в раздел
-        <strong> &quout;Профиль&quout;</strong> который находится в правом нижнем углу
+        <strong> &quot;Профиль&quot;</strong> который находится в правом нижнем углу
       </p>
       <Image
         src={Image2}
@@ -88,7 +86,7 @@ function page() {
       />
 
       <p className="my-4">
-        В открывшемся окне вам необходимо перейти в раздел <strong>&quout;Покупки&quout;</strong>
+        В открывшемся окне вам необходимо перейти в раздел <strong>&quot;Покупки&quot;</strong>
       </p>
       <Image
         src={Image3}
@@ -102,7 +100,7 @@ function page() {
 
       <p className="my-4">
         В открывшемся окне найдите покупку нашего товара и нажмите на три точки справа от карточки <br />В открывшемся окне выберите{" "}
-        <strong>&quout;Чат с продавцом&quout;</strong>
+        <strong>&quot;Чат с продавцом&quot;</strong>
       </p>
       <Image
         src={Image4}
