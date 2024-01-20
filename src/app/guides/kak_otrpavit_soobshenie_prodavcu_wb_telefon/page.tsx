@@ -113,6 +113,14 @@ function page() {
         placeholder="blur"
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
+
+      <p className="mt-4 border-2 border-warning p-2 rounded-lg text-lg">
+        <span className="font-black text-warning">НЕ НАШЛИ КНОПКУ &quot;ЧАТ С ПРОДАВЦОМ&quot;?</span> <br />
+        <br />
+        ОТПРАВИТЬ СООБЩЕНИЕ ПРОДАВЦУ МОЖНО ТОЛЬКО <span className="font-black text-warning">С САЙТА WILDBERRIES</span>, <br />
+        <br />
+        <span className="font-black text-error">В ПРИЛОЖЕНИИ ТАКОГО ФУНКЦИОНАЛА НЕТ!</span>
+      </p>
       <Image
         src={Image5}
         alt="Чат с продавцом"
