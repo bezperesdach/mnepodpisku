@@ -60,6 +60,16 @@ type WbResponse = {
   bables: boolean;
 };
 
+type Review = {
+  name: string;
+  platform: "VK" | "WB";
+  review: string;
+  rating?: number;
+  link: string;
+  reply?: string;
+  date: number;
+};
+
 // function shuffleArray<T>(array: T[]): T[] {
 //   let currentIndex = array.length;
 //   let temporaryValue: T;
@@ -126,7 +136,7 @@ export async function GET() {
       return {
         review: comment!.text.replace(/\[club221413404:bp-221413404_4\|МнеПодписку\], /, ""),
         name: item.first_name,
-        platform: "VK",
+        platform: "VK" as const,
         link: `https://vk.com/topic-221413404_49184185?post=${comment!.id}`,
         date: comment!.date,
       };
@@ -166,7 +176,7 @@ export async function GET() {
       return {
         review: item.text,
         name: item.userName !== "" ? item.userName : "Покупатель",
-        platform: "WB",
+        platform: "WB" as const,
         rating: item.productValuation,
         link: `https://www.wildberries.ru/catalog/${item.productDetails.nmId}/feedbacks?imtId=${item.productDetails.imtId}&size=${item.productDetails.size}#${item.id}`,
         date: new Date(item.createdDate).getTime() / 1000,
@@ -174,9 +184,12 @@ export async function GET() {
       };
     });
 
-    const combined = [...reviewsVk, ...finalReviewsWb];
+    const combined: Review[] = [...reviewsVk, ...finalReviewsWb];
 
     combined.sort((a, b) => b.date - a.date);
+
+    // const satisfiedCustomers = combined.reduce((total, item) => total + (item.rating ?? 5), 0) / combined.length;
+    // console.log(satisfiedCustomers);
 
     return Response.json(combined);
   } catch (err) {
