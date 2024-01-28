@@ -26,39 +26,39 @@ type VkResponse = {
   }[];
 };
 
-type WbResponse = {
-  id: string;
-  text: string;
-  productValuation: number;
-  createdDate: string;
-  answer: {
-    text: string;
-    state: string;
-    editable: boolean;
-  };
-  state: string;
-  productDetails: {
-    imtId: number;
-    nmId: number;
-    productName: string;
-    supplierArticle: string;
-    supplierName: string;
-    brandName: string;
-    size: string;
-  };
-  video: string;
-  wasViewed: boolean;
-  photoLinks: string;
-  userName: string;
-  matchingSize: string;
-  isAbleSupplierFeedbackValuation: boolean;
-  supplierFeedbackValuation: number;
-  isAbleSupplierProductValuation: boolean;
-  supplierProductValuation: number;
-  isAbleReturnProductOrders: boolean;
-  returnProductOrdersDate: boolean;
-  bables: boolean;
-};
+// type WbResponse = {
+//   id: string;
+//   text: string;
+//   productValuation: number;
+//   createdDate: string;
+//   answer: {
+//     text: string;
+//     state: string;
+//     editable: boolean;
+//   };
+//   state: string;
+//   productDetails: {
+//     imtId: number;
+//     nmId: number;
+//     productName: string;
+//     supplierArticle: string;
+//     supplierName: string;
+//     brandName: string;
+//     size: string;
+//   };
+//   video: string;
+//   wasViewed: boolean;
+//   photoLinks: string;
+//   userName: string;
+//   matchingSize: string;
+//   isAbleSupplierFeedbackValuation: boolean;
+//   supplierFeedbackValuation: number;
+//   isAbleSupplierProductValuation: boolean;
+//   supplierProductValuation: number;
+//   isAbleReturnProductOrders: boolean;
+//   returnProductOrdersDate: boolean;
+//   bables: boolean;
+// };
 
 type Review = {
   name: string;
@@ -123,70 +123,94 @@ export async function GET() {
 
     const result: VkResponse = (await commentsVk.json()).response;
 
+    // console.log(result);
+
     if (result === undefined || result.items === undefined || result.profiles === undefined) {
       return new Response("undefined vk result", {
         status: 500,
       });
     }
 
+    // const comments = result.items.filter((item) => item.from_id !== -221413404);
+
+    // console.log(comments);
+
+    // const reviewsVk = result.profiles.map((item) => {
+    //   const comment = comments.find((item_comment) => item_comment.from_id === item.id);
+    //   return {
+    //     review: comment!.text.replace(/\[club221413404:bp-221413404_4\|МнеПодписку\], /, ""),
+    //     name: item.first_name,
+    //     platform: "VK" as const,
+    //     link: `https://vk.com/topic-221413404_49184185?post=${comment!.id}`,
+    //     date: comment!.date,
+    //   };
+    // });
+
     const comments = result.items.filter((item) => item.from_id !== -221413404);
 
-    const reviewsVk = result.profiles.map((item) => {
-      const comment = comments.find((item_comment) => item_comment.from_id === item.id);
+    // console.log(comments);
+
+    const reviewsVk = comments.map((comment) => {
+      const profile = result.profiles.find((user) => comment.from_id === user.id);
+      if (!profile) {
+        console.log(comment, profile);
+      }
       return {
         review: comment!.text.replace(/\[club221413404:bp-221413404_4\|МнеПодписку\], /, ""),
-        name: item.first_name,
+        name: profile ? profile.first_name : "",
         platform: "VK" as const,
         link: `https://vk.com/topic-221413404_49184185?post=${comment!.id}`,
         date: comment!.date,
       };
     });
 
-    const wbRequestReviews = await fetch(
-      "https://feedbacks-api.wildberries.ru/api/v1/feedbacks?isAnswered=true&take=100&skip=0&order=dateDesc",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.WB_GET_REVIEWS_TOKEN}`,
-        },
-        next: { revalidate: 60 * 60 * 24 },
-      }
-    );
+    // console.log(reviewsVk);
 
-    if (wbRequestReviews.status !== 200) {
-      return new Response("wb request response is not 200", {
-        status: 500,
-      });
-    }
+    // const wbRequestReviews = await fetch(
+    //   "https://feedbacks-api.wildberries.ru/api/v1/feedbacks?isAnswered=true&take=100&skip=0&order=dateDesc",
+    //   {
+    //     method: "GET",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: `Bearer ${process.env.WB_GET_REVIEWS_TOKEN}`,
+    //     },
+    //     next: { revalidate: 60 * 60 * 24 },
+    //   }
+    // );
 
-    const res = await wbRequestReviews.json();
+    // if (wbRequestReviews.status !== 200) {
+    //   return new Response("wb request response is not 200", {
+    //     status: 500,
+    //   });
+    // }
 
-    if (res.data === undefined || res.data.feedbacks === undefined) {
-      return new Response("wb request undefined", {
-        status: 500,
-      });
-    }
+    // const res = await wbRequestReviews.json();
 
-    const wbRes: WbResponse[] = res.data.feedbacks;
+    // if (res.data === undefined || res.data.feedbacks === undefined) {
+    //   return new Response("wb request undefined", {
+    //     status: 500,
+    //   });
+    // }
 
-    const filteredReviewsWb = wbRes.filter((item) => item.text);
+    // const wbRes: WbResponse[] = res.data.feedbacks;
 
-    const finalReviewsWb = filteredReviewsWb.map((item) => {
-      return {
-        review: item.text,
-        name: item.userName !== "" ? item.userName : "Покупатель",
-        platform: "WB" as const,
-        rating: item.productValuation,
-        link: `https://www.wildberries.ru/catalog/${item.productDetails.nmId}/feedbacks?imtId=${item.productDetails.imtId}&size=${item.productDetails.size}#${item.id}`,
-        date: new Date(item.createdDate).getTime() / 1000,
-        reply: item.answer.text,
-      };
-    });
+    // const filteredReviewsWb = wbRes.filter((item) => item.text);
 
-    const combined: Review[] = [...reviewsVk, ...finalReviewsWb];
+    // const finalReviewsWb = filteredReviewsWb.map((item) => {
+    //   return {
+    //     review: item.text,
+    //     name: item.userName !== "" ? item.userName : "Покупатель",
+    //     platform: "WB" as const,
+    //     rating: item.productValuation,
+    //     link: `https://www.wildberries.ru/catalog/${item.productDetails.nmId}/feedbacks?imtId=${item.productDetails.imtId}&size=${item.productDetails.size}#${item.id}`,
+    //     date: new Date(item.createdDate).getTime() / 1000,
+    //     reply: item.answer.text,
+    //   };
+    // });
 
-    combined.sort((a, b) => b.date - a.date);
+    const combined: Review[] = [...reviewsVk /* , ...finalReviewsWb */];
+
+    // combined.sort((a, b) => b.date - a.date);
 
     // const satisfiedCustomers = combined.reduce((total, item) => total + (item.rating ?? 5), 0) / combined.length;
     // console.log(satisfiedCustomers);

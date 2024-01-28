@@ -8,7 +8,7 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 import ReviewComponent from "./ReviewComponent";
 import { useWindowSize } from "usehooks-ts";
 import { ChevronLeftIcon, ChevronRightIcon } from "@primer/octicons-react";
-import cn from "@/utils/cn";
+// import cn from "@/utils/cn";
 
 type Review = {
   name: string;
@@ -41,7 +41,7 @@ function Reviews() {
     return 1;
   };
 
-  const satisfiedCustomers = data ? data.reduce((total, item) => total + (item.rating ?? 5), 0) / data.length : -1.1;
+  // const satisfiedCustomers = data ? data.reduce((total, item) => total + (item.rating ?? 5), 0) / data.length : -1.1;
 
   return (
     <div className="flex flex-col gap-2 mt-10 overflow-hidden" ref={ref}>
@@ -49,12 +49,12 @@ function Reviews() {
         <p className="text-xl lg:text-2xl font-bold" id="description">
           Отзывы
         </p>
-        <p className="text-xl lg:text-2xl font-semibold">
+        {/* <p className="text-xl lg:text-2xl font-semibold">
           Средняя оценка{" "}
           <span className={cn("font-bold text-xl lg:text-2xl", { "opacity-0": satisfiedCustomers < 0 })}>
             {satisfiedCustomers.toFixed(1)}
           </span>
-        </p>
+        </p> */}
       </div>
 
       {width !== 0 && !isLoading && data && !error ? (
