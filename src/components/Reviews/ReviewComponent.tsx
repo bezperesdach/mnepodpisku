@@ -27,7 +27,7 @@ const PlatformComponent = ({ platform }: { platform: "VK" | "WB" }) => {
 };
 
 type Props = {
-  item: {
+  item?: {
     name: string;
     platform: "VK" | "WB";
     review: string;
@@ -35,10 +35,22 @@ type Props = {
     link: string;
     reply?: string;
   };
+  skeleton?: boolean;
 };
 
-function ReviewComponent({ item }: Props) {
-  const [showResponse, setShowResponse] = useState(item.platform === "WB" && item.rating && item.rating <= 3 ? true : false);
+function Review({
+  review,
+}: {
+  review: {
+    name: string;
+    platform: "VK" | "WB";
+    review: string;
+    rating?: number;
+    link: string;
+    reply?: string;
+  };
+}) {
+  const [showResponse, setShowResponse] = useState(review.platform === "WB" && review.rating && review.rating <= 3 ? true : false);
   const reviewRef = useRef<HTMLParagraphElement>(null);
   const { isOverflow, recalculateOverflow } = useIsOverflow(reviewRef);
   const [showMore, setShowMore] = useState(false);
@@ -72,10 +84,10 @@ function ReviewComponent({ item }: Props) {
           {showResponse ? (
             <>
               <span className=" font-bold">Ответ представителя: </span>
-              {item.reply}
+              {review.reply}
             </>
           ) : (
-            item.review
+            review.review
           )}
         </p>
       </div>
@@ -95,24 +107,24 @@ function ReviewComponent({ item }: Props) {
           <div className="flex gap-1 items-center py-1 px-3">
             <PersonFillIcon />
 
-            <p className="font-semibold">{item.name}</p>
+            <p className="font-semibold">{review.name}</p>
           </div>
         )}
         <a
           className="flex gap-2 items-center py-1 px-3 cursor-pointer"
           target="_blank"
           rel="noopener noreferrer"
-          // href={item.platform === "WB" ? "https://www.wildberries.ru/seller/820694" : "https://vk.com/topic-221413404_49184185"}
-          href={item.link}
+          // href={review.platform === "WB" ? "https://www.wildberries.ru/seller/820694" : "https://vk.com/topic-221413404_49184185"}
+          href={review.link}
         >
-          {item.rating && item.rating > 3 && <ThumbsupIcon className=" text-green-400" />}
-          {item.rating && item.rating <= 3 && <ThumbsdownIcon className=" text-red-400" />}
+          {review.rating && review.rating > 3 && <ThumbsupIcon className=" text-green-400" />}
+          {review.rating && review.rating <= 3 && <ThumbsdownIcon className=" text-red-400" />}
 
-          <PlatformComponent platform={item.platform} />
+          <PlatformComponent platform={review.platform} />
         </a>
       </div>
 
-      {item.reply && (
+      {review.reply && (
         <button
           className="btn btn-outline btn-primary absolute top-2 right-2 w-6 h-6 min-h-[24px]"
           onClick={() => {
@@ -129,6 +141,39 @@ function ReviewComponent({ item }: Props) {
       )}
     </div>
   );
+}
+
+function ReviewComponent({ item, skeleton }: Props) {
+  if (skeleton) {
+    return (
+      <div className="flex relative flex-col justify-between py-4 px-2 lg:px-4 bg-base-200 rounded-lg shadow-md min-h-[240px] max-h-[240px] md:mx-1 skeleton">
+        {/* <span className="loading loading-spinner loading-xl flex-shrink-0" /> */}
+
+        <div className="flex flex-1 justify-center px-2 rounded-md mb-6 bg-base-100 items-center">
+          <p className="text-center max-h-[152px] overflow-hidden text-sm md:text-base">
+            <span className="text-transparent rounded-lg bg-base-content/20 max-w-sm">testtesttesttesttesttesttesttest</span>
+          </p>
+        </div>
+
+        <div className="flex flex-nowrap gap-y-2 justify-between">
+          <div className="flex gap-1 items-center py-1 px-3 animate-pulse">
+            <PersonFillIcon className="text-base-content/50" />
+            <p className="font-semibold w-10 bg-base-content/50 text-transparent rounded-lg">loading</p>
+          </div>
+
+          <div className="flex gap-2 items-center py-1 px-3 cursor-pointer">
+            <p className="px-1 py-[2px] rounded-lg flex justify-center items-center text-sm text-transparent bg-base-content/20 font-bold">
+              VK
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (item) {
+    return <Review review={item} />;
+  }
 }
 
 export default ReviewComponent;

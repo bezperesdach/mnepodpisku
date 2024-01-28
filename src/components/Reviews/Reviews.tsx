@@ -57,7 +57,7 @@ function Reviews() {
         </p> */}
       </div>
 
-      {width !== 0 && !isLoading && data && !error ? (
+      {!isLoading && data && !error ? (
         <CarouselProvider
           interval={6000}
           isPlaying={true}
@@ -92,9 +92,37 @@ function Reviews() {
           </div>
         </CarouselProvider>
       ) : (
-        <div className="flex flex-col justify-center items-center p-4 min-h-[296px] max-h-[296px] mx-1">
-          <span className="loading loading-spinner loading-xl flex-shrink-0" />
-        </div>
+        <CarouselProvider
+          interval={6000}
+          isPlaying={true}
+          touchEnabled={false}
+          // dragEnabled={false}
+          disableKeyboard
+          infinite
+          visibleSlides={1}
+          naturalSlideWidth={320}
+          isIntrinsicHeight
+          naturalSlideHeight={360}
+          totalSlides={3}
+        >
+          <Slider classNameTray="md:gap-4 !mb-2">
+            <Slide index={0}>
+              <ReviewComponent skeleton />
+            </Slide>
+          </Slider>
+          <div className="flex gap-1 mt-2 mb-2">
+            <div className="flex flex-1 items-center justify-center lg:justify-end">
+              <ButtonBack className="btn text-secondary w-full lg:w-12 pointer-events-none">
+                <ChevronLeftIcon size={36} />
+              </ButtonBack>
+            </div>
+            <div className="flex flex-1 items-center justify-center lg:justify-start pointer-events-none">
+              <ButtonNext className="btn text-secondary w-full lg:w-12">
+                <ChevronRightIcon size={36} />
+              </ButtonNext>
+            </div>
+          </div>
+        </CarouselProvider>
       )}
     </div>
   );
