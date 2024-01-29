@@ -60,12 +60,10 @@ function Review({
   };
 
   useEffect(() => {
-    if (!showResponse) {
-      recalculateOverflow();
-    }
+    recalculateOverflow();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [showResponse]);
+  }, [reviewRef.current?.clientHeight, reviewRef.current?.scrollHeight]);
 
   return (
     <div

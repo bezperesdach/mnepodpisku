@@ -13,7 +13,7 @@ export const useIsOverflow = (
 
   const recalculateOverflow = () => {
     if (ref.current) {
-      const hasOverflow = ref.current.scrollHeight - 8 > ref.current.clientHeight;
+      const hasOverflow = ref.current.scrollHeight > ref.current.clientHeight;
       setIsOverflow(hasOverflow);
 
       if (callback) callback(hasOverflow);
