@@ -6,6 +6,7 @@ import cn from "@/utils/cn";
 type Props = {
   dropdownDirection?: "bottom" | "top";
   isNotFound?: boolean;
+  reviewsAmount?: number;
 };
 
 const dropdownDirectionclassName = {
@@ -13,7 +14,7 @@ const dropdownDirectionclassName = {
   top: "dropdown-top",
 };
 
-const MobileMenu = ({ dropdownDirection = "bottom" }: Props) => {
+const MobileMenu = ({ dropdownDirection = "bottom", reviewsAmount }: Props) => {
   const { state, dispatch } = useContext(AppContext);
 
   return (
@@ -40,6 +41,20 @@ const MobileMenu = ({ dropdownDirection = "bottom" }: Props) => {
         className={cn("dropdown-content z-[1] menu p-2 shadow-xl bg-base-100 rounded-box w-52", { hidden: !state.showMobileMenu })}
         // ref={dropdownMenuRef}
       >
+        <div className="indicator">
+          {reviewsAmount && <span className="indicator-item badge badge-secondary">{reviewsAmount}+</span>}
+          <li>
+            <a
+              className="hover:text-secondary"
+              onClick={() => dispatch({ type: "toggle_mobile_menu" })}
+              href="/reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Отзывы
+            </a>
+          </li>
+        </div>
         <li>
           <button
             className="hover:text-secondary"
@@ -51,18 +66,6 @@ const MobileMenu = ({ dropdownDirection = "bottom" }: Props) => {
             Каталог
           </button>
         </li>
-
-        {/* <li>
-          <a
-            className="hover:text-secondary"
-            onClick={() => dispatch({ type: "toggle_mobile_menu" })}
-            href="https://vk.com/topic-221413404_49184185"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Отзывы
-          </a>
-        </li> */}
 
         <li>
           <a

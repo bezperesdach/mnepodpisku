@@ -21,6 +21,7 @@ import youtubeImg from "../../../public/catalogue_icons/youtube.png";
 import adobeccImage from "../../../public/catalogue_icons/adobe_cc.png";
 import credit_card_turkey from "../../../public/catalogue_icons/credit_card_turkey.png";
 import na_chai from "../../../public/catalogue_icons/na_chai.png";
+import useSWR from "swr";
 
 export const catalogueItems = {
   spotify: {
@@ -263,10 +264,11 @@ type Props = {
   isNotFound?: boolean;
 };
 
-// export const CatalogueContext = createContextId<Signal<boolean>>("showNavbar");
+const fetcher = (url: string | URL | Request) => fetch(url).then<{ amount: number }>((r) => r.json());
 
 export default function Navbar({ colorPallette, isNotFound }: Props) {
   const { state, dispatch } = useContext(AppContext);
+  const { data } = useSWR("/api/reviews/get_reviews_count", fetcher);
 
   return (
     <div className={cn("navbar h-16 shadow-md")}>
@@ -289,17 +291,21 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
         <div className="flex-none gap-4 md:text-lg font-medium items-center hidden lg:flex ">
           <button onClick={() => dispatch({ type: "toggle_catalogue" })}>Каталог</button>
 
-          {/* <a href="https://vk.com/topic-221413404_49184185" target="_blank" rel="noopener noreferrer">
-            Отзывы
-          </a> */}
           <a href="https://oplata.info/info/" target="_blank" rel="noopener noreferrer">
             Мои покупки
           </a>
 
+          <div className="indicator">
+            {data?.amount && <span className="indicator-item badge badge-secondary">{data?.amount}+</span>}
+            <a className="mr-2" href="/reviews" target="_blank" rel="noopener noreferrer">
+              Отзывы
+            </a>
+          </div>
+
           <ThemeSwitcher />
         </div>
         <div className="flex items-center flex-none lg:hidden">
-          <MobileMenu /* color={colorPallette ? catalogueItems[colorPallette].foregroundColor : ""} */ />
+          <MobileMenu reviewsAmount={data?.amount} /* color={colorPallette ? catalogueItems[colorPallette].foregroundColor : ""} */ />
         </div>
       </div>
       <div
