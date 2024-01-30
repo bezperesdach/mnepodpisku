@@ -2,6 +2,7 @@ import { useContext } from "react";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import { AppContext } from "../AppContextWrapper/AppContextWrapper";
 import cn from "@/utils/cn";
+import Link from "next/link";
 
 type Props = {
   dropdownDirection?: "bottom" | "top";
@@ -44,15 +45,9 @@ const MobileMenu = ({ dropdownDirection = "bottom", reviewsAmount }: Props) => {
         <div className="indicator">
           {reviewsAmount && <span className="indicator-item badge badge-secondary">{reviewsAmount}+</span>}
           <li>
-            <a
-              className="hover:text-secondary"
-              onClick={() => dispatch({ type: "toggle_mobile_menu" })}
-              href="/reviews"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link className="hover:text-secondary" onClick={() => dispatch({ type: "toggle_mobile_menu" })} href="/reviews">
               Отзывы
-            </a>
+            </Link>
           </li>
         </div>
         <li>

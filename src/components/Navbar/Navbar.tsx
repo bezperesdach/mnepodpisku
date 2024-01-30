@@ -297,9 +297,9 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
 
           <div className="indicator">
             {data?.amount && <span className="indicator-item badge badge-secondary">{data?.amount}+</span>}
-            <a className="mr-2" href="/reviews" target="_blank" rel="noopener noreferrer">
+            <Link className="mr-2" href="/reviews">
               Отзывы
-            </a>
+            </Link>
           </div>
 
           <ThemeSwitcher />
