@@ -8,6 +8,8 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 import ReviewComponent from "./ReviewComponent";
 import { useWindowSize } from "usehooks-ts";
 import { ChevronLeftIcon, ChevronRightIcon } from "@primer/octicons-react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 // import cn from "@/utils/cn";
 
 type Review = {
@@ -21,6 +23,8 @@ type Review = {
 const fetcher = (url: string | URL | Request) => fetch(url).then<Review[]>((r) => r.json());
 
 function Reviews() {
+  const pathname = usePathname();
+
   const { data, error, isLoading } = useSWR("/api/reviews/get_reviews", fetcher);
   // eslint-disable-next-line no-unused-vars
   // const [reviews, setReviews] = useState<Review[]>(data);
@@ -46,9 +50,16 @@ function Reviews() {
   return (
     <div className="flex flex-col gap-2 mt-10 overflow-hidden" ref={ref}>
       <div className="flex justify-between flex-wrap">
-        <p className="text-xl lg:text-2xl font-bold" id="description">
-          Отзывы
-        </p>
+        {pathname === `/reviews` ? (
+          <p className="text-xl lg:text-2xl font-bold" id="description">
+            Отзывы
+          </p>
+        ) : (
+          <Link className="text-xl lg:text-2xl font-bold" id="description" href="/reviews">
+            Отзывы
+          </Link>
+        )}
+
         {/* <p className="text-xl lg:text-2xl font-semibold">
           Средняя оценка{" "}
           <span className={cn("font-bold text-xl lg:text-2xl", { "opacity-0": satisfiedCustomers < 0 })}>

@@ -42,14 +42,12 @@ const MobileMenu = ({ dropdownDirection = "bottom", reviewsAmount }: Props) => {
         className={cn("dropdown-content z-[1] menu p-2 shadow-xl bg-base-100 rounded-box w-52", { hidden: !state.showMobileMenu })}
         // ref={dropdownMenuRef}
       >
-        <div className="indicator">
-          {reviewsAmount && <span className="indicator-item badge badge-secondary">{reviewsAmount}+</span>}
-          <li>
-            <Link className="hover:text-secondary" onClick={() => dispatch({ type: "toggle_mobile_menu" })} href="/reviews">
-              Отзывы
-            </Link>
-          </li>
-        </div>
+        <li>
+          <Link className="hover:text-secondary" onClick={() => dispatch({ type: "toggle_mobile_menu" })} href="/reviews">
+            Отзывы
+            {reviewsAmount && <div className="badge badge-secondary">{reviewsAmount}+</div>}
+          </Link>
+        </li>
         <li>
           <button
             className="hover:text-secondary"
