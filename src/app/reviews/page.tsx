@@ -7,12 +7,11 @@ import { Metadata } from "next";
 import Reviews from "@/components/Reviews/Reviews";
 
 export const metadata: Metadata = {
-  title: "Мнеподписку отзывы",
-  description: "Страница с отзывами о сервисе МнеПодписку. Узнай мнение других людей о нашем сервисе",
+  title: "МнеПодписку отзывы",
+  description: "Страница с отзывами о сервисе МнеПодписку. Узнай мнение других людей и сделай правильный выбор!",
   openGraph: {
-    title: "Купить Spotify Premium 2023 Россия",
-    description:
-      "Купить spotify premium быстро и дешево в россии. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
+    title: "МнеПодписку отзывы",
+    description: "Страница с отзывами о сервисе МнеПодписку. Узнай мнение других людей и сделай правильный выбор!",
     url: "/reviews",
     images: ["/og_images_catalogue/reviews.png"],
     type: "website",
