@@ -10,6 +10,7 @@ import { useWindowSize } from "usehooks-ts";
 import { ChevronLeftIcon, ChevronRightIcon } from "@primer/octicons-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import ReviewComponentSkeleton from "./ReviewComponentSkeleton";
 // import cn from "@/utils/cn";
 
 type Review = {
@@ -68,73 +69,63 @@ function Reviews() {
         </p> */}
       </div>
 
-      {!isLoading && data && !error ? (
-        <CarouselProvider
-          interval={6000}
-          isPlaying={true}
-          touchEnabled={false}
-          // dragEnabled={false}
-          disableKeyboard
-          infinite
-          visibleSlides={visibleItemsCalculate(width)}
-          naturalSlideWidth={320}
-          isIntrinsicHeight
-          naturalSlideHeight={360}
-          totalSlides={data.length}
-        >
-          <Slider classNameTray="md:gap-4 !mb-2">
-            {data.map((item, i) => (
-              <Slide index={i} key={i}>
-                <ReviewComponent item={item} />
+      <CarouselProvider
+        interval={6000}
+        isPlaying={true}
+        touchEnabled={false}
+        // dragEnabled={false}
+        disableKeyboard
+        infinite
+        visibleSlides={data && data.length ? visibleItemsCalculate(width) : 1}
+        naturalSlideWidth={320}
+        isIntrinsicHeight
+        naturalSlideHeight={360}
+        totalSlides={(data && data.length) ?? 1}
+      >
+        {!isLoading && data && !error ? (
+          <>
+            <Slider classNameTray="md:gap-4 !mb-2">
+              {data.map((item, i) => (
+                <Slide index={i} key={i}>
+                  <ReviewComponent review={item} />
+                </Slide>
+              ))}
+            </Slider>
+            <div className="flex gap-1 mt-2 mb-2">
+              <div className="flex flex-1 items-center justify-center lg:justify-end">
+                <ButtonBack className="btn text-secondary w-full lg:w-12">
+                  <ChevronLeftIcon size={36} />
+                </ButtonBack>
+              </div>
+              <div className="flex flex-1 items-center justify-center lg:justify-start">
+                <ButtonNext className="btn text-secondary w-full lg:w-12">
+                  <ChevronRightIcon size={36} />
+                </ButtonNext>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <Slider classNameTray="md:gap-4 !mb-2">
+              <Slide index={0}>
+                <ReviewComponentSkeleton />
               </Slide>
-            ))}
-          </Slider>
-          <div className="flex gap-1 mt-2 mb-2">
-            <div className="flex flex-1 items-center justify-center lg:justify-end">
-              <ButtonBack className="btn text-secondary w-full lg:w-12">
-                <ChevronLeftIcon size={36} />
-              </ButtonBack>
+            </Slider>
+            <div className="flex gap-1 mt-2 mb-2">
+              <div className="flex flex-1 items-center justify-center lg:justify-end">
+                <ButtonBack className="btn text-secondary w-full lg:w-12 pointer-events-none">
+                  <ChevronLeftIcon size={36} />
+                </ButtonBack>
+              </div>
+              <div className="flex flex-1 items-center justify-center lg:justify-start pointer-events-none">
+                <ButtonNext className="btn text-secondary w-full lg:w-12">
+                  <ChevronRightIcon size={36} />
+                </ButtonNext>
+              </div>
             </div>
-            <div className="flex flex-1 items-center justify-center lg:justify-start">
-              <ButtonNext className="btn text-secondary w-full lg:w-12">
-                <ChevronRightIcon size={36} />
-              </ButtonNext>
-            </div>
-          </div>
-        </CarouselProvider>
-      ) : (
-        <CarouselProvider
-          interval={6000}
-          isPlaying={true}
-          touchEnabled={false}
-          // dragEnabled={false}
-          disableKeyboard
-          infinite
-          visibleSlides={1}
-          naturalSlideWidth={320}
-          isIntrinsicHeight
-          naturalSlideHeight={360}
-          totalSlides={3}
-        >
-          <Slider classNameTray="md:gap-4 !mb-2">
-            <Slide index={0}>
-              <ReviewComponent skeleton />
-            </Slide>
-          </Slider>
-          <div className="flex gap-1 mt-2 mb-2">
-            <div className="flex flex-1 items-center justify-center lg:justify-end">
-              <ButtonBack className="btn text-secondary w-full lg:w-12 pointer-events-none">
-                <ChevronLeftIcon size={36} />
-              </ButtonBack>
-            </div>
-            <div className="flex flex-1 items-center justify-center lg:justify-start pointer-events-none">
-              <ButtonNext className="btn text-secondary w-full lg:w-12">
-                <ChevronRightIcon size={36} />
-              </ButtonNext>
-            </div>
-          </div>
-        </CarouselProvider>
-      )}
+          </>
+        )}
+      </CarouselProvider>
     </div>
   );
 }
