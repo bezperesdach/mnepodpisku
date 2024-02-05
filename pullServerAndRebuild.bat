@@ -5,7 +5,7 @@ for /f "delims=" %%a in ('type .env.local') do set %%a
 
 
 :: Construct the SSH command with multiple commands
-set ssh_cmd=ssh -p %REMOTE_PORT% %REMOTE_USER%@%REMOTE_HOST% "cd %REMOTE_FOLDER% ; git pull ; pnpm run build ; pm2 restart MNEPODPISKU"
+set ssh_cmd=ssh -p %REMOTE_PORT% %REMOTE_USER%@%REMOTE_HOST% "cd %REMOTE_FOLDER% ; git pull ; pnpm run build ; pm2 restart MNEPODPISKU --update-env"
 
 :: Execute the SSH command
 %ssh_cmd%
