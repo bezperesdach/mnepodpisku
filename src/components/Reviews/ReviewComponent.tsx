@@ -9,7 +9,7 @@ import {
   ThumbsdownIcon,
   ThumbsupIcon,
 } from "@primer/octicons-react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { MutableRefObject, useEffect, useRef, useState } from "react";
 
 const PlatformComponent = ({ platform }: { platform: "VK" | "WB" }) => {
   if (platform === "VK") {
@@ -40,7 +40,7 @@ function ReviewComponent({
 }) {
   const [showResponse, setShowResponse] = useState(review.platform === "WB" && review.rating && review.rating <= 3 ? true : false);
   const reviewRef = useRef<HTMLParagraphElement>(null);
-  const { isOverflow, recalculateOverflow } = useIsOverflow(reviewRef);
+  const { isOverflow, recalculateOverflow } = useIsOverflow(reviewRef as MutableRefObject<HTMLElement>);
   const [showMore, setShowMore] = useState(false);
 
   const toggleShowMore = (state?: boolean) => {

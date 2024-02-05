@@ -6,7 +6,7 @@ interface UseIsOverflowProps {
 }
 
 export const useIsOverflow = (
-  ref: MutableRefObject<any>,
+  ref: MutableRefObject<HTMLElement>,
   { callback }: UseIsOverflowProps = {}
 ): { isOverflow: boolean | undefined; recalculateOverflow: () => void } => {
   const [isOverflow, setIsOverflow] = useState<boolean | undefined>(undefined);
@@ -23,7 +23,7 @@ export const useIsOverflow = (
   useLayoutEffect(() => {
     recalculateOverflow();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [callback, ref]);
+  }, [callback, ref, ref.current?.scrollHeight, ref.current?.clientHeight]);
 
   return { isOverflow, recalculateOverflow };
 };
