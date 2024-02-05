@@ -1,4 +1,5 @@
 export const YANDEX_METRIKA_ID = process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID!;
+export const YANDEX_METRIKA_REKLAMA = process.env.NEXT_PUBLIC_YANDEX_METRIKA_REKLAMA_ID!;
 
 export const ym = (goal: string, goalName: string) => {
   if (process.env.NODE_ENV === "development") {
@@ -6,6 +7,7 @@ export const ym = (goal: string, goalName: string) => {
   } else {
     if (window.ym) {
       window.ym(Number(YANDEX_METRIKA_ID), goal, goalName);
+      window.ym(Number(YANDEX_METRIKA_REKLAMA), goal, goalName);
     } else {
       console.log("failed to use YM");
     }

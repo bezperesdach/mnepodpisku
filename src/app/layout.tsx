@@ -38,8 +38,14 @@ const yandexMetrica = `
        clickmap:true,
        trackLinks:true,
        accurateTrackBounce:true,
-       webvisor:true
   });
+
+  ym(${process.env.NEXT_PUBLIC_YANDEX_METRIKA_REKLAMA_ID}, "init", {
+    clickmap:true,
+    trackLinks:true,
+    accurateTrackBounce:true,
+    webvisor:true
+});
   `;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -55,6 +61,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
           {/* <WeAreOnBrakerBanner /> */}
           {children}
+          <noscript>
+            <div>
+              <img src={`https://mc.yandex.ru/watch/${process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID}?ut=noindex`} alt="" />
+              <img src={`https://mc.yandex.ru/watch/${process.env.NEXT_PUBLIC_YANDEX_METRIKA_REKLAMA_ID}?ut=noindex`} alt="" />
+            </div>
+          </noscript>
         </body>
       </AppContextProvider>
 
