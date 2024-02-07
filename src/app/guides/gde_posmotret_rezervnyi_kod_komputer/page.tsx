@@ -44,7 +44,7 @@ function page() {
         </Link>
       </div>
 
-      <p className="mt-4">
+      <p className="mt-4 border-2 border-warning p-2 rounded-lg text-lg">
         Резервные коды нужны для входа в аккаунт PSN при <strong>включенном 2FA</strong>, для включения 2FA ознакомьтесь с нашей{" "}
         <Link href="/guides/kak_vkluchit_2fa_na_akaunte_psn" className="text-secondary underline">
           ИНСТРУКЦИЕЙ
@@ -98,6 +98,15 @@ function page() {
       <p className="my-4">
         В открывшемся окне найдите пункт <strong>"Резервные коды"</strong>/<strong>"Backup Codes"</strong>
       </p>
+
+      <p className="mb-4 border-2 border-warning p-2 rounded-lg text-lg">
+        Если вы не нашли пункт <strong>"Резервные коды"</strong>/<strong>"Backup Codes"</strong> значит у вас не включен 2FA - вам нужно
+        выполнить{" "}
+        <Link href="/guides/kak_vkluchit_2fa_na_akaunte_psn" className="text-secondary underline">
+          ИНСТРУКЦИЮ
+        </Link>
+      </p>
+
       <Image
         src={Image4}
         alt="Зайти в раздел резервные коды"

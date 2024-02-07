@@ -46,6 +46,13 @@ function page() {
         </p>
       </div>
 
+      <p className="mt-4 border-2 border-warning p-2 rounded-lg text-lg">
+        Резервные коды нужны для входа в аккаунт PSN при <strong>включенном 2FA</strong>, для включения 2FA ознакомьтесь с нашей{" "}
+        <Link href="/guides/kak_vkluchit_2fa_na_akaunte_psn" className="text-secondary underline">
+          ИНСТРУКЦИЕЙ
+        </Link>
+      </p>
+
       <p className="my-4">
         Для того чтобы получить резервный код через веб-браузер вашего компьютера, необходимо перейти на официальный сайт Sony
         PlayStation и войти, используя учетные данные <strong>вашей турецкой учетной записи</strong>
@@ -112,6 +119,15 @@ function page() {
       <p className="my-4">
         В открывшемся окне пролистайте страницу до пункта <strong>"Резервные коды"</strong>/<strong>"Backup Codes"</strong>
       </p>
+
+      <p className="mb-4 border-2 border-warning p-2 rounded-lg text-lg">
+        Если вы не нашли пункт <strong>"Резервные коды"</strong>/<strong>"Backup Codes"</strong> значит у вас не включен 2FA - вам нужно
+        выполнить{" "}
+        <Link href="/guides/kak_vkluchit_2fa_na_akaunte_psn" className="text-secondary underline">
+          ИНСТРУКЦИЮ
+        </Link>
+      </p>
+
       <Image
         src={Image6}
         alt="Зайти в раздел резервные коды"
@@ -126,6 +142,7 @@ function page() {
         В открывшейся вкладке хранятся ваши <strong>резервные коды</strong> <br />
         Сохраните один код и отправьте нам.
       </p>
+
       <Image
         src={Image7}
         alt="Увидеть резервные коды"
