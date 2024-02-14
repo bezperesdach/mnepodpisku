@@ -5,14 +5,12 @@ import { Types, UserData } from "../WbClient";
 
 type Props = {
   userData: UserData;
-  chatMessageSent: boolean;
-
-  chequeSent: boolean;
+  messageOnly?: string;
   // eslint-disable-next-line no-unused-vars
   changeTitle: (title: string) => void;
 };
 
-const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }: Props) => {
+const ActivationStep4 = ({ userData, messageOnly, changeTitle }: Props) => {
   const [canCopyCode, setCanCopyCode] = useState(true);
 
   const copyCode = () => {
@@ -49,16 +47,12 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
         <div className="bg-base-200 p-4 rounded-lg">
           <p>{actionName(userData.type)}</p>
           <p>КОД АКТИВАЦИИ {userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}</p>
-          {chequeSent && (
-            <p>
-              ЧЕК НА {userData.price} - {userData.priceDate}
-            </p>
-          )}
-          {chatMessageSent && (
-            <p>
-              СООБЩЕНИЕ НА СУММУ {userData.price} - {userData.priceDate}
-            </p>
-          )}
+
+          <p>
+            {messageOnly ? "СООБЩЕНИЕ" : "ЧЕК"} НА СУММУ {userData.price}
+            {!messageOnly && "₽"} - {userData.priceDate}
+          </p>
+
           {(userData.type === "пополнение" || userData.type === "игра") && (
             <>
               <p>EMAIL {userData.email}</p>
@@ -78,8 +72,8 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
             // @ts-ignore: Clipboard.copy defined in root.tsx
             Clipboard.copy(
               `${actionName(userData.type)}\nКОД АКТИВАЦИИ ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}${
-                chequeSent ? "\nЧЕК" : ""
-              }${chatMessageSent ? "\nСООБЩЕНИЕ" : ""} НА СУММУ ${userData.price} - ${userData.priceDate}${
+                messageOnly ? "\nСООБЩЕНИЕ" : "\nЧЕК"
+              } НА СУММУ ${userData.price}${!messageOnly && "₽"} - ${userData.priceDate}${
                 userData.email ? "\nEMAIL - " + userData.email : ""
               }${userData.password ? "\nПАРОЛЬ - " + userData.password : ""}${
                 userData.accessCode ? "\nРЕЗЕРВНЫЙ КОД - " + userData.accessCode : ""

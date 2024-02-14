@@ -21,10 +21,9 @@ export type UserData = {
 
 type StateType = {
   userData: UserData;
-  chequeSent: boolean;
-  chatMessageSent: boolean;
   title: string;
   activationStep: number;
+  confirmationSent: boolean;
   accessCodeAcknowledge: boolean;
   allowedToNextStage: boolean;
 };
@@ -40,10 +39,9 @@ type ActionType =
       type: "change_title";
       payload: string;
     }
+  | { type: "confirmation_change"; payload: boolean }
   | { type: "change_user_data_value"; payload: { name: string; value: string } }
   | { type: "change_allow_to_next_stage"; payload: boolean }
-  | { type: "change_cheque_sent"; payload: boolean }
-  | { type: "change_chat_message_sent"; payload: boolean }
   | { type: "change_access_code_acknowledgement"; payload: boolean };
 
 const initialState: StateType = {
@@ -56,8 +54,7 @@ const initialState: StateType = {
     accessCode: "",
     priceDate: "",
   },
-  chequeSent: false,
-  chatMessageSent: false,
+  confirmationSent: false,
   accessCodeAcknowledge: true,
   title: "Ввод кода активации",
   activationStep: 0,
@@ -85,16 +82,15 @@ const reducer = (state: StateType, action: ActionType) => {
     case "change_title":
       return { ...state, title: action.payload };
 
+    case "confirmation_change":
+      return { ...state, confirmationSent: action.payload };
+
     case "change_user_data_value":
       return { ...state, userData: { ...state.userData, [action.payload.name]: action.payload.value } };
 
     case "change_allow_to_next_stage":
       return { ...state, allowedToNextStage: action.payload };
 
-    case "change_cheque_sent":
-      return { ...state, chequeSent: action.payload };
-    case "change_chat_message_sent":
-      return { ...state, chatMessageSent: action.payload };
     case "change_access_code_acknowledgement":
       return { ...state, accessCodeAcknowledge: action.payload };
 
@@ -130,12 +126,10 @@ function WbActivate({ foreign }: Props) {
           )}
           {state.activationStep === 1 && (
             <ActivationStep2
+              confirmationSent={state.confirmationSent}
+              setConfirmationSent={(value) => dispatch({ type: "confirmation_change", payload: value })}
               messageOnly={foreign}
               userData={state.userData}
-              chequeSent={state.chequeSent}
-              setChequeSent={(value) => dispatch({ type: "change_cheque_sent", payload: value })}
-              chatMessageSent={state.chatMessageSent}
-              setChatMessageSent={(value) => dispatch({ type: "change_chat_message_sent", payload: value })}
               onChange={(name, value) => dispatch({ type: "change_user_data_value", payload: { name, value } })}
               changeAllowToNextStage={(value) => dispatch({ type: "change_allow_to_next_stage", payload: value })}
               changeTitle={(title) => dispatch({ type: "change_title", payload: title })}
@@ -154,9 +148,8 @@ function WbActivate({ foreign }: Props) {
           )}
           {state.activationStep === 3 && (
             <ActivationStep4
+              messageOnly={foreign}
               userData={state.userData}
-              chequeSent={state.chequeSent}
-              chatMessageSent={state.chatMessageSent}
               changeTitle={(title) => dispatch({ type: "change_title", payload: title })}
             />
           )}

@@ -5,13 +5,10 @@ import { UserData } from "../WbClient";
 
 type Props = {
   userData: UserData;
-  chatMessageSent: boolean;
+  confirmationSent: boolean;
   messageOnly?: string;
   // eslint-disable-next-line no-unused-vars
-  setChatMessageSent: (value: boolean) => void;
-  chequeSent: boolean;
-  // eslint-disable-next-line no-unused-vars
-  setChequeSent: (value: boolean) => void;
+  setConfirmationSent: (value: boolean) => void;
   // eslint-disable-next-line no-unused-vars
   onChange: (name: string, value: string) => void;
   // eslint-disable-next-line no-unused-vars
@@ -25,13 +22,11 @@ function padZero(value: number) {
 }
 
 const ActivationStep2 = ({
-  chatMessageSent,
-  chequeSent,
   messageOnly,
   userData,
   onChange,
-  setChatMessageSent,
-  setChequeSent,
+  confirmationSent,
+  setConfirmationSent,
   changeAllowToNextStage,
   changeTitle,
 }: Props) => {
@@ -69,11 +64,11 @@ const ActivationStep2 = ({
 
     onChange("priceDate", formattedDate);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [chatMessageSent, chequeSent]);
+  }, [confirmationSent]);
 
   useEffect(() => {
     if (userData.price !== "") {
-      if (inputError === "" && (chatMessageSent || chequeSent)) {
+      if (inputError === "" && confirmationSent) {
         changeAllowToNextStage(true);
       } else {
         changeAllowToNextStage(false);
@@ -82,11 +77,11 @@ const ActivationStep2 = ({
       changeAllowToNextStage(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userData.price, inputError, chatMessageSent, chequeSent]);
+  }, [userData.price, inputError, confirmationSent]);
 
   return (
     <div className="flex flex-col justify-between items-center px-6 py-2 w-full min-h-[340px]">
-      {messageOnly ? (
+      {/* {messageOnly ? (
         <>
           <div className="flex flex-col justify-start items-center gap-2 w-full">
             <p className="text-lg text-center">
@@ -106,8 +101,8 @@ const ActivationStep2 = ({
                 <input
                   type="checkbox"
                   className="toggle toggle-primary"
-                  checked={chatMessageSent}
-                  onChange={() => setChatMessageSent(!chatMessageSent)}
+                  checked={confirmationSent}
+                  onChange={() => setConfirmationSent(!confirmationSent)}
                 />
               </label>
             </div>
@@ -115,7 +110,7 @@ const ActivationStep2 = ({
             <TextInput
               maxWidth
               label="Укажите сумму приобретения в валюте вашей страны"
-              hidden={!chatMessageSent}
+              hidden={!confirmationSent}
               value={userData.price}
               onChange={(e) => {
                 const value = e.currentTarget.value.trim().toUpperCase().slice(0, 8);
@@ -133,7 +128,7 @@ const ActivationStep2 = ({
             />
             <p
               className={cn("text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2", {
-                hidden: !chatMessageSent,
+                hidden: !confirmationSent,
               })}
             >
               При ошибочном или намеренном несоблюдении инструкций мы оставляем за собой право в переносе активации на установленный
@@ -160,15 +155,15 @@ const ActivationStep2 = ({
                 <input
                   type="checkbox"
                   className="toggle toggle-primary"
-                  checked={chequeSent}
-                  onChange={() => setChequeSent(!chequeSent)}
+                  checked={confirmationSent}
+                  onChange={() => setConfirmationSent(!confirmationSent)}
                 />
               </label>
             </div>
 
             <p
               className={cn("text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2", {
-                hidden: !chequeSent,
+                hidden: !confirmationSent,
               })}
             >
               <strong>СКРИНШОТЫ, ПДФ ФАЙЛЫ ИЛИ СООБЩЕНИЯ С ЛИЧНОЙ ПОЧТЫ НЕ ПРИНИМАЕМ.</strong> При ошибочном или намеренном несоблюдении
@@ -178,7 +173,7 @@ const ActivationStep2 = ({
             <TextInput
               maxWidth
               label="Укажите сумму чека в рублях"
-              hidden={!chequeSent}
+              hidden={!confirmationSent}
               value={userData.price}
               onChange={(e) => {
                 const value = e.currentTarget.value.trim().toUpperCase().slice(0, 8);
@@ -196,7 +191,84 @@ const ActivationStep2 = ({
             />
           </div>
         </>
-      )}
+      )} */}
+
+      <div className="flex flex-col justify-start items-center gap-2 w-full">
+        {messageOnly ? (
+          <p className="text-lg text-center">
+            Отправьте сообщение <span className="font-bold text-warning">ЧЕРЕЗ WILDBERRIES</span> в{" "}
+            <span className="font-bold text-warning">ЧАТ С ПРОДАВЦОМ</span> по инструкции ниже, после этого переключите ползунок
+            сообщение отправлено, укажите сумму покупки и нажмите далее
+          </p>
+        ) : (
+          <p className="text-lg text-center">
+            Отправьте чек <span className="font-bold text-warning">СТРОГО ПО ИНСТРУКЦИИ</span> ниже, после чего переключите ползунок чек
+            отправлен, укажите сумму чека и нажмите далее
+          </p>
+        )}
+
+        <div className="flex flex-col gap-3">
+          {messageOnly ? (
+            <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otrpavit_soobshenie_prodavcu_wb">
+              Как отправить сообщение продавцу?
+            </a>
+          ) : (
+            <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otpravit_chek_wb">
+              Как отправить чек?
+            </a>
+          )}
+        </div>
+        <div className="form-control">
+          <label className="cursor-pointer label">
+            <span className="text-xl font-semibold mr-3">{messageOnly ? "Сообщение отправлено" : "Чек отправлен"}</span>
+            <input
+              type="checkbox"
+              className="toggle toggle-primary"
+              checked={confirmationSent}
+              onChange={() => setConfirmationSent(!confirmationSent)}
+            />
+          </label>
+        </div>
+
+        <TextInput
+          maxWidth
+          label={messageOnly ? "Укажите сумму приобретения в валюте вашей страны" : "Укажите сумму чека в рублях"}
+          hidden={!confirmationSent}
+          value={userData.price}
+          onChange={(e) => {
+            const value = e.currentTarget.value.trim().toUpperCase().slice(0, 8);
+
+            onChange("price", value);
+          }}
+          type="text"
+          inputMode="numeric"
+          className="input input-primary w-full max-w-xs"
+          spellCheck={false}
+          autoCorrect="off"
+          autoComplete="off"
+          autoCapitalize="off"
+          error={inputError}
+        />
+        {messageOnly ? (
+          <p
+            className={cn("text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2", {
+              hidden: !confirmationSent,
+            })}
+          >
+            При ошибочном или намеренном несоблюдении инструкций мы оставляем за собой право в переносе активации на установленный нами
+            срок и/или отказе в активации
+          </p>
+        ) : (
+          <p
+            className={cn("text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2", {
+              hidden: !confirmationSent,
+            })}
+          >
+            <strong>СКРИНШОТЫ, ПДФ ФАЙЛЫ ИЛИ СООБЩЕНИЯ С ЛИЧНОЙ ПОЧТЫ НЕ ПРИНИМАЕМ.</strong> При ошибочном или намеренном несоблюдении
+            инструкций мы оставляем за собой право в переносе активации на установленный нами срок и/или отказе в активации
+          </p>
+        )}
+      </div>
     </div>
   );
 };
