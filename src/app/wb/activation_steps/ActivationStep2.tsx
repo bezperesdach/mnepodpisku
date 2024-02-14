@@ -6,6 +6,7 @@ import { UserData } from "../WbClient";
 type Props = {
   userData: UserData;
   chatMessageSent: boolean;
+  messageOnly?: string;
   // eslint-disable-next-line no-unused-vars
   setChatMessageSent: (value: boolean) => void;
   chequeSent: boolean;
@@ -26,6 +27,7 @@ function padZero(value: number) {
 const ActivationStep2 = ({
   chatMessageSent,
   chequeSent,
+  messageOnly,
   userData,
   onChange,
   setChatMessageSent,
@@ -33,7 +35,7 @@ const ActivationStep2 = ({
   changeAllowToNextStage,
   changeTitle,
 }: Props) => {
-  const [noCheque, setNoCheque] = useState(false);
+  // const [noCheque, setNoCheque] = useState(false);
   const [inputError, setInputError] = useState("");
 
   useEffect(() => {
@@ -84,7 +86,7 @@ const ActivationStep2 = ({
 
   return (
     <div className="flex flex-col justify-between items-center px-6 py-2 w-full min-h-[340px]">
-      {noCheque ? (
+      {messageOnly ? (
         <>
           <div className="flex flex-col justify-start items-center gap-2 w-full">
             <p className="text-lg text-center">
@@ -112,7 +114,7 @@ const ActivationStep2 = ({
 
             <TextInput
               maxWidth
-              label="Укажите сумму приобретения"
+              label="Укажите сумму приобретения в валюте вашей страны"
               hidden={!chatMessageSent}
               value={userData.price}
               onChange={(e) => {
@@ -138,11 +140,6 @@ const ActivationStep2 = ({
               нами срок и/или отказе в активации
             </p>
           </div>
-          {!chatMessageSent && (
-            <button className="btn btn-secondary text-white my-2" onClick={() => setNoCheque(!noCheque)}>
-              У меня есть чек
-            </button>
-          )}
         </>
       ) : (
         <>
@@ -180,7 +177,7 @@ const ActivationStep2 = ({
 
             <TextInput
               maxWidth
-              label="Укажите сумму чека"
+              label="Укажите сумму чека в рублях"
               hidden={!chequeSent}
               value={userData.price}
               onChange={(e) => {
@@ -198,11 +195,6 @@ const ActivationStep2 = ({
               error={inputError}
             />
           </div>
-          {!chequeSent && (
-            <button className="btn btn-secondary text-white my-2" onClick={() => setNoCheque(!noCheque)}>
-              У меня нет чека
-            </button>
-          )}
         </>
       )}
     </div>

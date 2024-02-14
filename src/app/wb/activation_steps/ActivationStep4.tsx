@@ -56,7 +56,7 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
           )}
           {chatMessageSent && (
             <p>
-              СООБЩЕНИЕ НА {userData.price} - {userData.priceDate}
+              СООБЩЕНИЕ НА СУММУ {userData.price} - {userData.priceDate}
             </p>
           )}
           {(userData.type === "пополнение" || userData.type === "игра") && (

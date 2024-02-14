@@ -103,7 +103,11 @@ const reducer = (state: StateType, action: ActionType) => {
   }
 };
 
-function WbActivate() {
+type Props = {
+  foreign?: string;
+};
+
+function WbActivate({ foreign }: Props) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
@@ -126,6 +130,7 @@ function WbActivate() {
           )}
           {state.activationStep === 1 && (
             <ActivationStep2
+              messageOnly={foreign}
               userData={state.userData}
               chequeSent={state.chequeSent}
               setChequeSent={(value) => dispatch({ type: "change_cheque_sent", payload: value })}
