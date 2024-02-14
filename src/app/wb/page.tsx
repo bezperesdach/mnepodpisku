@@ -1,5 +1,3 @@
-export const dynamic = "force-static";
-
 import { Metadata } from "next";
 import WbActivate from "./WbClient";
 import { isSearchParamValid } from "@/utils/utils";
