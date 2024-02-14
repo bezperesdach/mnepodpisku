@@ -4,9 +4,7 @@ import { generateOgImage } from "./generateOgImage";
 
 import { metadata as HomePage } from "@/app/(main)/page";
 import { metadata as DigiPage } from "@/app/activate/digi/page";
-// import { metadata as WbPage } from "@/app/activate/wb/page";
 import { metadata as WbPage } from "@/app/wb/page";
-import { metadata as WbPageV2 } from "@/app/wb/page";
 import { metadata as BlogPage } from "@/app/blog/page";
 import { metadata as kak_samomu_sozdat_tureckiy_akaunt } from "@/app/blog/kak_samomu_sozdat_tureckiy_akaunt/page";
 import { metadata as gde_posmotret_rezervnyi_kod } from "@/app/guides/gde_posmotret_rezervnyi_kod/page";
@@ -45,13 +43,13 @@ const pages: Page[] = [
     path: DigiPage.openGraph?.url,
     text: DigiPage.openGraph?.description,
   },
+  // {
+  //   path: WbPage.openGraph?.url,
+  //   text: WbPage.openGraph?.description,
+  // },
   {
     path: WbPage.openGraph?.url,
     text: WbPage.openGraph?.description,
-  },
-  {
-    path: WbPageV2.openGraph?.url,
-    text: WbPageV2.openGraph?.description,
   },
   {
     path: BlogPage.openGraph?.url,
