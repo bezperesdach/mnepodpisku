@@ -4,7 +4,8 @@ import { generateOgImage } from "./generateOgImage";
 
 import { metadata as HomePage } from "@/app/(main)/page";
 import { metadata as DigiPage } from "@/app/activate/digi/page";
-import { metadata as WbPage } from "@/app/activate/wb/page";
+// import { metadata as WbPage } from "@/app/activate/wb/page";
+import { metadata as WbPage } from "@/app/wb/page";
 import { metadata as WbPageV2 } from "@/app/wb/page";
 import { metadata as BlogPage } from "@/app/blog/page";
 import { metadata as kak_samomu_sozdat_tureckiy_akaunt } from "@/app/blog/kak_samomu_sozdat_tureckiy_akaunt/page";
