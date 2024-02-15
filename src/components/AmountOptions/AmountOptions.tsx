@@ -1,6 +1,6 @@
 "use client";
 
-const options = [100, 200, 300, 500, 600, 1200, 1800, 2400];
+const options = [200, 300, 500, 600, 1200, 1800, 2400, 4800];
 
 type Props = {
   // eslint-disable-next-line no-unused-vars
