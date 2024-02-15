@@ -27,6 +27,8 @@ import { metadata as kak_privyazat_kartu_k_turezkomu_akauntu_psn_komputer } from
 import { metadata as kak_privyazat_kartu_k_turezkomu_akauntu_psn_telefon } from "@/app/guides/kak_privyazat_kartu_k_turezkomu_akauntu_psn_telefon/page";
 
 import { metadata as get_discount } from "@/app/get_discount/page";
+import { metadata as get_discount_wb } from "@/app/get_discount/wb/page";
+import { metadata as get_discount_site } from "@/app/get_discount/vk/page";
 
 type Page = {
   path?: string | URL;
@@ -43,10 +45,6 @@ const pages: Page[] = [
     path: DigiPage.openGraph?.url,
     text: DigiPage.openGraph?.description,
   },
-  // {
-  //   path: WbPage.openGraph?.url,
-  //   text: WbPage.openGraph?.description,
-  // },
   {
     path: WbPage.openGraph?.url,
     text: WbPage.openGraph?.description,
@@ -134,6 +132,14 @@ const pages: Page[] = [
   {
     path: get_discount.openGraph?.url,
     text: get_discount.openGraph?.title,
+  },
+  {
+    path: get_discount_wb.openGraph?.url,
+    text: get_discount_wb.openGraph?.title,
+  },
+  {
+    path: get_discount_site.openGraph?.url,
+    text: get_discount_site.openGraph?.title,
   },
 ];
 
