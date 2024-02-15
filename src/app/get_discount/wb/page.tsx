@@ -2,10 +2,10 @@ import { Metadata } from "next";
 import GetDiscountClient from "./ClientComponents";
 
 export const metadata: Metadata = {
-  title: "Бесплатные лиры за отзыв!",
+  title: "Бесплатные лиры за отзыв на следующую покупку!",
   description: "Получи бесплатные лиры за оставленный отзыв в счет следующей покупки!",
   openGraph: {
-    title: "Бесплатные лиры за отзыв!",
+    title: "Бесплатные лиры за отзыв на следующую покупку!",
     description: "Получи бесплатные лиры за оставленный отзыв в счет следующей покупки!",
     images: ["/og_images_generated/get_discount/wb/og_image.png"],
     url: "/get_discount/wb",
