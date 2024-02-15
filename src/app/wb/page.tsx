@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import WbActivate from "./WbClient";
-import { isSearchParamValid } from "@/utils/utils";
 
 export const metadata: Metadata = {
   title: "Активация",
@@ -16,12 +15,8 @@ export const metadata: Metadata = {
   },
 };
 
-type Props = {
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-async function Page({ searchParams }: Props) {
-  return <WbActivate foreign={isSearchParamValid(searchParams["foreign"])} />;
+async function Page() {
+  return <WbActivate />;
 }
 
 export default Page;

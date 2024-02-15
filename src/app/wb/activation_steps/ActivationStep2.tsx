@@ -5,10 +5,12 @@ import { UserData } from "../WbClient";
 
 type Props = {
   userData: UserData;
-  confirmationSent: boolean;
-  messageOnly?: string;
+  chatMessageSent: boolean;
   // eslint-disable-next-line no-unused-vars
-  setConfirmationSent: (value: boolean) => void;
+  setChatMessageSent: (value: boolean) => void;
+  chequeSent: boolean;
+  // eslint-disable-next-line no-unused-vars
+  setChequeSent: (value: boolean) => void;
   // eslint-disable-next-line no-unused-vars
   onChange: (name: string, value: string) => void;
   // eslint-disable-next-line no-unused-vars
@@ -22,16 +24,25 @@ function padZero(value: number) {
 }
 
 const ActivationStep2 = ({
-  messageOnly,
+  chatMessageSent,
+  chequeSent,
   userData,
   onChange,
-  confirmationSent,
-  setConfirmationSent,
+  setChatMessageSent,
+  setChequeSent,
   changeAllowToNextStage,
   changeTitle,
 }: Props) => {
-  // const [noCheque, setNoCheque] = useState(false);
+  const [noCheque, setNoCheque] = useState(false);
   const [inputError, setInputError] = useState("");
+  // const [canCopyCode, setCanCopyCode] = useState(true);
+
+  // const copyCode = () => {
+  //   setCanCopyCode(false);
+  //   setTimeout(() => {
+  //     setCanCopyCode(true);
+  //   }, 1000);
+  // };
 
   useEffect(() => {
     changeTitle("Подтверждение покупки");
@@ -64,11 +75,11 @@ const ActivationStep2 = ({
 
     onChange("priceDate", formattedDate);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [confirmationSent]);
+  }, [chatMessageSent, chequeSent]);
 
   useEffect(() => {
     if (userData.price !== "") {
-      if (inputError === "" && confirmationSent) {
+      if (inputError === "" && (chatMessageSent || chequeSent)) {
         changeAllowToNextStage(true);
       } else {
         changeAllowToNextStage(false);
@@ -77,109 +88,144 @@ const ActivationStep2 = ({
       changeAllowToNextStage(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userData.price, inputError, confirmationSent]);
+  }, [userData.price, inputError, chatMessageSent, chequeSent]);
 
   return (
     <div className="flex flex-col justify-between items-center px-6 py-2 w-full min-h-[340px]">
-      <div className="flex flex-col justify-start items-center gap-2 w-full">
-        {messageOnly ? (
-          <p className="text-lg text-center">
-            Отправьте сообщение <span className="font-bold text-warning">ЧЕРЕЗ WILDBERRIES</span> в{" "}
-            <span className="font-bold text-warning">ЧАТ С ПРОДАВЦОМ</span> по инструкции ниже, после этого переключите ползунок
-            сообщение отправлено, укажите сумму покупки и нажмите далее
-          </p>
-        ) : (
-          <p className="text-lg text-center">
-            Отправьте чек <span className="font-bold text-warning">СТРОГО ПО ИНСТРУКЦИИ</span> ниже, после чего переключите ползунок чек
-            отправлен, укажите сумму чека и нажмите далее
-          </p>
-        )}
+      {noCheque ? (
+        <>
+          <div className="flex flex-col justify-start items-center gap-2 w-full">
+            <p className="text-lg text-center">
+              Отправьте сообщение <span className="font-bold text-warning">ЧЕРЕЗ WILDBERRIES</span> в{" "}
+              <span className="font-bold text-warning">ЧАТ С ПРОДАВЦОМ</span> по инструкции ниже, после этого переключите ползунок
+              сообщение отправлено, укажите сумму покупки и нажмите далее
+            </p>
+            {/* <div className="flex gap-2 p-1 bg-base-300 items-center justify-center rounded-md ">
+              <p>{canCopyCode ? `Код активации - ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}` : "Скопировано"}</p>
+              <button
+                className="flex justify-center items-center p-2 bg-base-100 rounded-md"
+                onClick={() => {
+                  copyCode();
 
-        <div className="flex flex-col gap-3">
-          {messageOnly ? (
-            <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otrpavit_soobshenie_prodavcu_wb">
-              Как отправить сообщение продавцу?
-            </a>
-          ) : (
-            <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otpravit_chek_wb">
-              Как отправить чек?
-            </a>
-          )}
-        </div>
-        <div className="form-control">
-          <label className="cursor-pointer label">
-            <span className="text-xl font-semibold mr-3">{messageOnly ? "Сообщение отправлено" : "Чек отправлен"}</span>
-            <input
-              type="checkbox"
-              className="toggle toggle-primary"
-              checked={confirmationSent}
-              onChange={() => setConfirmationSent(!confirmationSent)}
-            />
-          </label>
-        </div>
-
-        <TextInput
-          maxWidth
-          label={messageOnly ? "Укажите сумму приобретения в валюте вашей страны" : "Укажите сумму чека в рублях"}
-          hidden={!confirmationSent}
-          value={userData.price}
-          onChange={(e) => {
-            const value = e.currentTarget.value.trim().toUpperCase().slice(0, 8);
-
-            onChange("price", value);
-          }}
-          type="text"
-          inputMode="numeric"
-          className="input input-primary w-full max-w-xs"
-          spellCheck={false}
-          autoCorrect="off"
-          autoComplete="off"
-          autoCapitalize="off"
-          error={inputError}
-        />
-        {messageOnly ? (
-          <p
-            className={cn("text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2", {
-              hidden: !confirmationSent,
-            })}
-          >
-            При ошибочном или намеренном несоблюдении инструкций мы оставляем за собой право в переносе активации на установленный нами
-            срок и/или отказе в активации
-          </p>
-        ) : (
-          <p
-            className={cn("text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2", {
-              hidden: !confirmationSent,
-            })}
-          >
-            <strong>СКРИНШОТЫ, ПДФ ФАЙЛЫ ИЛИ СООБЩЕНИЯ С ЛИЧНОЙ ПОЧТЫ НЕ ПРИНИМАЕМ.</strong> При ошибочном или намеренном несоблюдении
-            инструкций мы оставляем за собой право в переносе активации на установленный нами срок и/или отказе в активации
-          </p>
-        )}
-        {!messageOnly && (
-          <details className="group bg-secondary text-white rounded-2xl mt-6" open={true}>
-            <summary className="flex justify-between items-center text-xl font-medium cursor-pointer list-none px-4 py-4">
-              <span>У меня нет чека</span>
-            </summary>
-            <div className="px-4 pb-4">
-              Созданием чеков занимается компания Вайлдберис, мы как продавце не являемся ее сотрудниками и не контроллируем этот
-              процесс
-              <br />
-              <br />
-              По нашим наблюдениям почти всегда{" "}
-              <span className="font-bold text-warning">чек приходит в день, когда вы забрали заказ</span> из ПВЗ
-              <br />
-              <br />
-              <span className="font-bold text-warning">В редких случаях чек приходит спустя 1-2</span> дня после забора товара из ПВЗ
-              <br />
-              <br />
-              <span className="font-bold">
-                Если вы ждете чек больше двух 2 дней - свяжитесь с нами и сообщите об этом, мы решим данный вопрос.
-              </span>
+                  // @ts-ignore: Clipboard.copy defined in root.tsx
+                  Clipboard.copy(`Код активации - ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}`);
+                }}
+              >
+                <CopyIcon />
+              </button>
+            </div> */}
+            <div className="flex flex-col gap-3">
+              <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otrpavit_soobshenie_prodavcu_wb">
+                Как отправить сообщение продавцу?
+              </a>
+              {!chatMessageSent && (
+                <button className="btn btn-secondary text-white my-2" onClick={() => setNoCheque(!noCheque)}>
+                  У меня есть чек
+                </button>
+              )}
             </div>
-          </details>
-        )}
-      </div>
+            <div className="form-control">
+              <label className="cursor-pointer label">
+                <span className="text-xl font-semibold mr-3">Сообщение отправлено</span>
+                <input
+                  type="checkbox"
+                  className="toggle toggle-primary"
+                  checked={chatMessageSent}
+                  onChange={() => setChatMessageSent(!chatMessageSent)}
+                />
+              </label>
+            </div>
+
+            <TextInput
+              maxWidth
+              label="Укажите сумму приобретения в валюте вашей страны"
+              hidden={!chatMessageSent}
+              value={userData.price}
+              onChange={(e) => {
+                const value = e.currentTarget.value.trim().toUpperCase().slice(0, 8);
+
+                onChange("price", value);
+              }}
+              type="text"
+              inputMode="numeric"
+              className="input input-primary w-full max-w-xs"
+              spellCheck={false}
+              autoCorrect="off"
+              autoComplete="off"
+              autoCapitalize="off"
+              error={inputError}
+            />
+            <p
+              className={cn("text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2", {
+                hidden: !chatMessageSent,
+              })}
+            >
+              При ошибочном или намеренном несоблюдении инструкций мы оставляем за собой право в переносе активации на установленный
+              нами срок и/или отказе в активации
+            </p>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="flex flex-col justify-start items-center gap-2 w-full">
+            <p className="text-lg text-center">
+              Отправьте чек <span className="font-bold text-warning">СТРОГО ПО ИНСТРУКЦИИ</span> ниже, после чего переключите ползунок
+              чек отправлен, укажите сумму чека и нажмите далее
+            </p>
+
+            <div className="flex flex-col gap-3">
+              <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otpravit_chek_wb">
+                Как отправить чек?
+              </a>
+              {!chequeSent && (
+                <button className="btn btn-secondary text-white my-2" onClick={() => setNoCheque(!noCheque)}>
+                  У меня нет чека
+                </button>
+              )}
+            </div>
+            <div className="form-control">
+              <label className="cursor-pointer label">
+                <span className="text-xl font-semibold mr-3">Чек отправлен</span>
+                <input
+                  type="checkbox"
+                  className="toggle toggle-primary"
+                  checked={chequeSent}
+                  onChange={() => setChequeSent(!chequeSent)}
+                />
+              </label>
+            </div>
+
+            <p
+              className={cn("text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2", {
+                hidden: !chequeSent,
+              })}
+            >
+              <strong>СКРИНШОТЫ, ПДФ ФАЙЛЫ ИЛИ СООБЩЕНИЯ С ЛИЧНОЙ ПОЧТЫ НЕ ПРИНИМАЕМ.</strong> При ошибочном или намеренном несоблюдении
+              инструкций мы оставляем за собой право в переносе активации на установленный нами срок и/или отказе в активации
+            </p>
+
+            <TextInput
+              maxWidth
+              label="Укажите сумму чека в рублях"
+              hidden={!chequeSent}
+              value={userData.price}
+              onChange={(e) => {
+                const value = e.currentTarget.value.trim().toUpperCase().slice(0, 8);
+
+                onChange("price", value);
+              }}
+              type="text"
+              inputMode="numeric"
+              className="input input-primary w-full max-w-xs"
+              spellCheck={false}
+              autoCorrect="off"
+              autoComplete="off"
+              autoCapitalize="off"
+              error={inputError}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 };

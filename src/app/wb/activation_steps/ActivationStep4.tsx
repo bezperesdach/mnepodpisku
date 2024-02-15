@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import cn from "@/utils/cn";
-import { Types, UserData } from "../WbClient";
+import { UserData } from "../WbClient";
 
 type Props = {
   userData: UserData;
-  messageOnly?: string;
+  chatMessageSent: boolean;
+
+  chequeSent: boolean;
   // eslint-disable-next-line no-unused-vars
   changeTitle: (title: string) => void;
 };
 
-const ActivationStep4 = ({ userData, messageOnly, changeTitle }: Props) => {
+const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }: Props) => {
   const [canCopyCode, setCanCopyCode] = useState(true);
 
   const copyCode = () => {
@@ -25,14 +27,14 @@ const ActivationStep4 = ({ userData, messageOnly, changeTitle }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const actionName = (type: Types | undefined) => {
+  const actionName = (type: string | undefined) => {
     switch (type) {
       case "пополнение":
         return "АКТИВАЦИЯ ПОПОЛНЕНИЯ PSN";
       case "игра":
         return "АКТИВАЦИЯ ИГРЫ PSN";
       case "аккаунт":
-        return "АКТИВАЦИЯ СОЗДАНИЕ АККАУНТА PSN";
+        return "АКТИВАЦИЯ АККАУНТА PSN";
       case "одноразовая_карта":
         return "АКТИВАЦИЯ ОДНОРАЗОВАЯ КАРТА PSN";
       default:
@@ -47,12 +49,16 @@ const ActivationStep4 = ({ userData, messageOnly, changeTitle }: Props) => {
         <div className="bg-base-200 p-4 rounded-lg">
           <p>{actionName(userData.type)}</p>
           <p>КОД АКТИВАЦИИ {userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}</p>
-
-          <p>
-            {messageOnly ? "СООБЩЕНИЕ" : "ЧЕК"} НА СУММУ {userData.price}
-            {!messageOnly && "₽"} - {userData.priceDate}
-          </p>
-
+          {chequeSent && (
+            <p>
+              ЧЕК НА СУММУ {userData.price} - {userData.priceDate}
+            </p>
+          )}
+          {chatMessageSent && (
+            <p>
+              СООБЩЕНИЕ НА СУММУ {userData.price} - {userData.priceDate}
+            </p>
+          )}
           {(userData.type === "пополнение" || userData.type === "игра") && (
             <>
               <p>EMAIL {userData.email}</p>
@@ -71,9 +77,9 @@ const ActivationStep4 = ({ userData, messageOnly, changeTitle }: Props) => {
 
             // @ts-ignore: Clipboard.copy defined in root.tsx
             Clipboard.copy(
-              `${actionName(userData.type)}\nКОД АКТИВАЦИИ ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}${
-                messageOnly ? "\nСООБЩЕНИЕ" : "\nЧЕК"
-              } НА СУММУ ${userData.price}${!messageOnly && "₽"} - ${userData.priceDate}${
+              `${actionName(userData.type)}\nКОД АКТИВАЦИИ ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}\n${
+                chequeSent ? "ЧЕК" : ""
+              }${chatMessageSent ? "СООБЩЕНИЕ" : ""} НА СУММУ ${userData.price} - ${userData.priceDate}${
                 userData.email ? "\nEMAIL - " + userData.email : ""
               }${userData.password ? "\nПАРОЛЬ - " + userData.password : ""}${
                 userData.accessCode ? "\nРЕЗЕРВНЫЙ КОД - " + userData.accessCode : ""
