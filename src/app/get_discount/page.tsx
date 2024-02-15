@@ -21,7 +21,7 @@ function Blog() {
       <h1 className="text-3xl lg:text-4xl font-bold">Получи бесплатные лиры за оставленный отзыв!</h1>
 
       <div className=" bg-base-200 mt-6 lg:mt-10 w-full py-4 px-6 rounded-md">
-        <p className="text-2xl lg:text-3xl w-full text-center">Где вы совершили покупку?</p>
+        <p className="text-2xl lg:text-3xl w-full text-center">Где ты совершил покупку?</p>
         <div className="flex flex-wrap gap-x-4 gap-y-2 w-full">
           <Link
             className="flex flex-col flex-grow justify-center items-center bg-gradient-to-r from-[#b50fa0] to-[#55117a] shadow-lg rounded-xl p-8 my-4 min-w-[320px]"
