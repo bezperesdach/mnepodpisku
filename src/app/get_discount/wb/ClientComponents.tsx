@@ -16,7 +16,7 @@ function GetDiscountClient() {
         <div className="btn mt-4">ОТКРЫТЬ WILDBERRIES</div>
       </a>
       <p className="text-xl lg:text-2xl font-bold mt-4">ШАГ 2:</p>
-      <p className="text-lg">Сделай скриншот отзыва и вышли его удобным тебе способом ниже с подписью "Оставил отзыв на ВБ"</p>
+      <p className="text-lg">Сделай скриншот отзыва и вышли его удобным тебе способом ниже с подписью "Отзыв на ВБ оставлен"</p>
       <div className="flex gap-4 mt-2">
         <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
           <Image src="/socials_icons/vk_compact.png" alt="vk" width={48} height={48} />
