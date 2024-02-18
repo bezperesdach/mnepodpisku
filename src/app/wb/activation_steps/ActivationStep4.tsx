@@ -48,7 +48,7 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
         <p>Ваше сообщение активации готово</p>
         <div className="bg-base-200 p-4 rounded-lg">
           <p>{actionName(userData.type)}</p>
-          <p>КОД АКТИВАЦИИ {userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}</p>
+          <p>КОД АКТИВАЦИИ {userData.code}</p>
           {chequeSent && (
             <p>
               ЧЕК НА СУММУ {userData.price} - {userData.priceDate}
@@ -77,13 +77,11 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
 
             // @ts-ignore: Clipboard.copy defined in root.tsx
             Clipboard.copy(
-              `${actionName(userData.type)}\nКОД АКТИВАЦИИ ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}\n${
-                chequeSent ? "ЧЕК" : ""
-              }${chatMessageSent ? "СООБЩЕНИЕ" : ""} НА СУММУ ${userData.price} - ${userData.priceDate}${
-                userData.email ? "\nEMAIL - " + userData.email : ""
-              }${userData.password ? "\nПАРОЛЬ - " + userData.password : ""}${
-                userData.accessCode ? "\nРЕЗЕРВНЫЙ КОД - " + userData.accessCode : ""
-              }`
+              `${actionName(userData.type)}\nКОД АКТИВАЦИИ ${userData.code}\n${chequeSent ? "ЧЕК" : ""}${
+                chatMessageSent ? "СООБЩЕНИЕ" : ""
+              } НА СУММУ ${userData.price} - ${userData.priceDate}${userData.email ? "\nEMAIL - " + userData.email : ""}${
+                userData.password ? "\nПАРОЛЬ - " + userData.password : ""
+              }${userData.accessCode ? "\nРЕЗЕРВНЫЙ КОД - " + userData.accessCode : ""}`
             );
           }}
         >
