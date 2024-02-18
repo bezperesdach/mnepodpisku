@@ -18,12 +18,39 @@ const ActivationStep1 = ({ userData, changeCode, changeAllowToNextStage, changeT
   const [inputError, setInputError] = useState("");
 
   const validateCode = (el: ChangeEvent<HTMLInputElement>) => {
-    const value = el.currentTarget.value.toUpperCase().slice(0, 8);
+    let value = el.currentTarget.value.toUpperCase().slice(0, 9);
 
-    if (value.length > 0 && (!/^[a-zA-Z0-9]+$/.test(value) || value.indexOf(" ") !== -1)) {
-      setInputError("Неверный код");
-    } else {
+    if (userData.code.length === 5 && userData.code.charAt(4) === " ") {
+      if (value.length === 4) {
+        value = value.slice(0, 3);
+      }
+    }
+
+    if (userData.code.length === 3) {
+      if (value.length === 4) {
+        value += " ";
+      }
+    }
+
+    if ((value.length === 8 || value.length === 9) && value.charAt(4) !== " ") {
+      value = value.slice(0, 4) + " " + value.slice(4, 8);
+    }
+
+    const noSpaceValue = value.replace(" ", "");
+
+    if (noSpaceValue.length === 8 && /^[a-zA-Z0-9]+$/.test(noSpaceValue)) {
       setInputError("");
+      changeAllowToNextStage(true);
+    }
+
+    if (noSpaceValue.length !== 8) {
+      setInputError("");
+      changeAllowToNextStage(false);
+    }
+
+    if (!/^[a-zA-Z0-9]+$/.test(noSpaceValue)) {
+      setInputError("Код неверный");
+      changeAllowToNextStage(false);
     }
 
     changeCode(value);
