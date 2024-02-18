@@ -115,14 +115,16 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
             <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex ">
               <button
                 type="submit"
-                className={cn("btn btn-secondary w-full text-white items-center", { "btn-disabled": formik.isSubmitting })}
+                className={cn("btn btn-disabled w-full text-white items-center pointer-events-none", {
+                  "btn-disabled": formik.isSubmitting,
+                })}
               >
                 {formik.isSubmitting ? (
                   <span className="loading loading-spinner loading-xl flex-shrink-0" />
                 ) : (
-                  <LockIcon className="text-white text-xl" />
+                  <LockIcon className="text-disabled text-xl" />
                 )}
-                Оплатить
+                Недоступно
               </button>
               <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
             </div>
@@ -134,14 +136,16 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
           <div className="w-full flex-col gap-1 items-center md:hidden mt-4 ">
             <button
               type="submit"
-              className={cn("btn btn-secondary w-full text-white items-center", { "btn-disabled": formik.isSubmitting })}
+              className={cn("btn btn-disabled w-full text-white items-center pointer-events-none", {
+                "btn-disabled": formik.isSubmitting,
+              })}
             >
               {formik.isSubmitting ? (
                 <span className="loading loading-spinner loading-xl flex-shrink-0" />
               ) : (
-                <LockIcon className="text-white text-xl" />
+                <LockIcon className="text-disabled text-xl" />
               )}
-              Оплатить
+              Недоступно
             </button>
             <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
           </div>

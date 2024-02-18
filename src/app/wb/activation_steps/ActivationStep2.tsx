@@ -179,7 +179,7 @@ const ActivationStep2 = ({
               </a>
               {!chequeSent && (
                 <button className="btn btn-secondary text-white my-2" onClick={() => setNoCheque(!noCheque)}>
-                  У меня нет чека
+                  Нет чека на ВБ
                 </button>
               )}
             </div>
