@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AppContext } from "../AppContextWrapper/AppContextWrapper";
 import { usePathname } from "next/navigation";
+import { ym } from "@/utils/ym";
 
 const Footer = () => {
   const { dispatch } = useContext(AppContext);
@@ -30,15 +31,36 @@ const Footer = () => {
 
             {!(pathname.startsWith("/activate/wb") || pathname.startsWith("/wb")) && (
               <div className="flex gap-4 mt-2">
-                <a href="https://vk.com/mnepodpisku" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://vk.com/mnepodpisku"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    ym("reachGoal", "socialnetwork");
+                  }}
+                >
                   <Image width={36} height={36} src="/socials_icons/vk_compact.png" alt="Вк лого" />
                 </a>
 
-                <a href="https://t.me/pstopup" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://t.me/pstopup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    ym("reachGoal", "socialnetwork");
+                  }}
+                >
                   <Image width={36} height={36} src="/socials_icons/telegram_icon.png" alt="Telegram лого" />
                 </a>
 
-                <a href="https://wa.me/79939011007" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://wa.me/79939011007"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    ym("reachGoal", "socialnetwork");
+                  }}
+                >
                   <Image width={36} height={36} src="/socials_icons/whatsapp_icon.png" alt="Whatsapp лого" />
                 </a>
               </div>
