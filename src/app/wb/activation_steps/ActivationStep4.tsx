@@ -35,8 +35,6 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
         return "АКТИВАЦИЯ ИГРЫ PSN";
       case "аккаунт":
         return "АКТИВАЦИЯ АККАУНТА PSN";
-      case "одноразовая_карта":
-        return "АКТИВАЦИЯ ОДНОРАЗОВАЯ КАРТА PSN";
       default:
         return "";
     }

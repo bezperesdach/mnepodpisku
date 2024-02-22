@@ -21,7 +21,7 @@ const ActivationStep3: React.FC<Props> = ({
   userData,
   accessCodeAcknowledge,
   changeAccessCodeAcknowledgement,
-  increaseActivationStep,
+  // increaseActivationStep,
   onChange,
   changeAllowToNextStage,
   changeTitle,
@@ -164,7 +164,7 @@ const ActivationStep3: React.FC<Props> = ({
           <button className="btn btn-primary text-white" onClick={() => onChange("type", "пополнение")}>
             ПОПОЛНЕНИЕ АККАУНТА PSN
           </button>
-          <button
+          {/* <button
             className="btn btn-primary text-white"
             onClick={() => {
               onChange("type", "одноразовая_карта");
@@ -172,7 +172,7 @@ const ActivationStep3: React.FC<Props> = ({
             }}
           >
             ОДНОРАЗОВАЯ ТУРЕЦКАЯ КАРТА ДЛЯ PSN
-          </button>
+          </button> */}
           <button className="btn btn-primary text-white" onClick={() => onChange("type", "игра")}>
             ИГРА НА ТУРЕЦКИЙ АККАУНТ PSN
           </button>
