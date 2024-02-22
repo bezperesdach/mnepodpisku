@@ -48,6 +48,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
     onSubmit: async (values) => {
       formik.setSubmitting(true);
       ym("reachGoal", "playstationRequest");
+      ym("reachGoal", "formaoplatit");
 
       const res = await getPsnBalancePaymentLink(values, ip);
       dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });

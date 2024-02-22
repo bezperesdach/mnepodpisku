@@ -32,6 +32,7 @@ export default function FormComponent({ receivedDuration }: Props) {
     onSubmit: async (values) => {
       formik.setSubmitting(true);
       ym("reachGoal", "youtubeRequest");
+      ym("reachGoal", "formaoplatit");
 
       const res = await getYoutubePaymentLink(values.duration);
 

@@ -33,6 +33,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
     onSubmit: async (values) => {
       formik.setSubmitting(true);
       ym("reachGoal", "tinderRequest");
+      ym("reachGoal", "formaoplatit");
 
       const res = await getTinderPaymentLink(values);
 

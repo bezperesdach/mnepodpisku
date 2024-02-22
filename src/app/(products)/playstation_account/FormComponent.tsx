@@ -32,6 +32,8 @@ export default function FormComponent() {
   const generatePaymentLink = async () => {
     setIsSubmitting(true);
     ym("reachGoal", "playstationAccountRequest");
+    ym("reachGoal", "formaoplatit");
+
     const res = await getPsnAccountPaymentLink();
     dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
   };

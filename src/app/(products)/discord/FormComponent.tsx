@@ -33,6 +33,7 @@ export default function FormComponent({ receivedDuration, receivedSubscriptionTy
     onSubmit: async (values) => {
       formik.setSubmitting(true);
       ym("reachGoal", "discordRequest");
+      ym("reachGoal", "formaoplatit");
 
       const res = await getDiscordPaymentLink(values);
 

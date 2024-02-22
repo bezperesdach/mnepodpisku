@@ -38,6 +38,7 @@ export default function FormComponent({ receivedAmount, ip }: Props) {
     onSubmit: async (values) => {
       formik.setSubmitting(true);
       ym("reachGoal", "naChaiFund");
+      ym("reachGoal", "formaoplatit");
 
       const res = await getDonationPaymentLink(Number(values.amount), ip);
       dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });

@@ -50,6 +50,7 @@ export default function FormComponent({ receivedAmount, ip, service }: Props) {
     onSubmit: async (values) => {
       formik.setSubmitting(true);
       ym("reachGoal", "turkeyCardRequest");
+      ym("reachGoal", "formaoplatit");
 
       const res = await getTurkeyCardPaymentLink(values, ip);
       dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
