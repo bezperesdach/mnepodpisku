@@ -31,6 +31,8 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
     switch (type) {
       case "пополнение":
         return "АКТИВАЦИЯ ПОПОЛНЕНИЯ PSN";
+      case "ps_plus":
+        return "АКТИВАЦИЯ PS PLUS НА ТУРЕЦКИЙ АККАУНТ PSN";
       case "игра":
         return "АКТИВАЦИЯ ИГРЫ PSN";
       case "аккаунт":
@@ -57,7 +59,7 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
               СООБЩЕНИЕ НА СУММУ {userData.price} - {userData.priceDate}
             </p>
           )}
-          {(userData.type === "пополнение" || userData.type === "игра") && (
+          {(userData.type === "пополнение" || userData.type === "игра" || userData.type === "ps_plus") && (
             <>
               <p>EMAIL {userData.email}</p>
               <p>ПАРОЛЬ {userData.password}</p>

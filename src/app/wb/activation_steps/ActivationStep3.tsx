@@ -123,7 +123,7 @@ const ActivationStep3: React.FC<Props> = ({
   };
 
   useEffect(() => {
-    if (userData.type === "пополнение" || userData.type === "игра") {
+    if (userData.type === "пополнение" || userData.type === "игра" || userData.type === "ps_plus") {
       if (
         errors.email === "" &&
         userData.email.length > 0 &&
@@ -164,6 +164,9 @@ const ActivationStep3: React.FC<Props> = ({
           <button className="btn btn-primary text-white" onClick={() => onChange("type", "пополнение")}>
             ПОПОЛНЕНИЕ АККАУНТА PSN
           </button>
+          <button className="btn btn-primary text-white" onClick={() => onChange("type", "ps_plus")}>
+            ПОДПИСКА PS PLUS НА ТУРЕЦКИЙ АККАУНТ
+          </button>
           {/* <button
             className="btn btn-primary text-white"
             onClick={() => {
@@ -181,7 +184,7 @@ const ActivationStep3: React.FC<Props> = ({
           </button>
         </div>
       )}
-      {(userData.type === "пополнение" || userData.type === "игра") && (
+      {(userData.type === "пополнение" || userData.type === "игра" || userData.type === "ps_plus") && (
         <div className="flex flex-col justify-start items-center gap-2 w-full">
           <p className="text-center">Введите данные своего PlayStation аккаунта</p>
 

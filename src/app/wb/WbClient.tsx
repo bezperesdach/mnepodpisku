@@ -7,7 +7,7 @@ import ActivationStep3 from "./activation_steps/ActivationStep3";
 import ActivationStep4 from "./activation_steps/ActivationStep4";
 import cn from "@/utils/cn";
 
-export type Types = "пополнение" | "игра" | "аккаунт" | "одноразовая_карта" | "";
+export type Types = "пополнение" | "игра" | "аккаунт" | "одноразовая_карта" | "ps_plus" | "";
 
 export type UserData = {
   type: Types;
