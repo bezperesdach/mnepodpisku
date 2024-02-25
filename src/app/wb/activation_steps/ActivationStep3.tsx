@@ -162,10 +162,10 @@ const ActivationStep3: React.FC<Props> = ({
         <div className="flex flex-col flex-1 justify-evenly items-center gap-2 w-full h-full">
           <p className="text-center">Выберите какую услугу вы хотите активировать</p>
           <button className="btn btn-primary text-white" onClick={() => onChange("type", "пополнение")}>
-            ПОПОЛНЕНИЕ АККАУНТА PSN
+            ПОПОЛНЕНИЕ ТУРЕЦКОГО АККАУНТА PSN
           </button>
           <button className="btn btn-primary text-white" onClick={() => onChange("type", "ps_plus")}>
-            ПОДПИСКА PS PLUS НА ТУРЕЦКИЙ АККАУНТ
+            ПОДПИСКА PS PLUS НА ТУРЕЦКИЙ АККАУНТ PSN
           </button>
           {/* <button
             className="btn btn-primary text-white"

@@ -30,13 +30,13 @@ const ActivationStep4 = ({ userData, chatMessageSent, chequeSent, changeTitle }:
   const actionName = (type: string | undefined) => {
     switch (type) {
       case "пополнение":
-        return "АКТИВАЦИЯ ПОПОЛНЕНИЯ PSN";
+        return "АКТИВАЦИЯ ПОПОЛНЕНИЯ ТУРЕЦКОГО АККАУНТА PSN";
       case "ps_plus":
         return "АКТИВАЦИЯ PS PLUS НА ТУРЕЦКИЙ АККАУНТ PSN";
       case "игра":
-        return "АКТИВАЦИЯ ИГРЫ PSN";
+        return "АКТИВАЦИЯ ИГРЫ НА ТУРЕЦКИЙ АККАУНТ PSN";
       case "аккаунт":
-        return "АКТИВАЦИЯ АККАУНТА PSN";
+        return "АКТИВАЦИЯ ТУРЕЦКОГО АККАУНТА PSN";
       default:
         return "";
     }
