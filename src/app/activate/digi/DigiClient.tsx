@@ -81,6 +81,7 @@ const reducer = (state: StateType, action: ActionType) => {
         return state;
       }
     }
+
     case "change_title":
       return { ...state, title: action.payload };
 
@@ -107,6 +108,7 @@ function DigiClient({ activationCode, activationName }: Props) {
   const [state, dispatch] = useReducer(reducer, {
     ...initialState,
     title: activationName ?? initialState.title,
+    activationStep: !!activationCode ? 1 : 0,
     userData: { ...initialState.userData, code: activationCode ?? "" },
   });
 
