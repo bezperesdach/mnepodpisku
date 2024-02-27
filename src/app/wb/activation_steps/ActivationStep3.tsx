@@ -1,145 +1,84 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import TextInput from "@/components/TextInput/TextInput";
-import { UserData } from "../WbClient";
-import cn from "@/utils/cn";
+import { ConfirmationType, UserData } from "../WbClient";
 
 type Props = {
   userData: UserData;
-  accessCodeAcknowledge: boolean;
+  confirmationType: ConfirmationType;
+  confirmationSent: boolean;
   // eslint-disable-next-line no-unused-vars
-  changeAccessCodeAcknowledgement: (value: boolean) => void;
+  changeConfirmationSent: (value: boolean) => void;
   // eslint-disable-next-line no-unused-vars
   onChange: (name: string, value: string) => void;
   // eslint-disable-next-line no-unused-vars
   changeAllowToNextStage: (value: boolean) => void;
-  increaseActivationStep: () => void;
   // eslint-disable-next-line no-unused-vars
   changeTitle: (title: string) => void;
 };
 
-const ActivationStep3: React.FC<Props> = ({
+function padZero(value: number) {
+  return value < 10 ? `0${value}` : value;
+}
+
+const ActivationStep3 = ({
   userData,
-  accessCodeAcknowledge,
-  changeAccessCodeAcknowledgement,
-  // increaseActivationStep,
   onChange,
+  confirmationType,
+  confirmationSent,
+  changeConfirmationSent,
   changeAllowToNextStage,
   changeTitle,
 }: Props) => {
-  const [errors, setErrors] = useState({
-    email: "",
-    password: "",
-    accessCode: "",
-    accessCodeAcknowledge: "",
-  });
+  const [inputError, setInputError] = useState("");
+  // const [canCopyCode, setCanCopyCode] = useState(true);
 
-  const validateInput = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.currentTarget.value;
-    const name = e.currentTarget.name;
-
-    switch (name) {
-      case "email":
-        if (value === "") {
-          setErrors((prevErrors) => ({ ...prevErrors, email: "поле не может быть пустым" }));
-        } else {
-          setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
-        }
-
-        if (
-          /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(
-            value
-          )
-        ) {
-          if (userData.type === "аккаунт") {
-            if (!value.toLowerCase().endsWith(".ru")) {
-              setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
-            } else {
-              setErrors((prevErrors) => ({ ...prevErrors, email: "Email не должен оканчиваться на '.ru'" }));
-            }
-          } else {
-            setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
-          }
-        } else {
-          setErrors((prevErrors) => ({ ...prevErrors, email: "Неверный email" }));
-        }
-
-        onChange("email", value);
-        break;
-      case "password":
-        if (value === "") {
-          setErrors((prevErrors) => ({ ...prevErrors, password: "поле не может быть пустым" }));
-        } else {
-          setErrors((prevErrors) => ({ ...prevErrors, password: "" }));
-        }
-
-        onChange("password", value);
-        break;
-      case "accessCode":
-        if (value === "") {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "поле не может быть пустым" }));
-        } else {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "" }));
-        }
-
-        if (value === userData.password) {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может совпадать с паролем" }));
-        }
-
-        if (value.length > 8) {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может быть больше 8 символов" }));
-        }
-
-        if (value.indexOf(" ") !== -1) {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный не может содержать пробелов" }));
-        }
-
-        if (value.length < 4) {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может быть меньше 4 символов" }));
-        }
-
-        if (/[а-яА-Я]/.test(value)) {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может содержать русских букв" }));
-        }
-
-        if (/^\d+$/.test(value)) {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может состоять только из цифр" }));
-        }
-
-        if (value === "FQ9aLc") {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCode: "Резервный код не может совпадать с примером" }));
-        }
-
-        onChange("accessCode", value);
-        break;
-      case "accessCodeAcknowledge":
-        if (!accessCodeAcknowledge) {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "" }));
-        } else {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "Вы должны согласиться" }));
-        }
-        changeAccessCodeAcknowledgement(!accessCodeAcknowledge);
-        break;
-    }
-  };
+  // const copyCode = () => {
+  //   setCanCopyCode(false);
+  //   setTimeout(() => {
+  //     setCanCopyCode(true);
+  //   }, 1000);
+  // };
 
   useEffect(() => {
-    if (userData.type === "пополнение" || userData.type === "игра" || userData.type === "ps_plus") {
-      if (
-        errors.email === "" &&
-        userData.email.length > 0 &&
-        errors.password === "" &&
-        userData.password.length > 0 &&
-        errors.accessCode === "" &&
-        userData.accessCode.length > 0 &&
-        errors.accessCodeAcknowledge === "" &&
-        accessCodeAcknowledge
-      ) {
-        changeAllowToNextStage(true);
+    changeTitle("Подтверждение покупки");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const validatePrice = (value: string) => {
+      if (value.length > 0 && !/^[\d]+(?:[.,]\d*)?$/.test(value)) {
+        setInputError("Сумма должна состоять только из цифр");
       } else {
-        changeAllowToNextStage(false);
+        setInputError("");
       }
-    } else if (userData.type === "аккаунт") {
-      if (errors.email === "" && userData.email.length > 0) {
+    };
+
+    validatePrice(userData.price);
+  }, [userData.price]);
+
+  useEffect(() => {
+    if (confirmationSent) {
+      const currentDate = new Date();
+
+      // Adjust the date to GMT+3
+      currentDate.setHours(currentDate.getHours() + 3);
+
+      // Format the date as DD.MM.YY HH:MM
+      const formattedDate = `${padZero(currentDate.getUTCDate())}.${padZero(currentDate.getUTCMonth() + 1)}.${currentDate
+        .getUTCFullYear()
+        .toString()
+        .slice(-2)} ${padZero(currentDate.getUTCHours())}:${padZero(currentDate.getUTCMinutes())}`;
+
+      onChange("priceDate", formattedDate);
+    } else {
+      onChange("priceDate", "");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [confirmationSent]);
+
+  useEffect(() => {
+    if (userData.price !== "") {
+      if (inputError === "" && confirmationSent) {
         changeAllowToNextStage(true);
       } else {
         changeAllowToNextStage(false);
@@ -148,156 +87,135 @@ const ActivationStep3: React.FC<Props> = ({
       changeAllowToNextStage(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userData, errors]);
-
-  useEffect(() => {
-    onChange("type", "");
-    changeTitle("Ввод данных");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [userData.price, inputError, confirmationSent]);
 
   return (
-    <div className="flex flex-col justify-between items-center px-6 py-2 w-full min-h-[320px]">
-      {userData.type === "" && (
-        <div className="flex flex-col flex-1 justify-evenly items-center gap-2 w-full h-full">
-          <p className="text-center">Выберите какую услугу вы хотите активировать</p>
-          <button className="btn btn-primary text-white" onClick={() => onChange("type", "пополнение")}>
-            ПОПОЛНЕНИЕ ТУРЕЦКОГО АККАУНТА PSN
-          </button>
-          <button className="btn btn-primary text-white" onClick={() => onChange("type", "ps_plus")}>
-            ПОДПИСКА PS PLUS НА ТУРЕЦКИЙ АККАУНТ PSN
-          </button>
-          {/* <button
-            className="btn btn-primary text-white"
-            onClick={() => {
-              onChange("type", "одноразовая_карта");
-              increaseActivationStep();
-            }}
-          >
-            ОДНОРАЗОВАЯ ТУРЕЦКАЯ КАРТА ДЛЯ PSN
-          </button> */}
-          <button className="btn btn-primary text-white" onClick={() => onChange("type", "игра")}>
-            ИГРА НА ТУРЕЦКИЙ АККАУНТ PSN
-          </button>
-          <button className="btn btn-primary text-white" onClick={() => onChange("type", "аккаунт")}>
-            СОЗДАНИЕ ТУРЕЦКОГО АККАУНТА PSN
-          </button>
-        </div>
-      )}
-      {(userData.type === "пополнение" || userData.type === "игра" || userData.type === "ps_plus") && (
-        <div className="flex flex-col justify-start items-center gap-2 w-full">
-          <p className="text-center">Введите данные своего PlayStation аккаунта</p>
+    <div className="flex flex-col justify-between items-center px-6 py-2 w-full min-h-[340px]">
+      {confirmationType === "message" ? (
+        <>
+          <div className="flex flex-col justify-start items-center gap-2 w-full">
+            <p className="text-lg text-center">
+              Отправьте сообщение <span className="font-bold text-warning">ЧЕРЕЗ WILDBERRIES</span> в{" "}
+              <span className="font-bold text-warning">ЧАТ С ПРОДАВЦОМ</span>{" "}
+              <span className="font-bold text-error">ПО ИНСТРУКЦИИ НИЖЕ</span>, после этого переключите ползунок сообщение отправлено,
+              укажите сумму покупки и нажмите далее
+            </p>
+            {/* <div className="flex gap-2 p-1 bg-base-300 items-center justify-center rounded-md ">
+              <p>{canCopyCode ? `Код активации - ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}` : "Скопировано"}</p>
+              <button
+                className="flex justify-center items-center p-2 bg-base-100 rounded-md"
+                onClick={() => {
+                  copyCode();
 
-          <TextInput
-            maxWidth
-            label="Email"
-            value={userData.email}
-            onChange={validateInput}
-            name="email"
-            type="email"
-            className="input input-primary w-full max-w-xs"
-            spellCheck={false}
-            autoCorrect="off"
-            autoComplete="off"
-            autoCapitalize="off"
-            error={errors.email}
-          />
+                  // @ts-ignore: Clipboard.copy defined in root.tsx
+                  Clipboard.copy(`Код активации - ${userData.code.slice(0, 4) + " " + userData.code.slice(4, 8)}`);
+                }}
+              >
+                <CopyIcon />
+              </button>
+            </div> */}
+            <div className="flex flex-col gap-3">
+              <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otrpavit_soobshenie_prodavcu_wb">
+                Как отправить сообщение продавцу?
+              </a>
+              {/* {!chatMessageSent && (
+                <button className="btn btn-secondary text-white my-2" onClick={() => setNoCheque(!noCheque)}>
+                  У меня есть чек
+                </button>
+              )} */}
+            </div>
 
-          <TextInput
-            maxWidth
-            label="Пароль"
-            value={userData.password}
-            onChange={validateInput}
-            name="password"
-            type="text"
-            className="input input-primary w-full max-w-xs"
-            spellCheck={false}
-            autoCorrect="off"
-            autoComplete="off"
-            autoCapitalize="off"
-            error={errors.password}
-          />
+            <p className="text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2">
+              При ошибочном или намеренном несоблюдении инструкций мы оставляем за собой право в переносе активации на установленный
+              нами срок и/или отказе в активации
+            </p>
 
-          <TextInput
-            maxWidth
-            label="Резервный код"
-            placeholder="Например, FQ9aLc"
-            toolTip="Доступен при включенном 2FA. Обычно состоит из 6 символов. Пример - FQ9aLc. Найти можно по инструкции выше"
-            value={userData.accessCode}
-            onChange={validateInput}
-            name="accessCode"
-            type="text"
-            className="input input-primary w-full max-w-xs"
-            spellCheck={false}
-            autoCorrect="off"
-            autoComplete="off"
-            autoCapitalize="off"
-            error={errors.accessCode}
-          />
+            <div className="form-control">
+              <label className="cursor-pointer label">
+                <span className="text-xl font-semibold mr-3">Сообщение отправлено</span>
+                <input
+                  type="checkbox"
+                  className="toggle toggle-primary"
+                  checked={confirmationSent}
+                  onChange={() => changeConfirmationSent(!confirmationSent)}
+                />
+              </label>
+            </div>
 
-          <div className="flex gap-2 items-start mt-2 max-w-xs ">
-            <input
-              name="accessCodeAcknowledge"
-              type="checkbox"
-              className={cn("checkbox checkbox-secondary", { "checkbox-error": !accessCodeAcknowledge })}
-              checked={accessCodeAcknowledge}
-              onChange={validateInput}
+            <TextInput
+              maxWidth
+              label="Укажите сумму приобретения в валюте вашей страны"
+              hidden={!confirmationSent}
+              value={userData.price}
+              onChange={(e) => {
+                const value = e.currentTarget.value.trim().toUpperCase().slice(0, 8);
+
+                onChange("price", value);
+              }}
+              type="text"
+              inputMode="numeric"
+              className="input input-primary w-full max-w-xs"
+              spellCheck={false}
+              autoCorrect="off"
+              autoComplete="off"
+              autoCapitalize="off"
+              error={inputError}
             />
-
-            <p className="text-sm">
-              Я соглашаюсь с тем, что моя активация может быть отложена на неопределенный срок или отменена, если я выслал неверный
-              логин/пароль/резервный код или ранее использованный резервный код
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="flex flex-col justify-start items-center gap-2 w-full">
+            <p className="text-lg text-center">
+              Отправьте <span className="font-bold text-warning">ЧЕК</span>{" "}
+              <span className="font-bold text-error">СТРОГО ПО ИНСТРУКЦИИ</span> ниже, после чего переключите ползунок чек отправлен,
+              укажите сумму чека и нажмите далее
             </p>
-          </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-2">
-            <a
-              className="btn btn-secondary text-white my-2"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="/guides/kak_vkluchit_2fa_na_akaunte_psn"
-            >
-              У меня нет резервного кода
-            </a>
-            <a
-              className="btn btn-secondary text-white my-2"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="/guides/gde_posmotret_rezervnyi_kod"
-            >
-              Где найти резервный код?
-            </a>
-          </div>
-        </div>
-      )}
-      {userData.type === "аккаунт" && (
-        <div className="flex flex-col justify-start items-center gap-2 w-full">
-          <p className="text-center">
-            Введите Email на который <span className="font-bold text-warning">НЕ ЗАРЕГИСТРИРОВАН</span> аккаунт PlayStation
-          </p>
-          <p className="text-center">На нее будет зарегистрирован новый Турецкий аккаунт PlayStation!</p>
+            <div className="flex flex-col gap-3">
+              <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otpravit_chek_wb">
+                Как отправить чек?
+              </a>
+            </div>
 
-          <TextInput
-            maxWidth
-            label="Email"
-            value={userData.email}
-            onChange={validateInput}
-            name="email"
-            type="email"
-            className="input input-primary w-full max-w-xs"
-            spellCheck={false}
-            autoCorrect="off"
-            autoComplete="off"
-            autoCapitalize="off"
-            error={errors.email}
-          />
-
-          <div className="border-2 border-warning flex justify-center items-center gap-2 max-w-3xl bg-base-300 rounded-md p-4 my-4">
-            <p className="z-[1] font-bold text-center">
-              Убедитесь, что у вас есть доступ к данной почте. После регистрации мы НЕ СМОЖЕМ восстановить аккаунт в случае ошибки.
+            <p className={"text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2"}>
+              <strong>СКРИНШОТЫ, ПДФ ФАЙЛЫ ИЛИ СООБЩЕНИЯ С ЛИЧНОЙ ПОЧТЫ НЕ ПРИНИМАЕМ.</strong> При ошибочном или намеренном несоблюдении
+              инструкций мы оставляем за собой право в переносе активации на установленный нами срок и/или отказе в активации
             </p>
+
+            <div className="form-control">
+              <label className="cursor-pointer label">
+                <span className="text-xl font-semibold mr-3">Чек отправлен</span>
+                <input
+                  type="checkbox"
+                  className="toggle toggle-primary"
+                  checked={confirmationSent}
+                  onChange={() => changeConfirmationSent(!confirmationSent)}
+                />
+              </label>
+            </div>
+
+            <TextInput
+              maxWidth
+              label="Укажите сумму чека в рублях"
+              hidden={!confirmationSent}
+              value={userData.price}
+              onChange={(e) => {
+                const value = e.currentTarget.value.trim().toUpperCase().slice(0, 8);
+
+                onChange("price", value);
+              }}
+              type="text"
+              inputMode="numeric"
+              className="input input-primary w-full max-w-xs"
+              spellCheck={false}
+              autoCorrect="off"
+              autoComplete="off"
+              autoCapitalize="off"
+              error={inputError}
+            />
           </div>
-        </div>
+        </>
       )}
     </div>
   );

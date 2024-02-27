@@ -58,7 +58,6 @@ const ActivationStep1 = ({ userData, changeCode, changeAllowToNextStage, changeT
 
   useEffect(() => {
     changeTitle("Активация товара с WB");
-    changeAllowToNextStage(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

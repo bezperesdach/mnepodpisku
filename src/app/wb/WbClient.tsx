@@ -5,9 +5,12 @@ import ActivationStep1 from "./activation_steps/ActivationStep1";
 import ActivationStep2 from "./activation_steps/ActivationStep2";
 import ActivationStep3 from "./activation_steps/ActivationStep3";
 import ActivationStep4 from "./activation_steps/ActivationStep4";
+import ActivationStep5 from "./activation_steps/ActivationStep5";
 import cn from "@/utils/cn";
 
 export type Types = "пополнение" | "игра" | "аккаунт" | "одноразовая_карта" | "ps_plus" | "";
+
+export type ConfirmationType = "cheque" | "message" | "";
 
 export type UserData = {
   type: Types;
@@ -21,8 +24,8 @@ export type UserData = {
 
 type StateType = {
   userData: UserData;
-  chequeSent: boolean;
-  chatMessageSent: boolean;
+  confirmationType: ConfirmationType;
+  confirmationSent: boolean;
   title: string;
   activationStep: number;
   accessCodeAcknowledge: boolean;
@@ -37,6 +40,10 @@ type ActionType =
       type: "decrease_activation_step";
     }
   | {
+      type: "change_confirmation_type";
+      payload: ConfirmationType;
+    }
+  | {
       type: "change_title";
       payload: string;
     }
@@ -44,6 +51,7 @@ type ActionType =
   | { type: "change_allow_to_next_stage"; payload: boolean }
   | { type: "change_cheque_sent"; payload: boolean }
   | { type: "change_chat_message_sent"; payload: boolean }
+  | { type: "change_confirmation_sent"; payload: boolean }
   | { type: "change_access_code_acknowledgement"; payload: boolean };
 
 const initialState: StateType = {
@@ -56,15 +64,15 @@ const initialState: StateType = {
     accessCode: "",
     priceDate: "",
   },
-  chequeSent: false,
-  chatMessageSent: false,
+  confirmationType: "",
+  confirmationSent: false,
   accessCodeAcknowledge: true,
   title: "Ввод кода активации",
   activationStep: 0,
   allowedToNextStage: false,
 };
 
-const totalSteps = 4;
+const totalSteps = 5;
 
 const reducer = (state: StateType, action: ActionType) => {
   switch (action.type) {
@@ -97,6 +105,15 @@ const reducer = (state: StateType, action: ActionType) => {
       return { ...state, chatMessageSent: action.payload };
     case "change_access_code_acknowledgement":
       return { ...state, accessCodeAcknowledge: action.payload };
+    case "change_confirmation_sent":
+      return { ...state, confirmationSent: action.payload };
+    case "change_confirmation_type":
+      return {
+        ...state,
+        confirmationType: action.payload,
+        confirmationSent: false,
+        userData: { ...state.userData, priceDate: "", price: "" },
+      };
 
     default:
       return state;
@@ -111,7 +128,9 @@ function WbActivate() {
       <div className="w-full border-2 border-secondary rounded-xl max-w-2xl mt-6">
         <div className="flex justify-between items-center gap-2 px-2 lg:px-6 py-4 w-full border-b-2 border-secondary mb-6">
           <div className="w-12 h-auto font-bold text-lg lg:text-3xl">
-            <p>{state.activationStep + 1}/4</p>
+            <p>
+              {state.activationStep + 1}/{totalSteps}
+            </p>
           </div>
           <p className="text-lg lg:text-3xl font-bold text-center">{state.title}</p>
         </div>
@@ -126,18 +145,25 @@ function WbActivate() {
           )}
           {state.activationStep === 1 && (
             <ActivationStep2
-              userData={state.userData}
-              chequeSent={state.chequeSent}
-              setChequeSent={(value) => dispatch({ type: "change_cheque_sent", payload: value })}
-              chatMessageSent={state.chatMessageSent}
-              setChatMessageSent={(value) => dispatch({ type: "change_chat_message_sent", payload: value })}
-              onChange={(name, value) => dispatch({ type: "change_user_data_value", payload: { name, value } })}
+              confirmationType={state.confirmationType}
+              changeConfirmationType={(value) => dispatch({ type: "change_confirmation_type", payload: value })}
               changeAllowToNextStage={(value) => dispatch({ type: "change_allow_to_next_stage", payload: value })}
               changeTitle={(title) => dispatch({ type: "change_title", payload: title })}
             />
           )}
           {state.activationStep === 2 && (
             <ActivationStep3
+              userData={state.userData}
+              confirmationType={state.confirmationType}
+              confirmationSent={state.confirmationSent}
+              changeConfirmationSent={(value) => dispatch({ type: "change_confirmation_sent", payload: value })}
+              onChange={(name, value) => dispatch({ type: "change_user_data_value", payload: { name, value } })}
+              changeAllowToNextStage={(value) => dispatch({ type: "change_allow_to_next_stage", payload: value })}
+              changeTitle={(title) => dispatch({ type: "change_title", payload: title })}
+            />
+          )}
+          {state.activationStep === 3 && (
+            <ActivationStep4
               userData={state.userData}
               accessCodeAcknowledge={state.accessCodeAcknowledge}
               changeAccessCodeAcknowledgement={(value) => dispatch({ type: "change_access_code_acknowledgement", payload: value })}
@@ -147,11 +173,10 @@ function WbActivate() {
               changeTitle={(title) => dispatch({ type: "change_title", payload: title })}
             />
           )}
-          {state.activationStep === 3 && (
-            <ActivationStep4
+          {state.activationStep === 4 && (
+            <ActivationStep5
               userData={state.userData}
-              chequeSent={state.chequeSent}
-              chatMessageSent={state.chatMessageSent}
+              confirmationType={state.confirmationType}
               changeTitle={(title) => dispatch({ type: "change_title", payload: title })}
             />
           )}
