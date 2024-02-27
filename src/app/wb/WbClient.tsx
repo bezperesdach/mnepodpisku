@@ -154,6 +154,7 @@ function WbActivate() {
           {state.activationStep === 2 && (
             <ActivationStep3
               userData={state.userData}
+              changeConfirmationType={(value) => dispatch({ type: "change_confirmation_type", payload: value })}
               confirmationType={state.confirmationType}
               confirmationSent={state.confirmationSent}
               changeConfirmationSent={(value) => dispatch({ type: "change_confirmation_sent", payload: value })}

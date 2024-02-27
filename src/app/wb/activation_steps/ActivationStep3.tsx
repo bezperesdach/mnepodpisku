@@ -7,6 +7,8 @@ type Props = {
   confirmationType: ConfirmationType;
   confirmationSent: boolean;
   // eslint-disable-next-line no-unused-vars
+  changeConfirmationType: (type: ConfirmationType) => void;
+  // eslint-disable-next-line no-unused-vars
   changeConfirmationSent: (value: boolean) => void;
   // eslint-disable-next-line no-unused-vars
   onChange: (name: string, value: string) => void;
@@ -26,6 +28,7 @@ const ActivationStep3 = ({
   confirmationType,
   confirmationSent,
   changeConfirmationSent,
+  changeConfirmationType,
   changeAllowToNextStage,
   changeTitle,
 }: Props) => {
@@ -118,6 +121,9 @@ const ActivationStep3 = ({
               <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otrpavit_soobshenie_prodavcu_wb">
                 Как отправить сообщение продавцу?
               </a>
+              <button className="btn btn-secondary text-white my-2" onClick={() => changeConfirmationType("cheque")}>
+                У меня есть чек
+              </button>
               {/* {!chatMessageSent && (
                 <button className="btn btn-secondary text-white my-2" onClick={() => setNoCheque(!noCheque)}>
                   У меня есть чек
@@ -176,6 +182,9 @@ const ActivationStep3 = ({
               <a className="btn btn-secondary text-white my-2" target="_blank" href="/guides/kak_otpravit_chek_wb">
                 Как отправить чек?
               </a>
+              <button className="btn btn-secondary text-white my-2" onClick={() => changeConfirmationType("message")}>
+                У меня нет чека
+              </button>
             </div>
 
             <p className={"text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2"}>
