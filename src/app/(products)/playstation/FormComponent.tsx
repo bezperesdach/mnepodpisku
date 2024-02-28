@@ -116,7 +116,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
                 {...formik.getFieldProps("amount")}
               />
               <AmountOptions setValue={(value) => formik.setFieldValue("amount", value)} />
-              <div className="flex gap-2 items-center mt-2">
+              {/* <div className="flex gap-2 items-center mt-2">
                 <input
                   type="checkbox"
                   className="checkbox checkbox-secondary"
@@ -147,7 +147,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex lg:mt-0">

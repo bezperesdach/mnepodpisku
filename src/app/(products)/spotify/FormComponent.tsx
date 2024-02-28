@@ -1,17 +1,17 @@
 "use client";
 
-import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
+// import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
 import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
 import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
 import { getSpotifyPrice } from "@/serverActions/calculatePriceActions";
-import { getSpotifyPaymentLink } from "@/serverActions/createPaymentUrls";
+// import { getSpotifyPaymentLink } from "@/serverActions/createPaymentUrls";
 import cn from "@/utils/cn";
-import { ym } from "@/utils/ym";
+// import { ym } from "@/utils/ym";
 import { LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   receivedSubscriptionType?: string;
@@ -37,7 +37,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
   const router = useRouter();
   const pathname = usePathname();
 
-  const { dispatch } = useContext(AppContext);
+  // const { dispatch } = useContext(AppContext);
   const [calculatedAmount, setCalculatedAmount] = useState<number | undefined>();
   const [value, setValue] = useState<number | undefined>();
 
@@ -45,15 +45,13 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
 
   const formik = useFormik({
     initialValues: { duration: receivedDuration ?? "1month", subscriptionType: receivedSubscriptionType ?? "individual" },
-    onSubmit: async (values) => {
-      formik.setSubmitting(true);
-      ym("reachGoal", "spotifyRequest");
-      ym("reachGoal", "formaoplatit");
-
-      const res = await getSpotifyPaymentLink(values);
-
-      dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
-      formik.setSubmitting(false);
+    onSubmit: async () => {
+      // formik.setSubmitting(true);
+      // ym("reachGoal", "spotifyRequest");
+      // ym("reachGoal", "formaoplatit");
+      // const res = await getSpotifyPaymentLink(values);
+      // dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
+      // formik.setSubmitting(false);
     },
     validateOnBlur: true,
   });
@@ -125,7 +123,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
                 ) : (
                   <LockIcon className="text-disabled text-xl" />
                 )}
-                Недоступно
+                Нет в наличии
               </button>
               <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
             </div>
@@ -146,7 +144,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
               ) : (
                 <LockIcon className="text-disabled text-xl" />
               )}
-              Недоступно
+              Нет в наличии
             </button>
             <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
           </div>

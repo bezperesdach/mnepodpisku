@@ -1,17 +1,17 @@
 "use client";
 
-import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
+// import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
 import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
 import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import TextInput from "@/components/TextInput/TextInput";
 import { getTurkeyCardPrice } from "@/serverActions/calculatePriceActions";
-import { getTurkeyCardPaymentLink } from "@/serverActions/createPaymentUrls";
+// import { getTurkeyCardPaymentLink } from "@/serverActions/createPaymentUrls";
 import cn from "@/utils/cn";
-import { ym } from "@/utils/ym";
+// import { ym } from "@/utils/ym";
 import { HashIcon, LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
 type Props = {
@@ -34,11 +34,11 @@ const availableServices = [
   { name: "Другое", value: "other" },
 ];
 
-export default function FormComponent({ receivedAmount, ip, service }: Props) {
+export default function FormComponent({ receivedAmount, service }: Props) {
   const pathname = usePathname();
   const router = useRouter();
 
-  const { dispatch } = useContext(AppContext);
+  // const { dispatch } = useContext(AppContext);
   const [calculatedAmount, setCalculatedAmount] = useState<number | undefined>();
   const [value, setValue] = useState<number | undefined>();
 
@@ -47,14 +47,13 @@ export default function FormComponent({ receivedAmount, ip, service }: Props) {
   const formik = useFormik({
     initialValues: { amount: receivedAmount ?? "", service: service ?? "" },
     validationSchema: TopUpSchema,
-    onSubmit: async (values) => {
-      formik.setSubmitting(true);
-      ym("reachGoal", "turkeyCardRequest");
-      ym("reachGoal", "formaoplatit");
-
-      const res = await getTurkeyCardPaymentLink(values, ip);
-      dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
-      formik.setSubmitting(false);
+    onSubmit: async () => {
+      // formik.setSubmitting(true);
+      // ym("reachGoal", "turkeyCardRequest");
+      // ym("reachGoal", "formaoplatit");
+      // const res = await getTurkeyCardPaymentLink(values, ip);
+      // dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
+      // formik.setSubmitting(false);
     },
     validateOnBlur: true,
   });
@@ -134,14 +133,16 @@ export default function FormComponent({ receivedAmount, ip, service }: Props) {
             <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex lg:mt-0">
               <button
                 type="submit"
-                className={cn("btn btn-secondary w-full text-white items-center", { "btn-disabled": formik.isSubmitting })}
+                className={cn("btn btn-disabled w-full text-white items-center pointer-events-none", {
+                  "btn-disabled": formik.isSubmitting,
+                })}
               >
                 {formik.isSubmitting ? (
                   <span className="loading loading-spinner loading-xl flex-shrink-0" />
                 ) : (
-                  <LockIcon className="text-white text-xl" />
+                  <LockIcon className="text-xl" />
                 )}
-                Оплатить
+                Нет в наличии
               </button>
 
               <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
@@ -166,14 +167,16 @@ export default function FormComponent({ receivedAmount, ip, service }: Props) {
             <div className="w-full flex-col gap-1 items-center md:hidden mt-4 ">
               <button
                 type="submit"
-                className={cn("btn btn-secondary w-full text-white items-center", { "btn-disabled": formik.isSubmitting })}
+                className={cn("btn btn-disabled w-full text-white items-center pointer-events-none", {
+                  "btn-disabled": formik.isSubmitting,
+                })}
               >
                 {formik.isSubmitting ? (
                   <span className="loading loading-spinner loading-xl flex-shrink-0" />
                 ) : (
-                  <LockIcon className="text-white text-xl" />
+                  <LockIcon className="text-xl" />
                 )}
-                Оплатить
+                Нет в наличии
               </button>
               <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
             </div>
