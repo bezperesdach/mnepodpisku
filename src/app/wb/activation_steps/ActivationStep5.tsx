@@ -61,6 +61,7 @@ const ActivationStep5 = ({ userData, confirmationType, changeTitle }: Props) => 
               <p>EMAIL {userData.email}</p>
               <p>ПАРОЛЬ {userData.password}</p>
               <p>РЕЗЕРВНЫЙ КОД {userData.accessCode}</p>
+              {userData.secondAccessCode && <p>2 РЕЗЕРВНЫЙ КОД {userData.secondAccessCode}</p>}
             </>
           )}
           {userData.type === "аккаунт" && <p>EMAIL {userData.email}</p>}
@@ -78,7 +79,9 @@ const ActivationStep5 = ({ userData, confirmationType, changeTitle }: Props) => 
                 confirmationType === "cheque" ? "ЧЕК" : "СООБЩЕНИЕ"
               } НА СУММУ ${userData.price} - ${userData.priceDate}${userData.email ? "\nEMAIL - " + userData.email : ""}${
                 userData.password ? "\nПАРОЛЬ - " + userData.password : ""
-              }${userData.accessCode ? "\nРЕЗЕРВНЫЙ КОД - " + userData.accessCode : ""}`
+              }${userData.accessCode ? "\nРЕЗЕРВНЫЙ КОД - " + userData.accessCode : ""}${
+                userData.secondAccessCode ? "\n2 РЕЗЕРВНЫЙ КОД - " + userData.secondAccessCode : ""
+              }`
             );
           }}
         >

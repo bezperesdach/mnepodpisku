@@ -30,6 +30,7 @@ const ActivationStep4: React.FC<Props> = ({
     email: "",
     password: "",
     accessCode: "",
+    secondAccessCode: "",
     accessCodeAcknowledge: "",
   });
 
@@ -111,6 +112,49 @@ const ActivationStep4: React.FC<Props> = ({
 
         onChange("accessCode", value);
         break;
+
+      case "secondAccessCode":
+        if (value === "") {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "поле не может быть пустым" }));
+        } else {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "" }));
+        }
+
+        if (value === userData.password) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может совпадать с паролем" }));
+        }
+
+        if (value.length > 8) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может быть больше 8 символов" }));
+        }
+
+        if (value.indexOf(" ") !== -1) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный не может содержать пробелов" }));
+        }
+
+        if (value.length < 4) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может быть меньше 4 символов" }));
+        }
+
+        if (/[а-яА-Я]/.test(value)) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может содержать русских букв" }));
+        }
+
+        if (/^\d+$/.test(value)) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может состоять только из цифр" }));
+        }
+
+        if (value === "Lo7Qlx") {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может совпадать с примером" }));
+        }
+
+        if (value === userData.accessCode) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может совпадать с 1 кодом" }));
+        }
+
+        onChange("secondAccessCode", value);
+        break;
+
       case "accessCodeAcknowledge":
         if (!accessCodeAcknowledge) {
           setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "" }));
@@ -134,7 +178,15 @@ const ActivationStep4: React.FC<Props> = ({
         errors.accessCodeAcknowledge === "" &&
         accessCodeAcknowledge
       ) {
-        changeAllowToNextStage(true);
+        if (userData.type === "ps_plus") {
+          if (errors.secondAccessCode === "" && userData.secondAccessCode.length > 0) {
+            changeAllowToNextStage(true);
+          } else {
+            changeAllowToNextStage(false);
+          }
+        } else {
+          changeAllowToNextStage(true);
+        }
       } else {
         changeAllowToNextStage(false);
       }
@@ -222,7 +274,7 @@ const ActivationStep4: React.FC<Props> = ({
             maxWidth
             label="Резервный код"
             placeholder="Например, FQ9aLc"
-            toolTip="Доступен при включенном 2FA. Обычно состоит из 6 символов. Пример - FQ9aLc. Найти можно по инструкции выше"
+            toolTip="Доступен при включенном 2FA. Обычно состоит из 6 символов. Пример - FQ9aLc. Найти можно по инструкции ниже"
             value={userData.accessCode}
             onChange={validateInput}
             name="accessCode"
@@ -234,6 +286,25 @@ const ActivationStep4: React.FC<Props> = ({
             autoCapitalize="off"
             error={errors.accessCode}
           />
+
+          {userData.type === "ps_plus" && (
+            <TextInput
+              maxWidth
+              label="2 Резервный код"
+              placeholder="Например, Lo7Qlx"
+              toolTip="Доступен при включенном 2FA. Обычно состоит из 6 символов. Пример - Lo7Qlx. Найти можно по инструкции ниже"
+              value={userData.secondAccessCode}
+              onChange={validateInput}
+              name="secondAccessCode"
+              type="text"
+              className="input input-primary w-full max-w-xs"
+              spellCheck={false}
+              autoCorrect="off"
+              autoComplete="off"
+              autoCapitalize="off"
+              error={errors.secondAccessCode}
+            />
+          )}
 
           <div className="flex gap-2 items-start mt-2 max-w-xs ">
             <input

@@ -1,4 +1,5 @@
 import TextInput from "@/components/TextInput/TextInput";
+import { ActivationTypes } from "@/utils/activationUtils";
 import cn from "@/utils/cn";
 import React, { ChangeEvent, useEffect, useState } from "react";
 
@@ -6,6 +7,8 @@ type Props = {
   email: string;
   password: string;
   accessCode: string;
+  secondAccessCode?: string;
+  activationType?: ActivationTypes;
   accessCodeAcknowledge: boolean;
   // eslint-disable-next-line no-unused-vars
   changeAccessCodeAcknowledgement: (value: boolean) => void;
@@ -21,7 +24,9 @@ const ActivationStep2: React.FC<Props> = ({
   email,
   password,
   accessCode,
+  secondAccessCode,
   accessCodeAcknowledge,
+  activationType,
   changeAccessCodeAcknowledgement,
   onChange,
   changeAllowToNextStage,
@@ -31,6 +36,7 @@ const ActivationStep2: React.FC<Props> = ({
     email: "",
     password: "",
     accessCode: "",
+    secondAccessCode: "",
     accessCodeAcknowledge: "",
   });
 
@@ -91,6 +97,31 @@ const ActivationStep2: React.FC<Props> = ({
         onChange(name, value);
         break;
 
+      case "secondAccessCode":
+        if (value === "") {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "поле не может быть пустым" }));
+        } else if (value === password) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может совпадать с паролем" }));
+        } else if (value.length > 8) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может быть больше 8 символов" }));
+        } else if (value.length < 4) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может быть меньше 4 символов" }));
+        } else if (value.indexOf(" ") !== -1) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может содержать пробелов" }));
+        } else if (/[а-яА-Я]/.test(value)) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может содержать русских букв" }));
+        } else if (/^\d+$/.test(value)) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может состоять только из цифр" }));
+        } else if (value === "Lo7Qlx") {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может совпадать с примером" }));
+        } else if (value === accessCode) {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "Резервный код не может совпадать с 1 кодом" }));
+        } else {
+          setErrors((prevErrors) => ({ ...prevErrors, secondAccessCode: "" }));
+        }
+        onChange(name, value);
+        break;
+
       case "accessCodeAcknowledge":
         if (!accessCodeAcknowledge) {
           setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "" }));
@@ -116,13 +147,21 @@ const ActivationStep2: React.FC<Props> = ({
       errors.accessCodeAcknowledge === "" &&
       accessCodeAcknowledge
     ) {
-      changeAllowToNextStage(true);
+      if (activationType === "ps_plus" || activationType === "ps_ea_play") {
+        if (errors.secondAccessCode === "" && secondAccessCode && secondAccessCode?.length > 0) {
+          changeAllowToNextStage(true);
+        } else {
+          changeAllowToNextStage(false);
+        }
+      } else {
+        changeAllowToNextStage(true);
+      }
     } else {
       changeAllowToNextStage(false);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [email, password, accessCode, accessCodeAcknowledge, errors]);
+  }, [email, password, accessCode, secondAccessCode, accessCodeAcknowledge, errors]);
 
   return (
     <div className="flex flex-col justify-between items-center px-6 py-2 w-full min-h-[320px]">
@@ -165,6 +204,7 @@ const ActivationStep2: React.FC<Props> = ({
           maxWidth
           label="Резервный код"
           placeholder="Например, FQ9aLc"
+          toolTip="Доступен при включенном 2FA. Обычно состоит из 6 символов. Пример - FQ9aLc. Найти можно по инструкции ниже"
           value={accessCode}
           onChange={validateInput}
           name="accessCode"
@@ -176,6 +216,25 @@ const ActivationStep2: React.FC<Props> = ({
           autoCapitalize="off"
           error={errors.accessCode}
         />
+
+        {(activationType === "ps_plus" || activationType === "ps_ea_play") && (
+          <TextInput
+            maxWidth
+            label="2 Резервный код"
+            placeholder="Например, Lo7Qlx"
+            toolTip="Доступен при включенном 2FA. Обычно состоит из 6 символов. Пример - Lo7Qlx. Найти можно по инструкции ниже"
+            value={secondAccessCode}
+            onChange={validateInput}
+            name="secondAccessCode"
+            type="text"
+            className="input input-primary w-full "
+            spellCheck={false}
+            autoCorrect="off"
+            autoComplete="off"
+            autoCapitalize="off"
+            error={errors.secondAccessCode}
+          />
+        )}
 
         <div className="flex gap-2 items-start mt-2 max-w-xs ">
           <input

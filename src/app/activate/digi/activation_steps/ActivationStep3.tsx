@@ -50,6 +50,7 @@ const ActivationStep3: React.FC<Props> = ({ userData, activationType, changeTitl
           <p>EMAIL {userData.email}</p>
           <p>ПАРОЛЬ {userData.password}</p>
           <p>РЕЗЕРВНЫЙ КОД {userData.accessCode}</p>
+          {userData.secondAccessCode && <p>2 РЕЗЕРВНЫЙ КОД {userData.secondAccessCode}</p>}
         </div>
         <button
           className={cn("btn btn-primary mt-2 text-white", {
@@ -62,7 +63,9 @@ const ActivationStep3: React.FC<Props> = ({ userData, activationType, changeTitl
             Clipboard.copy(
               `${actionName(activationType)}\nКОД АКТИВАЦИИ ${userData.code}\nEMAIL - ${userData.email}\nПАРОЛЬ - ${
                 userData.password
-              }\nРЕЗЕРВНЫЙ КОД - ${userData.accessCode}`
+              }\nРЕЗЕРВНЫЙ КОД - ${userData.accessCode}${
+                userData.secondAccessCode && "\n2 РЕЗЕРВНЫЙ КОД - " + userData.secondAccessCode
+              }`
             );
           }}
         >

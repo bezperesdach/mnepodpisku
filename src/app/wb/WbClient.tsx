@@ -19,6 +19,7 @@ export type UserData = {
   email: string;
   password: string;
   accessCode: string;
+  secondAccessCode: string;
   priceDate: string;
 };
 
@@ -62,6 +63,7 @@ const initialState: StateType = {
     email: "",
     password: "",
     accessCode: "",
+    secondAccessCode: "",
     priceDate: "",
   },
   confirmationType: "",

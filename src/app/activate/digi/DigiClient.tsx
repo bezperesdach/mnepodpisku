@@ -25,6 +25,7 @@ export type UserData = {
   email: string;
   password: string;
   accessCode: string;
+  secondAccessCode: string;
 };
 
 type StateType = {
@@ -56,6 +57,7 @@ const initialState: StateType = {
     email: "",
     password: "",
     accessCode: "",
+    secondAccessCode: "",
   },
   title: "Ввод кода активации",
   activationStep: 0,
@@ -135,11 +137,13 @@ function DigiClient({ activationCode, activationName }: Props) {
               email={state.userData.email}
               password={state.userData.password}
               accessCode={state.userData.accessCode}
+              secondAccessCode={state.userData.secondAccessCode}
               accessCodeAcknowledge={state.accessCodeAcknowledge}
               changeAccessCodeAcknowledgement={(value) => dispatch({ type: "change_access_code_acknowledgement", payload: value })}
               onChange={(name, value) => dispatch({ type: "change_user_data_value", payload: { name, value } })}
               changeAllowToNextStage={(value) => dispatch({ type: "change_allow_to_next_stage", payload: value })}
               changeTitle={(title) => dispatch({ type: "change_title", payload: title })}
+              activationType={activationName as ActivationTypes}
             />
           )}
           {state.activationStep === 2 && (
