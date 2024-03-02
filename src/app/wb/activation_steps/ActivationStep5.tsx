@@ -35,6 +35,8 @@ const ActivationStep5 = ({ userData, confirmationType, changeTitle }: Props) => 
         return "АКТИВАЦИЯ ИГРЫ НА ТУРЕЦКИЙ АККАУНТ PSN";
       case "аккаунт":
         return "АКТИВАЦИЯ ТУРЕЦКОГО АККАУНТА PSN";
+      case "аккаунт_баланс":
+        return "АКТИВАЦИЯ ТУРЕЦКОГО АККАУНТА PSN С БАЛАНСОМ";
       default:
         return "";
     }
@@ -64,7 +66,7 @@ const ActivationStep5 = ({ userData, confirmationType, changeTitle }: Props) => 
               {userData.secondAccessCode && <p>2 РЕЗЕРВНЫЙ КОД {userData.secondAccessCode}</p>}
             </>
           )}
-          {userData.type === "аккаунт" && <p>EMAIL {userData.email}</p>}
+          {userData.type === "аккаунт" || (userData.type === "аккаунт_баланс" && <p>EMAIL {userData.email}</p>)}
         </div>
         <button
           className={cn("btn btn-primary mt-2 text-white", {

@@ -8,7 +8,7 @@ import ActivationStep4 from "./activation_steps/ActivationStep4";
 import ActivationStep5 from "./activation_steps/ActivationStep5";
 import cn from "@/utils/cn";
 
-export type Types = "пополнение" | "игра" | "аккаунт" | "одноразовая_карта" | "ps_plus" | "";
+export type Types = "пополнение" | "игра" | "аккаунт" | "аккаунт_баланс" | "одноразовая_карта" | "ps_plus" | "";
 
 export type ConfirmationType = "cheque" | "message" | "";
 

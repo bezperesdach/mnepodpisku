@@ -234,6 +234,9 @@ const ActivationStep4: React.FC<Props> = ({
           <button className="btn btn-primary text-white" onClick={() => onChange("type", "аккаунт")}>
             СОЗДАНИЕ ТУРЕЦКОГО АККАУНТА PSN
           </button>
+          <button className="btn btn-primary text-white" onClick={() => onChange("type", "аккаунт_баланс")}>
+            СОЗДАНИЕ ТУРЕЦКОГО АККАУНТА PSN С БАЛАНСОМ
+          </button>
         </div>
       )}
       {(userData.type === "пополнение" || userData.type === "игра" || userData.type === "ps_plus") && (
