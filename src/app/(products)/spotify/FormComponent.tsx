@@ -1,17 +1,20 @@
 "use client";
 
+import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
 // import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
 import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
 import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
 import { getSpotifyPrice } from "@/serverActions/calculatePriceActions";
+import { getSpotifyPaymentLink } from "@/serverActions/createPaymentUrls";
 // import { getSpotifyPaymentLink } from "@/serverActions/createPaymentUrls";
 import cn from "@/utils/cn";
+import { ym } from "@/utils/ym";
 // import { ym } from "@/utils/ym";
 import { LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 type Props = {
   receivedSubscriptionType?: string;
@@ -37,7 +40,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
   const router = useRouter();
   const pathname = usePathname();
 
-  // const { dispatch } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   const [calculatedAmount, setCalculatedAmount] = useState<number | undefined>();
   const [value, setValue] = useState<number | undefined>();
 
@@ -45,13 +48,13 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
 
   const formik = useFormik({
     initialValues: { duration: receivedDuration ?? "1month", subscriptionType: receivedSubscriptionType ?? "individual" },
-    onSubmit: async () => {
-      // formik.setSubmitting(true);
-      // ym("reachGoal", "spotifyRequest");
-      // ym("reachGoal", "formaoplatit");
-      // const res = await getSpotifyPaymentLink(values);
-      // dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
-      // formik.setSubmitting(false);
+    onSubmit: async (values) => {
+      formik.setSubmitting(true);
+      ym("reachGoal", "spotifyRequest");
+      ym("reachGoal", "formaoplatit");
+      const res = await getSpotifyPaymentLink(values);
+      dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
+      formik.setSubmitting(false);
     },
     validateOnBlur: true,
   });
@@ -87,11 +90,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
             <div className="flex flex-col gap-2">
               <p className="label font-medium">Выберите тип подписки:</p>
               <ToggleSelect
-                options={[
-                  { name: "Individual", value: "individual" },
-                  { name: "Duo", value: "duo" },
-                  { name: "Family", value: "family" },
-                ]}
+                options={[{ name: "Individual", value: "individual" }]}
                 value={formik.values.subscriptionType}
                 onSelect={(value) => {
                   const duration = formik.values.duration;
@@ -114,16 +113,16 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
             <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex ">
               <button
                 type="submit"
-                className={cn("btn btn-disabled w-full text-white items-center pointer-events-none", {
+                className={cn("btn btn-secondary w-full text-white items-center", {
                   "btn-disabled": formik.isSubmitting,
                 })}
               >
                 {formik.isSubmitting ? (
                   <span className="loading loading-spinner loading-xl flex-shrink-0" />
                 ) : (
-                  <LockIcon className="text-disabled text-xl" />
+                  <LockIcon className="text-white text-xl" />
                 )}
-                Нет в наличии
+                Оплатить
               </button>
               <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
             </div>
@@ -135,16 +134,16 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
           <div className="w-full flex-col gap-1 items-center md:hidden mt-4 ">
             <button
               type="submit"
-              className={cn("btn btn-disabled w-full text-white items-center pointer-events-none", {
+              className={cn("btn btn-secondary w-full text-white items-center", {
                 "btn-disabled": formik.isSubmitting,
               })}
             >
               {formik.isSubmitting ? (
                 <span className="loading loading-spinner loading-xl flex-shrink-0" />
               ) : (
-                <LockIcon className="text-disabled text-xl" />
+                <LockIcon className="text-white text-xl" />
               )}
-              Нет в наличии
+              Оплатить
             </button>
             <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
           </div>
