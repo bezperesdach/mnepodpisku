@@ -34,13 +34,19 @@ const ActivationStep2 = ({ confirmationType, changeConfirmationType, changeAllow
 
       <div className="flex flex-col gap-4 mt-4">
         <button
-          className={cn("btn", { "btn-primary": confirmationType === "cheque", "btn-outline": confirmationType !== "cheque" })}
+          className={cn("btn", {
+            "btn-primary text-white": confirmationType === "cheque",
+            "btn-outline": confirmationType !== "cheque",
+          })}
           onClick={() => changeConfirmationType("cheque")}
         >
           ЭЛЕКТРОННЫЙ ЧЕК ОТ ВАЙЛДБЕРИС
         </button>
         <button
-          className={cn("btn", { "btn-primary": confirmationType === "message", "btn-outline": confirmationType !== "message" })}
+          className={cn("btn", {
+            "btn-primary text-white": confirmationType === "message",
+            "btn-outline": confirmationType !== "message",
+          })}
           onClick={() => changeConfirmationType("message")}
         >
           СООБЩЕНИЕ В ЧАТЕ С ПРОДАВЦОМ НА ВАЙЛДБЕРИС

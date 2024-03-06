@@ -6,6 +6,8 @@ import ActivationStep2 from "./activation_steps/ActivationStep2";
 import ActivationStep3 from "./activation_steps/ActivationStep3";
 import ActivationStep4 from "./activation_steps/ActivationStep4";
 import ActivationStep5 from "./activation_steps/ActivationStep5";
+import ActivationStep6 from "./activation_steps/ActivationStep6";
+
 import cn from "@/utils/cn";
 
 export type Types = "пополнение" | "игра" | "аккаунт" | "аккаунт_баланс" | "одноразовая_карта" | "ps_plus" | "";
@@ -74,7 +76,7 @@ const initialState: StateType = {
   allowedToNextStage: false,
 };
 
-const totalSteps = 5;
+const totalSteps = 6;
 
 const reducer = (state: StateType, action: ActionType) => {
   switch (action.type) {
@@ -130,9 +132,11 @@ function WbActivate() {
       <div className="w-full border-2 border-secondary rounded-xl max-w-2xl mt-6">
         <div className="flex justify-between items-center gap-2 px-2 lg:px-6 py-4 w-full border-b-2 border-secondary mb-6">
           <div className="w-12 h-auto font-bold text-lg lg:text-3xl">
-            <p>
-              {state.activationStep + 1}/{totalSteps}
-            </p>
+            {state.activationStep + 1 < totalSteps && (
+              <p>
+                {state.activationStep + 1}/{totalSteps - 1}
+              </p>
+            )}
           </div>
           <p className="text-lg lg:text-3xl font-bold text-center">{state.title}</p>
         </div>
@@ -168,6 +172,14 @@ function WbActivate() {
           {state.activationStep === 3 && (
             <ActivationStep4
               userData={state.userData}
+              onChange={(name, value) => dispatch({ type: "change_user_data_value", payload: { name, value } })}
+              changeAllowToNextStage={(value) => dispatch({ type: "change_allow_to_next_stage", payload: value })}
+              changeTitle={(title) => dispatch({ type: "change_title", payload: title })}
+            />
+          )}
+          {state.activationStep === 4 && (
+            <ActivationStep5
+              userData={state.userData}
               accessCodeAcknowledge={state.accessCodeAcknowledge}
               changeAccessCodeAcknowledgement={(value) => dispatch({ type: "change_access_code_acknowledgement", payload: value })}
               onChange={(name, value) => dispatch({ type: "change_user_data_value", payload: { name, value } })}
@@ -176,8 +188,8 @@ function WbActivate() {
               changeTitle={(title) => dispatch({ type: "change_title", payload: title })}
             />
           )}
-          {state.activationStep === 4 && (
-            <ActivationStep5
+          {state.activationStep === 5 && (
+            <ActivationStep6
               userData={state.userData}
               confirmationType={state.confirmationType}
               changeTitle={(title) => dispatch({ type: "change_title", payload: title })}
