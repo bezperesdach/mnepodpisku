@@ -66,7 +66,7 @@ const ActivationStep5 = ({ userData, confirmationType, changeTitle }: Props) => 
               {userData.secondAccessCode && <p>2 РЕЗЕРВНЫЙ КОД {userData.secondAccessCode}</p>}
             </>
           )}
-          {userData.type === "аккаунт" || (userData.type === "аккаунт_баланс" && <p>EMAIL {userData.email}</p>)}
+          {(userData.type === "аккаунт" || userData.type === "аккаунт_баланс") && <p>EMAIL {userData.email}</p>}
         </div>
         <button
           className={cn("btn btn-primary mt-2 text-white", {

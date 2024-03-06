@@ -190,7 +190,7 @@ const ActivationStep4: React.FC<Props> = ({
       } else {
         changeAllowToNextStage(false);
       }
-    } else if (userData.type === "аккаунт") {
+    } else if (userData.type === "аккаунт" || userData.type === "аккаунт_баланс") {
       if (errors.email === "" && userData.email.length > 0) {
         changeAllowToNextStage(true);
       } else {
@@ -344,7 +344,7 @@ const ActivationStep4: React.FC<Props> = ({
           </div>
         </div>
       )}
-      {userData.type === "аккаунт" && (
+      {(userData.type === "аккаунт" || userData.type === "аккаунт_баланс") && (
         <div className="flex flex-col justify-start items-center gap-2 w-full">
           <p className="text-center">
             Введите Email на который <span className="font-bold text-warning">НЕ ЗАРЕГИСТРИРОВАН</span> аккаунт PlayStation
