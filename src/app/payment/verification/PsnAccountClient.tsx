@@ -89,7 +89,9 @@ function PsnAccountClient({ code }: Props) {
           >
             {canCopyCode ? `НАЖМИТЕ, ЧТОБЫ СКОПИРОВАТЬ` : "СКОПИРОВАНО"}
           </button>
-          <p className="text-lg mt-2">Скопируйте сообщение выше и отправьте удобным способом</p>
+          <p className="text-center text-lg mt-2">
+            Вышлите сообщение выше <strong className="text-warning font-bold">ТЕКСТОМ</strong> удобным для вас способом ниже:
+          </p>
           <div className="flex gap-4 mt-2">
             <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
               <Image src="/socials_icons/vk_compact.png" alt="vk" width={48} height={48} />

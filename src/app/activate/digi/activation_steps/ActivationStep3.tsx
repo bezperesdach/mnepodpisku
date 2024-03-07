@@ -74,7 +74,7 @@ const ActivationStep3: React.FC<Props> = ({ userData, activationType, changeTitl
       </div>
       <div className="flex flex-col justify-start items-center gap-2 w-full mt-8">
         <p className="text-center">
-          Вышлите данное сообщение <strong className="text-warning font-bold">ТЕКСТОМ</strong> удобным для вас способом
+          Вышлите данное сообщение <strong className="text-warning font-bold">ТЕКСТОМ</strong> удобным для вас способом ниже:
         </p>
         <div className="flex gap-4 mt-2 mb-2">
           <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
