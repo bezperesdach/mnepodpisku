@@ -4,7 +4,7 @@ import LeaveVkReview from "@/components/LeaveVkReview/LeaveVkReview";
 import cn from "@/utils/cn";
 import Image from "next/image";
 
-import Link from "next/link";
+// import Link from "next/link";
 import { useState } from "react";
 
 type Props = {
@@ -62,9 +62,9 @@ function PsnBalanceCardClient({ code }: Props) {
         </a>
       </div>
 
-      <Link className="btn btn-secondary text-white mt-10 mb-12" href="/">
+      {/* <Link className="btn btn-secondary text-white mt-10 mb-12" href="/">
         На главную
-      </Link>
+      </Link> */}
     </div>
   );
 }

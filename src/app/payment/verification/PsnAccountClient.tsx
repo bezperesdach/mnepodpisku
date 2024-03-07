@@ -3,7 +3,7 @@
 import LeaveVkReview from "@/components/LeaveVkReview/LeaveVkReview";
 import TextInput from "@/components/TextInput/TextInput";
 
-import Link from "next/link";
+// import Link from "next/link";
 import React, { ChangeEvent, useState } from "react";
 import Image from "next/image";
 import cn from "@/utils/cn";
@@ -49,7 +49,7 @@ function PsnAccountClient({ code }: Props) {
   return (
     <div className="flex flex-col justify-start items-center">
       <LeaveVkReview />
-      <h1 className="text-4xl font-bold mt-6 lg:mt-4  text-center">Благодарим за покупку создания PSN аккаунта!</h1>
+      <h1 className="text-4xl font-bold mt-6 lg:mt-4 text-center">Благодарим за покупку создания PSN аккаунта!</h1>
       <p className="text-lg max-w-2xl text-center mt-2">
         Мы успешно проверили вашу оплату! Пожалуйста, укажите почту на которую вы бы хотели получить аккаунт.
       </p>
@@ -89,10 +89,10 @@ function PsnAccountClient({ code }: Props) {
           >
             {canCopyCode ? `НАЖМИТЕ, ЧТОБЫ СКОПИРОВАТЬ` : "СКОПИРОВАНО"}
           </button>
-          <p className="text-center text-lg mt-2">
+          <p className="text-center text-lg mt-4">
             Вышлите сообщение выше <strong className="text-warning font-bold">ТЕКСТОМ</strong> удобным для вас способом ниже:
           </p>
-          <div className="flex gap-4 mt-2">
+          <div className="flex gap-4 mt-2 mb-10">
             <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
               <Image src="/socials_icons/vk_compact.png" alt="vk" width={48} height={48} />
             </a>
@@ -108,15 +108,15 @@ function PsnAccountClient({ code }: Props) {
         </>
       )}
       {!(error === "" && value !== "") && (
-        <p className="bg-base-300 py-2 px-4 border-2 border-warning max-w-lg mt-2 rounded-lg">
+        <p className="bg-base-300 py-2 px-4 border-2 border-warning max-w-lg mt-4 rounded-lg">
           <strong>ВНИМАНИЕ!</strong> Проверьте что у вас есть доступ к почте! В случае ошибки мы не сможем вам помочь восстановить
           аккаунт и нужно будет приобретать создание еще раз.
         </p>
       )}
 
-      <Link className="btn btn-secondary text-white mt-10 mb-12" href="/">
+      {/* <Link className="btn btn-secondary text-white mt-10 mb-12" href="/">
         На главную
-      </Link>
+      </Link> */}
     </div>
   );
 }
