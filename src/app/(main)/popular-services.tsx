@@ -35,30 +35,45 @@ export function PopularServices() {
             </CarouselContent>
           </Carousel> */}
         </div>
-        <div className="flex w-full lg:basis-1/4">
-          <div className="flex-1 p-4 rounded-md overflow-hidden">
-            <div className="min-h-[180px] rounded-md bg-[url('/catalogue_icons/playstation.png')] bg-contain bg-no-repeat bg-center hover:scale-110 transition-all">
-              &nbsp;
+        <div className="flex gap-4 w-full lg:basis-1/4 mt-6">
+          <div className="flex-1 rounded-md">
+            <div className="min-h-[180px] relative rounded-3xl overflow-hidden">
+              <Image
+                className="hover:scale-125 transition-all"
+                src="/catalogue_icons/playstation_top_up.jpg"
+                alt="Playstation пополнение"
+                fill
+              />
             </div>
-            <p className="mt-4">PlayStation пополнение</p>
+            <p className="mt-4 text-lg text-center font-medium">PlayStation пополнение</p>
           </div>
-          <div className="flex-1 p-4 rounded-md overflow-hidden">
-            <div className="min-h-[180px] rounded-md bg-[url('/catalogue_icons/spotify.png')] bg-contain bg-no-repeat bg-center hover:scale-110 transition-all">
-              &nbsp;
+          <div className="flex-1 rounded-md">
+            <div className="min-h-[180px] relative rounded-3xl overflow-hidden">
+              <Image className="hover:scale-125 transition-all" src="/catalogue_icons/spotify_premium.jpg" alt="Spotify премиум" fill />
             </div>
-            <p className="mt-4">PlayStation пополнение</p>
+            <p className="mt-4 text-lg text-center font-medium">Spotify премиум</p>
           </div>
-          <div className="flex-1 p-4 rounded-md overflow-hidden">
-            <div className="min-h-[180px] rounded-md bg-[url('/catalogue_icons/ps_plus.png')] bg-contain bg-no-repeat bg-center hover:scale-110 transition-all">
-              &nbsp;
+          <div className="flex-1 rounded-md">
+            <div className="min-h-[180px] relative rounded-3xl overflow-hidden">
+              <Image
+                className="hover:scale-125 transition-all"
+                src="/catalogue_icons/playstation_plus.jpg"
+                alt="Spotify премиум"
+                fill
+              />
             </div>
-            <p className="mt-4">PlayStation пополнение</p>
+            <p className="mt-4 text-lg text-center font-medium">PlayStation Plus</p>
           </div>
-          <div className="flex-1 p-4 rounded-md overflow-hidden">
-            <div className="min-h-[180px] rounded-md bg-[url('/catalogue_icons/playstation.png')] bg-contain bg-no-repeat bg-center hover:scale-110 transition-all">
-              &nbsp;
+          <div className="flex-1 rounded-md">
+            <div className="min-h-[180px] relative rounded-3xl overflow-hidden">
+              <Image
+                className="hover:scale-125 transition-all"
+                src="/catalogue_icons/playstation_account.jpg"
+                alt="Spotify премиум"
+                fill
+              />
             </div>
-            <p className="mt-4">PlayStation пополнение</p>
+            <p className="mt-4 text-lg text-center font-medium">PlayStation Аккаунт</p>
           </div>
         </div>
       </div>
