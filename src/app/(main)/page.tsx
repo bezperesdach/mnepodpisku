@@ -1,10 +1,12 @@
 export const dynamic = "force-static";
 
-import HeroChoose from "@/components/HeroChoose/HeroChoose";
-import Faq from "@/components/Faq/Faq";
-import Question from "@/components/Faq/Question";
+import { HeroCard } from "@/app/(main)/hero-card";
+// import HeroChoose from "@/components/HeroChoose/HeroChoose";
+// import Faq from "@/components/Faq/Faq";
+// import Question from "@/components/Faq/Question";
 import { Metadata } from "next";
-import Reviews from "@/components/Reviews/Reviews";
+import { PopularServices } from "./popular-services";
+// import Reviews from "@/components/Reviews/Reviews";
 
 export const metadata: Metadata = {
   title: "Приобретай подписки выгодно и быстро на МнеПодписку.рф!",
@@ -25,8 +27,10 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   return (
-    <main className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
-      <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
+    <main className="flex flex-col w-full">
+      <HeroCard />
+      {/* <PopularServices /> */}
+      {/* <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
         <h1 className="text-3xl lg:text-4xl font-bold">Помогаем приобретать подписки на зарубежные сервисы</h1>
       </div>
 
@@ -59,7 +63,7 @@ export default async function Home() {
             низких комиссий в интернете.
           </p>
         </Question>
-      </Faq>
+      </Faq> */}
     </main>
   );
 }

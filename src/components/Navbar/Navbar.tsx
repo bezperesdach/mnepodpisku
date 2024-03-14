@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { AppContext } from "../AppContextWrapper/AppContextWrapper";
 import Catalogue from "../Catalogue/Catalogue";
-import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import MobileMenu from "./MobileMenu";
 
 import spotifyImg from "../../../public/catalogue_icons/spotify.png";
@@ -22,7 +21,6 @@ import adobeccImage from "../../../public/catalogue_icons/adobe_cc.png";
 import credit_card_turkey from "../../../public/catalogue_icons/credit_card_turkey.png";
 import na_chai from "../../../public/catalogue_icons/na_chai.png";
 import useSWR from "swr";
-import SearchProducts from "./SearchProducts";
 
 export const catalogueItems = {
   spotify: {
@@ -302,7 +300,7 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
               Отзывы
             </Link>
           </div> */}
-          <SearchProducts />
+          {/* <SearchProducts /> */}
 
           {/* <ThemeSwitcher /> */}
         </div>
