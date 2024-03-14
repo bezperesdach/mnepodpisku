@@ -16,11 +16,11 @@ const Banners = [
     callToAction: "ПОПОЛНИТЬ",
     image: "/images/PlaystationTopup.jpg",
     alt: "Playstation пополнение банер",
-    titleClass: "text-4xl font-bold tracking-tight text-[#d72eb5] bg-white px-4 py-2",
+    titleClass: "text-2xl font-bold tracking-tight text-[#d72eb5] bg-white px-4 py-2 mr-auto md:text-4xl",
     titleStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
-    descriptionClass: "text-lg leading-7 max-w-xs bg-[#4f4f4f] px-4 py-1",
+    descriptionClass: "text-sm leading-7 max-w-xs bg-[#4f4f4f] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
     descriptionStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -38,9 +38,9 @@ const Banners = [
     callToAction: "ПРИОБРЕСТИ",
     image: "/images/PlaystationPlus.jpg",
     alt: "Playstation plus банер",
-    titleClass: "text-4xl font-bold tracking-tight text-[#fcc000] bg-[#000000] px-4 py-2",
+    titleClass: "text-2xl font-bold tracking-tight text-[#fcc000] bg-[#000000] px-4 py-2 mr-auto md:text-4xl",
     titleStyle: {},
-    descriptionClass: "text-lg leading-7 max-w-xs text-black px-4 py-1",
+    descriptionClass: "leading-7 max-w-xs text-black px-2 md:px-4 py-[1px] md:py-1",
     descriptionStyle: {},
     callToActionClass: "max-w-sm h-10 z-10 bg-[#333333] hover:bg-[#000000] font-bold text-lg border-r-2 border-b-2 border-[#fcc000]",
     href: "ps_plus",
@@ -76,9 +76,9 @@ export function HeroCard() {
           <CarouselContent>
             {Banners.map((item, index) => (
               <CarouselItem key={index}>
-                <div className="relative lg:h-64">
-                  <div className="flex flex-col justify-between rounded-3xl border bg-card text-card-foreground shadow p-8 h-full">
-                    <div className="flex flex-col gap-4 w-fit z-10 ">
+                <div className="relative h-48 md:h-64">
+                  <div className="flex flex-col justify-between rounded-3xl border bg-card text-card-foreground shadow p-4 md:p-8 h-full">
+                    <div className="flex flex-col gap-2 z-10">
                       <p className={item.titleClass} style={item.titleStyle}>
                         {item.title}
                       </p>
@@ -97,8 +97,8 @@ export function HeroCard() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="w-12 h-12 -left-14" variant="default" />
-          <CarouselNext className="w-12 h-12 -right-14" variant="default" />
+          <CarouselPrevious className="w-12 h-12 -left-14 hidden lg:flex" variant="default" />
+          <CarouselNext className="w-12 h-12 -right-14 hidden lg:flex" variant="default" />
         </Carousel>
       </div>
     </div>
