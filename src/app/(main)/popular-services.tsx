@@ -19,6 +19,7 @@ export function PopularServices() {
                 className="hover:scale-125 transition-all"
                 src="/catalogue_icons/playstation_top_up.jpg"
                 alt="Playstation пополнение"
+                style={{ objectFit: "cover" }}
                 fill
               />
             </div>
@@ -26,7 +27,13 @@ export function PopularServices() {
           </div>
           <div className="flex-1 flex-shrink-0 rounded-md ">
             <div className="min-h-[120px] xs:min-h-[160px] sm:min-h-[170px] lg:min-h-[180px] relative rounded-3xl overflow-hidden">
-              <Image className="hover:scale-125 transition-all" src="/catalogue_icons/spotify_premium.jpg" alt="Spotify премиум" fill />
+              <Image
+                className="hover:scale-125 transition-all"
+                src="/catalogue_icons/spotify_premium.jpg"
+                alt="Spotify премиум"
+                style={{ objectFit: "cover" }}
+                fill
+              />
             </div>
             <p className="mt-4 lg:text-lg text-center font-medium">Spotify премиум</p>
           </div>
@@ -36,6 +43,7 @@ export function PopularServices() {
                 className="hover:scale-125 transition-all"
                 src="/catalogue_icons/playstation_plus.jpg"
                 alt="Spotify премиум"
+                style={{ objectFit: "cover" }}
                 fill
               />
             </div>
@@ -47,6 +55,7 @@ export function PopularServices() {
                 className="hover:scale-125 transition-all"
                 src="/catalogue_icons/playstation_account.jpg"
                 alt="Spotify премиум"
+                style={{ objectFit: "cover" }}
                 fill
               />
             </div>
