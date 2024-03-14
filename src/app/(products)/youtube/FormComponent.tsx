@@ -6,7 +6,7 @@ import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
 import { getYoutubePrice } from "@/serverActions/calculatePriceActions";
 import { getYoutubePaymentLink } from "@/serverActions/createPaymentUrls";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import { ym } from "@/utils/ym";
 import { LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";

@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import TextInput from "@/components/TextInput/TextInput";
 import { UserData } from "../WbClient";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 
 type Props = {
   userData: UserData;

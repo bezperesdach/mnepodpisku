@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { ConfirmationType } from "../WbClient";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 
 type Props = {
   confirmationType: ConfirmationType;

@@ -1,5 +1,5 @@
 import { ActivationTypes } from "@/utils/activationUtils";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { UserData } from "../DigiClient";

@@ -8,7 +8,7 @@ import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
 import { getSpotifyPrice } from "@/serverActions/calculatePriceActions";
 import { getSpotifyPaymentLink } from "@/serverActions/createPaymentUrls";
 // import { getSpotifyPaymentLink } from "@/serverActions/createPaymentUrls";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import { ym } from "@/utils/ym";
 // import { ym } from "@/utils/ym";
 import { LockIcon } from "@primer/octicons-react";

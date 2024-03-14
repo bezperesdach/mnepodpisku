@@ -6,7 +6,7 @@ import TextInput from "@/components/TextInput/TextInput";
 // import Link from "next/link";
 import React, { ChangeEvent, useState } from "react";
 import Image from "next/image";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 
 type Props = {
   code: string;

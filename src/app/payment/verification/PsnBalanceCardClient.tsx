@@ -1,7 +1,7 @@
 "use client";
 
 import LeaveVkReview from "@/components/LeaveVkReview/LeaveVkReview";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 // import Link from "next/link";

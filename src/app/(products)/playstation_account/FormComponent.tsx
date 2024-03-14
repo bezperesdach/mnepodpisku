@@ -5,7 +5,7 @@ import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
 import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import { getPsnAccountPrice } from "@/serverActions/calculatePriceActions";
 import { getPsnAccountPaymentLink } from "@/serverActions/createPaymentUrls";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import { ym } from "@/utils/ym";
 import { LockIcon } from "@primer/octicons-react";
 import { useContext, useEffect, useState } from "react";

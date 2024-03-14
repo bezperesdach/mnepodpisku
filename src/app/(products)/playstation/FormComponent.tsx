@@ -8,7 +8,7 @@ import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import TextInput from "@/components/TextInput/TextInput";
 import { getPsnBalancePrice } from "@/serverActions/calculatePriceActions";
 import { getPsnBalancePaymentLink } from "@/serverActions/createPaymentUrls";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import { ym } from "@/utils/ym";
 import { HashIcon, LockIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";

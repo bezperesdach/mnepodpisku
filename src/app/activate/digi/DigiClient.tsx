@@ -6,7 +6,7 @@ import ActivationStep1 from "./activation_steps/ActivationStep1";
 import ActivationStep2 from "./activation_steps/ActivationStep2";
 import ActivationStep3 from "./activation_steps/ActivationStep3";
 import { ActivationTypes } from "@/utils/activationUtils";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Активация",

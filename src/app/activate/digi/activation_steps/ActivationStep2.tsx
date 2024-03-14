@@ -1,6 +1,6 @@
 import TextInput from "@/components/TextInput/TextInput";
 import { ActivationTypes } from "@/utils/activationUtils";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import React, { ChangeEvent, useEffect, useState } from "react";
 
 type Props = {

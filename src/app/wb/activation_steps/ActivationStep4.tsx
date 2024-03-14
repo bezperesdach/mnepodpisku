@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { UserData } from "../WbClient";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 
 type Props = {
   userData: UserData;

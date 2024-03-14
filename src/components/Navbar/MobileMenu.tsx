@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import { AppContext } from "../AppContextWrapper/AppContextWrapper";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 type Props = {

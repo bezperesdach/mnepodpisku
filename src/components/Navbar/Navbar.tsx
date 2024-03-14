@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext } from "react";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 import { AppContext } from "../AppContextWrapper/AppContextWrapper";
@@ -22,6 +22,7 @@ import adobeccImage from "../../../public/catalogue_icons/adobe_cc.png";
 import credit_card_turkey from "../../../public/catalogue_icons/credit_card_turkey.png";
 import na_chai from "../../../public/catalogue_icons/na_chai.png";
 import useSWR from "swr";
+import SearchProducts from "./SearchProducts";
 
 export const catalogueItems = {
   spotify: {
@@ -278,20 +279,20 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
           style={colorPallette ? { color: catalogueItems[colorPallette].foregroundColor } : {}}
         >
           <div className="flex h-full w-full items-center justify-start">
-            <Link className="flex gap-2 items-center justify-start" href="/">
+            <Link className="flex gap-1 items-center justify-start" href="/">
               {colorPallette ? (
                 catalogueItems[colorPallette].logo
               ) : (
-                <Image className="rounded-full" src="/catalogue_icons/logo.jpg" width={48} height={48} alt="логотип" />
+                <Image className="" src="/VK_logo.png" width={48} height={48} alt="логотип" />
               )}
               <p className="text-2xl font-bold">МНЕПОДПИСКУ.РФ</p>
             </Link>
           </div>
         </div>
         <div className="flex-none gap-4 md:text-lg font-medium items-center hidden lg:flex ">
-          <button onClick={() => dispatch({ type: "toggle_catalogue" })}>Каталог</button>
+          {/* <button onClick={() => dispatch({ type: "toggle_catalogue" })}>Каталог</button> */}
 
-          <a href="https://oplata.info/info/" target="_blank" rel="noopener noreferrer">
+          {/* <a href="https://oplata.info/info/" target="_blank" rel="noopener noreferrer">
             Мои покупки
           </a>
 
@@ -300,9 +301,10 @@ export default function Navbar({ colorPallette, isNotFound }: Props) {
             <Link className="mr-2" href="/reviews">
               Отзывы
             </Link>
-          </div>
+          </div> */}
+          <SearchProducts />
 
-          <ThemeSwitcher />
+          {/* <ThemeSwitcher /> */}
         </div>
         <div className="flex items-center flex-none lg:hidden">
           <MobileMenu reviewsAmount={data?.amount} /* color={colorPallette ? catalogueItems[colorPallette].foregroundColor : ""} */ />
