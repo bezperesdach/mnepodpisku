@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { catalogueItems } from "../Navbar/Navbar";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import { XIcon } from "@primer/octicons-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";

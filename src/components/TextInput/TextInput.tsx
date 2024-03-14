@@ -1,4 +1,4 @@
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import { DetailedHTMLProps, InputHTMLAttributes } from "react";
 import InputError from "./InputError";
 import { QuestionIcon } from "@primer/octicons-react";

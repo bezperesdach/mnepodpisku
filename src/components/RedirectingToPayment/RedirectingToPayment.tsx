@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import React, { useContext, useEffect } from "react";
 import { AppContext } from "../AppContextWrapper/AppContextWrapper";
 

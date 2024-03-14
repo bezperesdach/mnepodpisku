@@ -11,7 +11,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@primer/octicons-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import ReviewComponentSkeleton from "./ReviewComponentSkeleton";
-// import cn from "@/utils/cn";
+// import { cn } from "@/lib/utils";
 
 type Review = {
   name: string;

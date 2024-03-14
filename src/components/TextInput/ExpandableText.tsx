@@ -1,4 +1,4 @@
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import React from "react";
 
 type Props = {
@@ -22,7 +22,7 @@ const ExpandableText = ({ expanded, children }: Props) => {
 export default ExpandableText;
 
 // import { $, component$, Slot, useOnWindow, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-// import cn from "@/utils/cn";
+// import { cn } from "@/lib/utils";
 
 // type ExpandableProps = {
 //   class?: string;

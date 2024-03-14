@@ -1,5 +1,5 @@
 import { useIsOverflow } from "@/hooks/useIsOverflow";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import {
   ArrowSwitchIcon,
   CheckCircleFillIcon,
