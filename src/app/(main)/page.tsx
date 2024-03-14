@@ -29,7 +29,7 @@ export default async function Home() {
   return (
     <main className="flex flex-col w-full">
       <HeroCard />
-      {/* <PopularServices /> */}
+      <PopularServices />
       {/* <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
         <h1 className="text-3xl lg:text-4xl font-bold">Помогаем приобретать подписки на зарубежные сервисы</h1>
       </div>
