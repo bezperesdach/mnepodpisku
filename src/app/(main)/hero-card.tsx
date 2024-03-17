@@ -6,6 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from "next/link";
+import { Skeleton } from "@/components/ui/skeleton";
 
 // import PlayStationTopup from "@/../public";
 
@@ -27,11 +28,6 @@ const Banners = [
     callToActionClass: "max-w-sm h-10 z-10 bg-[#d72eb5] hover:bg-[#c03ba5] font-bold text-lg border-r-2 border-b-2 border-[#deb004]",
     href: "playstation",
   },
-  // {
-  //   title: "АККАУНТ PLAYSTATION",
-  //   description: "Создадим вам Турецкий аккаунт на вашу почту",
-  //   callToAction: "СОЗДАТЬ",
-  // },
   {
     title: "ПОДПИСКА PS PLUS",
     description: "Доступно для Турецких аккаунтов",
@@ -45,11 +41,6 @@ const Banners = [
     callToActionClass: "max-w-sm h-10 z-10 bg-[#333333] hover:bg-[#000000] font-bold text-lg border-r-2 border-b-2 border-[#fcc000]",
     href: "ps_plus",
   },
-  // {
-  //   title: "SPOTIFY ПРЕМИУМ",
-  //   description: "Получи доступ к любимым трекам без рекламы",
-  //   callToAction: "ПРИОБРЕСТИ",
-  // },
 ];
 
 export function HeroCard() {
@@ -90,7 +81,8 @@ export function HeroCard() {
                       <Link href={item.href}>{item.callToAction}</Link>
                     </Button>
                     <div className="absolute top-0 bottom-0 left-0 right-0 z-0 w-full h-full">
-                      <Image className="rounded-3xl" src={item.image} alt={item.alt} style={{ objectFit: "cover" }} fill={true} />
+                      <Image className="rounded-3xl z-10" src={item.image} alt={item.alt} style={{ objectFit: "cover" }} fill={true} />
+                      <Skeleton className="absolute w-full h-full rounded-3xl" />
                     </div>
                   </div>
                 </div>
