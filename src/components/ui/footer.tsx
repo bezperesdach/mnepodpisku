@@ -9,10 +9,49 @@ export function Footer({}) {
   const pathname = usePathname();
 
   return (
-    <footer className="w-full border-b border-border/40 bg-[#0A1127]/95 mt-16">
+    <footer className="w-full border-b border-border/40 bg-[#0D1531]/95 mt-16">
       <div className="px-2 md:px-4 flex max-w-screen-lg items-center mx-auto">
         <div className="w-full flex flex-col">
-          <div className="w-full flex justify-between mt-4">
+          <div className="flex sm:hidden flex-wrap justify-between my-2">
+            {!(pathname.startsWith("/activate/wb") || pathname.startsWith("/wb")) && (
+              <div className="flex gap-4 mt-2">
+                <a
+                  href="https://vk.com/mnepodpisku"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    ym("reachGoal", "socialnetwork");
+                  }}
+                >
+                  <Image width={56} height={56} src="/socials_icons/vk_compact.png" alt="Вк лого" />
+                </a>
+
+                <a
+                  href="https://t.me/pstopup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    ym("reachGoal", "socialnetwork");
+                  }}
+                >
+                  <Image width={56} height={56} src="/socials_icons/telegram_icon.png" alt="Telegram лого" />
+                </a>
+
+                <a
+                  href="https://wa.me/79939011007"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    ym("reachGoal", "socialnetwork");
+                  }}
+                >
+                  <Image width={56} height={56} src="/socials_icons/whatsapp_icon.png" alt="Whatsapp лого" />
+                </a>
+              </div>
+            )}
+          </div>
+
+          <div className="w-full flex justify-between sm:mt-4">
             <div className="flex flex-col mt-2">
               <div className="flex flex-wrap gap-10">
                 <div className="flex flex-col justify-start items-start gap-1">
@@ -36,7 +75,7 @@ export function Footer({}) {
               </div>
             </div>
 
-            <div className="flex flex-wrap justify-between">
+            <div className="hidden sm:flex flex-wrap justify-between">
               {!(pathname.startsWith("/activate/wb") || pathname.startsWith("/wb")) && (
                 <div className="flex gap-4 mt-2">
                   <a
