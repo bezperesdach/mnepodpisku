@@ -89,7 +89,7 @@ export function HeroCard() {
                     <Button className={item.callToActionClass} asChild>
                       <Link href={item.href}>{item.callToAction}</Link>
                     </Button>
-                    <div className="absolute top-0 bottom-0 left-0 right-0 z-0 bg-black w-full h-full">
+                    <div className="absolute top-0 bottom-0 left-0 right-0 z-0 w-full h-full">
                       <Image className="rounded-3xl" src={item.image} alt={item.alt} style={{ objectFit: "cover" }} fill={true} />
                     </div>
                   </div>
