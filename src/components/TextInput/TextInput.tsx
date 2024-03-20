@@ -1,23 +1,24 @@
 import { cn } from "@/lib/utils";
-import { DetailedHTMLProps, InputHTMLAttributes } from "react";
 import InputError from "./InputError";
 import { QuestionIcon } from "@primer/octicons-react";
+import { Input } from "../ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 type TextInputProps = {
   hidden?: boolean;
   maxWidth?: boolean;
   icon?: React.ReactNode;
-  classNameName?: string;
+  className?: string;
   label?: string;
   toolTip?: string;
   error?: string;
 };
 
-type InputProps = TextInputProps & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+type InputProps = TextInputProps & React.InputHTMLAttributes<HTMLInputElement>;
 
-const TextInput = ({ hidden = false, maxWidth = false, icon, label, toolTip, error, ...props }: InputProps) => {
+const TextInput = ({ hidden = false, maxWidth = false, icon, label, toolTip, error, className, ...props }: InputProps) => {
   return (
-    <div className={cn("form-control w-full", { "max-w-xs": maxWidth, "opacity-0": hidden })}>
+    <div className={(cn("form-control w-full", { "max-w-xs": maxWidth, "opacity-0": hidden }), className)}>
       {label && (
         <div className="label">
           <div
@@ -28,22 +29,25 @@ const TextInput = ({ hidden = false, maxWidth = false, icon, label, toolTip, err
             data-tip={toolTip}
           >
             <span className="label-text">{label}</span>
-            {toolTip && <QuestionIcon className="text-base-content/70" />}
+            {toolTip && (
+              <Popover>
+                <PopoverContent>
+                  В данном поле необходимо указать сумму лир которую нужно зачислить на ваш счет PlayStation аккаунта
+                </PopoverContent>
+                <PopoverTrigger className="bg-primary hover:bg-primary/90 w-fit px-2 rounded-lg">?</PopoverTrigger>
+              </Popover>
+            )}
           </div>
         </div>
       )}
       <div className="relative">
-        <input
+        <Input
           {...props}
-          className={cn(
-            "input input-bordered w-full",
-            {
-              "pl-10": icon,
-              "input-error hover:outline-error focus:outline-error": error,
-              "border-base-content border-opacity-20 hover:outline-primary focus:outline-primary": !error,
-            },
-            props.className
-          )}
+          className={cn("input input-bordered w-full", {
+            "pl-10": icon,
+            "input-error hover:outline-error focus:outline-error": error,
+            "border-base-content border-opacity-20 hover:outline-primary focus:outline-primary": !error,
+          })}
           id={props.name}
           value={props.value}
           aria-invalid={!!error}
