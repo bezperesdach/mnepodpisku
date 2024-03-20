@@ -69,6 +69,12 @@ const services: Service[] = [
     alt: "PlayStation Plus баннер",
   },
   {
+    name: "PlayStation Ea Play",
+    value: "ps_ea_play",
+    imageSrc: "/catalogue_icons/playstation_ea_play.jpg",
+    alt: "PlayStation Ea Play баннер",
+  },
+  {
     name: "PlayStation Аккаунт",
     value: "playstation_account",
     imageSrc: "/catalogue_icons/playstation_account.jpg",
