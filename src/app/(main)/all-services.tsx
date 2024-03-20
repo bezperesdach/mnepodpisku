@@ -57,7 +57,7 @@ const services: Service[] = [
   },
   {
     name: "PlayStation Пополнение",
-    value: "playstation",
+    value: "playstation_v2",
     imageSrc: "/catalogue_icons/playstation_top_up.jpg",
     alt: "Playstation пополнение",
   },
@@ -88,10 +88,11 @@ export function AllServices() {
       <div className="w-full flex flex-col max-w-screen-lg px-4">
         <div className="w-full flex justify-between">
           <div className="flex justify-between items-end w-full">
-            <button className="flex gap-1 items-center tracking-wide rounded-lg bg-primary p-2 pr-4">
+            <h2 className="text-3xl font-semibold tracking-tight">Все услуги</h2>
+            {/* <button className="flex gap-1 items-center font-medium rounded-lg bg-primary p-2 pr-4">
               <GrabberIcon size={24} />
               ВСЕ СЕРВИСЫ
-            </button>
+            </button> */}
           </div>
         </div>
 
