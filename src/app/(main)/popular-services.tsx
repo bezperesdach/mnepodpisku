@@ -36,9 +36,7 @@ export function PopularServices() {
     <div className="w-full flex justify-center items-center mt-16">
       <div className="w-full flex flex-col max-w-screen-lg px-4">
         <div className="w-full flex justify-between">
-          <div className="flex justify-between items-end w-full">
-            <p className="text-3xl font-semibold tracking-tight">Популярные услуги</p>
-          </div>
+          <p className="text-3xl font-semibold tracking-tight">Популярные услуги</p>
         </div>
         <div className="grid md:flex gap-x-4 gap-y-6 md:gap-4 w-full grid-cols-2 md:basis-1/4 mt-6">
           {services.map((item) => (
