@@ -15,14 +15,14 @@ const AmountOptions = ({ className, setValue }: Props) => {
   return (
     <div
       className={cn(
-        "w-full grid grid-cols-2 grid-rows-2 min-[360px]:grid-cols-3 min-[400px]:grid-cols-4 sm:grid-rows-1 justify-between gap-4 max-w-lg",
+        "w-full h-fit grid items-start grid-cols-2 grid-rows-2 min-[360px]:grid-cols-3 min-[400px]:grid-cols-4 sm:grid-rows-1 gap-4 max-w-lg",
         className
       )}
     >
       {options.map((option, i) => (
         <Button
           type="button"
-          className="bg-[#1b2a63] hover:bg-[#030712] basis-0 text-base min-h-[24px] max-h-[36px] flex-1 sm:text-lg hover:scale-[105%]"
+          className="bg-[#1b2a63] hover:bg-primary basis-0 text-base max-h-[36px] sm:text-lg hover:scale-[105%] duration-300"
           key={option}
           onClick={() => setValue(options[i])}
         >
