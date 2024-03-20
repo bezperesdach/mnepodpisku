@@ -22,7 +22,6 @@ import Question from "@/components/Faq/Question";
 // import Instruction from "@/components/Instructions/Instruction";
 // import InstructionsSection from "@/components/Instructions/InstructionsSection";
 import FormComponent from "./FormComponent";
-import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isAmountValid, isSearchParamValid } from "@/utils/utils";
 import Reviews from "@/components/Reviews/review";
@@ -34,6 +33,7 @@ import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
 import { FlameIcon } from "@primer/octicons-react";
 import { Service } from "@/app/(main)/all-services";
+// import UnclosableDrawerModalHybridPaymentRedirect from "@/components/ui/unclosable-drawer-modal-hybrid-payment-redirect";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -296,7 +296,7 @@ export default function PlaystationV2({ searchParams }: Props) {
         <Instruction name="Как добавить нового пользователя на PS5?" file="kak_dobavit_novogo_polzovatelya_na_PS5" />
       </InstructionsSection> */}
 
-      <RedirectingToPayment />
+      {/* <UnclosableDrawerModalHybridPaymentRedirect /> */}
     </div>
   );
 }
