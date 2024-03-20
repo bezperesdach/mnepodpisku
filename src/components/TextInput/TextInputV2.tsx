@@ -17,9 +17,36 @@ type TextInputProps = {
 
 type InputProps = TextInputProps & React.InputHTMLAttributes<HTMLInputElement>;
 
+const isIOS = (): boolean => {
+  // @ts-ignore
+  if (navigator.standalone) {
+    //user has already installed the app
+    return false;
+  }
+  const ua = window.navigator.userAgent;
+  const isIPad = !!ua.match(/iPad/i);
+  const isIPhone = !!ua.match(/iPhone/i);
+  return isIPad || isIPhone;
+};
+
+function getIOSInputEventHandlers() {
+  if (isIOS()) {
+    return {};
+  }
+
+  return {
+    onTouchStart: (e: any) => {
+      e.currentTarget.style.fontSize = "16px";
+    },
+    onBlur: (e: any) => {
+      e.currentTarget.style.fontSize = "";
+    },
+  };
+}
+
 const TextInputV2 = ({ hidden = false, icon, label, toolTip, error, className, ...props }: InputProps) => {
   return (
-    <div className={cn("grid w-full max-w-sm items-center gap-1.5", className)}>
+    <div className={cn("grid w-full max-w-sm items-center gap-1", className)}>
       {label && (
         <Label className="flex gap-2" htmlFor="email">
           {label}
@@ -31,18 +58,37 @@ const TextInputV2 = ({ hidden = false, icon, label, toolTip, error, className, .
           )}
         </Label>
       )}
-      <div className="relative">
+      <div
+        className={cn("relative", {
+          "mb-6": !error,
+        })}
+      >
         <Input
+          {...getIOSInputEventHandlers()}
           {...props}
-          className={cn("", { "pl-8": icon })}
+          className={cn("text-base", {
+            "pl-8": icon,
+            "border-red-500/80 hover:border-red-500 focus:border-red-500 hover:outline-red-500 focus-visible:ring-red-500": error,
+          })}
           id={props.name}
           value={props.value}
           aria-invalid={!!error}
           aria-errormessage={`${props.name}-error`}
           type={props.type}
         />
-        {icon && <div className="absolute left-0 top-0 bottom-0 flex items-center justify-center pl-2.5">{icon}</div>}
+        {icon && (
+          <div
+            className={cn("absolute left-0 top-0 bottom-0 flex items-center justify-center pl-2.5 text-primary", {
+              "text-red-500": error,
+            })}
+          >
+            {icon}
+          </div>
+        )}
       </div>
+      <label className="text-red-500" id={`${label}-error`}>
+        <span className="text-sm text-error">{error}</span>
+      </label>
     </div>
   );
 };
