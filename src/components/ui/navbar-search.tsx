@@ -39,7 +39,7 @@ export function NavbarSearch({ ...props }: DialogProps) {
       >
         <span className="inline-flex sm:hidden lg:inline-flex">Поиск по сайту...</span>
         <span className="hidden md:inline-flex lg:hidden">Поиск...</span>
-        <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 flex">
+        <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] h-5 select-none items-center gap-1 rounded border bg-primary px-1.5 font-mono text-[10px] font-medium opacity-100 flex">
           <MagnifyingGlassIcon className="h-4 w-4" />
         </kbd>
       </Button>
