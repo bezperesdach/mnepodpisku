@@ -4,7 +4,7 @@ import Question from "@/components/Faq/Question";
 
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
-import Reviews from "@/components/reviews/Reviews";
+import Reviews from "@/components/Reviews/review";
 
 export const metadata: Metadata = {
   title: "МнеПодписку отзывы",
