@@ -7,6 +7,7 @@ import { HeroCard } from "@/app/(main)/hero-card";
 import { Metadata } from "next";
 import { PopularServices } from "./popular-services";
 import { AllServices } from "./all-services";
+import Reviews from "@/components/reviews/reviews";
 // import Reviews from "@/components/Reviews/Reviews";
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default async function Home() {
       <HeroCard />
       <PopularServices />
       <AllServices />
+      <Reviews />
       {/* <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
         <h1 className="text-3xl lg:text-4xl font-bold">Помогаем приобретать подписки на зарубежные сервисы</h1>
       </div>
