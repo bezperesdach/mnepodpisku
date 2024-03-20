@@ -107,8 +107,8 @@ export function HeroCard() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="w-12 h-12 -left-14 hidden lg:flex" variant="default" />
-            <CarouselNext className="w-12 h-12 -right-14 hidden lg:flex" variant="default" />
+            <CarouselPrevious className="w-12 h-12 -left-14 hidden xl:flex" variant="default" />
+            <CarouselNext className="w-12 h-12 -right-14 hidden xl:flex" variant="default" />
             <div className="absolute top-2 right-4 flex gap-1 justify-center">
               {Banners.map((_, index) => (
                 <Button
