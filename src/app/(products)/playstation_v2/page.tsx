@@ -19,8 +19,8 @@
 import React from "react";
 import Faq from "@/components/Faq/Faq";
 import Question from "@/components/Faq/Question";
-import Instruction from "@/components/Instructions/Instruction";
-import InstructionsSection from "@/components/Instructions/InstructionsSection";
+// import Instruction from "@/components/Instructions/Instruction";
+// import InstructionsSection from "@/components/Instructions/InstructionsSection";
 import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
@@ -185,7 +185,7 @@ export default function PlaystationV2({ searchParams }: Props) {
       <Reviews />
 
       <Faq>
-        <Question title="Пополнение кошелька PlayStation в Турции: Как происходит пополнение?" open>
+        <Question title="Пополнение кошелька PlayStation в Турции: Как происходит пополнение?" >
           <p>
             После оплаты вы будете перенаправлены на страницу активации
             <br />
@@ -257,7 +257,7 @@ export default function PlaystationV2({ searchParams }: Props) {
             Выберите в каталоге PS EA PLAY и приобретите
           </p>
         </Question>
-        <Question title="Почему возникают проблемы с новыми аккаунтами?" id="NewAccountProblems">
+        <Question title="Почему возникают проблемы с новыми аккаунтами?" >
           <p>
             Начиная от 01.11.23 Sony изменили что-то в своей системе, если раньше после создания аккаунт можно было пополнять без особых
             проблем спустя неделю после создания, то теперь после создания аккаунт стабильно удается пополнять только спустя месяц.
@@ -269,7 +269,7 @@ export default function PlaystationV2({ searchParams }: Props) {
             купить что-либо еще или произвести пополнение.
           </p>
         </Question>
-        <Question title="Что значит 'одноразовая карта' в форме заказа?" id="OneTimeCard">
+        <Question title="Что значит 'одноразовая карта' в форме заказа?" >
           <p>
             Данная опция позволит вам получить от нас данные одноразовой турецкой карты с номиналом на сумму вашего пополнения.
             <br />

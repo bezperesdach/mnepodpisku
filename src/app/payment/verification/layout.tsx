@@ -8,7 +8,7 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <MainNavbarisNotFound />
+      <MainNavbar />
 
       <main className="h-[calc(100%-260px)] flex flex-col justify-center items-center flex-1">{children}</main>
 

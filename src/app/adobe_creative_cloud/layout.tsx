@@ -8,7 +8,7 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <MainNavbar colorPallette="adobe_creative_cloud" />
+      <MainNavbar />
       {children}
       <Footer />
     </>

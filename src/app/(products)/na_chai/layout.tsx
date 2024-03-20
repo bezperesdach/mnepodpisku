@@ -8,7 +8,7 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <MainNavbar colorPallette="na_chai" />
+      <MainNavbar />
       {children}
       <Footer />
     </>

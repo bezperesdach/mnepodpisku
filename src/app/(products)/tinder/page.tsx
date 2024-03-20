@@ -66,7 +66,7 @@ export default function PsEaPlay({ searchParams }: Props) {
       <Reviews />
 
       <Faq>
-        <Question title="Работает ли Tinder в России?" open>
+        <Question title="Работает ли Tinder в России?">
           <p>Тиндером в россии можно пользоваться исключительно через ВПН и браузер. Без VPN тиндер не работает</p>
         </Question>
         <Question title="Как быстро происходит выдача промокода?">

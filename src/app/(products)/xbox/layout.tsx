@@ -8,7 +8,7 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <MainNavbar colorPallette="xbox" />
+      <MainNavbar />
       {children}
       <Footer />
     </>

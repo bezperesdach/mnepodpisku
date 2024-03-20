@@ -30,12 +30,12 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
 
   const formik = useFormik({
     initialValues: { duration: receivedDuration ?? "1month", subscriptionType: receivedSubscriptionType ?? "ultimate" },
-    onSubmit: async (values) => {
+    onSubmit: async (_) => {
       formik.setSubmitting(true);
       ym("reachGoal", "xboxRequest");
       ym("reachGoal", "formaoplatit");
 
-      const res = await getXboxPaymentLink(values);
+      const res = await getXboxPaymentLink();
 
       dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
       formik.setSubmitting(false);

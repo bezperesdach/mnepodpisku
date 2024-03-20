@@ -71,7 +71,7 @@ export default function PsEaPlay({ searchParams }: Props) {
       <Reviews />
 
       <Faq>
-        <Question title="Как происходит активация?" open>
+        <Question title="Как происходит активация?">
           <p>После оплаты вы предоставите нам данные от своего аккаунта, мы в него войдем и приобретем подписку</p>
         </Question>
         <Question title="Нужен ли индийский аккаунт Spotify?">

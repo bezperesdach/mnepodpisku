@@ -65,7 +65,7 @@ export default function PsEaPlay({ searchParams }: Props) {
       <Reviews />
 
       <Faq>
-        <Question title="Входит ли Youtube Music в подписку?" open>
+        <Question title="Входит ли Youtube Music в подписку?">
           <p>Да, вы сможете использовать youtube music без ограничений при активной премиум подписке.</p>
         </Question>
         <Question title="Работает ли Youtube Premium в России?">

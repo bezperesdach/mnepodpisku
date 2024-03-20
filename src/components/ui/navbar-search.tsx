@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { RocketIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
 import {
   CommandDialog,

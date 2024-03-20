@@ -263,7 +263,7 @@ export async function getTinderPaymentLink(values: { subscriptionType: string; d
 }
 
 // eslint-disable-next-line no-unused-vars
-export async function getXboxPaymentLink(values: { subscriptionType: string; duration: string }) {
+export async function getXboxPaymentLink(/* values: { subscriptionType: string; duration: string } */) {
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
     cache: "no-store",
     method: "POST",

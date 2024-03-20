@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { GrabberIcon } from "@primer/octicons-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
 

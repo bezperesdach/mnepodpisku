@@ -52,7 +52,7 @@ export default function Playstation({ searchParams }: Props) {
       <Reviews />
 
       <Faq>
-        <Question title="Как это работает?" open>
+        <Question title="Как это работает?">
           <p>
             После успешной покупки вам будут выданы данные карты, а также дополнительно будет выдан турецкий адрес
             <br />

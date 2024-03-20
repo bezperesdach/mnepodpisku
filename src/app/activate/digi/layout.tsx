@@ -8,7 +8,7 @@ export default function ErrorLayout({
 }) {
   return (
     <>
-      <MainNavbarisNotFound />
+      <MainNavbar />
       <main className="min-h-[calc(100%-260px)] flex flex-col justify-center items-center flex-1">{children}</main>
       <Footer />
     </>
