@@ -1,6 +1,6 @@
+"use client";
+
 import { cn } from "@/lib/utils";
-// import InputError from "./InputError";
-// import { QuestionIcon } from "@primer/octicons-react";
 import { Input } from "../ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Label } from "@radix-ui/react-label";
@@ -18,15 +18,14 @@ type TextInputProps = {
 type InputProps = TextInputProps & React.InputHTMLAttributes<HTMLInputElement>;
 
 const isIOS = (): boolean => {
-  // @ts-ignore
-  if (navigator.standalone) {
-    //user has already installed the app
-    return false;
+  if (typeof window !== "undefined") {
+    const ua = window.navigator.userAgent;
+    const isIPad = !!ua.match(/iPad/i);
+    const isIPhone = !!ua.match(/iPhone/i);
+    return isIPad || isIPhone;
   }
-  const ua = window.navigator.userAgent;
-  const isIPad = !!ua.match(/iPad/i);
-  const isIPhone = !!ua.match(/iPhone/i);
-  return isIPad || isIPhone;
+
+  return false;
 };
 
 function getIOSInputEventHandlers() {
@@ -46,7 +45,7 @@ function getIOSInputEventHandlers() {
 
 const TextInputV2 = ({ hidden = false, icon, label, toolTip, error, className, ...props }: InputProps) => {
   return (
-    <div className={cn("grid w-full max-w-sm items-center gap-1", className)}>
+    <div className={cn("grid w-full items-center gap-1", className)}>
       {label && (
         <Label className="flex gap-2" htmlFor="email">
           {label}
@@ -66,7 +65,7 @@ const TextInputV2 = ({ hidden = false, icon, label, toolTip, error, className, .
         <Input
           {...getIOSInputEventHandlers()}
           {...props}
-          className={cn("text-base", {
+          className={cn("text-base bg-[#1b2a63]", {
             "pl-8": icon,
             "border-red-500/80 hover:border-red-500 focus:border-red-500 hover:outline-red-500 focus-visible:ring-red-500": error,
           })}

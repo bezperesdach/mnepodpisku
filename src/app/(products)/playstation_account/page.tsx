@@ -53,7 +53,7 @@ export default function PlayStationAccount() {
         <Question title="Можно ли пополнять турецкий аккаунт в России?">
           <p>
             Да, вы сможете в любой момент пополнить данный аккаунт воспользовавшись нашей услугой{" "}
-            <Link className="link text-secondary" href="/playstation" target="_blank">
+            <Link className="text-secondary" href="/playstation" target="_blank">
               пополнения турецких аккаунтов
             </Link>
           </p>

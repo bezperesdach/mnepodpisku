@@ -41,7 +41,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
   const router = useRouter();
 
   const { dispatch } = useContext(AppContext);
-  const [_, setCalculatedAmount] = useState<number | undefined>();
+  const [calculatedAmount, setCalculatedAmount] = useState<number | undefined>();
   const [value, setValue] = useState<number | undefined>();
 
   const [loading, setLoading] = useState(false);
@@ -107,23 +107,22 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
     <>
       <form onSubmit={formik.handleSubmit}>
         <div className="w-full flex justify-center items-center mt-6">
-          <div className="w-full flex flex-col lg:flex-row gap-2 max-w-screen-lg mx-4 p-6 rounded-lg bg-[#0c1430]">
-            <div className="w-full flex flex-col gap-2">
-              <p className="text-2xl md:text-3xl font-semibold tracking-tight">Укажите сумму пополнения</p>
+          <div className="w-full flex flex-col gap-2 max-w-screen-lg mx-4 p-6 rounded-lg bg-[#0c1430]">
+            <p className="text-2xl md:text-3xl font-semibold tracking-tight">Укажите сумму пополнения</p>
 
-              <TextInputV2
-                className="mt-2"
-                icon={<HashIcon className="text-inherit" />}
-                type="number"
-                inputMode="numeric"
-                pattern="[0-9]*"
-                placeholder="От 100 Лир"
-                error={formik.errors.amount}
-                {...formik.getFieldProps("amount")}
-              />
-            </div>
+            <AmountOptions className="mt-4" setValue={(value) => formik.setFieldValue("amount", value)} />
 
-            <AmountOptions setValue={(value) => formik.setFieldValue("amount", value)} />
+            <TextInputV2
+              className="mt-4"
+              icon={<HashIcon className="text-inherit" />}
+              type="number"
+              label="Сумма пополнения в лирах ₺"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              placeholder="От 100 Лир"
+              error={formik.errors.amount}
+              {...formik.getFieldProps("amount")}
+            />
           </div>
         </div>
         <div className="w-full flex justify-center items-center mt-6">
@@ -135,7 +134,14 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
                 <p className="text-lg text-muted-foreground">Заплатите</p>
                 <div className="flex gap-1 items-center text-lg text-muted-foreground">
                   {loading && <SyncIcon className="animate-spin" />}
-                  {!loading && value && <p>{value}₽</p>}
+                  {!loading && value && (
+                    <>
+                      <p className="relative mr-2 after:w-[110%] after:-rotate-[15deg] after:absolute after:-left-[5%] after:top-1/2 after:h-[0.15em] after:bg-[#e85426]/50">
+                        {calculatedAmount}
+                      </p>
+                      <p>{value}₽</p>
+                    </>
+                  )}
                 </div>
               </div>
               <div className="flex justify-between w-full pb-1 border-b-[1px] mt-2">
@@ -157,6 +163,12 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
                 <SyncIcon className="animate-spin" />
               )}
             </Button>
+            <p className=" text-muted-foreground text-sm text-center">
+              Нажимая на кнопку «Оплатить», вы соглашаетесь с{" "}
+              <a className="text-primary hover:underline" href="/oferta.docx" target="_blank" rel="noopener noreferrer">
+                договором оферты
+              </a>
+            </p>
           </div>
         </div>
         {/* <div className="flex flex-col md:flex-row mt-4 md:mt-14 gap-4 sm:gap-8 md:gap-16">
