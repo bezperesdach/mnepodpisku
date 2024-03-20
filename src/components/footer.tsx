@@ -9,7 +9,7 @@ export function Footer({}) {
   const pathname = usePathname();
 
   return (
-    <footer className="w-full border-b border-border/40 bg-[#0D1531]/95 mt-16">
+    <footer className="w-full border-b border-border/40 bg-[#0D1531]/95 mt-20">
       <div className="px-2 md:px-4 flex max-w-screen-lg items-center mx-auto">
         <div className="w-full flex flex-col">
           <div className="flex sm:hidden flex-wrap justify-between my-2">
