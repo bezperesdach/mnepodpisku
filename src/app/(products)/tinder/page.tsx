@@ -6,7 +6,7 @@ import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isSearchParamValid } from "@/utils/utils";
-import Reviews from "@/components/Reviews/Reviews";
+import Reviews from "@/components/reviews/Reviews";
 
 export const metadata: Metadata = {
   title: "Купить подписку Tinder 2023 Россия",

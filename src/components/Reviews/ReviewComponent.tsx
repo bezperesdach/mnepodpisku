@@ -56,11 +56,11 @@ function ReviewComponent({
   return (
     <div
       className={cn(
-        "flex relative flex-col justify-between py-4 px-2 lg:px-4 bg-base-200 rounded-lg shadow-md min-h-[240px] max-h-[240px] md:mx-1",
+        "flex relative flex-col justify-between py-4 px-2 lg:px-4 bg-[#0D1531] rounded-lg shadow-md min-h-[240px] max-h-[240px] md:mx-1",
         { "max-h-[999px]": showMore }
       )}
     >
-      <div className={cn("flex flex-1 justify-center px-2 rounded-md mb-6 bg-base-100 items-center", { "mb-0": isOverflow })}>
+      <div className={cn("flex flex-1 justify-center px-2 rounded-md mb-6 bg-background items-center", { "mb-0": isOverflow })}>
         <p
           className={cn("text-center max-h-[152px] overflow-hidden text-sm md:text-base", {
             "overflow-auto max-h-[999px]": showMore,

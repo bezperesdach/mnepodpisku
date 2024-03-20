@@ -7,7 +7,7 @@ import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import Link from "next/link";
-import Reviews from "@/components/Reviews/Reviews";
+import Reviews from "@/components/reviews/Reviews";
 import Description from "./Description";
 
 export const metadata: Metadata = {

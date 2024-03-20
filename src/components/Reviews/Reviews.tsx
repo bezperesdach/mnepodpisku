@@ -3,13 +3,12 @@
 import useSWR from "swr";
 import { useRef } from "react";
 
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from "pure-react-carousel";
-import "pure-react-carousel/dist/react-carousel.es.css";
-import ReviewComponent from "./ReviewComponent";
 import { useWindowSize } from "usehooks-ts";
-import { ChevronLeftIcon, ChevronRightIcon } from "@primer/octicons-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import ReviewComponent from "./ReviewComponent";
 import ReviewComponentSkeleton from "./ReviewComponentSkeleton";
 // import { cn } from "@/lib/utils";
 
@@ -49,83 +48,58 @@ function Reviews() {
   // const satisfiedCustomers = data ? data.reduce((total, item) => total + (item.rating ?? 5), 0) / data.length : -1.1;
 
   return (
-    <div className="flex flex-col gap-2 mt-10 overflow-hidden" ref={ref}>
-      <div className="flex justify-between flex-wrap">
-        {pathname === `/reviews` ? (
-          <p className="text-xl lg:text-2xl font-bold" id="description">
-            Отзывы
-          </p>
-        ) : (
-          <Link className="text-xl lg:text-2xl font-bold" id="description" href="/reviews">
-            Отзывы
-          </Link>
-        )}
+    <div className="w-full flex justify-center items-center mt-16">
+      <div className="w-full flex flex-col max-w-screen-lg px-4" ref={ref}>
+        <div className="w-full flex justify-between">
+          {pathname === `/reviews` ? (
+            <p className="text-3xl font-semibold tracking-tight">Отзывы</p>
+          ) : (
+            <Link className="text-3xl font-semibold tracking-tight" href="/reviews">
+              Отзывы
+            </Link>
+          )}
+        </div>
 
-        {/* <p className="text-xl lg:text-2xl font-semibold">
-          Средняя оценка{" "}
-          <span className={cn("font-bold text-xl lg:text-2xl", { "opacity-0": satisfiedCustomers < 0 })}>
-            {satisfiedCustomers.toFixed(1)}
-          </span>
-        </p> */}
+        <Carousel
+          className="w-full mt-6"
+          opts={{ loop: true, slidesToScroll: data && data.length ? visibleItemsCalculate(width) : 1 }}
+          plugins={[
+            Autoplay({
+              delay: 5000,
+            }),
+          ]}
+        >
+          {!isLoading && data && !error ? (
+            <>
+              <CarouselContent>
+                {data.map((review, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <ReviewComponent review={review} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="w-12 h-12 -left-14 hidden lg:flex" variant="default" />
+              <CarouselNext className="w-12 h-12 -right-14 hidden lg:flex" variant="default" />
+            </>
+          ) : (
+            <>
+              <CarouselContent>
+                <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                  <ReviewComponentSkeleton />
+                </CarouselItem>
+                <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                  <ReviewComponentSkeleton />
+                </CarouselItem>
+                <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                  <ReviewComponentSkeleton />
+                </CarouselItem>
+              </CarouselContent>
+              {/* <CarouselPrevious className="w-12 h-12 -left-14 hidden lg:flex" variant="default" />
+              <CarouselNext className="w-12 h-12 -right-14 hidden lg:flex" variant="default" /> */}
+            </>
+          )}
+        </Carousel>
       </div>
-
-      <CarouselProvider
-        interval={6000}
-        isPlaying={true}
-        touchEnabled={false}
-        // dragEnabled={false}
-        disableKeyboard
-        infinite
-        visibleSlides={data && data.length ? visibleItemsCalculate(width) : 1}
-        naturalSlideWidth={320}
-        isIntrinsicHeight
-        naturalSlideHeight={360}
-        totalSlides={(data && data.length) ?? 1}
-      >
-        {!isLoading && data && !error ? (
-          <>
-            <Slider classNameTray="md:gap-4 !mb-2">
-              {data.map((item, i) => (
-                <Slide index={i} key={i}>
-                  <ReviewComponent review={item} />
-                </Slide>
-              ))}
-            </Slider>
-            <div className="flex gap-1 mt-2 mb-2">
-              <div className="flex flex-1 items-center justify-center lg:justify-end">
-                <ButtonBack className="btn text-secondary w-full lg:w-12">
-                  <ChevronLeftIcon size={36} />
-                </ButtonBack>
-              </div>
-              <div className="flex flex-1 items-center justify-center lg:justify-start">
-                <ButtonNext className="btn text-secondary w-full lg:w-12">
-                  <ChevronRightIcon size={36} />
-                </ButtonNext>
-              </div>
-            </div>
-          </>
-        ) : (
-          <>
-            <Slider classNameTray="md:gap-4 !mb-2">
-              <Slide index={0}>
-                <ReviewComponentSkeleton />
-              </Slide>
-            </Slider>
-            <div className="flex gap-1 mt-2 mb-2">
-              <div className="flex flex-1 items-center justify-center lg:justify-end">
-                <ButtonBack className="btn text-secondary w-full lg:w-12 pointer-events-none">
-                  <ChevronLeftIcon size={36} />
-                </ButtonBack>
-              </div>
-              <div className="flex flex-1 items-center justify-center lg:justify-start pointer-events-none">
-                <ButtonNext className="btn text-secondary w-full lg:w-12">
-                  <ChevronRightIcon size={36} />
-                </ButtonNext>
-              </div>
-            </div>
-          </>
-        )}
-      </CarouselProvider>
     </div>
   );
 }
