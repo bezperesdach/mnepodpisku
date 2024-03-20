@@ -4,16 +4,14 @@ import { AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordi
 
 type Props = {
   title: string;
-  open?: boolean;
   children: React.ReactNode;
-  id: string;
 };
 
-const Question = ({ id, title, open, children }: Props) => {
+const Question = ({ title, children }: Props) => {
   return (
-    <AccordionItem value={id}>
-      <AccordionTrigger>{title}</AccordionTrigger>
-      <AccordionContent>{children}</AccordionContent>
+    <AccordionItem value={title}>
+      <AccordionTrigger className=" text-left">{title}</AccordionTrigger>
+      <AccordionContent className="text-muted-foreground">{children}</AccordionContent>
     </AccordionItem>
   );
 };
