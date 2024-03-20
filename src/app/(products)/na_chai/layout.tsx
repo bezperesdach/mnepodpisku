@@ -1,5 +1,5 @@
-import Footer from "@/components/Footer/Footer";
-import Navbar from "@/components/Navbar/Navbar";
+import { Footer } from "@/components/footer";
+import { MainNavbar } from "@/components/ui/main-navbar";
 
 export default function MainLayout({
   children, // will be a page or nested layout
@@ -8,7 +8,7 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <Navbar colorPallette="na_chai" />
+      <MainNavbar colorPallette="na_chai" />
       {children}
       <Footer />
     </>
