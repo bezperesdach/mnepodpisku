@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 import { services } from "@/lib/services_list";
 import { useRouter } from "next/navigation";
 import { DialogProps } from "@radix-ui/react-alert-dialog";
+import Image from "next/image";
 
 export function NavbarSearch({ ...props }: DialogProps) {
   const router = useRouter();
@@ -47,7 +48,7 @@ export function NavbarSearch({ ...props }: DialogProps) {
         <CommandInput placeholder="Введите для поиска..." />
         <CommandList>
           <CommandEmpty>Ничего не найдено.</CommandEmpty>
-          <CommandGroup heading="Популярные сервисы">
+          <CommandGroup heading="Популярные услуги">
             <CommandItem
               key={"playstation_popular"}
               value={"playstation_popular"}
@@ -55,18 +56,74 @@ export function NavbarSearch({ ...props }: DialogProps) {
                 runCommand(() => router.push("playstation"));
               }}
             >
-              <RocketIcon className="mr-2 h-4 w-4" />
-              <span>Playstation</span>
+              <div className="relative flex justify-center items-center mr-2 h-5 w-5">
+                <Image
+                  className="w-auto h-full brightness-0 invert"
+                  src="/catalogue_icons/playstation.png"
+                  alt="PlayStation логотип"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  sizes="20vw"
+                />
+              </div>
+              <span>PlayStation Пополнение</span>
             </CommandItem>
             <CommandItem
-              key={"spotify_popular"}
-              value={"spotify_popular"}
+              key={"playstation_plus_popular"}
+              value={"playstation_plus_popular"}
               onSelect={() => {
-                runCommand(() => router.push("spotify"));
+                runCommand(() => router.push("ps_plus"));
               }}
             >
-              <RocketIcon className="mr-2 h-4 w-4" />
-              <span>Spotify</span>
+              <div className="relative flex justify-center items-center mr-2 h-5 w-5">
+                <Image
+                  className="w-auto h-full brightness-0 invert"
+                  src="/catalogue_icons/ps_plus.png"
+                  alt="PlayStation Plus логотип"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  sizes="20vw"
+                />
+              </div>
+              <span>PlayStation Plus</span>
+            </CommandItem>
+            <CommandItem
+              key={"playstation_account_popular"}
+              value={"playstation_account_popular"}
+              onSelect={() => {
+                runCommand(() => router.push("playstation_account"));
+              }}
+            >
+              <div className="relative flex justify-center items-center mr-2 h-5 w-5">
+                <Image
+                  className="w-auto h-full brightness-0 invert"
+                  src="/catalogue_icons/playstation.png"
+                  alt="PlayStation Аккаунт логотип"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  sizes="20vw"
+                />
+              </div>
+              <span>PlayStation Аккаунт</span>
+            </CommandItem>
+            <CommandItem
+              key={"playstation_account_popular"}
+              value={"playstation_account_popular"}
+              onSelect={() => {
+                runCommand(() => router.push("playstation_account"));
+              }}
+            >
+              <div className="relative flex justify-center items-center mr-2 h-5 w-5">
+                <Image
+                  className="w-auto h-full brightness-0 invert"
+                  src="/catalogue_icons/spotify.png"
+                  alt="Spotify Premium логотип"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  sizes="20vw"
+                />
+              </div>
+              <span>Spotify Премиум</span>
             </CommandItem>
           </CommandGroup>
           <CommandSeparator />
