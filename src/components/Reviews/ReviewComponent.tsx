@@ -69,7 +69,7 @@ function ReviewComponent({
         >
           {showResponse ? (
             <>
-              <span className=" font-bold">Ответ представителя: </span>
+              <span className="font-bold">Ответ представителя: </span>
               {review.reply}
             </>
           ) : (
@@ -78,7 +78,7 @@ function ReviewComponent({
         </p>
       </div>
       {isOverflow && (
-        <button onBlur={() => toggleShowMore(false)} className=" text-secondary cursor-pointer" onClick={() => toggleShowMore()}>
+        <button onBlur={() => toggleShowMore(false)} className=" text-foreground cursor-pointer" onClick={() => toggleShowMore()}>
           {!showMore ? <FoldDownIcon /> : <FoldUpIcon />}
         </button>
       )}
