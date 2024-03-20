@@ -107,10 +107,10 @@ export function NavbarSearch({ ...props }: DialogProps) {
               <span>PlayStation Аккаунт</span>
             </CommandItem>
             <CommandItem
-              key={"playstation_account_popular"}
-              value={"playstation_account_popular"}
+              key={"spotify_popular"}
+              value={"spotify_popular"}
               onSelect={() => {
-                runCommand(() => router.push("playstation_account"));
+                runCommand(() => router.push("spotify"));
               }}
             >
               <div className="relative flex justify-center items-center mr-2 h-5 w-5">
