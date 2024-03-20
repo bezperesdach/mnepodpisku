@@ -1,61 +1,88 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import { cn } from "@/lib/utils";
-import React, { useContext, useEffect } from "react";
+// import { cn } from "@/lib/utils";
+import React, { useContext, useEffect, useRef } from "react";
 import { AppContext } from "../AppContextWrapper/AppContextWrapper";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
+import { Button } from "../ui/button";
+// import { DialogClose } from "@radix-ui/react-dialog";
+import { useMediaQuery } from "usehooks-ts";
+import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle } from "../ui/drawer";
+import Link from "next/link";
 
-const RedirectingToPayment = () => {
-  const { state } = useContext(AppContext);
+type Props = {
+  onRedirect: () => void;
+};
+
+const RedirectingToPayment = ({ onRedirect }: Props) => {
+  const timerRef = useRef<number | null>(null);
+  const { state, dispatch } = useContext(AppContext);
 
   useEffect(() => {
     if (state.paymentLink) {
-      setTimeout(() => (window.location.href = state.paymentLink), 5000);
+      timerRef.current = window.setTimeout(() => {
+        onRedirect();
+        window.location.href = state.paymentLink;
+      }, 5000);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.paymentLink]);
 
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+
+  const cancelRedirect = (open: boolean) => {
+    if (!open && timerRef.current) {
+      window.clearTimeout(timerRef.current);
+      dispatch({ type: "change_payment_link", payload: "" });
+    }
+  };
+
+  const activateRedirect = () => {
+    onRedirect();
+    window.location.href = state.paymentLink;
+  };
+
+  if (isDesktop) {
+    return (
+      <Dialog open={state.paymentLink !== ""} onOpenChange={cancelRedirect}>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Перенаправляем на страницу оплаты</DialogTitle>
+            <DialogDescription>
+              Инструкция по активации будет отправлена на почту указанную при оплате <br />
+              <br /> Нажмите "Далее", если не происходит переход на страницу оплаты{" "}
+            </DialogDescription>
+          </DialogHeader>
+
+          <Button className="w-full" onClick={activateRedirect}>
+            ДАЛЕЕ
+          </Button>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
   return (
-    <div
-      className={cn("relative z-10 pointer-events-none", {
-        "pointer-events-auto": state.paymentLink,
-      })}
-      aria-labelledby="modal-title"
-      role="dialog"
-      aria-modal="true"
-    >
-      <div
-        className={cn("fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity duration-300 opacity-0", {
-          "opacity-100": state.paymentLink,
-        })}
-      ></div>
+    <Drawer open={state.paymentLink !== ""} onOpenChange={cancelRedirect}>
+      <DrawerContent>
+        <DrawerHeader className="text-left !pointer-events-none">
+          <DrawerTitle>Перенаправляем на страницу оплаты</DrawerTitle>
+          <DrawerDescription>
+            Инструкция по активации будет отправлена на почту указанную при оплате <br />
+            <br /> Нажмите "Далее", если не происходит переход на страницу оплаты{" "}
+          </DrawerDescription>
+        </DrawerHeader>
 
-      <div className="fixed inset-0 z-10 overflow-y-auto">
-        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-          <div
-            className={cn(
-              "relative transform transition-all duration-300 overflow-hidden rounded-lg bg-base-100 text-center shadow-xl sm:my-8 sm:w-full sm:max-w-lg opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
-              {
-                "opacity-100 translate-y-0 sm:scale-100": state.paymentLink,
-              }
-            )}
-          >
-            <div className="flex flex-col items-center px-4 py-8 mx-1 sm:mx-4">
-              <p className="text-lg sm:text-2xl lg:text-2xl font-medium text-center">Перенаправляем вас на страницу оплаты</p>
-              <p className="text-lg sm:text-2xl lg:text-2xl font-medium text-center mt-4">
-                После успешной оплаты вы будете перенаправлены на страницу активации
-              </p>
-              <p className="sm:text-lg lg:text-xlfont-medium mt-10 text-center">
-                Нажмите "Далее", если не происходит переход на страницу оплаты{" "}
-              </p>
-
-              <a className="btn btn-secondary btn-wide mt-10 text-white" href={state.paymentLink}>
-                Далее
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        <DrawerFooter className="pt-2">
+          <DrawerClose asChild>
+            <Button className="w-full" onClick={activateRedirect}>
+              ДАЛЕЕ
+            </Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   );
 };
 

@@ -9,7 +9,6 @@ import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
 import { getPsnBalancePrice } from "@/serverActions/calculatePriceActions";
 import { getPsnBalancePaymentLink } from "@/serverActions/createPaymentUrls";
 import { cn } from "@/lib/utils";
-import { ym } from "@/utils/ym";
 import { HashIcon, SyncIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
@@ -18,6 +17,8 @@ import * as Yup from "yup";
 // import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import TextInputV2 from "@/components/TextInput/TextInputV2";
 import { Button } from "@/components/ui/button";
+import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
+import { ym } from "@/utils/ym";
 
 type Props = {
   receivedAmount?: string;
@@ -50,8 +51,6 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
     validationSchema: TopUpSchema,
     onSubmit: async (values) => {
       formik.setSubmitting(true);
-      ym("reachGoal", "playstationRequest");
-      ym("reachGoal", "formaoplatit");
 
       const res = await getPsnBalancePaymentLink(values, ip);
       dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
@@ -114,7 +113,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
 
               <TextInputV2
                 className="mt-2"
-                icon={<HashIcon className="text-primary" />}
+                icon={<HashIcon className="text-inherit" />}
                 type="number"
                 inputMode="numeric"
                 pattern="[0-9]*"
@@ -141,15 +140,18 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
               </div>
               <div className="flex justify-between w-full pb-1 border-b-[1px] mt-2">
                 <p className="text-lg text-muted-foreground">Получите</p>
-                {formik.values.amount && <p className="text-lg text-muted-foreground">{formik.values.amount}₺</p>}
+                {formik.values.amount && !formik.errors.amount && (
+                  <p className="text-lg text-muted-foreground">{formik.values.amount}₺</p>
+                )}
               </div>
             </div>
             <Button
-              className={cn("sticky top-[100vh] mt-6 text-lg h-12", {
-                "pointer-events-none bg-accent/50 text-muted-foreground": !value,
+              className={cn("sticky bottom-0 mt-6 text-lg h-12", {
+                "bg-accent/50 text-muted-foreground": !value,
+                "pointer-events-none": formik.isSubmitting,
               })}
             >
-              {!loading ? (
+              {!loading && !formik.isSubmitting ? (
                 <p>ОПЛАТИТЬ {value && <span className="text-[#fee525] text-xl font-bold">{value}₽</span>}</p>
               ) : (
                 <SyncIcon className="animate-spin" />
@@ -212,6 +214,12 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
           </div>
         </div> */}
       </form>
+      <RedirectingToPayment
+        onRedirect={() => {
+          ym("reachGoal", "playstationRequest");
+          ym("reachGoal", "formaoplatit");
+        }}
+      />
     </>
   );
 }
