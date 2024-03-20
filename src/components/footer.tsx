@@ -126,7 +126,7 @@ export function Footer({}) {
 
           <div className="flex flex-wrap justify-between max-h-[64px] items-center text-base mt-4 mb-4">
             <div className="flex gap-2 items-center grid-flow-col">
-              <p className="font-semibold">©2023 - МНЕПОДПИСКУ</p>
+              <p className="font-semibold">©2023-2024 МНЕПОДПИСКУ</p>
             </div>
           </div>
         </div>
