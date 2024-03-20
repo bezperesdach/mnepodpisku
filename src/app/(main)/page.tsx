@@ -7,7 +7,7 @@ import { HeroCard } from "@/app/(main)/hero-card";
 import { Metadata } from "next";
 import { PopularServices } from "./popular-services";
 import { AllServices } from "./all-services";
-import Reviews from "@/components/reviews/reviews";
+import Reviews from "@/components/Reviews/review";
 // import Reviews from "@/components/Reviews/Reviews";
 
 export const metadata: Metadata = {

@@ -8,8 +8,8 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import ReviewComponent from "./ReviewComponent";
-import ReviewComponentSkeleton from "./ReviewComponentSkeleton";
+import ReviewComponent from "./review-component";
+import ReviewComponentSkeleton from "./review-component-skeleton";
 // import { cn } from "@/lib/utils";
 
 type Review = {
@@ -51,13 +51,18 @@ function Reviews() {
     <div className="w-full flex justify-center items-center mt-16">
       <div className="w-full flex flex-col max-w-screen-lg px-4" ref={ref}>
         <div className="w-full flex justify-between">
-          {pathname === `/reviews` ? (
-            <p className="text-3xl font-semibold tracking-tight">Отзывы</p>
-          ) : (
-            <Link className="text-3xl font-semibold tracking-tight" href="/reviews">
-              Отзывы
-            </Link>
-          )}
+          <div className="relative">
+            {pathname === `/reviews` ? (
+              <p className="relative text-3xl font-semibold tracking-tight">Отзывы</p>
+            ) : (
+              <Link className="relative text-3xl font-semibold tracking-tight" href="/reviews">
+                Отзывы
+              </Link>
+            )}
+            {data && (
+              <div className="absolute text-sm top-0 -right-8 bg-primary rounded-3xl px-2">{Math.floor(data?.length / 10) * 10}+</div>
+            )}
+          </div>
         </div>
 
         <Carousel

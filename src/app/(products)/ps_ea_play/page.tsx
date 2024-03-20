@@ -5,7 +5,7 @@ import FormComponent from "./FormComponent";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isSearchParamValid } from "@/utils/utils";
-import Reviews from "@/components/reviews/Reviews";
+import Reviews from "@/components/Reviews/review";
 import Description from "./Description";
 
 export const metadata: Metadata = {
