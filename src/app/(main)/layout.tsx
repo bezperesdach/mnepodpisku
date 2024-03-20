@@ -1,4 +1,4 @@
-import { Footer } from "@/components/ui/footer";
+import { Footer } from "@/components/footer";
 import { MainNavbar } from "@/components/ui/main-navbar";
 
 export default function MainLayout({
