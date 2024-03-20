@@ -13,12 +13,12 @@ import { cn } from "@/lib/utils";
 
 const Banners = [
   {
-    title: "ПОПОЛНЯЙТЕ PLAYSTATION",
+    title: "ПОПОЛНЕНИЕ PLAYSTATION",
     description: "Доступно для Турецких аккаунтов",
     callToAction: "ПОПОЛНИТЬ",
     image: "/images/PlaystationTopup.jpg",
     alt: "Playstation пополнение банер",
-    titleClass: "text-2xl font-bold tracking-tight text-[#d72eb5] bg-white px-4 py-2 mr-auto md:text-4xl",
+    titleClass: "text-xl font-bold tracking-tight text-[#d72eb5] bg-white px-4 py-2 mr-auto md:text-4xl",
     titleStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -35,7 +35,7 @@ const Banners = [
     callToAction: "ПРИОБРЕСТИ",
     image: "/images/PlaystationPlus.jpg",
     alt: "Playstation plus банер",
-    titleClass: "text-2xl font-bold tracking-tight text-[#fcc000] bg-[#000000] px-4 py-2 mr-auto md:text-4xl",
+    titleClass: "text-xl font-bold tracking-tight text-[#fcc000] bg-[#000000] px-4 py-2 mr-auto md:text-4xl",
     titleStyle: {},
     descriptionClass: "leading-7 max-w-xs text-black px-2 md:px-4 py-[1px] md:py-1",
     descriptionStyle: {},
@@ -107,11 +107,11 @@ export function HeroCard() {
             </CarouselContent>
             <CarouselPrevious className="w-12 h-12 -left-14 hidden xl:flex" variant="default" />
             <CarouselNext className="w-12 h-12 -right-14 hidden xl:flex" variant="default" />
-            <div className="absolute top-2 right-4 flex gap-1 justify-center">
+            <div className="absolute -bottom-6 left-0 right-0 flex gap-1 justify-center">
               {Banners.map((_, index) => (
                 <Button
                   onClick={() => api?.scrollTo(index)}
-                  className={cn("flex justify-center items-center w-4 h-4 bg-accent rounded-full transition-all duration-300", {
+                  className={cn("flex justify-center items-center px-2 w-4 h-4 bg-accent rounded-full transition-all duration-300", {
                     "bg-primary": current === index + 1,
                   })}
                   key={index}
