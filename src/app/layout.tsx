@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru" className={cn(inter.className, "dark")} style={{ colorScheme: "dark" }}>
       <AppContextProvider>
-        <body className="min-h-screen bg-background font-sans antialiased">
+        <body className="bg-background font-sans antialiased">
           {/* <script
             id="theme-switcher"
             dangerouslySetInnerHTML={{
@@ -60,7 +60,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           /> */}
           {/* <WeAreOnBrakerBanner /> */}
           <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-            {children}
+            <div vaul-drawer-wrapper="" className="bg-background min-h-[100vh]">
+              {children}
+            </div>
           </ThemeProvider>
           <noscript>
             <div>
