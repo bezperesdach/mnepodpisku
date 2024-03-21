@@ -8,8 +8,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Button } from "../ui/button";
 // import { DialogClose } from "@radix-ui/react-dialog";
 import { useMediaQuery } from "usehooks-ts";
-import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle } from "../ui/drawer";
-import Link from "next/link";
+import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle } from "../ui/drawer";
 
 type Props = {
   onRedirect: () => void;
@@ -55,7 +54,7 @@ const RedirectingToPayment = ({ onRedirect }: Props) => {
             </DialogDescription>
           </DialogHeader>
 
-          <Button className="w-full" onClick={activateRedirect}>
+          <Button type="button" className="w-full" onClick={activateRedirect}>
             ДАЛЕЕ
           </Button>
         </DialogContent>
@@ -65,22 +64,22 @@ const RedirectingToPayment = ({ onRedirect }: Props) => {
 
   return (
     <Drawer open={state.paymentLink !== ""} onOpenChange={cancelRedirect}>
-      <DrawerContent>
-        <DrawerHeader className="text-left !pointer-events-none">
-          <DrawerTitle>Перенаправляем на страницу оплаты</DrawerTitle>
-          <DrawerDescription>
-            Инструкция по активации будет отправлена на почту указанную при оплате <br />
-            <br /> Нажмите "Далее", если не происходит переход на страницу оплаты{" "}
-          </DrawerDescription>
-        </DrawerHeader>
+      <DrawerContent className="focus:outline-none">
+        <div className="mx-auto w-full max-w-sm focus:border-2 border-blue-500">
+          <DrawerHeader className="text-left !pointer-events-none">
+            <DrawerTitle>Перенаправляем на страницу оплаты</DrawerTitle>
+            <DrawerDescription>
+              Инструкция по активации будет отправлена на почту указанную при оплате <br />
+              <br /> Нажмите "Далее", если не происходит переход на страницу оплаты{" "}
+            </DrawerDescription>
+          </DrawerHeader>
 
-        <DrawerFooter className="pt-2">
-          <DrawerClose asChild>
-            <Button className="w-full" onClick={activateRedirect}>
+          <DrawerFooter className="pt-2">
+            <Button type="button" className="w-full" onClick={activateRedirect}>
               ДАЛЕЕ
             </Button>
-          </DrawerClose>
-        </DrawerFooter>
+          </DrawerFooter>
+        </div>
       </DrawerContent>
     </Drawer>
   );
