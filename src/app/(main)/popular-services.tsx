@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Service } from "./all-services";
 import { Skeleton } from "@/components/ui/skeleton";
+import Link from "next/link";
 
 const services: Service[] = [
   {
@@ -40,7 +41,7 @@ export function PopularServices() {
         </div>
         <div className="grid md:flex gap-x-4 gap-y-6 md:gap-4 w-full grid-cols-2 md:basis-1/4 mt-6">
           {services.map((item) => (
-            <div key={item.value} className="flex-1 flex-shrink-0 rounded-md ">
+            <Link href={"/" + item.value} key={item.value} className="flex-1 flex-shrink-0 rounded-md ">
               <div className="min-h-[120px] xs:min-h-[160px] sm:min-h-[170px] lg:min-h-[180px] relative rounded-3xl overflow-hidden">
                 <Image
                   className="hover:scale-125 transition-all z-10"
@@ -52,7 +53,7 @@ export function PopularServices() {
                 <Skeleton className="absolute w-full h-full rounded-3xl" />
               </div>
               <p className="mt-4 lg:text-lg text-center font-medium">{item.name}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

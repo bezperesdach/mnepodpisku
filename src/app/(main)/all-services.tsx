@@ -56,7 +56,7 @@ const services: Service[] = [
   },
   {
     name: "PlayStation Пополнение",
-    value: "playstation_v2",
+    value: "playstation",
     imageSrc: "/catalogue_icons/playstation_top_up.jpg",
     alt: "Playstation пополнение",
   },

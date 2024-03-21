@@ -2,19 +2,23 @@
 
 import AmountOptions from "@/components/AmountOptions/AmountOptions";
 import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
-import DiscountMeter from "@/components/DiscountMeter/DiscountMeter";
-import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
-import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
-import TextInput from "@/components/TextInput/TextInput";
+// import DiscountMeter from "@/components/DiscountMeter/DiscountMeter";
+// import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
+// import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
+// import TextInput from "@/components/TextInput/TextInput";
 import { getPsnBalancePrice } from "@/serverActions/calculatePriceActions";
 import { getPsnBalancePaymentLink } from "@/serverActions/createPaymentUrls";
 import { cn } from "@/lib/utils";
-import { ym } from "@/utils/ym";
-import { HashIcon, LockIcon } from "@primer/octicons-react";
+import { HashIcon, SyncIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import * as Yup from "yup";
+// import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import TextInputV2 from "@/components/TextInput/TextInputV2";
+import { Button } from "@/components/ui/button";
+import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
+import { ym } from "@/utils/ym";
 
 type Props = {
   receivedAmount?: string;
@@ -25,8 +29,8 @@ type Props = {
 const TopUpSchema = Yup.object().shape({
   amount: Yup.number()
     .required("Необходимо заполнить")
-    .test("Сумма больше 100", "Не может быть меньше 100", (value) => value >= 100)
-    .test("Сумма меньше 5000", "Не может быть больше 5000", (value) => value <= 5000)
+    .test("Сумма больше 100", "Минимальная сумма 100 лир", (value) => value >= 100)
+    .test("Сумма меньше 5000", "Максимальная сумма 5000 лир", (value) => value <= 5000)
 
     .test("Кратное 10", "Сумма должна быть кратна 10", (value) => value % 10 === 0),
   oneTimeCard: Yup.boolean(),
@@ -43,12 +47,10 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
   const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
-    initialValues: { amount: receivedAmount ?? "", oneTimeCard: !!card ?? false },
+    initialValues: { amount: receivedAmount ?? "100", oneTimeCard: !!card ?? false },
     validationSchema: TopUpSchema,
     onSubmit: async (values) => {
       formik.setSubmitting(true);
-      ym("reachGoal", "playstationRequest");
-      ym("reachGoal", "formaoplatit");
 
       const res = await getPsnBalancePaymentLink(values, ip);
       dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
@@ -61,13 +63,15 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
     const updatePrices = async (values: { amount: string; oneTimeCard: boolean }) => {
       const current = new URLSearchParams();
       current.set("amount", values.amount.toString());
-      if (values.oneTimeCard) {
-        current.set("card", "1");
-      }
+      // if (values.oneTimeCard) {
+      //   current.set("card", "1");
+      // }
 
       const search = current.toString();
       const query = search ? `?${search}` : "";
-      router.replace(`${pathname}${query}`, { scroll: false });
+      if (parseInt(values.amount) > 100) {
+        router.replace(`${pathname}${query}`, { scroll: false });
+      }
 
       const updatedPrices = await getPsnBalancePrice(values);
       setCalculatedAmount(updatedPrices.calculated);
@@ -102,52 +106,75 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
   return (
     <>
       <form onSubmit={formik.handleSubmit}>
-        <div className="flex flex-col md:flex-row mt-4 md:mt-14 gap-4 sm:gap-8 md:gap-16">
+        <div className="w-full flex justify-center items-center mt-6">
+          <div className="w-full flex flex-col gap-2 max-w-screen-lg mx-2 p-6 rounded-3xl bg-[#0c1430]">
+            <p className="text-2xl md:text-3xl font-semibold tracking-tight">Укажите сумму пополнения</p>
+
+            <AmountOptions className="mt-4" setValue={(value) => formik.setFieldValue("amount", value)} />
+
+            <TextInputV2
+              className="mt-4"
+              icon={<HashIcon className="text-inherit" />}
+              type="number"
+              label="Сумма пополнения в лирах ₺"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              placeholder="От 100 Лир"
+              error={formik.errors.amount}
+              {...formik.getFieldProps("amount")}
+            />
+          </div>
+        </div>
+        <div className="w-full flex justify-center items-center mt-6">
+          <div className="w-full flex flex-col gap-2 max-w-screen-lg mx-2 p-6 rounded-3xl bg-[#0c1430]">
+            <p className="text-2xl md:text-3xl font-semibold tracking-tight">К оплате</p>
+
+            <div className="flex flex-col gap-2 w-full justify-between mt-6">
+              <div className="flex justify-between w-full pb-1 border-b-[1px]">
+                <p className="text-lg text-muted-foreground">Заплатите</p>
+                <div className="flex gap-1 items-center text-lg text-muted-foreground">
+                  {loading && <SyncIcon className="animate-spin" />}
+                  {!loading && value && (
+                    <>
+                      <p className="relative mr-2 after:w-[110%] after:-rotate-[15deg] after:absolute after:-left-[5%] after:top-1/2 after:h-[0.15em] after:bg-[#e85426]/50">
+                        {calculatedAmount}
+                      </p>
+                      <p>{value}₽</p>
+                    </>
+                  )}
+                </div>
+              </div>
+              <div className="flex justify-between w-full pb-1 border-b-[1px] mt-2">
+                <p className="text-lg text-muted-foreground">Получите</p>
+                {formik.values.amount && !formik.errors.amount && (
+                  <p className="text-lg text-muted-foreground">{formik.values.amount}₺</p>
+                )}
+              </div>
+            </div>
+            <Button
+              className={cn("sticky bottom-0 mt-6 text-lg h-12", {
+                "bg-accent/50 text-muted-foreground": !value,
+                "pointer-events-none": formik.isSubmitting,
+              })}
+            >
+              {!loading && !formik.isSubmitting ? (
+                <p>ОПЛАТИТЬ {value && <span className="text-[#fee525] text-xl font-bold">{value}₽</span>}</p>
+              ) : (
+                <SyncIcon className="animate-spin" />
+              )}
+            </Button>
+            <p className=" text-muted-foreground text-sm text-center">
+              Нажимая на кнопку «Оплатить», вы соглашаетесь с{" "}
+              <a className="text-primary hover:underline" href="/oferta.pdf" target="_blank" rel="noopener noreferrer">
+                договором оферты
+              </a>
+            </p>
+          </div>
+        </div>
+        {/* <div className="flex flex-col md:flex-row mt-4 md:mt-14 gap-4 sm:gap-8 md:gap-16">
           <div className="flex flex-col gap-1 lg:gap-6 w-full md:w-1/2">
             <div className="flex flex-col gap-2 mb-2 md:mb-4 lg:mb-0">
               <p className="label font-medium">Выберите количество ЛИР к зачислению:</p>
-              <TextInput
-                icon={<HashIcon className="text-secondary" />}
-                type="number"
-                inputMode="numeric"
-                pattern="[0-9]*"
-                placeholder="Количество лир к пополнению"
-                error={formik.errors.amount}
-                {...formik.getFieldProps("amount")}
-              />
-              <AmountOptions setValue={(value) => formik.setFieldValue("amount", value)} />
-              {/* <div className="flex gap-2 items-center mt-2">
-                <input
-                  type="checkbox"
-                  className="checkbox checkbox-secondary"
-                  checked={formik.values.oneTimeCard}
-                  onChange={() => formik.setFieldValue("oneTimeCard", !formik.values.oneTimeCard)}
-                />
-
-                <div className="flex items-center rounded-lg self-end ">
-                  <div
-                    className="tooltip cursor-pointer max-w-xs before:-translate-x-[20%]"
-                    data-tip="Позволит вам активировать пополнение самостоятельно без передачи данных аккаунта. Доступно для приобретения игр/dlc/донатов. Нельзя приобретать подписки"
-                  >
-                    <button
-                      className="font-medium flex gap-1 items-center"
-                      type="button"
-                      onClick={() => {
-                        const elem = document.getElementById("OneTimeCard");
-
-                        elem!.setAttribute("open", "");
-
-                        window.scrollTo({
-                          top: elem!.offsetTop,
-                          behavior: "instant",
-                        });
-                      }}
-                    >
-                      Одноразовая карта<span className="bg-base-300 w-6 h-6 rounded-full">?</span>
-                    </button>
-                  </div>
-                </div>
-              </div> */}
             </div>
 
             <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex lg:mt-0">
@@ -197,18 +224,14 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
               <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </form>
-      <div className="flex flex-col gap-1 mt-10">
-        <p className="font-bold text-xl lg:text-2xl">Хотите купить PS PLUS или EA PLAY подписку на свой аккаунт?</p>
-        <p>
-          Для приобретения подписки PS PLUS или EA PLAY на свой аккаунт, нажмите на{" "}
-          <button className="underline text-secondary" onClick={() => dispatch({ type: "toggle_catalogue" })}>
-            каталог
-          </button>{" "}
-          и выберите интересующую вас подписку!
-        </p>
-      </div>
+      <RedirectingToPayment
+        onRedirect={() => {
+          ym("reachGoal", "playstationRequest");
+          ym("reachGoal", "formaoplatit");
+        }}
+      />
     </>
   );
 }
