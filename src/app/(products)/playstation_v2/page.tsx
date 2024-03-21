@@ -101,17 +101,22 @@ export default function PlaystationV2({ searchParams }: Props) {
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2">
-              <div className="h-[64px] min-w-[64px] relative rounded-2xl overflow-hidden sm:hidden ">
-                <Image
-                  className="hover:scale-125 transition-all z-10"
-                  src="/catalogue_icons/playstation_top_up.jpg"
-                  alt="PlayStation Пополнение"
-                  style={{ objectFit: "cover" }}
-                  fill
-                />
-                <Skeleton className="absolute w-full h-full rounded-3xl" />
+              <div className="flex flex-col justify-center sm:hidden ">
+                <div className="h-[64px] min-w-[64px] relative rounded-2xl overflow-hidden ">
+                  <Image
+                    className="hover:scale-125 transition-all z-10"
+                    src="/catalogue_icons/playstation_top_up.jpg"
+                    alt="PlayStation Пополнение"
+                    style={{ objectFit: "cover" }}
+                    fill
+                  />
+                  <Skeleton className="absolute w-full h-full rounded-3xl" />
+                </div>
               </div>
-              <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Пополнение Турецкого PlayStation Store в России</h1>
+
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight">
+                Пополнение Турецкого PlayStation Store в России
+              </h1>
             </div>
 
             <div className="flex gap-2">
