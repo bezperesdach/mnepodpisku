@@ -31,7 +31,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";
 import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
-import { FlameIcon } from "@primer/octicons-react";
+import { FlameIcon, StarFillIcon } from "@primer/octicons-react";
 import { Service } from "@/app/(main)/all-services";
 // import UnclosableDrawerModalHybridPaymentRedirect from "@/components/ui/unclosable-drawer-modal-hybrid-payment-redirect";
 
@@ -99,7 +99,7 @@ export default function PlaystationV2({ searchParams }: Props) {
             />
             <Skeleton className="absolute w-full h-full rounded-3xl" />
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 w-full">
             <div className="flex gap-2">
               <div className="flex flex-col justify-center sm:hidden ">
                 <div className="h-[64px] min-w-[64px] relative rounded-2xl overflow-hidden ">
@@ -119,17 +119,22 @@ export default function PlaystationV2({ searchParams }: Props) {
               </h1>
             </div>
 
-            <div className="flex gap-2">
-              <div className="flex gap-1 items-center bg-[#1b2a63] font-medium px-2 py-1 w-fit rounded-lg">
+            <div className="relative flex gap-2 overflow-x-auto no-scrollbar">
+              <div className="flex flex-nowrap gap-1 items-center bg-[#1b2a63] font-medium px-2 py-1 w-fit rounded-lg">
                 <div className="h-6 w-6 relative rounded-lg overflow-hidden">
                   <Image className="object-contain" src="/tr.png" alt="PlayStation Пополнение" fill />
                 </div>
-                <p>ТУРЦИЯ</p>
+                <p className="whitespace-nowrap">ТУРЦИЯ</p>
               </div>
-              <p className="flex gap-1 items-center bg-[#1b2a63] font-medium px-2 py-1 w-fit rounded-lg">
+              <div className="flex flex-nowrap gap-1 items-center bg-[#1b2a63] font-medium px-2 py-1 w-fit rounded-lg">
                 <FlameIcon className="text-[#f95721]" />
-                ВЫГОДНЫЙ КУРС
-              </p>
+                <p className="whitespace-nowrap">ВЫГОДНЫЙ КУРС</p>
+              </div>
+              <div className="flex flex-nowrap gap-1 items-center bg-[#1b2a63] font-medium px-2 py-1 w-fit rounded-lg">
+                <StarFillIcon className="text-primary" />
+                <p className="whitespace-nowrap">НЕ НУЖЕН VPN</p>
+              </div>
+              <div className="sticky right-0 flex items-center py-0 px-3 bg-gradient-to-r from-transparent to-[#0c1430]" />
             </div>
 
             <p className=" text-muted-foreground">
