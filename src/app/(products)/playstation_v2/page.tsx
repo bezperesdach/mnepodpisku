@@ -88,8 +88,8 @@ export default function PlaystationV2({ searchParams }: Props) {
       </Breadcrumbs>
 
       <div className="w-full flex justify-center items-center mt-6">
-        <div className="w-full flex gap-4 max-w-screen-lg mx-4 p-6 rounded-lg bg-[#0c1430]">
-          <div className="h-[120px] min-w-[120px] relative rounded-3xl overflow-hidden hidden md:block">
+        <div className="w-full flex gap-4 max-w-screen-lg mx-2 p-6 rounded-lg bg-[#0c1430]">
+          <div className="h-[120px] min-w-[120px] relative rounded-3xl overflow-hidden hidden sm:block">
             <Image
               className="hover:scale-125 transition-all z-10"
               src="/catalogue_icons/playstation_top_up.jpg"
@@ -100,7 +100,19 @@ export default function PlaystationV2({ searchParams }: Props) {
             <Skeleton className="absolute w-full h-full rounded-3xl" />
           </div>
           <div className="flex flex-col gap-2">
-            <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Пополнение Турецкого PlayStation Store в России</h1>
+            <div className="flex gap-2">
+              <div className="h-[64px] min-w-[64px] relative rounded-2xl overflow-hidden sm:hidden ">
+                <Image
+                  className="hover:scale-125 transition-all z-10"
+                  src="/catalogue_icons/playstation_top_up.jpg"
+                  alt="PlayStation Пополнение"
+                  style={{ objectFit: "cover" }}
+                  fill
+                />
+                <Skeleton className="absolute w-full h-full rounded-3xl" />
+              </div>
+              <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Пополнение Турецкого PlayStation Store в России</h1>
+            </div>
 
             <div className="flex gap-2">
               <div className="flex gap-1 items-center bg-[#1b2a63] font-medium px-2 py-1 w-fit rounded-lg">
@@ -126,7 +138,7 @@ export default function PlaystationV2({ searchParams }: Props) {
       <FormComponent receivedAmount={isAmountValid(searchParams["amount"])} card={isSearchParamValid(searchParams["card"])} ip={ip} />
 
       <div className="w-full flex justify-center items-center mt-16">
-        <div className="w-full flex flex-col max-w-screen-lg px-4">
+        <div className="w-full flex flex-col max-w-screen-lg px-2">
           <div className="w-full flex justify-between">
             <h2 className="text-3xl font-semibold tracking-tight">Также рекомендуем</h2>
           </div>

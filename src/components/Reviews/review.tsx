@@ -49,7 +49,7 @@ function Reviews() {
 
   return (
     <div className="w-full flex justify-center items-center mt-16">
-      <div className="w-full flex flex-col max-w-screen-lg px-4" ref={ref}>
+      <div className="w-full flex flex-col max-w-screen-lg px-2" ref={ref}>
         <div className="w-full flex justify-between">
           <div className="relative">
             {pathname === `/reviews` ? (

@@ -62,7 +62,7 @@ export function HeroCard() {
 
   return (
     <div className="w-full flex justify-center items-center mt-6">
-      <div className="w-full max-w-screen-lg px-4 ">
+      <div className="w-full max-w-screen-lg px-2 ">
         <div className="w-full flex flex-col gap-2">
           <Carousel
             setApi={setApi}

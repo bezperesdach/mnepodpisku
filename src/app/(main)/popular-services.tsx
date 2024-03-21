@@ -34,7 +34,7 @@ const services: Service[] = [
 export function PopularServices() {
   return (
     <div className="w-full flex justify-center items-center mt-16">
-      <div className="w-full flex flex-col max-w-screen-lg px-4">
+      <div className="w-full flex flex-col max-w-screen-lg px-2">
         <div className="w-full flex justify-between">
           <h2 className="text-3xl font-semibold tracking-tight">Популярные услуги</h2>
         </div>

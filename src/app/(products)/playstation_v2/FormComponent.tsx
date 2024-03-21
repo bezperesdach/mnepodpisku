@@ -107,7 +107,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
     <>
       <form onSubmit={formik.handleSubmit}>
         <div className="w-full flex justify-center items-center mt-6">
-          <div className="w-full flex flex-col gap-2 max-w-screen-lg mx-4 p-6 rounded-lg bg-[#0c1430]">
+          <div className="w-full flex flex-col gap-2 max-w-screen-lg mx-2 p-6 rounded-lg bg-[#0c1430]">
             <p className="text-2xl md:text-3xl font-semibold tracking-tight">Укажите сумму пополнения</p>
 
             <AmountOptions className="mt-4" setValue={(value) => formik.setFieldValue("amount", value)} />
@@ -126,7 +126,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
           </div>
         </div>
         <div className="w-full flex justify-center items-center mt-6">
-          <div className="w-full flex flex-col gap-2 max-w-screen-lg mx-4 p-6 rounded-lg bg-[#0c1430]">
+          <div className="w-full flex flex-col gap-2 max-w-screen-lg mx-2 p-6 rounded-lg bg-[#0c1430]">
             <p className="text-2xl md:text-3xl font-semibold tracking-tight">К оплате</p>
 
             <div className="flex flex-col gap-2 w-full justify-between mt-6">

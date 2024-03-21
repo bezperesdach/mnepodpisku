@@ -84,7 +84,7 @@ const services: Service[] = [
 export function AllServices() {
   return (
     <div className="w-full flex justify-center items-center mt-16">
-      <div className="w-full flex flex-col max-w-screen-lg px-4">
+      <div className="w-full flex flex-col max-w-screen-lg px-2">
         <div className="w-full flex justify-between">
           <div className="flex justify-between items-end w-full">
             <h2 className="text-3xl font-semibold tracking-tight">Все услуги</h2>
