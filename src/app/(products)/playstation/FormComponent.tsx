@@ -129,6 +129,11 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
           <div className="w-full flex flex-col gap-2 max-w-screen-lg mx-2 p-6 rounded-3xl bg-[#0c1430]">
             <p className="text-2xl md:text-3xl font-semibold tracking-tight">К оплате</p>
 
+            <p className="tracking-tight text-muted-foreground">
+              После успешной оплаты вы получите инструкцию по активацию на указанную при оплате почту
+              <br />С помощью данной инструкции вы сможете безопасно передать нам данные своего аккаунта для пополнения
+            </p>
+
             <div className="flex flex-col gap-2 w-full justify-between mt-6">
               <div className="flex justify-between w-full pb-1 border-b-[1px]">
                 <p className="text-lg text-muted-foreground">Заплатите</p>
@@ -171,60 +176,6 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
             </p>
           </div>
         </div>
-        {/* <div className="flex flex-col md:flex-row mt-4 md:mt-14 gap-4 sm:gap-8 md:gap-16">
-          <div className="flex flex-col gap-1 lg:gap-6 w-full md:w-1/2">
-            <div className="flex flex-col gap-2 mb-2 md:mb-4 lg:mb-0">
-              <p className="label font-medium">Выберите количество ЛИР к зачислению:</p>
-            </div>
-
-            <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex lg:mt-0">
-              <button
-                type="submit"
-                className={cn("btn btn-secondary w-full text-white items-center", { "btn-disabled": formik.isSubmitting })}
-              >
-                {formik.isSubmitting ? (
-                  <span className="loading loading-spinner loading-xl flex-shrink-0" />
-                ) : (
-                  <LockIcon className="text-white text-xl" />
-                )}
-                Оплатить
-              </button>
-
-              <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
-            </div>
-          </div>
-          <div className="flex flex-col w-full md:w-1/2">
-            <PaymentOptions />
-            <PriceComponent
-              loading={loading}
-              value={calculatedAmount}
-              sale={value}
-              amount={
-                formik.values.amount !== ""
-                  ? Number(formik.values.amount) >= 100
-                    ? Number(formik.values.amount)
-                    : undefined
-                  : undefined
-              }
-              showReceive
-            />
-            <DiscountMeter value={formik.values.amount !== "" ? Number(formik.values.amount) : undefined} />
-            <div className="w-full flex-col gap-1 items-center md:hidden mt-4 ">
-              <button
-                type="submit"
-                className={cn("btn btn-secondary w-full text-white items-center", { "btn-disabled": formik.isSubmitting })}
-              >
-                {formik.isSubmitting ? (
-                  <span className="loading loading-spinner loading-xl flex-shrink-0" />
-                ) : (
-                  <LockIcon className="text-white text-xl" />
-                )}
-                Оплатить
-              </button>
-              <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
-            </div>
-          </div>
-        </div> */}
       </form>
       <RedirectingToPayment
         onRedirect={() => {
