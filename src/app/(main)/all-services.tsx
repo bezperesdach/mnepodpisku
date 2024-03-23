@@ -14,7 +14,7 @@ export type Service = {
 const services: Service[] = [
   {
     name: "Adobe",
-    value: "adobe",
+    value: "adobe_creative_cloud",
     imageSrc: "/catalogue_icons/adobe_cc.jpg",
     alt: "Adobe баннер",
   },
