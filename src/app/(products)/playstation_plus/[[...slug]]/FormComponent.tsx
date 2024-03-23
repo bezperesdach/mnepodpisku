@@ -16,11 +16,13 @@ import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingT
 import { Button } from "@/components/ui/button";
 
 type Props = {
-  receivedSubscriptionType?: string;
-  receivedDuration?: string;
+  subscriptionType?: {
+    type: string;
+    duration: string;
+  };
 };
 
-export default function FormComponent({ receivedSubscriptionType, receivedDuration }: Props) {
+export default function FormComponent({ subscriptionType }: Props) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -31,7 +33,7 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
   const [loading, setLoading] = useState(true);
 
   const formik = useFormik({
-    initialValues: { subscriptionType: receivedSubscriptionType ?? "deluxe", duration: receivedDuration ?? "1month" },
+    initialValues: { subscriptionType: subscriptionType?.type ?? "essential", duration: subscriptionType?.duration ?? "1" },
     onSubmit: async (values) => {
       formik.setSubmitting(true);
 
@@ -45,12 +47,11 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
 
   useEffect(() => {
     const updatePrices = async (values: { subscriptionType: string; duration: string }) => {
-      const current = new URLSearchParams();
-      current.set("sub", values.subscriptionType);
-      current.set("dur", values.duration);
-      const search = current.toString();
-      const query = search ? `?${search}` : "";
-      router.replace(`${pathname}${query}`, { scroll: false });
+      if (values.subscriptionType === "essential" && values.duration === "1") {
+        history.pushState({ values }, "", `/playstation_plus/`);
+      } else {
+        history.pushState({ values }, "", `/playstation_plus/${values.subscriptionType}/${duration}`);
+      }
 
       const updatedPrices = await getPsnPsPlusPrice(values);
       setCalculatedAmount(updatedPrices.calculated);
@@ -87,9 +88,9 @@ export default function FormComponent({ receivedSubscriptionType, receivedDurati
 
             <ToggleSelect
               options={[
-                { name: "1 мес.", value: "1month" },
-                { name: "3 мес.", value: "3month" },
-                { name: "12 мес.", value: "12month" },
+                { name: "1 мес.", value: "1" },
+                { name: "3 мес.", value: "3" },
+                { name: "12 мес.", value: "12" },
               ]}
               value={formik.values.duration}
               onSelect={(value) => formik.setFieldValue("duration", value)}

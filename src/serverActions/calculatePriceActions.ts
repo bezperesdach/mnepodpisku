@@ -131,7 +131,7 @@ export async function getPsnPsPlusPrice(values: { subscriptionType: string; dura
       calcUrl.searchParams.append(
         "options[]",
         `${process.env.DIGISELLER_PS_PLUS_OPTION_ID!}:${
-          process.env[`DIGISELLER_PS_PLUS_${values.subscriptionType.toUpperCase()}_${values.duration.toUpperCase()}_VARIANT_ID`]
+          process.env[`DIGISELLER_PS_PLUS_${values.subscriptionType.toUpperCase()}_${values.duration}month_VARIANT_ID`]
         }`
       );
     }

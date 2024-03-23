@@ -120,7 +120,7 @@ export async function getPsnPsPlusPaymentLink(values: { subscriptionType: string
         {
           id: process.env.DIGISELLER_PS_PLUS_OPTION_ID,
           value: {
-            id: process.env[`DIGISELLER_PS_PLUS_${values.subscriptionType.toUpperCase()}_${values.duration.toUpperCase()}_VARIANT_ID`],
+            id: process.env[`DIGISELLER_PS_PLUS_${values.subscriptionType.toUpperCase()}_${values.duration}month_VARIANT_ID`],
           },
         },
       ],
