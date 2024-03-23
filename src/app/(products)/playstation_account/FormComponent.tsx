@@ -7,8 +7,10 @@ import { getPsnAccountPrice } from "@/serverActions/calculatePriceActions";
 import { getPsnAccountPaymentLink } from "@/serverActions/createPaymentUrls";
 import { cn } from "@/lib/utils";
 import { ym } from "@/utils/ym";
-import { LockIcon } from "@primer/octicons-react";
+import { LockIcon, SyncIcon } from "@primer/octicons-react";
 import { useContext, useEffect, useState } from "react";
+import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
+import { Button } from "@/components/ui/button";
 
 export default function FormComponent() {
   const { dispatch } = useContext(AppContext);
@@ -31,12 +33,50 @@ export default function FormComponent() {
 
   const generatePaymentLink = async () => {
     setIsSubmitting(true);
-    ym("reachGoal", "playstationAccountRequest");
-    ym("reachGoal", "formaoplatit");
 
     const res = await getPsnAccountPaymentLink();
     dispatch({ type: "change_payment_link", payload: res.data.paymentUrl });
   };
+
+  return (
+    <>
+      <div className="w-full flex justify-center items-center mt-6">
+        <div className="w-full flex flex-col gap-2 max-w-screen-lg mx-2 p-6 rounded-3xl bg-[#0c1430]">
+          <p className="text-2xl md:text-3xl font-semibold tracking-tight">К оплате</p>
+
+          <p className="tracking-tight text-muted-foreground">
+            После успешной оплаты вы получите инструкцию по активацию на указанную при оплате почту
+          </p>
+          <Button
+            className={cn("sticky bottom-0 mt-6 text-lg h-12", {
+              "bg-accent/50 text-muted-foreground": !value,
+              "pointer-events-none": isSubmitting,
+            })}
+            onClick={generatePaymentLink}
+          >
+            {!loading && !isSubmitting ? (
+              <p>КУПИТЬ {value && <span className="text-[#fee525] text-xl font-bold">{value}₽</span>}</p>
+            ) : (
+              <SyncIcon className="animate-spin" />
+            )}
+          </Button>
+          <p className=" text-muted-foreground text-sm text-center">
+            Нажимая на кнопку «Оплатить», вы соглашаетесь с{" "}
+            <a className="text-primary hover:underline" href="/oferta.pdf" target="_blank" rel="noopener noreferrer">
+              договором оферты
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <RedirectingToPayment
+        onRedirect={() => {
+          ym("reachGoal", "playstationAccountRequest");
+          ym("reachGoal", "formaoplatit");
+        }}
+      />
+    </>
+  );
 
   return (
     <>
