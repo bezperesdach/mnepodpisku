@@ -13,7 +13,7 @@ type Props = {
 
 const ToggleSelect = ({ options, value, onSelect }: Props) => {
   return (
-    <div className="w-full flex gap-4 gap-y-2 lg:gap-y-4 flex-wrap mt-1">
+    <div className="w-full flex gap-2 gap-y-2 lg:gap-y-4 flex-wrap mt-1">
       {options.map((option) => (
         <Button
           type="button"

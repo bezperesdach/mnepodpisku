@@ -15,7 +15,7 @@ const AmountOptions = ({ className, setValue }: Props) => {
   return (
     <div
       className={cn(
-        "w-full h-fit grid items-start grid-cols-2 grid-rows-2 min-[360px]:grid-cols-3 min-[400px]:grid-cols-4 lg:grid-cols-8 sm:grid-rows-1 gap-4",
+        "w-full h-fit grid items-start grid-cols-2 grid-rows-2 min-[360px]:grid-cols-3 min-[400px]:grid-cols-4 lg:grid-cols-8 sm:grid-rows-1 gap-2",
         className
       )}
     >
