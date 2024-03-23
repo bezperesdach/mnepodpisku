@@ -83,9 +83,6 @@ export default function FormComponent({ receivedDuration }: Props) {
             <p className="tracking-tight text-muted-foreground">
               После оплаты на указанную при оплате почту будет выслана инструкция по активации
             </p>
-            <p className="tracking-tight text-muted-foreground">
-              С помощью этой инструкции вы сможете безопасно передать нам данные своего аккаунта на который будет приобретена подписка
-            </p>
 
             <div className="flex flex-col gap-2 w-full justify-between mt-6">
               <div className="flex justify-between w-full pb-1 border-b-[1px]">
