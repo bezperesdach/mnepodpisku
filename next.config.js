@@ -7,6 +7,11 @@ const nextConfig = {
 				destination: '/wb',
 				permanent: true,
 			},
+			{
+				source: '/ps_plus',
+				destination: '/playstation_plus',
+				permanent: true,
+			},
 		]
 	},
 	experimental: {
