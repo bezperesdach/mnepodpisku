@@ -2,7 +2,6 @@ import React from "react";
 import Faq from "@/components/Faq/Faq";
 import Question from "@/components/Faq/Question";
 import FormComponent from "./FormComponent";
-import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isSearchParamValid } from "@/utils/utils";
 import Reviews from "@/components/Reviews/review";
@@ -12,7 +11,6 @@ import { FlameIcon, StarFillIcon } from "@primer/octicons-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";
 import Image from "next/image";
-import { Skeleton } from "@/components/ui/skeleton";
 import { ProductHero } from "@/components/product-hero";
 
 export const metadata: Metadata = {
