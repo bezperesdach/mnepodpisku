@@ -1,0 +1,213 @@
+import React from "react";
+import Faq from "@/components/Faq/Faq";
+import Question from "@/components/Faq/Question";
+import FormComponent from "./FormComponent";
+import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
+import { Metadata } from "next";
+import { isSearchParamValid } from "@/utils/utils";
+import Reviews from "@/components/Reviews/review";
+import Description from "./Description";
+import { AlsoRecommendToBuy } from "@/components/also-recommend-to-buy";
+import { FlameIcon, StarFillIcon } from "@primer/octicons-react";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { BreadcrumbItem } from "@/components/ui/breadcrumb";
+import Image from "next/image";
+import { Skeleton } from "@/components/ui/skeleton";
+import { ProductHero } from "@/components/product-hero";
+
+export const metadata: Metadata = {
+  title: "Купить подписку PS PLUS 2023",
+  description: "Быстро и безопасно приобретите подписку PS PLUS для своего аккаунта PlayStation. Новые привилегии уже ждут вас!",
+  openGraph: {
+    title: "Купить подписку PS PLUS 2023",
+    description: "Быстро и безопасно приобретите подписку PS PLUS для своего аккаунта PlayStation. Новые привилегии уже ждут вас!",
+    url: "/ps_plus",
+    images: ["/og_images_catalogue/ps_plus.png"],
+
+    type: "website",
+  },
+  alternates: {
+    canonical: "/ps_plus",
+  },
+};
+
+type Props = {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default function PlayStationAccount({ searchParams }: Props) {
+  return (
+    <div className="flex flex-col">
+      <Breadcrumbs>
+        <BreadcrumbItem>PlayStation Ps Plus</BreadcrumbItem>
+      </Breadcrumbs>
+
+      <ProductHero
+        icon={{ src: "/catalogue_icons/playstation_plus.jpg", alt: "PlayStation Plus баннер" }}
+        title="Купить подписку Ps Plus для PlayStation в России"
+        description="PlayStation Plus (PS Plus) — это услуга подписки PlayStation Network , предоставляющая пользователю дополнительные
+              премиум-функции и бесплатные игры."
+        tags={[
+          {
+            icon: (
+              <div className="h-6 w-6 relative rounded-lg overflow-hidden">
+                <Image className="object-contain" src="/tr.png" alt="PlayStation Пополнение" fill />
+              </div>
+            ),
+            text: "ТУРЦИЯ",
+          },
+          {
+            icon: <FlameIcon className="text-[#f95721]" />,
+            text: "ВЫГОДНО",
+          },
+          {
+            icon: <StarFillIcon className="text-primary" />,
+            text: "НЕ НУЖЕН VPN",
+          },
+        ]}
+      />
+
+      <FormComponent />
+
+      <AlsoRecommendToBuy
+        title="Рекомендуем после покупки"
+        services={[
+          {
+            name: "PlayStation Аккаунт",
+            value: "playstation_account",
+            imageSrc: "/catalogue_icons/playstation_account.jpg",
+            alt: "PlayStation Аккаунт баннер",
+          },
+          {
+            name: "PlayStation Пополнение",
+            value: "playstation",
+            imageSrc: "/catalogue_icons/playstation_top_up.jpg",
+            alt: "PlayStation Пополнение баннер",
+          },
+          {
+            name: "PlayStation Ea Play",
+            value: "ps_ea_play",
+            imageSrc: "/catalogue_icons/playstation_ea_play.jpg",
+            alt: "PlayStation Ea Play баннер",
+          },
+          {
+            name: "",
+            value: "",
+            imageSrc: "",
+            alt: "",
+          },
+        ]}
+      />
+
+      <Reviews />
+
+      <Faq>
+        <Question title="Как это работает?">
+          <p>
+            После успешной оплаты вам на почту придет письмо с ссылкой на активацию пополнения
+            <br />
+            <br />
+            На странице активации вам необходимо будет указать email на который будет зарегистрирован новый аккаунт PlayStation и
+            выслать заявку на активацию нам
+            <br />
+            <br />
+            Наш менеджер получит вашу заявку и создаст вам турецкий аккаунт PlayStation, после чего вышлет все его данные вам{" "}
+          </p>
+        </Question>
+
+        <Question title="Как быстро я получу подписку?">
+          <p>После отправки заявки на получение подписки среднее время активации 5-30 минут</p>
+        </Question>
+      </Faq>
+
+      {/* <InstructionsSection>
+          <Instruction name="Как включить 2FA на аккаунте PSN?" file="kak_vkluchit_2fa_na_akaunte_psn" />
+          <Instruction name="Где найти резервные коды аккаунта PSN?" file="gde_posmotret_rezervnyi_kod" />
+          <Instruction name="Как изменить почту на PSN аккаунте" file="psn/how-to-change-email-psn.pdf" />
+          <Instruction name="Как создать турецкий аккаунт PSN" file="psn/how-to-create-turkish-psn.pdf" />
+          <Instruction name="Как добавить нового пользователя на PS4?" file="kak_dobavit_novogo_polzovatelya_na_PS4" />
+          <Instruction name="Как добавить нового пользователя на PS5?" file="kak_dobavit_novogo_polzovatelya_na_PS5" />
+        </InstructionsSection> */}
+    </div>
+  );
+
+  return (
+    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
+      <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
+        <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
+          КУПИТЬ ПОДПИСКУ PS PLUS ДЛЯ PLAYSTATION В РОССИИ
+        </h1>
+        <div className="flex items-center gap-4 bg-base-300 rounded-lg px-4 py-1 self-end">
+          <p className="font-medium text-base">Только для турецких аккаунтов</p>
+          <div
+            className="tooltip cursor-pointer max-[524px]:before:-translate-x-[90%] max-[524px]:max-w-xs min-[1200px]:before:-translate-x-[90%]"
+            data-tip='Вам необходимо зарегистрировать аккаунт PSN с регионом турция и прислать его данные после оплаты. Подробнее в разделе "Вопрос-Ответ".'
+          >
+            <button className="flex justify-center items-center p-2 w-7 h-7 bg-white rounded-[100%] text-secondary font-bold">?</button>
+          </div>
+        </div>
+      </div>
+
+      <FormComponent
+        receivedDuration={isSearchParamValid(searchParams["dur"])}
+        receivedSubscriptionType={isSearchParamValid(searchParams["sub"])}
+      />
+
+      <Description />
+
+      <Reviews />
+
+      <Faq>
+        <Question title="Как происходит приобретение PS PLUS на мой аккаунт?">
+          <p>
+            После оплаты вам будет на почту выслана ссылка на инструкцию по активации услуги, в ходе выполнения данной инструкции вы
+            предоставите нам данные от своего аккаунта
+            <br />
+            <br />
+            После этого наш менеджер проживающий на территории Турции войдет в ваш аккаунт и приобретет нужную вам подписку
+          </p>
+        </Question>
+        <Question title="Безопасен ли такой вид приобретения PS PLUS?">
+          <p>Да, по нашему опыту Sony никогда не блокирует аккаунты на который таким способом была приобретена подписка</p>
+        </Question>
+        <Question title="Что будет если вам не удастся приобрести подписку на мой аккаунт?">
+          <p>Мы можем сделать возврат средств согласно оферте нашего сайта</p>
+        </Question>
+        <Question title="Как быстро происходит приобретение подписки?">
+          <p>После выполнения всех инструкций среднее время обработки заказа 5-30 минут при обращении в рабочие часы.</p>
+        </Question>
+        <Question title="Почему возникают проблемы с новыми аккаунтами?">
+          <p>
+            Начиная от 01.11.23 Sony изменили что-то в своей системе, если раньше после создания аккаунт можно было пополнять без особых
+            проблем спустя неделю после создания, то теперь после создания аккаунт стабильно удается пополнять только спустя месяц.
+            <br />
+            <br />
+            Сразу после создания аккаунт можно либо пополнить на 200 ЛИР(Максимальная разовая транзакция пополнения), либо приобрести
+            предметы из корзины на сумму до 4800 ЛИР включительно (подписки в корзину не добавляются). После чего на аккаунт со стороны
+            Sony накладывается временный &quot;блок&quot; и нужно будет подождать примерно месяц, перед тем как на аккаунт можно будет
+            купить что-либо еще или произвести пополнение.
+          </p>
+        </Question>
+      </Faq>
+
+      {/* <RedirectingToPayment /> */}
+    </div>
+  );
+}
+
+// export const head: DocumentHead = {
+//   title: "МНЕПОДПИСКУ",
+//   meta: [
+//     {
+//       name: "description",
+//       content:
+//         "Сервис для приобретения подписок на различные онлайн сервисы. Принимаем к оплате карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
+//     },
+//   ],
+//   links: [
+//     {
+//       rel: "canonical",
+//       href: "https://mnepodpisku.ru/",
+//     },
+//   ],
+// };
