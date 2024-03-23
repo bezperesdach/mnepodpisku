@@ -1,16 +1,14 @@
 "use client";
 
 import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
-import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
-import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import { getPsnAccountPrice } from "@/serverActions/calculatePriceActions";
 import { getPsnAccountPaymentLink } from "@/serverActions/createPaymentUrls";
 import { cn } from "@/lib/utils";
 import { ym } from "@/utils/ym";
-import { LockIcon, SyncIcon } from "@primer/octicons-react";
 import { useContext, useEffect, useState } from "react";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Button } from "@/components/ui/button";
+import { SyncIcon } from "@primer/octicons-react";
 
 export default function FormComponent() {
   const { dispatch } = useContext(AppContext);
@@ -45,8 +43,28 @@ export default function FormComponent() {
           <p className="text-2xl md:text-3xl font-semibold tracking-tight">К оплате</p>
 
           <p className="tracking-tight text-muted-foreground">
-            После успешной оплаты вы получите инструкцию по активацию на указанную при оплате почту
+            После оплаты на указанную при оплате почту будет выслана инструкция по активации
           </p>
+
+          <div className="flex flex-col gap-2 w-full justify-between mt-6">
+            <div className="flex justify-between w-full pb-1 border-b-[1px]">
+              <p className="text-lg text-muted-foreground">Заплатите</p>
+              <div className="flex gap-1 items-center text-lg text-muted-foreground">
+                {loading && <SyncIcon className="animate-spin" />}
+                {!loading && value && (
+                  <>
+                    {calculatedAmount && (
+                      <p className="relative mr-2 after:w-[110%] after:-rotate-[15deg] after:absolute after:-left-[5%] after:top-1/2 after:h-[0.15em] after:bg-[#e85426]/50">
+                        {calculatedAmount}₽
+                      </p>
+                    )}
+                    <p>{value}₽</p>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+
           <Button
             className={cn("sticky bottom-0 mt-6 text-lg h-12", {
               "bg-accent/50 text-muted-foreground": !value,
@@ -75,53 +93,6 @@ export default function FormComponent() {
           ym("reachGoal", "formaoplatit");
         }}
       />
-    </>
-  );
-
-  return (
-    <>
-      <div className="flex flex-col md:flex-row mt-4 md:mt-14 gap-4 sm:gap-8 md:gap-16">
-        <div className="flex flex-col gap-1 lg:gap-6 w-full md:w-1/2">
-          <div className="flex flex-col gap-2 mb-2 md:mb-4 lg:mb-0">
-            <p className="text-center text-gray-500">
-              После оплаты вы сможете указать email, на который будет произведена регистрация аккаунта
-            </p>
-          </div>
-
-          <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex lg:mt-0">
-            <button
-              onClick={generatePaymentLink}
-              className={cn("btn btn-secondary w-full text-white items-center", { "btn-disabled": isSubmitting })}
-            >
-              {isSubmitting ? (
-                <span className="loading loading-spinner loading-xl flex-shrink-0" />
-              ) : (
-                <LockIcon className="text-white text-xl" />
-              )}
-              Оплатить
-            </button>
-            <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
-          </div>
-        </div>
-        <div className="flex flex-col w-full md:w-1/2">
-          <PaymentOptions />
-          <PriceComponent loading={loading} value={calculatedAmount} sale={value} />
-          <div className="w-full flex-col gap-1 items-center md:hidden mt-4">
-            <button
-              onClick={generatePaymentLink}
-              className={cn("btn btn-secondary w-full text-white items-center", { "btn-disabled": isSubmitting })}
-            >
-              {isSubmitting ? (
-                <span className="loading loading-spinner loading-xl flex-shrink-0" />
-              ) : (
-                <LockIcon className="text-white text-xl" />
-              )}
-              Оплатить
-            </button>
-            <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
-          </div>
-        </div>
-      </div>
     </>
   );
 }

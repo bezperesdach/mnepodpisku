@@ -130,8 +130,10 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
             <p className="text-2xl md:text-3xl font-semibold tracking-tight">К оплате</p>
 
             <p className="tracking-tight text-muted-foreground">
-              После успешной оплаты вы получите инструкцию по активацию на указанную при оплате почту
-              <br />С помощью данной инструкции вы сможете безопасно передать нам данные своего аккаунта для пополнения
+              После оплаты на указанную при оплате почту будет выслана инструкция по активации
+            </p>
+            <p className="tracking-tight text-muted-foreground">
+              С помощью этой инструкции вы сможете безопасно передать нам данные своего аккаунта для пополнения
             </p>
 
             <div className="flex flex-col gap-2 w-full justify-between mt-6">
@@ -141,9 +143,11 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
                   {loading && <SyncIcon className="animate-spin" />}
                   {!loading && value && (
                     <>
-                      <p className="relative mr-2 after:w-[110%] after:-rotate-[15deg] after:absolute after:-left-[5%] after:top-1/2 after:h-[0.15em] after:bg-[#e85426]/50">
-                        {calculatedAmount}
-                      </p>
+                      {calculatedAmount && (
+                        <p className="relative mr-2 after:w-[110%] after:-rotate-[15deg] after:absolute after:-left-[5%] after:top-1/2 after:h-[0.15em] after:bg-[#e85426]/50">
+                          {calculatedAmount}₽
+                        </p>
+                      )}
                       <p>{value}₽</p>
                     </>
                   )}
