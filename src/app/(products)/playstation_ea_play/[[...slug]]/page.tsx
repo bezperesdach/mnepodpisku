@@ -30,8 +30,9 @@ export const metadata: Metadata = {
 const checkParams = (slug: string | string[] | undefined) => {
   if (slug && slug[0]) {
     const num = parseInt(slug[0], 10);
+
     if (!isNaN(num) && Number.isInteger(num) && (num === 1 || num === 12)) {
-      return slug[1];
+      return slug[0];
     }
   }
 
