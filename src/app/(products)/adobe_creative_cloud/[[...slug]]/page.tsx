@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Быстрая онлайн-покупка подписки на Adobe Creative Cloud. Оплата картами МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и другими системами.",
   openGraph: {
-    title: "Купить подписку Adobe Creative Cloud 2023",
+    title: "Купить подписку Adobe Creative Cloud 2024",
     description:
       "Быстрая онлайн-покупка подписки на Adobe Creative Cloud. Оплата картами МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и другими системами.",
     url: "/adobe_creative_cloud",
