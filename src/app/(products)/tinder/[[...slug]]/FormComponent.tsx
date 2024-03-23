@@ -1,14 +1,12 @@
 "use client";
 
 import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
-import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
-import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
 import { getTinderPrice } from "@/serverActions/calculatePriceActions";
 import { getTinderPaymentLink } from "@/serverActions/createPaymentUrls";
 import { cn } from "@/lib/utils";
 import { ym } from "@/utils/ym";
-import { LockIcon, SyncIcon } from "@primer/octicons-react";
+import { SyncIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
@@ -114,18 +112,7 @@ export default function FormComponent({ subscriptionType }: Props) {
                 </div>
               </div>
             </div>
-            {/* <Button
-              className={cn("sticky bottom-0 mt-6 text-lg h-12", {
-                "bg-accent/50 text-muted-foreground": !value,
-                "pointer-events-none": formik.isSubmitting,
-              })}
-            >
-              {!loading && !formik.isSubmitting ? (
-                <p>ОПЛАТИТЬ {value && <span className="text-[#fee525] text-xl font-bold">{value}₽</span>}</p>
-              ) : (
-                <SyncIcon className="animate-spin" />
-              )}
-            </Button> */}
+
             <Button
               className={cn("pointer-events-none bg-secondary text-muted-foreground sticky bottom-0 mt-6 text-lg h-12", {
                 "bg-accent/50 text-muted-foreground": !value,
