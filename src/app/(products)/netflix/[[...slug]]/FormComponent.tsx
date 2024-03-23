@@ -21,6 +21,7 @@ type Props = {
     duration: string;
   };
 };
+
 export default function FormComponent({ subscriptionType }: Props) {
   const router = useRouter();
   const pathname = usePathname();
