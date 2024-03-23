@@ -1,20 +1,3 @@
-// export const head: DocumentHead = {
-//   title: "МНЕПОДПИСКУ",
-//   meta: [
-//     {
-//       name: "description",
-//       content:
-//         "Сервис для приобретения подписок на различные онлайн сервисы. Принимаем к оплате карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
-//     },
-//   ],
-//   links: [
-//     {
-//       rel: "canonical",
-//       href: "https://mnepodpisku.ru/",
-//     },
-//   ],
-// };
-
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import Faq from "@/components/Faq/Faq";
@@ -23,22 +6,21 @@ import Question from "@/components/Faq/Question";
 // import InstructionsSection from "@/components/Instructions/InstructionsSection";
 import FormComponent from "./FormComponent";
 import { Metadata } from "next";
-import { isAmountValid, isSearchParamValid } from "@/utils/utils";
 import Reviews from "@/components/Reviews/review";
 import { headers } from "next/headers";
 // import Description from "./Description";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";
 import Image from "next/image";
-import { Skeleton } from "@/components/ui/skeleton";
 import { FlameIcon, StarFillIcon } from "@primer/octicons-react";
 import { AlsoRecommendToBuy } from "@/components/also-recommend-to-buy";
 import { ProductHero } from "@/components/product-hero";
+import { getAmountFromSlug } from "@/utils/utils";
 // import UnclosableDrawerModalHybridPaymentRedirect from "@/components/ui/unclosable-drawer-modal-hybrid-payment-redirect";
 
-type Props = {
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+// type Props = {
+//   searchParams: { [key: string]: string | string[] | undefined };
+// };
 
 export const metadata: Metadata = {
   title: "Пополнение PS Store(PSN) турция с карты РФ от 100 TL!",
@@ -58,7 +40,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PlaystationV2({ searchParams }: Props) {
+export default function Playstation({ params }: { params: { slug: string } }) {
   const ip = headers().get("x-forwarded-for");
 
   return (
@@ -92,7 +74,7 @@ export default function PlaystationV2({ searchParams }: Props) {
         ]}
       />
 
-      <FormComponent receivedAmount={isAmountValid(searchParams["amount"])} card={isSearchParamValid(searchParams["card"])} ip={ip} />
+      <FormComponent receivedAmount={getAmountFromSlug(params.slug)} ip={ip} />
 
       <AlsoRecommendToBuy
         services={[

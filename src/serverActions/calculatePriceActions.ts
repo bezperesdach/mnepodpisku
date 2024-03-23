@@ -30,14 +30,11 @@ const salesCalculator = (amount: number, price: number) => {
   return Math.round(discountAmount);
 };
 
-export async function getPsnBalancePrice(values: { amount: string; oneTimeCard: boolean }) {
+export async function getPsnBalancePrice(values: { amount: string }) {
   try {
     const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
-    calcUrl.searchParams.append(
-      "product_id",
-      values.oneTimeCard ? process.env.DIGISELLER_PSN_ONETIMECARD_ID! : process.env.DIGISELLER_PSN_BASE_ID!
-    );
+    calcUrl.searchParams.append("product_id", process.env.DIGISELLER_PSN_BASE_ID!);
     calcUrl.searchParams.append("currency", "RBX");
     calcUrl.searchParams.append("unit_cnt", values.amount.toString());
 

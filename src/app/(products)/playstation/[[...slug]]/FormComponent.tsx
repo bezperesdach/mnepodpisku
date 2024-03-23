@@ -37,6 +37,7 @@ const TopUpSchema = Yup.object().shape({
 });
 
 export default function FormComponent({ receivedAmount, ip, card }: Props) {
+  // console.log(receivedAmount);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -61,16 +62,10 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
 
   useEffect(() => {
     const updatePrices = async (values: { amount: string; oneTimeCard: boolean }) => {
-      const current = new URLSearchParams();
-      current.set("amount", values.amount.toString());
-      // if (values.oneTimeCard) {
-      //   current.set("card", "1");
-      // }
-
-      const search = current.toString();
-      const query = search ? `?${search}` : "";
       if (parseInt(values.amount) > 100) {
-        router.replace(`${pathname}${query}`, { scroll: false });
+        // router.replace(pathname, { scroll: false });
+        // history.pushState(`${pathname.split("/")[1]}`, "", `${pathname.split("/")[1]}/${values.amount}`);
+        history.pushState({ values: values.amount }, "", `/playstation/${values.amount}`);
       }
 
       const updatedPrices = await getPsnBalancePrice(values);
