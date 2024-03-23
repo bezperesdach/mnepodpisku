@@ -44,7 +44,7 @@ const services: Service[] = [
   },
   {
     name: "Xbox Game Pass",
-    value: "xbox",
+    value: "xbox_game_pass",
     imageSrc: "/catalogue_icons/xbox.jpg",
     alt: "Xbox баннер",
   },

@@ -17,6 +17,12 @@ const nextConfig = {
 				destination: '/playstation_ea_play',
 				permanent: true,
 			},
+			{
+				source: '/xbox',
+				destination: '/xbox_game_pass',
+				permanent: true,
+			},
+
 		]
 	},
 	experimental: {
