@@ -12,8 +12,9 @@ export function Breadcrumbs({ children }: Props) {
       <Breadcrumb className="w-full max-w-screen-lg px-4">
         <BreadcrumbList>
           <BreadcrumbItem className="flex gap-1">
-            <HomeIcon />
-            <BreadcrumbLink href="/">Главная</BreadcrumbLink>
+            <BreadcrumbLink className="flex gap-1 justify-center items-center" href="/">
+              <HomeIcon /> Главная
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           {children}
