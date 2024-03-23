@@ -120,7 +120,7 @@ export async function getPsnPsPlusPaymentLink(values: { subscriptionType: string
         {
           id: process.env.DIGISELLER_PS_PLUS_OPTION_ID,
           value: {
-            id: process.env[`DIGISELLER_PS_PLUS_${values.subscriptionType.toUpperCase()}_${values.duration}month_VARIANT_ID`],
+            id: process.env[`DIGISELLER_PS_PLUS_${values.subscriptionType.toUpperCase()}_${values.duration}MONTH_VARIANT_ID`],
           },
         },
       ],
@@ -196,7 +196,7 @@ export async function getSpotifyPaymentLink(values: { subscriptionType: string; 
         {
           id: process.env.DIGISELLER_SPOTIFY_OPTION_ID,
           value: {
-            id: process.env[`DIGISELLER_SPOTIFY_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
+            id: process.env[`DIGISELLER_SPOTIFY_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
           },
         },
       ],
@@ -234,7 +234,7 @@ export async function getTinderPaymentLink(values: { subscriptionType: string; d
         {
           id: process.env.DIGISELLER_TINDER_OPTION_ID,
           value: {
-            id: process.env[`DIGISELLER_TINDER_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
+            id: process.env[`DIGISELLER_TINDER_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
           },
         },
       ],
@@ -381,7 +381,7 @@ export async function getDiscordPaymentLink(values: { subscriptionType: string; 
         {
           id: process.env.DIGISELLER_DISCORD_OPTION_ID,
           value: {
-            id: process.env[`DIGISELLER_DISCORD_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
+            id: process.env[`DIGISELLER_DISCORD_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
           },
         },
       ],
@@ -419,7 +419,7 @@ export async function getNetflixPaymentLink(values: { subscriptionType: string; 
         {
           id: process.env.DIGISELLER_NETFLIX_OPTION_ID,
           value: {
-            id: process.env[`DIGISELLER_NETFLIX_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
+            id: process.env[`DIGISELLER_NETFLIX_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
           },
         },
       ],
