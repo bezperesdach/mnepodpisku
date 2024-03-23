@@ -10,6 +10,7 @@ import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
 import { StarFillIcon } from "@primer/octicons-react";
 import { AlsoRecommendToBuy } from "@/components/also-recommend-to-buy";
+import { ProductHero } from "@/components/product-hero";
 
 export const metadata: Metadata = {
   title: "Cоздание турецкого аккаунта playstation",
@@ -36,60 +37,26 @@ export default function PlayStationAccountV2() {
         <BreadcrumbItem>PlayStation Аккаунт</BreadcrumbItem>
       </Breadcrumbs>
 
-      <div className="w-full flex justify-center items-center mt-6">
-        <div className="w-full flex gap-4 max-w-screen-lg mx-2 p-6 rounded-3xl bg-[#0c1430]">
-          <div className="h-[120px] min-w-[120px] relative rounded-3xl overflow-hidden hidden sm:block">
-            <Image
-              className="hover:scale-125 transition-all z-10"
-              src="/catalogue_icons/playstation_account.jpg"
-              alt="PlayStation Аккаунт"
-              style={{ objectFit: "cover" }}
-              fill
-            />
-            <Skeleton className="absolute w-full h-full rounded-3xl" />
-          </div>
-          <div className="flex flex-col gap-2 w-full">
-            <div className="flex gap-2">
-              <div className="flex flex-col justify-center sm:hidden ">
-                <div className="h-[64px] min-w-[64px] relative rounded-2xl overflow-hidden ">
-                  <Image
-                    className="hover:scale-125 transition-all z-10"
-                    src="/catalogue_icons/playstation_top_up.jpg"
-                    alt="PlayStation Аккаунт"
-                    style={{ objectFit: "cover" }}
-                    fill
-                  />
-                  <Skeleton className="absolute w-full h-full rounded-3xl" />
-                </div>
+      <ProductHero
+        icon={{ src: "/catalogue_icons/playstation_account.jpg", alt: "PlayStation Аккаунт баннер" }}
+        title="Создать Турецкий аккаунт PlayStation в России"
+        description="PlayStation Store — сервис цифровой дистрибуции компании Sony для пользователей консолей PlayStation 3, PlayStation 4,
+        PlayStation 5"
+        tags={[
+          {
+            icon: (
+              <div className="h-6 w-6 relative rounded-lg overflow-hidden">
+                <Image className="object-contain" src="/tr.png" alt="PlayStation Пополнение" fill />
               </div>
-
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight">
-                Создать Турецкий аккаунт PlayStation в России
-              </h1>
-            </div>
-
-            <div className="relative flex gap-2 overflow-x-auto no-scrollbar">
-              <div className="flex flex-nowrap gap-1 items-center bg-[#1b2a63] font-medium px-2 py-1 w-fit rounded-lg">
-                <div className="h-6 w-6 relative rounded-lg overflow-hidden">
-                  <Image className="object-contain" src="/tr.png" alt="PlayStation Пополнение" fill />
-                </div>
-                <p className="whitespace-nowrap">ТУРЦИЯ</p>
-              </div>
-
-              <div className="flex flex-nowrap gap-1 items-center bg-[#1b2a63] font-medium px-2 py-1 w-fit rounded-lg">
-                <StarFillIcon className="text-primary" />
-                <p className="whitespace-nowrap">НЕ НУЖЕН VPN</p>
-              </div>
-              <div className="sticky right-0 flex items-center py-0 px-3 bg-gradient-to-r from-transparent to-[#0c1430]" />
-            </div>
-
-            <p className=" text-muted-foreground">
-              PlayStation Store — сервис цифровой дистрибуции компании Sony для пользователей консолей PlayStation 3, PlayStation 4,
-              PlayStation 5
-            </p>
-          </div>
-        </div>
-      </div>
+            ),
+            text: "ТУРЦИЯ",
+          },
+          {
+            icon: <StarFillIcon className="text-primary" />,
+            text: "НЕ НУЖЕН VPN",
+          },
+        ]}
+      />
 
       <FormComponent />
 
