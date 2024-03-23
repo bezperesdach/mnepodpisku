@@ -40,7 +40,7 @@ const Banners = [
     descriptionClass: "leading-7 max-w-xs text-black px-2 md:px-4 py-[1px] md:py-1",
     descriptionStyle: {},
     callToActionClass: "max-w-sm h-10 z-10 bg-[#333333] hover:bg-[#000000] font-bold text-lg border-r-2 border-b-2 border-[#fcc000]",
-    href: "ps_plus",
+    href: "playstation_plus",
   },
 ];
 
