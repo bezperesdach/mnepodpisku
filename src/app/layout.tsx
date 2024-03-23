@@ -34,17 +34,11 @@ const yandexMetrica = `
   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
   ym(${process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID}, "init", {
-       clickmap:true,
-       trackLinks:true,
-       accurateTrackBounce:true,
-  });
-
-  ym(${process.env.NEXT_PUBLIC_YANDEX_METRIKA_REKLAMA_ID}, "init", {
     clickmap:true,
     trackLinks:true,
     accurateTrackBounce:true,
     webvisor:true
-});
+  });
   `;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -67,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <noscript>
             <div>
               <img src={`https://mc.yandex.ru/watch/${process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID}?ut=noindex`} alt="" />
-              <img src={`https://mc.yandex.ru/watch/${process.env.NEXT_PUBLIC_YANDEX_METRIKA_REKLAMA_ID}?ut=noindex`} alt="" />
+              {/* <img src={`https://mc.yandex.ru/watch/${process.env.NEXT_PUBLIC_YANDEX_METRIKA_REKLAMA_ID}?ut=noindex`} alt="" /> */}
             </div>
           </noscript>
         </body>

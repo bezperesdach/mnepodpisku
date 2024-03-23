@@ -7,7 +7,7 @@ export const ym = (goal: string, goalName: string) => {
   } else {
     if (window.ym) {
       window.ym(Number(YANDEX_METRIKA_ID), goal, goalName);
-      window.ym(Number(YANDEX_METRIKA_REKLAMA), goal, goalName);
+      // window.ym(Number(YANDEX_METRIKA_REKLAMA), goal, goalName);
     } else {
       console.log("failed to use YM");
     }
