@@ -45,7 +45,7 @@ export default function FormComponent({ receivedDuration }: Props) {
   useEffect(() => {
     const updatePrices = async (duration: string) => {
       if (duration === "1") {
-        history.pushState({ duration }, "", `/playstation_ea_play/`);
+        history.pushState({ duration }, "", `/playstation_ea_play`);
       } else {
         history.pushState({ duration }, "", `/playstation_ea_play/${duration}`);
       }

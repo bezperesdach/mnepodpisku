@@ -60,7 +60,7 @@ export default function FormComponent({ subscriptionType }: Props) {
   useEffect(() => {
     const updatePrices = async (values: { subscriptionType: string; duration: string }) => {
       if (values.subscriptionType === "individual" && values.duration === "1") {
-        history.pushState({ values }, "", `/spotify/`);
+        history.pushState({ values }, "", `/spotify`);
       } else {
         history.pushState({ values }, "", `/spotify/${values.subscriptionType}/${values.duration}`);
       }
