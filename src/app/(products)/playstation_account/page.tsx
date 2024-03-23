@@ -55,7 +55,7 @@ export default function PlayStationAccountV2() {
                   <Image
                     className="hover:scale-125 transition-all z-10"
                     src="/catalogue_icons/playstation_top_up.jpg"
-                    alt="PlayStation Пополнение"
+                    alt="PlayStation Аккаунт"
                     style={{ objectFit: "cover" }}
                     fill
                   />
