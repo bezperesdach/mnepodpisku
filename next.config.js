@@ -12,6 +12,11 @@ const nextConfig = {
 				destination: '/playstation_plus',
 				permanent: true,
 			},
+			{
+				source: '/ps_ea_play',
+				destination: '/playstation_ea_play',
+				permanent: true,
+			},
 		]
 	},
 	experimental: {

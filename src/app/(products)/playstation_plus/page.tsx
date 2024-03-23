@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Купить подписку PS PLUS 2023",
     description: "Быстро и безопасно приобретите подписку PS PLUS для своего аккаунта PlayStation. Новые привилегии уже ждут вас!",
-    url: "/ps_plus",
+    url: "/playstation_plus",
     images: ["/og_images_catalogue/ps_plus.png"],
 
     type: "website",
   },
   alternates: {
-    canonical: "/ps_plus",
+    canonical: "/playstation_plus",
   },
 };
 
@@ -84,7 +84,7 @@ export default function PlayStationAccount({ searchParams }: Props) {
           },
           {
             name: "PlayStation Ea Play",
-            value: "ps_ea_play",
+            value: "playstation_ea_play",
             imageSrc: "/catalogue_icons/playstation_ea_play.jpg",
             alt: "PlayStation Ea Play баннер",
           },
