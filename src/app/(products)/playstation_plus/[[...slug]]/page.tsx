@@ -131,15 +131,6 @@ export default function PlayStationAccount({ params }: { params: { slug: string 
           <p>После отправки заявки среднее время выполнения заказа 5-30 минут в рабочие часы</p>
         </Question>
       </Faq>
-
-      {/* <InstructionsSection>
-          <Instruction name="Как включить 2FA на аккаунте PSN?" file="kak_vkluchit_2fa_na_akaunte_psn" />
-          <Instruction name="Где найти резервные коды аккаунта PSN?" file="gde_posmotret_rezervnyi_kod" />
-          <Instruction name="Как изменить почту на PSN аккаунте" file="psn/how-to-change-email-psn.pdf" />
-          <Instruction name="Как создать турецкий аккаунт PSN" file="psn/how-to-create-turkish-psn.pdf" />
-          <Instruction name="Как добавить нового пользователя на PS4?" file="kak_dobavit_novogo_polzovatelya_na_PS4" />
-          <Instruction name="Как добавить нового пользователя на PS5?" file="kak_dobavit_novogo_polzovatelya_na_PS5" />
-        </InstructionsSection> */}
     </div>
   );
 }
