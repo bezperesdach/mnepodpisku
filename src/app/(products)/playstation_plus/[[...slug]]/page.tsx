@@ -33,8 +33,10 @@ const checkParams = (slug: string | string[] | undefined) => {
       if (["essential", "extra", "deluxe"].includes(slug[0])) {
         if (slug[1]) {
           const num = parseInt(slug[1], 10);
-          if (!isNaN(num) && Number.isInteger(num)) {
+          if (!isNaN(num) && Number.isInteger(num) && (num === 1 || num === 3 || num === 12)) {
             return { type: slug[0], duration: slug[1] };
+          } else {
+            return { type: slug[0], duration: "1" };
           }
         }
         return { type: slug[0], duration: "1" };
@@ -49,7 +51,7 @@ export default function PlayStationAccount({ params }: { params: { slug: string 
   return (
     <div className="flex flex-col">
       <Breadcrumbs>
-        <BreadcrumbItem>PlayStation Ps Plus</BreadcrumbItem>
+        <BreadcrumbItem>PlayStation Plus</BreadcrumbItem>
       </Breadcrumbs>
 
       <ProductHero
@@ -117,11 +119,11 @@ export default function PlayStationAccount({ params }: { params: { slug: string 
             После успешной оплаты вам на почту придет письмо с ссылкой на активацию пополнения
             <br />
             <br />
-            На странице активации вам необходимо будет указать email на который будет зарегистрирован новый аккаунт PlayStation и
-            выслать заявку на активацию нам
+            На странице активации вам необходимо будет указать данные своего аккаунта PlayStation, после чего отправить нам заявку на
+            активацию
             <br />
             <br />
-            Наш менеджер получит вашу заявку и создаст вам турецкий аккаунт PlayStation, после чего вышлет все его данные вам{" "}
+            Наш менеджер получит вашу заявку и приобретет подписку на ваш аккаунт{" "}
           </p>
         </Question>
 
