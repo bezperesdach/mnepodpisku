@@ -42,6 +42,20 @@ const Banners = [
     callToActionClass: "max-w-sm h-10 z-10 bg-[#333333] hover:bg-[#000000] font-bold text-lg border-r-2 border-b-2 border-[#fcc000]",
     href: "playstation_plus",
   },
+  {
+    title: "SPOTIFY PREMIUM",
+    description: "",
+    callToAction: "ПРИОБРЕСТИ",
+    image: "/images/SpotifyPremium.jpg",
+    alt: "Spotify Premium банер",
+    titleClass: "text-xl font-bold tracking-tight text-[#000000] bg-[#23d061] px-4 py-2 mr-auto md:text-4xl",
+    titleStyle: {},
+    descriptionClass: "",
+    descriptionStyle: {},
+    callToActionClass:
+      "max-w-sm h-10 z-10 bg-[#23d061] hover:bg-[#ffffff] text-[#000000] hover:text-[#23d061] font-bold text-lg border-r-2 border-b-2 border-[#000000] hover:border-[#23d061]",
+    href: "spotify",
+  },
 ];
 
 export function HeroCard() {
