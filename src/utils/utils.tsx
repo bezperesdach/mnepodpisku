@@ -35,7 +35,6 @@ export const isAmountValid = (amount: string | string[] | undefined) => {
     return amount;
   } else if (Array.isArray(amount) && amount.length > 0 && typeof amount[0] === "string" && !isNaN(Number(amount[0]))) {
     if (Number.isInteger(amount[0])) {
-      console.log(amount[0]);
       return amount[0];
     }
     return undefined;

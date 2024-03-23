@@ -61,7 +61,7 @@ export default function PsEaPlay({ params }: { params: { slug: string | string[]
           {
             icon: (
               <div className="h-6 w-6 relative rounded-lg overflow-hidden">
-                <Image className="object-contain" src="/india.png" alt="PlayStation Пополнение" fill />
+                <Image className="object-contain" src="/india.png" alt="Регион индия" fill />
               </div>
             ),
             text: "ИНДИЯ",

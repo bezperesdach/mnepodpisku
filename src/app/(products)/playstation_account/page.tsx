@@ -45,7 +45,7 @@ export default function PlayStationAccountV2() {
           {
             icon: (
               <div className="h-6 w-6 relative rounded-lg overflow-hidden">
-                <Image className="object-contain" src="/tr.png" alt="PlayStation Пополнение" fill />
+                <Image className="object-contain" src="/tr.png" alt="Регион турция" fill />
               </div>
             ),
             text: "ТУРЦИЯ",
@@ -117,15 +117,6 @@ export default function PlayStationAccountV2() {
           <p>Нет, вы сможете делать абсолютно все в аккаунте без использования VPN</p>
         </Question>
       </Faq>
-
-      {/* <InstructionsSection>
-        <Instruction name="Как включить 2FA на аккаунте PSN?" file="kak_vkluchit_2fa_na_akaunte_psn" />
-        <Instruction name="Где найти резервные коды аккаунта PSN?" file="gde_posmotret_rezervnyi_kod" />
-        <Instruction name="Как изменить почту на PSN аккаунте" file="psn/how-to-change-email-psn.pdf" />
-        <Instruction name="Как создать турецкий аккаунт PSN" file="psn/how-to-create-turkish-psn.pdf" />
-        <Instruction name="Как добавить нового пользователя на PS4?" file="kak_dobavit_novogo_polzovatelya_na_PS4" />
-        <Instruction name="Как добавить нового пользователя на PS5?" file="kak_dobavit_novogo_polzovatelya_na_PS5" />
-      </InstructionsSection> */}
     </div>
   );
 }

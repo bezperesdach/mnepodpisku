@@ -58,7 +58,7 @@ export default function Playstation({ params }: { params: { slug: string } }) {
           {
             icon: (
               <div className="flex justify-center h-6 w-6 relative rounded-lg overflow-hidden">
-                <Image className="object-contain" src="/tr.png" alt="PlayStation Пополнение" fill />
+                <Image className="object-contain" src="/tr.png" alt="Регион турция" fill />
               </div>
             ),
             text: "ТУРЦИЯ",

@@ -2,19 +2,13 @@
 
 import AmountOptions from "@/components/AmountOptions/AmountOptions";
 import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
-// import DiscountMeter from "@/components/DiscountMeter/DiscountMeter";
-// import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
-// import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
-// import TextInput from "@/components/TextInput/TextInput";
 import { getPsnBalancePrice } from "@/serverActions/calculatePriceActions";
 import { getPsnBalancePaymentLink } from "@/serverActions/createPaymentUrls";
 import { cn } from "@/lib/utils";
 import { HashIcon, SyncIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
-import { usePathname, useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import * as Yup from "yup";
-// import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import TextInputV2 from "@/components/TextInput/TextInputV2";
 import { Button } from "@/components/ui/button";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
@@ -66,7 +60,6 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
       setCalculatedAmount(updatedPrices.calculated);
       setValue(updatedPrices.sale);
       setLoading(false);
-      // console.log("updated");
     };
 
     setLoading(true);

@@ -1,14 +1,12 @@
 "use client";
 
 import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
-import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
-import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
 import { getSpotifyPrice } from "@/serverActions/calculatePriceActions";
 import { getSpotifyPaymentLink } from "@/serverActions/createPaymentUrls";
 import { cn } from "@/lib/utils";
 import { ym } from "@/utils/ym";
-import { LockIcon, SyncIcon } from "@primer/octicons-react";
+import { SyncIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
@@ -137,12 +135,6 @@ export default function FormComponent({ subscriptionType }: Props) {
                   )}
                 </div>
               </div>
-              {/* <div className="flex justify-between w-full pb-1 border-b-[1px] mt-2">
-            <p className="text-lg text-muted-foreground">Получите</p>
-            {formik.values.amount && !formik.errors.amount && (
-              <p className="text-lg text-muted-foreground">{formik.values.amount}₺</p>
-            )}
-          </div> */}
             </div>
             <Button
               className={cn("sticky bottom-0 mt-6 text-lg h-12", {
@@ -171,76 +163,6 @@ export default function FormComponent({ subscriptionType }: Props) {
           ym("reachGoal", "formaoplatit");
         }}
       />
-    </>
-  );
-
-  return (
-    <>
-      <form className="flex flex-col md:flex-row mt-4 md:mt-14 gap-4 sm:gap-8 md:gap-16" onSubmit={formik.handleSubmit}>
-        <div className="flex flex-col gap-1 lg:gap-6 w-full md:w-1/2">
-          <div className="flex flex-col gap-2 md:mb-4">
-            <div className="flex flex-col gap-2">
-              <p className="label font-medium">Выберите тип подписки:</p>
-              <ToggleSelect
-                options={[{ name: "Individual", value: "individual" }]}
-                value={formik.values.subscriptionType}
-                onSelect={(value) => {
-                  const duration = formik.values.duration;
-                  if (duration !== durations[value][0]) {
-                    formik.setFieldValue("duration", durations[value][0].value);
-                  }
-                  formik.setFieldValue("subscriptionType", value);
-                }}
-              />
-            </div>
-
-            <div className="flex flex-col gap-2 md:mb-4">
-              <p className="label font-medium">Выберите срок подписки:</p>
-              <ToggleSelect
-                options={durations[formik.values.subscriptionType ?? "individual"]}
-                value={formik.values.duration}
-                onSelect={(value) => formik.setFieldValue("duration", value)}
-              />
-            </div>
-            <div className="w-full flex-col gap-1 items-center hidden mt-4 md:flex ">
-              <button
-                type="submit"
-                className={cn("btn btn-secondary w-full text-white items-center", {
-                  "btn-disabled": formik.isSubmitting,
-                })}
-              >
-                {formik.isSubmitting ? (
-                  <span className="loading loading-spinner loading-xl flex-shrink-0" />
-                ) : (
-                  <LockIcon className="text-white text-xl" />
-                )}
-                Оплатить
-              </button>
-              <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col w-full md:w-1/2">
-          <PaymentOptions />
-          <PriceComponent loading={loading} value={calculatedAmount} sale={value} />
-          <div className="w-full flex-col gap-1 items-center md:hidden mt-4 ">
-            <button
-              type="submit"
-              className={cn("btn btn-secondary w-full text-white items-center", {
-                "btn-disabled": formik.isSubmitting,
-              })}
-            >
-              {formik.isSubmitting ? (
-                <span className="loading loading-spinner loading-xl flex-shrink-0" />
-              ) : (
-                <LockIcon className="text-white text-xl" />
-              )}
-              Оплатить
-            </button>
-            <p className="text-center text-gray-500">После нажатия вы будете перенаправлены на страницу оплаты </p>
-          </div>
-        </div>
-      </form>
     </>
   );
 }
