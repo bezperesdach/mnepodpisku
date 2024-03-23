@@ -12,10 +12,10 @@ import Image from "next/image";
 import { ProductHero } from "@/components/product-hero";
 
 export const metadata: Metadata = {
-  title: "Купить подписку PS PLUS 2023",
+  title: "Купить подписку PS PLUS 2024",
   description: "Быстро и безопасно приобретите подписку PS PLUS для своего аккаунта PlayStation. Новые привилегии уже ждут вас!",
   openGraph: {
-    title: "Купить подписку PS PLUS 2023",
+    title: "Купить подписку PS PLUS 2024",
     description: "Быстро и безопасно приобретите подписку PS PLUS для своего аккаунта PlayStation. Новые привилегии уже ждут вас!",
     url: "/playstation_plus",
     images: ["/og_images_catalogue/ps_plus.png"],
@@ -116,7 +116,7 @@ export default function PlayStationAccount({ params }: { params: { slug: string 
       <Faq>
         <Question title="Как это работает?">
           <p>
-            После успешной оплаты вам на почту придет письмо с ссылкой на активацию пополнения
+            После успешной оплаты вам на почту придет письмо с ссылкой на активацию
             <br />
             <br />
             На странице активации вам необходимо будет указать данные своего аккаунта PlayStation, после чего отправить нам заявку на
@@ -128,7 +128,7 @@ export default function PlayStationAccount({ params }: { params: { slug: string 
         </Question>
 
         <Question title="Как быстро я получу подписку?">
-          <p>После отправки заявки на получение подписки среднее время активации 5-30 минут</p>
+          <p>После отправки заявки среднее время выполнения заказа 5-30 минут в рабочие часы</p>
         </Question>
       </Faq>
 

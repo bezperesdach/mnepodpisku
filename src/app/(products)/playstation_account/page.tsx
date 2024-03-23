@@ -7,7 +7,6 @@ import Reviews from "@/components/Reviews/review";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";
 import Image from "next/image";
-import { Skeleton } from "@/components/ui/skeleton";
 import { StarFillIcon } from "@primer/octicons-react";
 import { AlsoRecommendToBuy } from "@/components/also-recommend-to-buy";
 import { ProductHero } from "@/components/product-hero";
@@ -107,7 +106,7 @@ export default function PlayStationAccountV2() {
         </Question>
 
         <Question title="Как быстро я получу аккаунт?">
-          <p>После отправки заявки на создание аккаунта среднее время создания аккаунта 5-30 минут</p>
+          <p>После отправки заявки среднее время выполнения заказа 5-30 минут в рабочие часы</p>
         </Question>
 
         <Question title="Можно ли менять данные аккаунта?">

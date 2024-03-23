@@ -50,7 +50,7 @@ export default function FormComponent({ subscriptionType }: Props) {
       if (values.subscriptionType === "essential" && values.duration === "1") {
         history.pushState({ values }, "", `/playstation_plus/`);
       } else {
-        history.pushState({ values }, "", `/playstation_plus/${values.subscriptionType}/${duration}`);
+        history.pushState({ values }, "", `/playstation_plus/${values.subscriptionType}/${values.duration}`);
       }
 
       const updatedPrices = await getPsnPsPlusPrice(values);
