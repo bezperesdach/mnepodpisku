@@ -7,10 +7,10 @@ import Link from "next/link";
 
 const services: Service[] = [
   {
-    name: "PlayStation пополнение",
+    name: "PlayStation Пополнение",
     value: "playstation",
     imageSrc: "/catalogue_icons/playstation_top_up.jpg",
-    alt: "Playstation пополнение",
+    alt: "Playstation Пополнение",
   },
   {
     name: "PlayStation Plus",
@@ -25,10 +25,10 @@ const services: Service[] = [
     alt: "PlayStation Аккаунт баннер",
   },
   {
-    name: "Spotify премиум",
+    name: "Spotify Премиум",
     value: "spotify",
     imageSrc: "/catalogue_icons/spotify.jpg",
-    alt: "Spotify премиум",
+    alt: "Spotify Премиум",
   },
 ];
 
