@@ -10,7 +10,7 @@ export default function MainLayout({
   return (
     <>
       <MainNavbar />
-      {children}
+      <main className="min-h-[calc(100vh-334px)] flex flex-col justify-start items-center flex-1 w-full">{children}</main>
       <Footer />
     </>
   );

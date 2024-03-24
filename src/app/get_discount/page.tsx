@@ -17,11 +17,14 @@ export const metadata: Metadata = {
 
 function Blog() {
   return (
-    <main className="h-[calc(100%-260px)] flex flex-col justify-start items-start w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
-      <h1 className="text-3xl font-semibold tracking-tight">Получи бесплатные лиры за оставленный отзыв!</h1>
+    <div className="w-full flex gap-4 max-w-screen-lg mt-4 mb-6 p-6 rounded-3xl bg-[#0c1430]">
+      <div className="flex flex-col gap-2 w-full">
+        <h1 className="text-3xl font-semibold tracking-tight">Получи бесплатные лиры за оставленный отзыв!</h1>
 
-      <div className=" bg-base-200 mt-6 lg:mt-10 w-full py-4 px-6 rounded-md">
-        <p className="text-2xl lg:text-3xl w-full text-center">Где была совершена покупка?</p>
+        <p className="text-muted-foreground">Выбери где ты совершил свою покупку</p>
+
+        <p className="text-3xl font-semibold tracking-tight mt-4">Выбери где была соврешена покупка</p>
+
         <div className="flex flex-wrap gap-x-4 gap-y-2 w-full">
           <Link
             className="flex flex-col flex-grow justify-center items-center bg-gradient-to-r from-[#b50fa0] to-[#55117a] shadow-lg rounded-xl p-8 my-4 min-w-[320px]"
@@ -30,14 +33,14 @@ function Blog() {
             <p className="font-bold text-2xl text-white">WILDBERRIES</p>
           </Link>
           <Link
-            className="flex flex-col flex-grow justify-center items-center bg-secondary shadow-lg rounded-xl p-8 my-4 min-w-[320px]"
+            className="flex flex-col flex-grow justify-center items-center bg-primary shadow-lg rounded-xl p-8 my-4 min-w-[320px]"
             href="/get_discount/vk"
           >
-            <p className="font-bold text-2xl text-white">ДАННЫЙ САЙТ</p>
+            <p className="font-bold text-2xl text-white ">ДАННЫЙ САЙТ</p>
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 
