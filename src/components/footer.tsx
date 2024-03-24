@@ -65,7 +65,7 @@ export function Footer({}) {
                   <a href="https://oplata.info/info/" target="_blank" rel="noopener noreferrer">
                     Мои покупки
                   </a>
-                  <a href="/oferta.docx" target="_blank" rel="noopener noreferrer">
+                  <a href="/oferta.pdf" target="_blank" rel="noopener noreferrer">
                     Оферта
                   </a>
                 </div>
