@@ -128,8 +128,8 @@ function WbActivate() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <div className="flex flex-col items-center w-full max-w-[1240px] mx-auto px-2 sm:px-4 mb-2 ">
-      <div className="w-full border-2 border-primary rounded-xl max-w-2xl mt-6 bg-[#0d1531]">
+    <div className="flex flex-col items-center w-full max-w-screen-lg mx-auto px-2 sm:px-4 mb-2 ">
+      <div className="w-full border-2 border-primary rounded-xl max-w-2xl mt-6 bg-[#0c1430]">
         <div className="flex justify-between items-center gap-2 px-2 lg:px-6 py-4 w-full border-b-2 border-primary mb-2">
           <div className="w-12 h-auto font-bold text-lg lg:text-3xl">
             {state.activationStep + 1 < totalSteps && (

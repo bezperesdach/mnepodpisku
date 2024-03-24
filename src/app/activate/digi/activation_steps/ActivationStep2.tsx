@@ -2,6 +2,9 @@ import TextInput from "@/components/TextInput/TextInput";
 import { ActivationTypes } from "@/utils/activationUtils";
 import { cn } from "@/lib/utils";
 import React, { ChangeEvent, useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Checkbox } from "@/components/ui/checkbox";
 
 type Props = {
   email: string;
@@ -237,12 +240,17 @@ const ActivationStep2: React.FC<Props> = ({
         )}
 
         <div className="flex gap-2 items-start mt-2 max-w-xs ">
-          <input
-            name="accessCodeAcknowledge"
-            type="checkbox"
-            className={cn("checkbox checkbox-secondary", { "checkbox-error": !accessCodeAcknowledge })}
+          <Checkbox
             checked={accessCodeAcknowledge}
-            onChange={validateInput}
+            onCheckedChange={(checked) => {
+              changeAccessCodeAcknowledgement(checked as boolean);
+
+              if (checked) {
+                setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "" }));
+              } else {
+                setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "Вы должны согласиться" }));
+              }
+            }}
           />
 
           <p className="text-sm">
@@ -251,23 +259,17 @@ const ActivationStep2: React.FC<Props> = ({
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center gap-2">
-          <a
-            className="btn btn-secondary text-white my-2"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="/guides/kak_vkluchit_2fa_na_akaunte_psn"
-          >
-            У меня нет резервного кода
-          </a>
-          <a
-            className="btn btn-secondary text-white my-2"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="/guides/gde_posmotret_rezervnyi_kod"
-          >
-            Где найти резервный код?
-          </a>
+        <div className="flex flex-wrap justify-center items-center gap-2 mt-2">
+          <Button asChild>
+            <Link target="_blank" rel="noopener noreferrer" href="/guides/kak_vkluchit_2fa_na_akaunte_psn">
+              У меня нет резервного кода
+            </Link>
+          </Button>
+          <Button asChild>
+            <Link target="_blank" rel="noopener noreferrer" href="/guides/gde_posmotret_rezervnyi_kod">
+              Где найти резервный код?
+            </Link>
+          </Button>
         </div>
       </div>
     </div>
