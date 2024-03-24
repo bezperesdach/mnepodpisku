@@ -150,7 +150,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
                 "pointer-events-none": formik.isSubmitting,
               })}
             >
-              {!loading && !formik.isSubmitting ? (
+              {!loading && !formik.isSubmitting && value ? (
                 <p>ОПЛАТИТЬ {value && <span className="text-[#fee525] text-xl font-bold">{value}₽</span>}</p>
               ) : (
                 <SyncIcon className="animate-spin" />
