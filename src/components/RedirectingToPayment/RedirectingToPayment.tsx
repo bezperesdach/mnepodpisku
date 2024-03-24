@@ -64,8 +64,8 @@ const RedirectingToPayment = ({ onRedirect }: Props) => {
 
   return (
     <Drawer open={state.paymentLink !== ""} onOpenChange={cancelRedirect}>
-      <DrawerContent className="focus:outline-none">
-        <div className="mx-auto w-full max-w-sm focus:border-2 border-blue-500">
+      <DrawerContent>
+        <div className="mx-auto w-full max-w-sm">
           <DrawerHeader className="text-left !pointer-events-none">
             <DrawerTitle>Перенаправляем на страницу оплаты</DrawerTitle>
             <DrawerDescription>

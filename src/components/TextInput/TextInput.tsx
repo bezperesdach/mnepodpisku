@@ -43,7 +43,7 @@ function getIOSInputEventHandlers() {
   };
 }
 
-const TextInputV2 = ({ hidden = false, icon, label, toolTip, error, className, ...props }: InputProps) => {
+const TextInput = ({ hidden = false, icon, label, toolTip, error, className, ...props }: InputProps) => {
   return (
     <div className={cn("grid w-full items-center gap-1", className)}>
       {label && (
@@ -92,4 +92,4 @@ const TextInputV2 = ({ hidden = false, icon, label, toolTip, error, className, .
   );
 };
 
-export default TextInputV2;
+export default TextInput;

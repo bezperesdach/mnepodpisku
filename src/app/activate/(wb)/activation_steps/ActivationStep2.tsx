@@ -151,7 +151,7 @@
 //               error={inputError}
 //             />
 //             <p
-//               className={cn("text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2", {
+//               className={cn("text-sm text-center bg-[#030712] border-2 border-red-400 p-2 rounded-lg mt-2", {
 //                 hidden: !chatMessageSent,
 //               })}
 //             >
@@ -191,7 +191,7 @@
 //             </div>
 
 //             <p
-//               className={cn("text-sm text-center bg-base-300 border-2 border-error p-2 rounded-lg mt-2", {
+//               className={cn("text-sm text-center bg-[#030712] border-2 border-red-400 p-2 rounded-lg mt-2", {
 //                 hidden: !chequeSent,
 //               })}
 //             >
