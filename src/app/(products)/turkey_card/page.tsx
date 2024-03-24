@@ -34,9 +34,9 @@ export default function Playstation({ searchParams }: Props) {
   const ip = headers().get("x-forwarded-for");
 
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
-        <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
+        <h1 className="text-3xl font-semibold tracking-tight" id="heading">
           ПРИОБРЕСТИ ОДНОРАЗОВУЮ ТУРЕЦКУЮ КАРТУ С БАЛАНСОМ
         </h1>
       </div>

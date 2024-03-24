@@ -9,7 +9,7 @@ import { HashIcon, SyncIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { useContext, useEffect, useState } from "react";
 import * as Yup from "yup";
-import TextInputV2 from "@/components/TextInput/TextInputV2";
+import TextInputV2 from "@/components/TextInput/TextInput";
 import { Button } from "@/components/ui/button";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { ym } from "@/utils/ym";

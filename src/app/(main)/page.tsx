@@ -35,7 +35,7 @@ export default async function Home() {
       <AllServices />
       <Reviews />
       {/* <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
-        <h1 className="text-3xl lg:text-4xl font-bold">Помогаем приобретать подписки на зарубежные сервисы</h1>
+        <h1 className="text-3xl font-semibold tracking-tight">Помогаем приобретать подписки на зарубежные сервисы</h1>
       </div>
 
       <div className="mt-10">

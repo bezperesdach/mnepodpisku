@@ -1,8 +1,9 @@
+"use client";
+
 import { cn } from "@/lib/utils";
-import InputError from "./InputError";
-// import { QuestionIcon } from "@primer/octicons-react";
 import { Input } from "../ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Label } from "@radix-ui/react-label";
 
 type TextInputProps = {
   hidden?: boolean;
@@ -16,37 +17,57 @@ type TextInputProps = {
 
 type InputProps = TextInputProps & React.InputHTMLAttributes<HTMLInputElement>;
 
-const TextInput = ({ hidden = false, maxWidth = false, icon, label, toolTip, error, className, ...props }: InputProps) => {
+const isIOS = (): boolean => {
+  if (typeof window !== "undefined") {
+    const ua = window.navigator.userAgent;
+    const isIPad = !!ua.match(/iPad/i);
+    const isIPhone = !!ua.match(/iPhone/i);
+    return isIPad || isIPhone;
+  }
+
+  return false;
+};
+
+function getIOSInputEventHandlers() {
+  if (isIOS()) {
+    return {};
+  }
+
+  return {
+    onTouchStart: (e: any) => {
+      e.currentTarget.style.fontSize = "16px";
+    },
+    onBlur: (e: any) => {
+      e.currentTarget.style.fontSize = "";
+    },
+  };
+}
+
+const TextInputV2 = ({ hidden = false, icon, label, toolTip, error, className, ...props }: InputProps) => {
   return (
-    <div className={(cn("form-control w-full", { "max-w-xs": maxWidth, "opacity-0": hidden }), className)}>
+    <div className={cn("grid w-full items-center gap-1", className)}>
       {label && (
-        <div className="label">
-          <div
-            className={cn("flex gap-1 items-center", {
-              "tooltip cursor-pointer max-[524px]:before:-translate-x-[25%] max-[524px]:max-w-xs min-[1200px]:before:-translate-x-[25%]":
-                toolTip,
-            })}
-            data-tip={toolTip}
-          >
-            <span className="label-text">{label}</span>
-            {toolTip && (
-              <Popover>
-                <PopoverContent>
-                  В данном поле необходимо указать сумму лир которую нужно зачислить на ваш счет PlayStation аккаунта
-                </PopoverContent>
-                <PopoverTrigger className="bg-primary hover:bg-primary/90 w-fit px-2 rounded-lg">?</PopoverTrigger>
-              </Popover>
-            )}
-          </div>
-        </div>
+        <Label className="flex gap-2" htmlFor="email">
+          {label}
+          {toolTip && (
+            <Popover>
+              <PopoverContent>{toolTip}</PopoverContent>
+              <PopoverTrigger className="bg-primary hover:bg-primary/90 w-fit px-2 rounded-lg">?</PopoverTrigger>
+            </Popover>
+          )}
+        </Label>
       )}
-      <div className="relative">
+      <div
+        className={cn("relative", {
+          "mb-6": !error,
+        })}
+      >
         <Input
+          {...getIOSInputEventHandlers()}
           {...props}
-          className={cn("input input-bordered w-full", {
-            "pl-10": icon,
-            "input-error hover:outline-error focus:outline-error": error,
-            "border-base-content border-opacity-20 hover:outline-primary focus:outline-primary": !error,
+          className={cn("text-base bg-[#1b2a63]", {
+            "pl-8": icon,
+            "border-red-500/80 hover:border-red-500 focus:border-red-500 hover:outline-red-500 focus-visible:ring-red-500": error,
           })}
           id={props.name}
           value={props.value}
@@ -54,12 +75,21 @@ const TextInput = ({ hidden = false, maxWidth = false, icon, label, toolTip, err
           aria-errormessage={`${props.name}-error`}
           type={props.type}
         />
-        {icon && <div className="absolute left-0 top-0 bottom-0 flex items-center justify-center pl-3">{icon}</div>}
-        <div className="absolute right-0 top-0 bottom-0 flex items-center z-10"></div>
+        {icon && (
+          <div
+            className={cn("absolute left-0 top-0 bottom-0 flex items-center justify-center pl-2.5 text-primary", {
+              "text-red-500": error,
+            })}
+          >
+            {icon}
+          </div>
+        )}
       </div>
-      <InputError error={error} />
+      <label className="text-red-500" id={`${label}-error`}>
+        <span className="text-sm text-error">{error}</span>
+      </label>
     </div>
   );
 };
 
-export default TextInput;
+export default TextInputV2;

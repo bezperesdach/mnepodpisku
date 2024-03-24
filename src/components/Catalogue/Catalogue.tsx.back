@@ -45,7 +45,7 @@
 
 //   return (
 //     <>
-//       <div className="flex flex-col w-full max-w-[1240px] h-[64px] mx-auto pt-2 lg:pt-8">
+//       <div className="flex flex-col w-full max-w-screen-lg h-[64px] mx-auto pt-2 lg:pt-8">
 //         <div className={cn("flex w-full justify-end items-center")}>
 //           <button onClick={toggleCatalogue}>
 //             {" "}

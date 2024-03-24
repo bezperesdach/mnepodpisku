@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 function Blog() {
   return (
     <main className="h-[calc(100%-260px)] flex flex-col justify-start items-start w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
-      <h1 className="text-3xl lg:text-4xl font-bold">Получи бесплатные лиры за оставленный отзыв!</h1>
+      <h1 className="text-3xl font-semibold tracking-tight">Получи бесплатные лиры за оставленный отзыв!</h1>
 
       <div className=" bg-base-200 mt-6 lg:mt-10 w-full py-4 px-6 rounded-md">
         <p className="text-2xl lg:text-3xl w-full text-center">Где была совершена покупка?</p>
