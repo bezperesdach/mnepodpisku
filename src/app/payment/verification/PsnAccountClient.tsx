@@ -35,7 +35,7 @@ function PsnAccountClient({ code }: Props) {
         value
       )
     ) {
-      if (!value.toLowerCase().endsWith(".ru")) {
+      if (!value.trimEnd().toLowerCase().endsWith(".ru")) {
         setError("");
       } else {
         setError("Email не должен оканчиваться на '.ru'");
