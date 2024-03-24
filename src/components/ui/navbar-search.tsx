@@ -33,12 +33,11 @@ export function NavbarSearch({ ...props }: DialogProps) {
       <Button
         variant="outline"
         className={cn(
-          "relative h-full w-full justify-start rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none md:w-40 lg:w-64"
+          "relative h-full w-full justify-start rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none md:w-40 lg:w-64 min-w-[42px]"
         )}
         onClick={() => setOpen(true)}
         {...props}
       >
-        <span className="hidden sm:flex md:hidden"> </span>
         <span className="inline-flex sm:hidden lg:inline-flex">Поиск по сайту...</span>
         <span className="hidden md:inline-flex lg:hidden">Поиск...</span>
         <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] h-5 select-none items-center gap-1 rounded border bg-primary px-1.5 font-mono text-[10px] font-medium opacity-100 flex">
