@@ -1,11 +1,7 @@
-import React from "react";
-import HeroChoose from "@/components/HeroChoose/HeroChoose";
 import Faq from "@/components/Faq/Faq";
 import Question from "@/components/Faq/Question";
 import FormComponent from "./FormComponent";
-import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
-import { isSearchParamValid } from "@/utils/utils";
 import Reviews from "@/components/Reviews/review";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";

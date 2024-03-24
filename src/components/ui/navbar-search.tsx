@@ -38,6 +38,7 @@ export function NavbarSearch({ ...props }: DialogProps) {
         onClick={() => setOpen(true)}
         {...props}
       >
+        <span className="hidden sm:flex md:hidden"> </span>
         <span className="inline-flex sm:hidden lg:inline-flex">Поиск по сайту...</span>
         <span className="hidden md:inline-flex lg:hidden">Поиск...</span>
         <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] h-5 select-none items-center gap-1 rounded border bg-primary px-1.5 font-mono text-[10px] font-medium opacity-100 flex">
@@ -74,13 +75,13 @@ export function NavbarSearch({ ...props }: DialogProps) {
               key={"playstation_plus_popular"}
               value={"playstation_plus_popular"}
               onSelect={() => {
-                runCommand(() => router.push("ps_plus"));
+                runCommand(() => router.push("playstation_plus"));
               }}
             >
               <div className="relative flex justify-center items-center mr-2 h-5 w-5">
                 <Image
                   className="w-auto h-full"
-                  src="/catalogue_icons/bw/ps_plus.png"
+                  src="/catalogue_icons/bw/playstation_plus.png"
                   alt="PlayStation Plus логотип"
                   fill
                   style={{ objectFit: "contain" }}

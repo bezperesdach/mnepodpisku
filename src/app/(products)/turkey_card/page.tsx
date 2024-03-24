@@ -3,7 +3,6 @@ import React from "react";
 import Faq from "@/components/Faq/Faq";
 import Question from "@/components/Faq/Question";
 import FormComponent from "./FormComponent";
-import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isAmountValid, isSearchParamValid } from "@/utils/utils";
 import Reviews from "@/components/Reviews/review";
@@ -79,25 +78,6 @@ export default function Playstation({ searchParams }: Props) {
           </p>
         </Question>
       </Faq>
-
-      <RedirectingToPayment />
     </div>
   );
 }
-
-// export const head: DocumentHead = {
-//   title: "МНЕПОДПИСКУ",
-//   meta: [
-//     {
-//       name: "description",
-//       content:
-//         "Сервис для приобретения подписок на различные онлайн сервисы. Принимаем к оплате карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
-//     },
-//   ],
-//   links: [
-//     {
-//       rel: "canonical",
-//       href: "https://mnepodpisku.ru/",
-//     },
-//   ],
-// };

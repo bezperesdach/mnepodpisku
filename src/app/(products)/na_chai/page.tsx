@@ -1,6 +1,5 @@
 import React from "react";
 import FormComponent from "./FormComponent";
-import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isAmountValid } from "@/utils/utils";
 import Reviews from "@/components/Reviews/review";
@@ -51,8 +50,6 @@ export default function PsEaPlay({ searchParams }: Props) {
       </div>
 
       <Reviews />
-
-      <RedirectingToPayment />
     </div>
   );
 }

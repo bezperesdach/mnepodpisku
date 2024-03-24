@@ -1,6 +1,5 @@
 "use client";
 
-import { ym } from "@/utils/ym";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,22 +7,6 @@ import { Skeleton } from "../ui/skeleton";
 
 export default function LeaveVkReview() {
   return (
-    // <Link
-    //   className="flex flex-col w-full justify-center items-center shadow-lg rounded-xl px-8 py-2 bg-[#0178ff] mb-4 max-w-screen-lg mt-4"
-    //   href="https://vk.com/topic-221413404_49184185"
-    //   target="_blank"
-    //   rel="noopener noreferrer"
-    //   onClick={() => {
-    //     ym("reachGoal", "leaveVkReview");
-    //   }}
-    // >
-    //   <p className="text-2xl font-bold text-white text-center">Оставь отзыв в ВК</p>
-    //   <p className="text-xl mt-1 text-white text-center">Получи скидку на следующую покупку!</p>
-    //   <Button variant="outline" className="my-2">
-    //     ОСТАВИТЬ ОТЗЫВ
-    //   </Button>
-    // </Link>
-
     <div className="w-full flex justify-center items-center mt-4">
       <div className="w-full max-w-screen-lg px-2 ">
         <div className="w-full flex flex-col gap-2"></div>

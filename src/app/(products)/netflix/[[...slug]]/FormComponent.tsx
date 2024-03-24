@@ -1,14 +1,12 @@
 "use client";
 
 import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
-import PaymentOptions from "@/components/PaymentOptions/PaymentOptions";
-import PriceComponent from "@/components/PriceComponent.tsx/PriceComponent";
 import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
 import { getNetflixPrice } from "@/serverActions/calculatePriceActions";
 import { getNetflixPaymentLink } from "@/serverActions/createPaymentUrls";
 import { cn } from "@/lib/utils";
 import { ym } from "@/utils/ym";
-import { LockIcon, SyncIcon } from "@primer/octicons-react";
+import { SyncIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { usePathname, useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";

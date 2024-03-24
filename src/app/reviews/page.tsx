@@ -2,7 +2,6 @@ import React from "react";
 import Faq from "@/components/Faq/Faq";
 import Question from "@/components/Faq/Question";
 
-import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import Reviews from "@/components/Reviews/review";
 
@@ -66,8 +65,6 @@ export default function PsEaPlay() {
           </p>
         </Question>
       </Faq>
-
-      <RedirectingToPayment />
     </div>
   );
 }
