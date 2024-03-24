@@ -6,7 +6,8 @@ import ActivationStep1 from "./activation_steps/ActivationStep1";
 import ActivationStep2 from "./activation_steps/ActivationStep2";
 import ActivationStep3 from "./activation_steps/ActivationStep3";
 import { ActivationTypes } from "@/utils/activationUtils";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Активация",
@@ -115,9 +116,9 @@ function DigiClient({ activationCode, activationName }: Props) {
   });
 
   return (
-    <div className="flex flex-col items-center w-full max-w-[1240px] mx-auto px-2 sm:px-4 mb-8">
-      <div className="w-full border-2 border-secondary rounded-xl max-w-2xl mt-6">
-        <div className="flex justify-between items-center gap-2 px-2 lg:px-6 py-4 w-full border-b-2 border-secondary mb-6">
+    <div className="flex flex-col items-center w-full max-w-screen-lg mx-auto px-2 sm:px-4 mb-2 ">
+      <div className="w-full border-2 border-primary rounded-xl max-w-2xl mt-6 bg-[#0c1430]">
+        <div className="flex justify-between items-center gap-2 px-2 lg:px-6 py-4 w-full border-b-2 border-primary mb-2">
           <div className="w-12 h-auto font-bold text-lg lg:text-3xl">
             <p>{state.activationStep + 1}/3</p>
           </div>
@@ -159,21 +160,15 @@ function DigiClient({ activationCode, activationName }: Props) {
 				{state.activationStep === 2 && <Activation_step_3  />} */}
         </>
 
-        <div className="flex justify-between items-center gap-2 min-h-[82px] px-6 py-4 w-full border-t-2 border-secondary mt-6">
-          {state.activationStep !== 0 ? (
-            <button className="btn btn-secondary text-white" onClick={() => dispatch({ type: "decrease_activation_step" })}>
-              Назад
-            </button>
-          ) : (
-            <div />
-          )}
+        <div className="flex justify-between items-center gap-2 min-h-[82px] px-6 py-4 w-full border-t-2 border-primary mt-6">
+          {state.activationStep !== 0 ? <Button onClick={() => dispatch({ type: "decrease_activation_step" })}>Назад</Button> : <div />}
           {state.activationStep !== totalSteps - 1 ? (
-            <button
-              className={cn("btn btn-secondary text-white", { "btn-disabled ": !state.allowedToNextStage })}
+            <Button
+              className={cn("", { " pointer-events-none bg-secondary text-muted-foreground": !state.allowedToNextStage })}
               onClick={() => dispatch({ type: "increase_activation_step" })}
             >
               Далее
-            </button>
+            </Button>
           ) : (
             <div />
           )}

@@ -13,6 +13,8 @@ import Image5 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_
 import Image6 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_6.png";
 import Image7 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_7.png";
 import Image8 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_komputer/pc_photo_8.png";
+import { GuidesTabs } from "@/components/guides-tabs";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Как отправить сообщение продавцу ВБ через компьютер",
@@ -30,32 +32,37 @@ export const metadata: Metadata = {
 
 function page() {
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
-      <GoBack />
-      <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
-        Как отправить сообщение в чат с продавцом на Wildberries?
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
+      <h1 className="text-3xl font-semibold tracking-tight" id="heading">
+        Как отправить сообщение в чат с продавцом на Wildberries на компьютере?
       </h1>
-      <div role="tablist" className="tabs tabs-boxed mt-4">
-        <a role="tab" className="tab tab-active">
-          Компьютер
-        </a>
-        <Link role="tab" className="tab" href="/guides/kak_otrpavit_soobshenie_prodavcu_wb_telefon">
-          Телефон
-        </Link>
+
+      <div className="flex flex-wrap gap-4 mt-2">
+        <GoBack />
+        <GuidesTabs>
+          <p role="tab">Компьютер</p>
+          <Link role="tab" href="/guides/kak_otrpavit_soobshenie_prodavcu_wb_telefon">
+            Телефон
+          </Link>
+        </GuidesTabs>
       </div>
 
       <p className="my-4">
         Для того чтобы отправить сообщение продавцу на Wildberries необходимо перейти на официальный сайт Wildberries <br />
         Убедитесь, что вы вошли под учетной записью, через которую была совершена покупка
       </p>
-      <a
-        href="https://www.wildberries.ru/security/login?returnUrl=https%3A%2F%2Fwww.wildberries.ru%2Fsecurity%2Flogin%2F/"
-        className="btn btn-outline mt-2"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Войти на Wildberries под своей учетной записью
-      </a>
+
+      <Button asChild>
+        <Link
+          href="https://www.wildberries.ru/security/login?returnUrl=https%3A%2F%2Fwww.wildberries.ru%2Fsecurity%2Flogin%2F/"
+          className="mt-2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Войти на Wildberries под своей учетной записью
+        </Link>
+      </Button>
+
       <Image
         src={Image1}
         alt="Войти на сайт"

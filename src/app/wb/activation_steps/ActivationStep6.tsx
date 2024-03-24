@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
 import { ConfirmationType, UserData } from "../WbClient";
+import { Button } from "@/components/ui/button";
 
 type Props = {
   userData: UserData;
@@ -46,7 +47,7 @@ const ActivationStep5 = ({ userData, confirmationType, changeTitle }: Props) => 
     <div className="flex flex-col justify-between items-center px-6 py-2 w-full min-h-[320px]">
       <div className="flex flex-col justify-start items-center gap-2 w-full">
         <p>Ваше сообщение активации готово</p>
-        <div className="bg-base-200 p-4 rounded-lg">
+        <div className="bg-background p-4 rounded-lg">
           <p>{actionName(userData.type)}</p>
           <p>КОД АКТИВАЦИИ {userData.code}</p>
           {confirmationType === "cheque" ? (
@@ -68,8 +69,8 @@ const ActivationStep5 = ({ userData, confirmationType, changeTitle }: Props) => 
           )}
           {(userData.type === "аккаунт" || userData.type === "аккаунт_баланс") && <p>EMAIL {userData.email}</p>}
         </div>
-        <button
-          className={cn("btn btn-primary mt-2 text-white", {
+        <Button
+          className={cn("", {
             "pointer-events-none": !canCopyCode,
           })}
           onClick={() => {
@@ -88,11 +89,11 @@ const ActivationStep5 = ({ userData, confirmationType, changeTitle }: Props) => 
           }}
         >
           {canCopyCode ? "НАЖМИТЕ ДЛЯ КОПИРОВАНИЯ" : "СКОПИРОВАНО"}
-        </button>
+        </Button>
       </div>
       <div className="flex flex-col justify-start items-center gap-2 w-full mt-8">
         <p className="text-center">
-          Вышлите данное сообщение <strong className="text-warning font-bold">ТЕКСТОМ</strong> удобным для вас способом ниже:
+          Вышлите данное сообщение <strong className="text-yellow-400 font-bold">ТЕКСТОМ</strong> удобным для вас способом ниже:
         </p>
         <div className="flex gap-4 mt-2 mb-2">
           <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">

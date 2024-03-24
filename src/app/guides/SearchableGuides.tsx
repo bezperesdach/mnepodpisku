@@ -15,8 +15,8 @@ function SearchableGuides({ instructions }: Props) {
   const [searchInput, setSearchInput] = useState("");
   return (
     <>
+      <p className="mt-4 mb-1">Что вы хотите найти?</p>
       <TextInput
-        label="Что хотите найти?"
         className="input input-bordered w-full max-w-xs"
         value={searchInput}
         onChange={(ev) => setSearchInput(ev.currentTarget.value)}

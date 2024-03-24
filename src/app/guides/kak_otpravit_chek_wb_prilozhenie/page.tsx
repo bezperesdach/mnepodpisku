@@ -13,6 +13,7 @@ import Image3 from "@/../public/guides_data/kak_otpravit_chek_wb_prilozhenie/pri
 import Image4 from "@/../public/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_4.png";
 import Image5 from "@/../public/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_5.png";
 import Image6 from "@/../public/guides_data/kak_otpravit_chek_wb_prilozhenie/prilozhenie_image_6.png";
+import { GuidesTabs } from "@/components/guides-tabs";
 
 export const metadata: Metadata = {
   title: "Как отправить чек ВБ через мобильное приложение",
@@ -30,24 +31,24 @@ export const metadata: Metadata = {
 
 function page() {
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
-      <GoBack />
-      <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
+      <h1 className="text-3xl font-semibold tracking-tight" id="heading">
         Как отправить чек ВБ через мобильное приложение?
       </h1>
 
-      <div role="tablist" className="tabs tabs-boxed mt-4">
-        <Link role="tab" className="tab" href="/guides/kak_otpravit_chek_wb_komputer">
-          Компьютер
-        </Link>
+      <div className="flex flex-wrap gap-4 mt-2">
+        <GoBack />
+        <GuidesTabs>
+          <Link role="tab" href="/guides/kak_otpravit_chek_wb_komputer">
+            Компьютер
+          </Link>
 
-        <p role="tab" className="tab tab-active">
-          Приложение
-        </p>
+          <p role="tab">Приложение</p>
 
-        <Link role="tab" className="tab" href="/guides/kak_otpravit_chek_wb_telefon">
-          Моб. Сайт
-        </Link>
+          <Link role="tab" href="/guides/kak_otpravit_chek_wb_telefon">
+            Моб. Сайт
+          </Link>
+        </GuidesTabs>
       </div>
 
       <p className="my-4">

@@ -57,8 +57,8 @@ export const metadata: Metadata = {
 
 function Guides() {
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
-      <h1 className="text-3xl lg:text-4xl font-bold">Инструкции</h1>
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
+      <h1 className="text-3xl font-semibold tracking-tight">Инструкции</h1>
       <SearchableGuides instructions={instructions} />
     </div>
   );

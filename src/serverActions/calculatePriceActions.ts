@@ -30,14 +30,11 @@ const salesCalculator = (amount: number, price: number) => {
   return Math.round(discountAmount);
 };
 
-export async function getPsnBalancePrice(values: { amount: string; oneTimeCard: boolean }) {
+export async function getPsnBalancePrice(values: { amount: string }) {
   try {
     const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
-    calcUrl.searchParams.append(
-      "product_id",
-      values.oneTimeCard ? process.env.DIGISELLER_PSN_ONETIMECARD_ID! : process.env.DIGISELLER_PSN_BASE_ID!
-    );
+    calcUrl.searchParams.append("product_id", process.env.DIGISELLER_PSN_BASE_ID!);
     calcUrl.searchParams.append("currency", "RBX");
     calcUrl.searchParams.append("unit_cnt", values.amount.toString());
 
@@ -130,11 +127,11 @@ export async function getPsnPsPlusPrice(values: { subscriptionType: string; dura
     calcUrl.searchParams.append("product_id", process.env.DIGISELLER_PS_PLUS_BASE_ID!);
     calcUrl.searchParams.append("currency", "RBX");
 
-    if (values.subscriptionType !== "essential" || values.duration !== "1month") {
+    if (values.subscriptionType !== "essential" || values.duration !== "1") {
       calcUrl.searchParams.append(
         "options[]",
         `${process.env.DIGISELLER_PS_PLUS_OPTION_ID!}:${
-          process.env[`DIGISELLER_PS_PLUS_${values.subscriptionType.toUpperCase()}_${values.duration.toUpperCase()}_VARIANT_ID`]
+          process.env[`DIGISELLER_PS_PLUS_${values.subscriptionType.toUpperCase()}_${values.duration}MONTH_VARIANT_ID`]
         }`
       );
     }
@@ -184,10 +181,10 @@ export async function getPsEaPlayPrice(duration: string) {
     calcUrl.searchParams.append("product_id", process.env.DIGISELLER_PS_EA_PLAY_BASE_ID!);
     calcUrl.searchParams.append("currency", "RBX");
 
-    if (duration !== "1month") {
+    if (duration !== "1") {
       calcUrl.searchParams.append(
         "options[]",
-        `${process.env.DIGISELLER_PS_EA_PLAY_OPTION_ID}:${process.env[`DIGISELLER_PS_EA_PLAY_${duration.toUpperCase()}_VARIANT_ID`]}`
+        `${process.env.DIGISELLER_PS_EA_PLAY_OPTION_ID}:${process.env[`DIGISELLER_PS_EA_PLAY_${duration}MONTH_VARIANT_ID`]}`
       );
     }
 
@@ -236,11 +233,11 @@ export async function getSpotifyPrice(values: { subscriptionType: string; durati
     calcUrl.searchParams.append("product_id", process.env.DIGISELLER_SPOTIFY_BASE_ID!);
     calcUrl.searchParams.append("currency", "RBX");
 
-    if (values.subscriptionType !== "individual" || values.duration !== "1month") {
+    if (values.subscriptionType !== "individual" || values.duration !== "1") {
       calcUrl.searchParams.append(
         "options[]",
         `${process.env.DIGISELLER_SPOTIFY_OPTION_ID}:${
-          process.env[`DIGISELLER_SPOTIFY_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`]
+          process.env[`DIGISELLER_SPOTIFY_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`]
         }`
       );
     }
@@ -289,11 +286,11 @@ export async function getTinderPrice(values: { subscriptionType: string; duratio
     calcUrl.searchParams.append("product_id", process.env.DIGISELLER_TINDER_BASE_ID!);
     calcUrl.searchParams.append("currency", "RBX");
 
-    if (values.subscriptionType !== "plus" || values.duration !== "1month") {
+    if (values.subscriptionType !== "plus" || values.duration !== "1") {
       calcUrl.searchParams.append(
         "options[]",
         `${process.env.DIGISELLER_TINDER_OPTION_ID!}:${
-          process.env[`DIGISELLER_TINDER_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`]
+          process.env[`DIGISELLER_TINDER_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`]
         }`
       );
     }
@@ -342,11 +339,11 @@ export async function getXboxPrice(values: { subscriptionType: string; duration:
     calcUrl.searchParams.append("product_id", process.env.DIGISELLER_XBOX_GAME_PASS_ULTIMATE_BASE_ID!);
     calcUrl.searchParams.append("currency", "RBX");
 
-    if (values.subscriptionType !== "ultimate" || values.duration !== "1month") {
+    if (values.subscriptionType !== "ultimate" || values.duration !== "1") {
       calcUrl.searchParams.append(
         "options[]",
         `${process.env.DIGISELLER_XBOX_GAME_PASS_ULTIMATE_OPTION_ID!}:${process.env[
-          `DIGISELLER_XBOX_GAME_PASS_ULTIMATE_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`
+          `DIGISELLER_XBOX_GAME_PASS_ULTIMATE_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`
         ]!}`
       );
     }
@@ -396,12 +393,10 @@ export async function getYoutubePrice(duration: string) {
     calcUrl.searchParams.append("product_id", process.env.DIGISELLER_YOUTUBE_PREMIUM_BASE_ID!);
     calcUrl.searchParams.append("currency", "RBX");
 
-    if (duration !== "1month") {
+    if (duration !== "1") {
       calcUrl.searchParams.append(
         "options[]",
-        `${process.env.DIGISELLER_YOUTUBE_PREMIUM_OPTION_ID!}:${process.env[
-          `DIGISELLER_YOUTUBE_PREMIUM_${duration.toUpperCase()}_VARIANT_ID`
-        ]!}`
+        `${process.env.DIGISELLER_YOUTUBE_PREMIUM_OPTION_ID!}:${process.env[`DIGISELLER_YOUTUBE_PREMIUM_${duration}MONTH_VARIANT_ID`]!}`
       );
     }
 
@@ -450,11 +445,11 @@ export async function getAdobeCCPrice(duration: string) {
     calcUrl.searchParams.append("product_id", process.env.DIGISELLER_ADOBE_CREATIVE_CLOUD_BASE_ID!);
     calcUrl.searchParams.append("currency", "RBX");
 
-    if (duration !== "1month") {
+    if (duration !== "1") {
       calcUrl.searchParams.append(
         "options[]",
         `${process.env.DIGISELLER_ADOBE_CREATIVE_CLOUD_OPTION_ID!}:${process.env[
-          `DIGISELLER_ADOBE_CREATIVE_CLOUD_${duration.toUpperCase()}_VARIANT_ID`
+          `DIGISELLER_ADOBE_CREATIVE_CLOUD_${duration}MONTH_VARIANT_ID`
         ]!}`
       );
     }
@@ -503,11 +498,11 @@ export async function getDiscordPrice(values: { subscriptionType: string; durati
     calcUrl.searchParams.append("product_id", process.env.DIGISELLER_DISCORD_BASE_ID!);
     calcUrl.searchParams.append("currency", "RBX");
 
-    if (values.subscriptionType !== "nitro_basic" || values.duration !== "1month") {
+    if (values.subscriptionType !== "nitro_basic" || values.duration !== "1") {
       calcUrl.searchParams.append(
         "options[]",
         `${process.env.DIGISELLER_DISCORD_OPTION_ID!}:${process.env[
-          `DIGISELLER_DISCORD_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`
+          `DIGISELLER_DISCORD_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`
         ]!}`
       );
     }
@@ -556,11 +551,11 @@ export async function getNetflixPrice(values: { subscriptionType: string; durati
     calcUrl.searchParams.append("product_id", process.env.DIGISELLER_NETFLIX_BASE_ID!);
     calcUrl.searchParams.append("currency", "RBX");
 
-    if (values.subscriptionType !== "basic" || values.duration !== "1month") {
+    if (values.subscriptionType !== "basic" || values.duration !== "1") {
       calcUrl.searchParams.append(
         "options[]",
         `${process.env.DIGISELLER_NETFLIX_OPTION_ID}:${
-          process.env[`DIGISELLER_NETFLIX_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`]
+          process.env[`DIGISELLER_NETFLIX_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`]
         }`
       );
     }

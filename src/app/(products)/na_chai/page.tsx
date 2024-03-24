@@ -1,9 +1,8 @@
 import React from "react";
 import FormComponent from "./FormComponent";
-import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isAmountValid } from "@/utils/utils";
-import Reviews from "@/components/Reviews/Reviews";
+import Reviews from "@/components/Reviews/review";
 import { headers } from "next/headers";
 
 export const metadata: Metadata = {
@@ -28,9 +27,9 @@ type Props = {
 export default function PsEaPlay({ searchParams }: Props) {
   const ip = headers().get("x-forwarded-for");
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
-        <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
+        <h1 className="text-3xl font-semibold tracking-tight" id="heading">
           Пожертвуй деньги на чай и печеньки
         </h1>
       </div>
@@ -51,8 +50,6 @@ export default function PsEaPlay({ searchParams }: Props) {
       </div>
 
       <Reviews />
-
-      <RedirectingToPayment />
     </div>
   );
 }

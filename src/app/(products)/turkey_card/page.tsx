@@ -3,10 +3,9 @@ import React from "react";
 import Faq from "@/components/Faq/Faq";
 import Question from "@/components/Faq/Question";
 import FormComponent from "./FormComponent";
-import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
 import { isAmountValid, isSearchParamValid } from "@/utils/utils";
-import Reviews from "@/components/Reviews/Reviews";
+import Reviews from "@/components/Reviews/review";
 import { headers } from "next/headers";
 import Description from "./Description";
 
@@ -34,9 +33,9 @@ export default function Playstation({ searchParams }: Props) {
   const ip = headers().get("x-forwarded-for");
 
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
-        <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
+        <h1 className="text-3xl font-semibold tracking-tight" id="heading">
           ПРИОБРЕСТИ ОДНОРАЗОВУЮ ТУРЕЦКУЮ КАРТУ С БАЛАНСОМ
         </h1>
       </div>
@@ -52,7 +51,7 @@ export default function Playstation({ searchParams }: Props) {
       <Reviews />
 
       <Faq>
-        <Question title="Как это работает?" open>
+        <Question title="Как это работает?">
           <p>
             После успешной покупки вам будут выданы данные карты, а также дополнительно будет выдан турецкий адрес
             <br />
@@ -79,25 +78,6 @@ export default function Playstation({ searchParams }: Props) {
           </p>
         </Question>
       </Faq>
-
-      <RedirectingToPayment />
     </div>
   );
 }
-
-// export const head: DocumentHead = {
-//   title: "МНЕПОДПИСКУ",
-//   meta: [
-//     {
-//       name: "description",
-//       content:
-//         "Сервис для приобретения подписок на различные онлайн сервисы. Принимаем к оплате карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
-//     },
-//   ],
-//   links: [
-//     {
-//       rel: "canonical",
-//       href: "https://mnepodpisku.ru/",
-//     },
-//   ],
-// };

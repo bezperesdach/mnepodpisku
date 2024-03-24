@@ -12,6 +12,8 @@ import Image3 from "@/../public/guides_data/kak_otpravit_chek_wb_komputer/pc_ima
 import Image4 from "@/../public/guides_data/kak_otpravit_chek_wb_komputer/pc_image_4.png";
 import Image5 from "@/../public/guides_data/kak_otpravit_chek_wb_komputer/pc_image_5.png";
 import Image6 from "@/../public/guides_data/kak_otpravit_chek_wb_komputer/pc_image_6.png";
+import { GuidesTabs } from "@/components/guides-tabs";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Как отправить чек ВБ с компьютера",
@@ -29,36 +31,39 @@ export const metadata: Metadata = {
 
 function page() {
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
-      <GoBack />
-      <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
+      <h1 className="text-3xl font-semibold tracking-tight" id="heading">
         Как отправить чек ВБ с компьютера?
       </h1>
 
-      <div role="tablist" className="tabs tabs-boxed mt-4">
-        <p role="tab" className="tab tab-active">
-          Компьютер
-        </p>
+      <div className="flex flex-wrap gap-4 mt-2">
+        <GoBack />
+        <GuidesTabs>
+          <p role="tab">Компьютер</p>
 
-        <Link role="tab" className="tab" href="/guides/kak_otpravit_chek_wb_prilozhenie">
-          Приложение
-        </Link>
+          <Link role="tab" href="/guides/kak_otpravit_chek_wb_prilozhenie">
+            Приложение
+          </Link>
 
-        <Link role="tab" className="tab" href="/guides/kak_otpravit_chek_wb_telefon">
-          Моб. Сайт
-        </Link>
+          <Link role="tab" href="/guides/kak_otpravit_chek_wb_telefon">
+            Моб. Сайт
+          </Link>
+        </GuidesTabs>
       </div>
 
       <p className="my-4">
         Для отправки чека с компьютера Вам необходимо открыть{" "}
-        <a className="text-secondary underline" href="https://www.wildberries.ru/" target="_blank" rel="noopener noreferrer">
+        <Link className="text-primary underline" href="https://www.wildberries.ru/" target="_blank" rel="noopener noreferrer">
           Сайт Wildberries
-        </a>{" "}
+        </Link>{" "}
         и войти под пользователем, который осуществлял покупку карточки
       </p>
-      <a href="https://www.wildberries.ru/" className="btn btn-outline" target="_blank" rel="noopener noreferrer">
-        Перейти на сайт Wildberries
-      </a>
+
+      <Button asChild>
+        <Link href="https://www.wildberries.ru/" className="mt-2" target="_blank" rel="noopener noreferrer">
+          Перейти на сайт Wildberries
+        </Link>
+      </Button>
 
       <p className="my-4">
         После успешного входа в аккаунт перейдите в раздел <strong>"Профиль"</strong>

@@ -8,10 +8,38 @@ export function roundDownToMaxHundreds(inputNumber: number): number {
   return hundreds - 1;
 }
 
+export const getAmountFromSlug = (slug: string | string[] | undefined) => {
+  let amount;
+  if (slug) {
+    if (typeof slug === "string") {
+      amount = slug;
+    }
+
+    if (Array.isArray(slug) && slug.length > 0) {
+      amount = slug[0];
+    }
+  }
+
+  if (amount) {
+    const num = parseInt(amount, 10);
+    if (!isNaN(num) && Number.isInteger(num)) {
+      return amount;
+    }
+  }
+
+  return undefined;
+};
+
 export const isAmountValid = (amount: string | string[] | undefined) => {
   if (amount && typeof amount === "string" && !isNaN(Number(amount))) {
     return amount;
+  } else if (Array.isArray(amount) && amount.length > 0 && typeof amount[0] === "string" && !isNaN(Number(amount[0]))) {
+    if (Number.isInteger(amount[0])) {
+      return amount[0];
+    }
+    return undefined;
   }
+
   return undefined;
 };
 

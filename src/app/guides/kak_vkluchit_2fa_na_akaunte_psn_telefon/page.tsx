@@ -21,6 +21,8 @@ import Image10 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_tel
 import Image11 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_11.png";
 import Image12 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_12.png";
 import Image13 from "@/../public/guides_data/kak_vkluchit_2fa_na_akaunte_psn_telefon/telefon_image_13.png";
+import { GuidesTabs } from "@/components/guides-tabs";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Как включить 2FA на аккаунте PSN через телефон",
@@ -38,30 +40,29 @@ export const metadata: Metadata = {
 
 function Page() {
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
-      <GoBack />
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
       <h1 className="text-3xl lg:text-4xl font-bold  " id="heading">
         Как включить 2FA на аккаунте PSN?
       </h1>
-      <div role="tablist" className="tabs tabs-boxed mt-4">
-        <Link role="tab" className="tab" href="/guides/kak_vkluchit_2fa_na_akaunte_psn_komputer">
-          Компьютер
-        </Link>
 
-        <p role="tab" className="tab tab-active">
-          Телефон
-        </p>
+      <div className="flex flex-wrap gap-4 mt-2">
+        <GoBack />
+        <GuidesTabs>
+          <Link role="tab" href="/guides/kak_vkluchit_2fa_na_akaunte_psn_komputer">
+            Компьютер
+          </Link>
+
+          <p role="tab">Телефон</p>
+        </GuidesTabs>
       </div>
 
       <p className="my-6">Перейдите на официальный сайт Playstation и войдите в свой Турецкий аккаунт</p>
-      <a
-        href="https://store.playstation.com/en-tr/pages/latest"
-        className="btn btn-outline mt-2"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Войти на сайт PlayStation
-      </a>
+
+      <Button asChild>
+        <Link href="https://store.playstation.com/en-tr/pages/latest" className="mt-2" target="_blank" rel="noopener noreferrer">
+          Войти на сайт PlayStation
+        </Link>
+      </Button>
 
       <p className="my-6">
         Нажмите кнопку <strong>Sing in</strong> и войдите в аккаунт

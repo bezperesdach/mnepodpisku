@@ -16,6 +16,7 @@ import Image7 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/7.pn
 import Image8 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/8.png";
 import Image9 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/9.png";
 import Image10 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/10.png";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Как создать Турецкий PlayStation аккаунт",
@@ -34,18 +35,15 @@ export const metadata: Metadata = {
 
 async function KakSamomuSozdatTureckiyAkaunt({}) {
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-10">
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-10">
       <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
         <GoBack />
-        <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
+        <h1 className="text-3xl font-semibold tracking-tight" id="heading">
           Как создать турецкий аккаунт в PS Store на PS4/PS5
         </h1>
       </div>
 
-      <div
-        className="mt-10 bg-sky-800 flex flex-col items-center pt-6 pb-12 px-5"
-        style={{ background: "#00439C", borderRadius: "30px" }}
-      >
+      <div className="mt-10 bg-accent rounded-lg flex flex-col items-center pt-6 pb-12 px-5">
         <div className="flex w-full max-w-[1029px] flex-col mb-8 max-md:max-w-full">
           <h2 className="text-white text-4xl font-black self-stretch mt-12 max-md:max-w-full max-md:mt-10">
             Как создать турецкий аккаунт в PSN в 2023 <br />и не словить бан?
@@ -120,14 +118,11 @@ async function KakSamomuSozdatTureckiyAkaunt({}) {
           <ul>
             <li className="mb-2 py-2">
               1. Для начала перейдите на официальный сайт Playstation Store (Турецкий) - <br />
-              <a
-                href="https://www.playstation.com/en-tr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-20  py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
-              >
-                Перейти
-              </a>
+              <Button className="mt-2" asChild>
+                <Link href="https://www.playstation.com/en-tr/" target="_blank" rel="noopener noreferrer">
+                  Перейти
+                </Link>
+              </Button>
             </li>
 
             <Image
@@ -282,9 +277,9 @@ async function KakSamomuSozdatTureckiyAkaunt({}) {
           Самый простой способ решения проблемы купить турецкий аккаунт PS за символическую сумму в "мнеподписку.рф" <br />
           Мы создадим его для вас сами на вашу почту, а все его данные вы сможете сменить позже <br />
         </div>
-        <Link href="/playstation_account" className="btn btn-secondary font-black text-2xl w-full max-w-full text-white">
-          КУПИТЬ
-        </Link>
+        <Button className="text-2xl font-black w-full min-h-[48px]" asChild>
+          <Link href="/playstation_account">КУПИТЬ</Link>
+        </Button>
       </div>
     </div>
   );

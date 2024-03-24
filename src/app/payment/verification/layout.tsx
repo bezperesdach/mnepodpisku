@@ -1,5 +1,5 @@
-import Footer from "@/components/Footer/Footer";
-import Navbar from "@/components/Navbar/Navbar";
+import { Footer } from "@/components/footer";
+import { MainNavbar } from "@/components/ui/main-navbar";
 
 export default function MainLayout({
   children, // will be a page or nested layout
@@ -8,9 +8,9 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <Navbar isNotFound />
+      <MainNavbar />
 
-      <main className="h-[calc(100%-260px)] flex flex-col justify-center items-center flex-1">{children}</main>
+      <main className="min-h-[calc(100vh-334px)] flex flex-col justify-start items-center flex-1 w-full">{children}</main>
 
       <Footer />
     </>

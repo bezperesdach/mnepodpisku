@@ -38,7 +38,7 @@ export async function getDonationPaymentLink(amount: number, ip: string | null) 
   };
 }
 
-export async function getPsnBalancePaymentLink(values: { amount: string; oneTimeCard: boolean }, ip: string | null) {
+export async function getPsnBalancePaymentLink(values: { amount: string }, ip: string | null) {
   let singleIp = null;
   if (ip !== null) {
     if (ip.indexOf(",") !== -1) {
@@ -53,7 +53,7 @@ export async function getPsnBalancePaymentLink(values: { amount: string; oneTime
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      product_id: values.oneTimeCard ? process.env.DIGISELLER_PSN_ONETIMECARD_ID! : process.env.DIGISELLER_PSN_BASE_ID,
+      product_id: process.env.DIGISELLER_PSN_BASE_ID,
       unit_cnt: Number(values.amount),
       lang: "ru-RU",
       ip: singleIp ?? "127.0.0.1",
@@ -64,10 +64,7 @@ export async function getPsnBalancePaymentLink(values: { amount: string; oneTime
 
   const paymentUrl = new URL("https://oplata.info/asp2/pay_rk.asp");
 
-  paymentUrl.searchParams.append(
-    "id_d",
-    values.oneTimeCard ? process.env.DIGISELLER_PSN_ONETIMECARD_ID! : process.env.DIGISELLER_PSN_BASE_ID!
-  );
+  paymentUrl.searchParams.append("id_d", process.env.DIGISELLER_PSN_BASE_ID!);
   paymentUrl.searchParams.append("id_po", id_po);
   paymentUrl.searchParams.append("curr", "RBX");
   paymentUrl.searchParams.append("lang", "ru-RU");
@@ -123,7 +120,7 @@ export async function getPsnPsPlusPaymentLink(values: { subscriptionType: string
         {
           id: process.env.DIGISELLER_PS_PLUS_OPTION_ID,
           value: {
-            id: process.env[`DIGISELLER_PS_PLUS_${values.subscriptionType.toUpperCase()}_${values.duration.toUpperCase()}_VARIANT_ID`],
+            id: process.env[`DIGISELLER_PS_PLUS_${values.subscriptionType.toUpperCase()}_${values.duration}MONTH_VARIANT_ID`],
           },
         },
       ],
@@ -199,7 +196,7 @@ export async function getSpotifyPaymentLink(values: { subscriptionType: string; 
         {
           id: process.env.DIGISELLER_SPOTIFY_OPTION_ID,
           value: {
-            id: process.env[`DIGISELLER_SPOTIFY_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
+            id: process.env[`DIGISELLER_SPOTIFY_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
           },
         },
       ],
@@ -237,7 +234,7 @@ export async function getTinderPaymentLink(values: { subscriptionType: string; d
         {
           id: process.env.DIGISELLER_TINDER_OPTION_ID,
           value: {
-            id: process.env[`DIGISELLER_TINDER_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
+            id: process.env[`DIGISELLER_TINDER_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
           },
         },
       ],
@@ -263,7 +260,7 @@ export async function getTinderPaymentLink(values: { subscriptionType: string; d
 }
 
 // eslint-disable-next-line no-unused-vars
-export async function getXboxPaymentLink(values: { subscriptionType: string; duration: string }) {
+export async function getXboxPaymentLink(/* values: { subscriptionType: string; duration: string } */) {
   const paramsRes = await fetch("https://api.digiseller.ru/api/purchases/options", {
     cache: "no-store",
     method: "POST",
@@ -384,7 +381,7 @@ export async function getDiscordPaymentLink(values: { subscriptionType: string; 
         {
           id: process.env.DIGISELLER_DISCORD_OPTION_ID,
           value: {
-            id: process.env[`DIGISELLER_DISCORD_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
+            id: process.env[`DIGISELLER_DISCORD_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
           },
         },
       ],
@@ -422,7 +419,7 @@ export async function getNetflixPaymentLink(values: { subscriptionType: string; 
         {
           id: process.env.DIGISELLER_NETFLIX_OPTION_ID,
           value: {
-            id: process.env[`DIGISELLER_NETFLIX_${values.duration.toUpperCase()}_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
+            id: process.env[`DIGISELLER_NETFLIX_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`],
           },
         },
       ],

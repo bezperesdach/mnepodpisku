@@ -1,7 +1,9 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import TextInput from "@/components/TextInput/TextInput";
 import { UserData } from "../WbClient";
-import cn from "@/utils/cn";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 type Props = {
   userData: UserData;
@@ -51,7 +53,7 @@ const ActivationStep4: React.FC<Props> = ({
             value
           )
         ) {
-          if (userData.type === "аккаунт") {
+          if (userData.type === "аккаунт" || userData.type === "аккаунт_баланс") {
             if (!value.toLowerCase().endsWith(".ru")) {
               setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
             } else {
@@ -153,15 +155,6 @@ const ActivationStep4: React.FC<Props> = ({
         }
 
         onChange("secondAccessCode", value);
-        break;
-
-      case "accessCodeAcknowledge":
-        if (!accessCodeAcknowledge) {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "" }));
-        } else {
-          setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "Вы должны согласиться" }));
-        }
-        changeAccessCodeAcknowledgement(!accessCodeAcknowledge);
         break;
     }
   };
@@ -280,12 +273,17 @@ const ActivationStep4: React.FC<Props> = ({
           )}
 
           <div className="flex gap-2 items-start mt-2 max-w-xs ">
-            <input
-              name="accessCodeAcknowledge"
-              type="checkbox"
-              className={cn("checkbox checkbox-secondary", { "checkbox-error": !accessCodeAcknowledge })}
+            <Checkbox
               checked={accessCodeAcknowledge}
-              onChange={validateInput}
+              onCheckedChange={(checked) => {
+                changeAccessCodeAcknowledgement(checked as boolean);
+
+                if (checked) {
+                  setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "" }));
+                } else {
+                  setErrors((prevErrors) => ({ ...prevErrors, accessCodeAcknowledge: "Вы должны согласиться" }));
+                }
+              }}
             />
 
             <p className="text-sm">
@@ -294,32 +292,26 @@ const ActivationStep4: React.FC<Props> = ({
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-2">
-            <a
-              className="btn btn-secondary text-white my-2"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="/guides/kak_vkluchit_2fa_na_akaunte_psn"
-            >
-              У меня нет резервного кода
-            </a>
-            <a
-              className="btn btn-secondary text-white my-2"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="/guides/gde_posmotret_rezervnyi_kod"
-            >
-              Где найти резервный код?
-            </a>
+          <div className="flex flex-wrap justify-center items-center gap-2 mt-2">
+            <Button asChild>
+              <Link target="_blank" rel="noopener noreferrer" href="/guides/kak_vkluchit_2fa_na_akaunte_psn">
+                У меня нет резервного кода
+              </Link>
+            </Button>
+            <Button asChild>
+              <Link target="_blank" rel="noopener noreferrer" href="/guides/gde_posmotret_rezervnyi_kod">
+                Где найти резервный код?
+              </Link>
+            </Button>
           </div>
         </div>
       )}
       {(userData.type === "аккаунт" || userData.type === "аккаунт_баланс") && (
         <div className="flex flex-col justify-start items-center gap-2 w-full">
           <p className="text-center">
-            Введите Email на который <span className="font-bold text-warning">НЕ ЗАРЕГИСТРИРОВАН</span> аккаунт PlayStation
+            Введите Email на который <span className="font-bold text-yellow-400">НЕ ЗАРЕГИСТРИРОВАН</span> аккаунт PlayStation
           </p>
-          <p className="text-center">На нее будет зарегистрирован новый Турецкий аккаунт PlayStation!</p>
+          <p className="text-center">На него будет зарегистрирован новый Турецкий аккаунт PlayStation!</p>
 
           <TextInput
             maxWidth
@@ -336,7 +328,7 @@ const ActivationStep4: React.FC<Props> = ({
             error={errors.email}
           />
 
-          <div className="border-2 border-warning flex justify-center items-center gap-2 max-w-3xl bg-base-300 rounded-md p-4 my-4">
+          <div className="border-2 border-yellow-400 flex justify-center items-center gap-2 max-w-3xl bg-background rounded-md p-4 my-4">
             <p className="z-[1] font-bold text-center">
               Убедитесь, что у вас есть доступ к данной почте. После регистрации мы НЕ СМОЖЕМ восстановить аккаунт в случае ошибки.
             </p>

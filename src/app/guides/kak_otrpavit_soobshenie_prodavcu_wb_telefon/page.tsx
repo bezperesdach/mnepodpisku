@@ -12,6 +12,7 @@ import Image5 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_
 import Image6 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_6.png";
 import Image7 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_7.png";
 import Image8 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_8.png";
+import { GuidesTabs } from "@/components/guides-tabs";
 
 export const metadata: Metadata = {
   title: "Как отправить сообщение продавцу ВБ через телефон",
@@ -29,24 +30,25 @@ export const metadata: Metadata = {
 
 function page() {
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
-      <GoBack />
-      <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
-        Как отправить сообщение в чат с продавцом на Wildberries?
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
+      <h1 className="text-3xl font-semibold tracking-tight" id="heading">
+        Как отправить сообщение в чат с продавцом на Wildberries на сайте через телефон?
       </h1>
-      <div role="tablist" className="tabs tabs-boxed mt-4">
-        <Link role="tab" className="tab" href="/guides/kak_otrpavit_soobshenie_prodavcu_wb_komputer">
-          Компьютер
-        </Link>
 
-        <p role="tab" className="tab tab-active">
-          Телефон
-        </p>
+      <div className="flex flex-wrap gap-4 mt-2">
+        <GoBack />
+        <GuidesTabs>
+          <Link role="tab" href="/guides/kak_otrpavit_soobshenie_prodavcu_wb_komputer">
+            Компьютер
+          </Link>
+
+          <p role="tab">Телефон</p>
+        </GuidesTabs>
       </div>
 
-      <p className="mt-4 border-2 border-warning p-2 rounded-lg text-lg">
+      <p className="mt-4 border-2 border-yellow-300 p-2 rounded-lg text-lg">
         <span className="font-black">ВНИМАНИЕ!</span> Отправить сообщение продавцу можно только с сайта Wildberries,{" "}
-        <span className="font-black text-error">В ПРИЛОЖЕНИИ ТАКОГО ФУНКЦИОНАЛА НЕТ!</span>
+        <span className="font-black text-red-400">В ПРИЛОЖЕНИИ ТАКОГО ФУНКЦИОНАЛА НЕТ!</span>
       </p>
 
       <p className="my-4">
@@ -88,6 +90,7 @@ function page() {
       <p className="my-4">
         В открывшемся окне вам необходимо перейти в раздел <strong>&quot;Покупки&quot;</strong>
       </p>
+
       <Image
         src={Image3}
         alt="Перейти в покупки"
@@ -112,12 +115,12 @@ function page() {
         className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
       />
 
-      <p className="mt-4 border-2 border-warning p-2 rounded-lg text-lg">
-        <span className="font-black text-warning">НЕ НАШЛИ КНОПКУ &quot;ЧАТ С ПРОДАВЦОМ&quot;?</span> <br />
+      <p className="mt-4 border-2 border-yellow-300 p-2 rounded-lg text-lg">
+        <span className="font-black text-yellow-400">НЕ НАШЛИ КНОПКУ &quot;ЧАТ С ПРОДАВЦОМ&quot;?</span> <br />
         <br />
-        ОТПРАВИТЬ СООБЩЕНИЕ ПРОДАВЦУ МОЖНО ТОЛЬКО <span className="font-black text-warning">С САЙТА WILDBERRIES</span>, <br />
+        ОТПРАВИТЬ СООБЩЕНИЕ ПРОДАВЦУ МОЖНО ТОЛЬКО <span className="font-black text-yellow-400">С САЙТА WILDBERRIES</span>, <br />
         <br />
-        <span className="font-black text-error">В ПРИЛОЖЕНИИ ТАКОГО ФУНКЦИОНАЛА НЕТ!</span>
+        <span className="font-black text-red-400">В ПРИЛОЖЕНИИ ТАКОГО ФУНКЦИОНАЛА НЕТ!</span>
       </p>
       <Image
         src={Image5}

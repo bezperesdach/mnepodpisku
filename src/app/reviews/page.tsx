@@ -2,9 +2,8 @@ import React from "react";
 import Faq from "@/components/Faq/Faq";
 import Question from "@/components/Faq/Question";
 
-import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Metadata } from "next";
-import Reviews from "@/components/Reviews/Reviews";
+import Reviews from "@/components/Reviews/review";
 
 export const metadata: Metadata = {
   title: "МнеПодписку отзывы",
@@ -23,9 +22,9 @@ export const metadata: Metadata = {
 
 export default function PsEaPlay() {
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
       <div className="flex flex-col min-[1240px]:flex-row items-start gap-4">
-        <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
+        <h1 className="text-3xl font-semibold tracking-tight" id="heading">
           МНЕПОДПИСКУ ОТЗЫВЫ
         </h1>
       </div>
@@ -43,7 +42,7 @@ export default function PsEaPlay() {
       <Reviews />
 
       <Faq>
-        <Question title="Почему мне стоит довериться вашему сервису?" open>
+        <Question title="Почему мне стоит довериться вашему сервису?">
           <p>
             Наш сервис работает уже больше полугода и за это время мы помогли уже более чем 1000 людей в приобретении различных
             сервисов, мы работаем официально, а также у нас есть группа в ВК в которой есть множество отзывов о нашей работе
@@ -66,8 +65,6 @@ export default function PsEaPlay() {
           </p>
         </Question>
       </Faq>
-
-      <RedirectingToPayment />
     </div>
   );
 }

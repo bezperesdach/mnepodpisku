@@ -1,4 +1,5 @@
-import cn from "@/utils/cn";
+import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
 
 type Props = {
   options: {
@@ -12,19 +13,19 @@ type Props = {
 
 const ToggleSelect = ({ options, value, onSelect }: Props) => {
   return (
-    <div className="w-full flex justify-between gap-4 gap-y-2 lg:gap-y-4 flex-wrap">
+    <div className="w-full flex gap-2 gap-y-2 lg:gap-y-4 flex-wrap mt-1">
       {options.map((option) => (
-        <button
+        <Button
           type="button"
-          className={cn("btn flex-1 min-w-[150px] text-md lg:text-xl h-2 p-2 hover:scale-[105%]", {
-            "btn-primary": value === option.value,
+          className={cn("text-md lg:text-xl hover:scale-[105%]", {
+            "bg-secondary": value !== option.value,
             "sm:max-w-[200px]": options.length === 1,
           })}
           key={option.value}
           onClick={() => onSelect(option.value)}
         >
           {option.name}
-        </button>
+        </Button>
       ))}
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { ym } from "@/utils/ym";
-import React, { Dispatch, createContext, useEffect, useReducer } from "react";
+import React, { Dispatch, createContext, useReducer } from "react";
 
 type StateType = {
   showCatalogue: boolean;
@@ -57,10 +57,6 @@ export const AppContext = createContext<{
 
 export const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  useEffect(() => {
-    dispatch({ type: "set_theme", payload: document.documentElement.dataset.theme ?? "light" });
-  }, []);
 
   return <AppContext.Provider value={{ state, dispatch }}>{children}</AppContext.Provider>;
 };

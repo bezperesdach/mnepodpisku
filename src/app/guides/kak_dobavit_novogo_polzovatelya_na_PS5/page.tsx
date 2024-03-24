@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import Image1 from "@/../public/guides_data/kak_dobavit_novogo_polzovatelya_na_PS5/add_ac_1.png";
 import Image2 from "@/../public/guides_data/kak_dobavit_novogo_polzovatelya_na_PS5/add_ac_2.png";
 import Image3 from "@/../public/guides_data/kak_dobavit_novogo_polzovatelya_na_PS5/add_ac_3.png";
+import { GuidesTabs } from "@/components/guides-tabs";
 
 export const metadata: Metadata = {
   title: "Как добавить нового пользователя на PS5?",
@@ -26,19 +27,20 @@ export const metadata: Metadata = {
 
 function page() {
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
-      <GoBack />
-      <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
+      <h1 className="text-3xl font-semibold tracking-tight" id="heading">
         Как добавить нового пользователя на PS5?
       </h1>
-      <div role="tablist" className="tabs tabs-boxed mt-4">
-        <Link role="tab" className="tab " href="/guides/kak_dobavit_novogo_polzovatelya_na_PS4">
-          PS4
-        </Link>
 
-        <p role="tab" className="tab tab-active">
-          PS5
-        </p>
+      <div className="flex flex-wrap gap-4 mt-2">
+        <GoBack />
+        <GuidesTabs>
+          <Link role="tab" href="/guides/kak_dobavit_novogo_polzovatelya_na_PS4">
+            PS4
+          </Link>
+
+          <p role="tab">PS5</p>
+        </GuidesTabs>
       </div>
 
       <p className="my-4">

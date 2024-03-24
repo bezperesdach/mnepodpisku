@@ -13,6 +13,8 @@ import Image4 from "@/../public//guides_data/gde_posmotret_rezervnyi_kod_telefon
 import Image5 from "@/../public//guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_5.png";
 import Image6 from "@/../public//guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_6.png";
 import Image7 from "@/../public//guides_data/gde_posmotret_rezervnyi_kod_telefon/2fa_mobile_7.png";
+import { GuidesTabs } from "@/components/guides-tabs";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Где найти резервный код от 2FA для PSN аккаунта на телефоне?",
@@ -30,25 +32,25 @@ export const metadata: Metadata = {
 
 function page() {
   return (
-    <div className="flex flex-col w-full max-w-[1240px] mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
-      <GoBack />
-      <h1 className="text-3xl lg:text-4xl font-bold" id="heading">
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8 items-start">
+      <h1 className="text-3xl font-semibold tracking-tight" id="heading">
         Где найти резервный код от 2FA для PSN аккаунта?
       </h1>
 
-      <div role="tablist" className="tabs tabs-boxed mt-4">
-        <Link role="tab" className="tab" href="/guides/gde_posmotret_rezervnyi_kod_komputer">
-          Компьютер
-        </Link>
+      <div className="flex flex-wrap gap-4 mt-2">
+        <GoBack />
+        <GuidesTabs>
+          <Link role="tab" href="/guides/gde_posmotret_rezervnyi_kod_komputer">
+            Компьютер
+          </Link>
 
-        <p role="tab" className="tab tab-active">
-          Телефон
-        </p>
+          <p role="tab">Телефон</p>
+        </GuidesTabs>
       </div>
 
-      <p className="mt-4 border-2 border-warning p-2 rounded-lg text-lg">
+      <p className="mt-4 border-2 border-yellow-300 p-2 rounded-lg text-lg">
         Резервные коды нужны для входа в аккаунт PSN при <strong>включенном 2FA</strong>, для включения 2FA ознакомьтесь с нашей{" "}
-        <Link href="/guides/kak_vkluchit_2fa_na_akaunte_psn" className="text-secondary underline">
+        <Link href="/guides/kak_vkluchit_2fa_na_akaunte_psn" className="text-yellow-400 font-semibold underline">
           ИНСТРУКЦИЕЙ
         </Link>
       </p>
@@ -57,9 +59,13 @@ function page() {
         Для того чтобы получить резервный код через веб-браузер вашего компьютера, необходимо перейти на официальный сайт Sony
         PlayStation и войти, используя учетные данные <strong>вашей турецкой учетной записи</strong>
       </p>
-      <a href="https://www.playstation.com/en-tr/" className="btn btn-outline mt-2" target="_blank" rel="noopener noreferrer">
-        Перейти на официальный сайт
-      </a>
+
+      <Button asChild>
+        <Link href="https://www.playstation.com/en-tr/" className="btn btn-outline mt-2" target="_blank" rel="noopener noreferrer">
+          Перейти на официальный сайт
+        </Link>
+      </Button>
+
       <Image
         src={Image1}
         alt="Зайти на сайт"
