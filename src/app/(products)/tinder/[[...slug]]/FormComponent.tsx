@@ -106,7 +106,7 @@ export default function FormComponent({ subscriptionType }: Props) {
                           {calculatedAmount}₽
                         </p>
                       )}
-                      <p>{value}₽</p>
+                      {value && <p>{value}₽</p>}
                     </>
                   )}
                 </div>

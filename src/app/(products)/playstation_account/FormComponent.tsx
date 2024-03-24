@@ -58,7 +58,7 @@ export default function FormComponent() {
                         {calculatedAmount}₽
                       </p>
                     )}
-                    <p>{value}₽</p>
+                    {value && <p>{value}₽</p>}
                   </>
                 )}
               </div>

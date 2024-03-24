@@ -96,7 +96,7 @@ export default function FormComponent({ receivedDuration }: Props) {
                           {calculatedAmount}₽
                         </p>
                       )}
-                      <p>{value}₽</p>
+                      {value && <p>{value}₽</p>}
                     </>
                   )}
                 </div>
