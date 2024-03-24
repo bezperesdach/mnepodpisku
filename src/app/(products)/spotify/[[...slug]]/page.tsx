@@ -54,7 +54,7 @@ export default function PsEaPlay({ params }: { params: { slug: string | string[]
       </Breadcrumbs>
 
       <ProductHero
-        icon={{ src: "/catalogue_icons/playstation_plus.jpg", alt: "PlayStation Plus баннер" }}
+        icon={{ src: "/catalogue_icons/spotify.jpg", alt: "Spotify Premium баннер" }}
         title="Купить подписку на Spotify Premium в России"
         description="Spotify это крупнейшая музыкальная стриминговая платформа с доступом к миллионам различных треков."
         tags={[
