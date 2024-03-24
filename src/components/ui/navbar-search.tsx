@@ -50,6 +50,7 @@ export function NavbarSearch({ ...props }: DialogProps) {
           <CommandEmpty>Ничего не найдено.</CommandEmpty>
           <CommandGroup heading="Популярные услуги">
             <CommandItem
+              className="cursor-pointer"
               key={"playstation_popular"}
               value={"playstation_popular"}
               onSelect={() => {
@@ -58,8 +59,8 @@ export function NavbarSearch({ ...props }: DialogProps) {
             >
               <div className="relative flex justify-center items-center mr-2 h-5 w-5">
                 <Image
-                  className="w-auto h-full brightness-0 invert"
-                  src="/catalogue_icons/playstation.png"
+                  className="w-auto h-full"
+                  src="/catalogue_icons/bw/playstation.png"
                   alt="PlayStation логотип"
                   fill
                   style={{ objectFit: "contain" }}
@@ -69,6 +70,7 @@ export function NavbarSearch({ ...props }: DialogProps) {
               <span>PlayStation Пополнение</span>
             </CommandItem>
             <CommandItem
+              className="cursor-pointer"
               key={"playstation_plus_popular"}
               value={"playstation_plus_popular"}
               onSelect={() => {
@@ -77,8 +79,8 @@ export function NavbarSearch({ ...props }: DialogProps) {
             >
               <div className="relative flex justify-center items-center mr-2 h-5 w-5">
                 <Image
-                  className="w-auto h-full brightness-0 invert"
-                  src="/catalogue_icons/ps_plus.png"
+                  className="w-auto h-full"
+                  src="/catalogue_icons/bw/ps_plus.png"
                   alt="PlayStation Plus логотип"
                   fill
                   style={{ objectFit: "contain" }}
@@ -88,6 +90,7 @@ export function NavbarSearch({ ...props }: DialogProps) {
               <span>PlayStation Plus</span>
             </CommandItem>
             <CommandItem
+              className="cursor-pointer"
               key={"playstation_account_popular"}
               value={"playstation_account_popular"}
               onSelect={() => {
@@ -96,8 +99,8 @@ export function NavbarSearch({ ...props }: DialogProps) {
             >
               <div className="relative flex justify-center items-center mr-2 h-5 w-5">
                 <Image
-                  className="w-auto h-full brightness-0 invert"
-                  src="/catalogue_icons/playstation.png"
+                  className="w-auto h-full"
+                  src="/catalogue_icons/bw/playstation.png"
                   alt="PlayStation Аккаунт логотип"
                   fill
                   style={{ objectFit: "contain" }}
@@ -107,6 +110,7 @@ export function NavbarSearch({ ...props }: DialogProps) {
               <span>PlayStation Аккаунт</span>
             </CommandItem>
             <CommandItem
+              className="cursor-pointer"
               key={"spotify_popular"}
               value={"spotify_popular"}
               onSelect={() => {
@@ -115,8 +119,8 @@ export function NavbarSearch({ ...props }: DialogProps) {
             >
               <div className="relative flex justify-center items-center mr-2 h-5 w-5">
                 <Image
-                  className="w-auto h-full brightness-0 invert"
-                  src="/catalogue_icons/spotify.png"
+                  className="w-auto h-full"
+                  src="/catalogue_icons/bw/spotify.png"
                   alt="Spotify Premium логотип"
                   fill
                   style={{ objectFit: "contain" }}
@@ -130,6 +134,7 @@ export function NavbarSearch({ ...props }: DialogProps) {
           <CommandGroup heading="Все сервисы">
             {services.map((service) => (
               <CommandItem
+                className="cursor-pointer"
                 keywords={service.keywords}
                 key={service.name}
                 value={service.value}
@@ -137,6 +142,16 @@ export function NavbarSearch({ ...props }: DialogProps) {
                   runCommand(() => router.push(service.value));
                 }}
               >
+                <div className="relative flex justify-center items-center mr-2 h-5 w-5 ">
+                  <Image
+                    className="w-auto h-full"
+                    src={`/catalogue_icons/bw/${service.value}.png`}
+                    alt={service.name}
+                    fill
+                    style={{ objectFit: "contain" }}
+                    sizes="20vw"
+                  />
+                </div>
                 <span>{service.name}</span>
               </CommandItem>
             ))}
