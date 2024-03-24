@@ -125,9 +125,12 @@ export function HeroCard() {
               {Banners.map((_, index) => (
                 <Button
                   onClick={() => api?.scrollTo(index)}
-                  className={cn("flex justify-center items-center px-2 w-4 h-4 bg-accent rounded-full transition-all duration-300", {
-                    "bg-primary": current === index + 1,
-                  })}
+                  className={cn(
+                    "flex justify-center items-center px-2 min-w-4 min-h-4 w-4 h-4 bg-accent rounded-full transition-all duration-300",
+                    {
+                      "bg-primary": current === index + 1,
+                    }
+                  )}
                   key={index}
                 />
               ))}
