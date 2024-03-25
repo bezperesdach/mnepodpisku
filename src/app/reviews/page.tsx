@@ -4,6 +4,12 @@ import Question from "@/components/Faq/Question";
 
 import { Metadata } from "next";
 import Reviews from "@/components/Reviews/review";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { BreadcrumbItem } from "@/components/ui/breadcrumb";
+import { PopularServices } from "../(main)/popular-services";
+import { ProductHero } from "@/components/product-hero";
+import { FlameIcon, StarFillIcon, ZapIcon } from "@primer/octicons-react";
+import { AllServices } from "../(main)/all-services";
 
 export const metadata: Metadata = {
   title: "МнеПодписку отзывы",
@@ -22,24 +28,35 @@ export const metadata: Metadata = {
 
 export default function PsEaPlay() {
   return (
-    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-8">
-      <div className="flex flex-col min-[1240px]:flex-row items-start gap-4">
-        <h1 className="text-3xl font-semibold tracking-tight" id="heading">
-          МНЕПОДПИСКУ ОТЗЫВЫ
-        </h1>
-      </div>
+    <div className="flex flex-col">
+      <Breadcrumbs>
+        <BreadcrumbItem>Отзывы</BreadcrumbItem>
+      </Breadcrumbs>
 
-      <div className="mt-10">
-        <h2 className="text-xl lg:text-2xl font-bold" id="description">
-          Описание
-        </h2>
-        <p className="text-lg font-medium mt-4">
-          На данной странице вы можете ознакомиться с отзывами людей, которые уже воспользовались нашими услугами. При нажатии на иконку
-          VK на отзыве вы увидите данный отзыв в нашей группе ВК.
-        </p>
-      </div>
+      <ProductHero
+        icon={{ src: "/catalogue_icons/reviews.webp", alt: "Картинка отзывов" }}
+        title="МнеПодписку Отзывы"
+        description="На данной странице вы найдете отзывы людей которые уже воспользовались нашими услугами"
+        tags={[
+          {
+            icon: <StarFillIcon className="text-primary" />,
+            text: "БЕЗОПАСНО",
+          },
+          {
+            icon: <FlameIcon className="text-[#f95721]" />,
+            text: "ВЫГОДНО",
+          },
+
+          {
+            icon: <ZapIcon className=" text-primary" />,
+            text: "БЫСТРО",
+          },
+        ]}
+      />
 
       <Reviews />
+      <PopularServices />
+      <AllServices />
 
       <Faq>
         <Question title="Почему мне стоит довериться вашему сервису?">
@@ -68,20 +85,3 @@ export default function PsEaPlay() {
     </div>
   );
 }
-
-// export const head: DocumentHead = {
-//   title: "МНЕПОДПИСКУ",
-//   meta: [
-//     {
-//       name: "description",
-//       content:
-//         "Сервис для приобретения подписок на различные онлайн сервисы. Принимаем к оплате карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
-//     },
-//   ],
-//   links: [
-//     {
-//       rel: "canonical",
-//       href: "https://mnepodpisku.ru/",
-//     },
-//   ],
-// };
