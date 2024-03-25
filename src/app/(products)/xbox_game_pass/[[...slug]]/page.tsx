@@ -14,15 +14,15 @@ export const metadata: Metadata = {
   description:
     "Быстрая покупка подписки xbox game pass на личный аккаунт. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
   openGraph: {
-    title: "Подписка XBOX GAME PASS 2023 Купить",
+    title: "Подписка XBOX GAME PASS 2024 Купить",
     description:
       "Быстрая покупка подписки xbox game pass на личный аккаунт. Оплатить можно используя карты МИР, Qiwi, Яндекс Pay, PayPal, WebMoney и многие другие системы.",
-    url: "/xbox",
+    url: "/xbox_game_pass",
     images: ["/og_images_catalogue/xbox.png"],
     type: "website",
   },
   alternates: {
-    canonical: "/xbox",
+    canonical: "/xbox_game_pass",
   },
 };
 

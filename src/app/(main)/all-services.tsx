@@ -88,10 +88,6 @@ export function AllServices() {
         <div className="w-full flex justify-between">
           <div className="flex justify-between items-end w-full">
             <h2 className="text-3xl font-semibold tracking-tight">Все услуги</h2>
-            {/* <button className="flex gap-1 items-center font-medium rounded-lg bg-primary p-2 pr-4">
-              <GrabberIcon size={24} />
-              ВСЕ СЕРВИСЫ
-            </button> */}
           </div>
         </div>
 
