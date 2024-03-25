@@ -145,7 +145,7 @@ export function NavbarSearch({ ...props }: DialogProps) {
                 <div className="relative flex justify-center items-center mr-2 h-5 w-5 ">
                   <Image
                     className="w-auto h-full"
-                    src={`/catalogue_icons/bw/${service.value}.png`}
+                    src={service.src}
                     alt={service.name}
                     fill
                     style={{ objectFit: "contain" }}
