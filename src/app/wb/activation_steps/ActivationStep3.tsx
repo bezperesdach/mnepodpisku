@@ -41,11 +41,15 @@ import ImageMessageMob7 from "@/../public/guides_data/kak_otrpavit_soobshenie_pr
 import ImageMessageMob8 from "@/../public/guides_data/kak_otrpavit_soobshenie_prodavcu_wb_telefon/chat_phone_8.png";
 
 import { Switch } from "@/components/ui/switch";
+import { cn } from "@/lib/utils";
 
 type Props = {
   userData: UserData;
+  confirmationShow: boolean;
   confirmationType: ConfirmationType;
   confirmationSent: boolean;
+  // eslint-disable-next-line no-unused-vars
+  changeConfirmationShow: (type: boolean) => void;
   // eslint-disable-next-line no-unused-vars
   changeConfirmationType: (type: ConfirmationType) => void;
   // eslint-disable-next-line no-unused-vars
@@ -65,8 +69,10 @@ function padZero(value: number) {
 const ActivationStep3 = ({
   userData,
   onChange,
+  confirmationShow,
   confirmationType,
   confirmationSent,
+  changeConfirmationShow,
   changeConfirmationSent,
   changeConfirmationType,
   changeAllowToNextStage,
@@ -134,92 +140,121 @@ const ActivationStep3 = ({
   }, [userData.price, inputError, confirmationSent]);
 
   return (
-    <div className="flex flex-col justify-between items-center px-6 py-2 w-full min-h-[340px]">
+    <div
+      className={cn("flex flex-col justify-between items-center px-6 py-2 w-full min-h-[340px]", {
+        "justify-center": !confirmationShow,
+      })}
+    >
       {confirmationType === "message" ? (
         <>
           <div className="flex flex-col justify-start items-center gap-2 w-full">
             <div className="flex flex-wrap justify-center gap-2">
-              <Button className="my-2" onClick={() => setOpenGuideModal(true)}>
+              <Button
+                className="my-2"
+                onClick={() => {
+                  changeConfirmationShow(true);
+                  setOpenGuideModal(true);
+                }}
+              >
                 Отправить сообщение продавцу
               </Button>
 
-              <Button className="my-2" onClick={() => changeConfirmationType("cheque")}>
+              <Button variant="secondary" className="my-2" onClick={() => changeConfirmationType("cheque")}>
                 У меня есть чек
               </Button>
             </div>
 
-            <p className="text-sm text-center bg-[#030712] border-2 border-red-400 p-2 rounded-lg mt-2">
-              При ошибочном или намеренном несоблюдении инструкций мы оставляем за собой право в переносе активации на установленный
-              нами срок и/или отказе в активации
-            </p>
+            {confirmationShow && (
+              <>
+                <p className="text-sm text-center bg-[#030712] border-2 border-red-400 p-2 rounded-lg mt-2">
+                  При ошибочном или намеренном несоблюдении инструкций мы оставляем за собой право в переносе активации на установленный
+                  нами срок и/или отказе в активации
+                </p>
 
-            <div className="flex justify-between items-center gap-2 w-full max-w-xs mt-4">
-              <p className="text-xl font-semibold">Сообщение отправлено</p>
-              <Switch checked={confirmationSent} onCheckedChange={() => changeConfirmationSent(!confirmationSent)} />
-            </div>
+                <div className="flex justify-between items-center gap-2 w-full max-w-xs mt-4">
+                  <p className="text-xl font-semibold">Сообщение отправлено</p>
+                  <Switch checked={confirmationSent} onCheckedChange={() => changeConfirmationSent(!confirmationSent)} />
+                </div>
 
-            <TextInput
-              maxWidth
-              label="Укажите сумму приобретения в валюте вашей страны"
-              hidden={!confirmationSent}
-              value={userData.price}
-              onChange={(e) => {
-                const value = e.currentTarget.value.trim().toUpperCase().slice(0, 8);
+                <TextInput
+                  maxWidth
+                  label="Укажите сумму приобретения в валюте вашей страны"
+                  hidden={!confirmationSent}
+                  value={userData.price}
+                  onChange={(e) => {
+                    const value = e.currentTarget.value.trim().toUpperCase().slice(0, 8);
 
-                onChange("price", value);
-              }}
-              type="text"
-              inputMode="numeric"
-              className="input input-primary w-full max-w-xs"
-              spellCheck={false}
-              autoCorrect="off"
-              autoComplete="off"
-              autoCapitalize="off"
-              error={inputError}
-            />
+                    onChange("price", value);
+                  }}
+                  type="text"
+                  inputMode="numeric"
+                  className="input input-primary w-full max-w-xs"
+                  spellCheck={false}
+                  autoCorrect="off"
+                  autoComplete="off"
+                  autoCapitalize="off"
+                  error={inputError}
+                />
+              </>
+            )}
           </div>
         </>
       ) : (
         <>
           <div className="flex flex-col justify-start items-center gap-2 w-full">
             <div className="flex flex-wrap justify-center gap-2 ">
-              <Button className="my-2" onClick={() => setOpenGuideModal(true)}>
+              <Button
+                className="my-2"
+                onClick={() => {
+                  changeConfirmationShow(true);
+                  setOpenGuideModal(true);
+                }}
+              >
                 Отправить чек
               </Button>
-              <Button className="btn btn-secondary text-white my-2" onClick={() => changeConfirmationType("message")}>
+              <Button
+                variant="secondary"
+                className="btn btn-secondary text-white my-2"
+                onClick={() => changeConfirmationType("message")}
+              >
                 У меня нет чека
               </Button>
             </div>
 
-            <p className={"text-sm text-center bg-[#030712] border-2 border-red-400 p-2 rounded-lg mt-2"}>
-              <strong>СКРИНШОТЫ, ПДФ ФАЙЛЫ ИЛИ СООБЩЕНИЯ С ЛИЧНОЙ ПОЧТЫ НЕ ПРИНИМАЕМ.</strong> При ошибочном или намеренном несоблюдении
-              инструкций мы оставляем за собой право в переносе активации на установленный нами срок и/или отказе в активации
-            </p>
+            {confirmationShow && (
+              <>
+                <p className={"text-sm text-center bg-[#030712] border-2 border-red-400 p-2 rounded-lg mt-2"}>
+                  <strong>СКРИНШОТЫ, ПДФ ФАЙЛЫ ИЛИ СООБЩЕНИЯ С ЛИЧНОЙ ПОЧТЫ НЕ ПРИНИМАЕМ.</strong> При ошибочном или намеренном
+                  несоблюдении инструкций мы оставляем за собой право в переносе активации на установленный нами срок и/или отказе в
+                  активации
+                </p>
 
-            <div className="flex justify-between items-center gap-2 w-full max-w-xs mt-4">
-              <p className="text-xl font-semibold">Чек отправлен</p>
-              <Switch checked={confirmationSent} onCheckedChange={() => changeConfirmationSent(!confirmationSent)} />
-            </div>
+                <div className="flex justify-between items-center gap-2 w-full max-w-xs mt-4">
+                  <p className="text-xl font-semibold">Чек отправлен</p>
+                  <Switch checked={confirmationSent} onCheckedChange={() => changeConfirmationSent(!confirmationSent)} />
+                </div>
 
-            <TextInput
-              maxWidth
-              label="Укажите сумму чека в рублях"
-              hidden={!confirmationSent}
-              value={userData.price}
-              onChange={(e) => {
-                const value = e.currentTarget.value.trim().toUpperCase().slice(0, 8);
+                <TextInput
+                  maxWidth
+                  label="Укажите сумму чека в рублях"
+                  hidden={!confirmationSent}
+                  value={userData.price}
+                  onChange={(e) => {
+                    const value = e.currentTarget.value.trim().toUpperCase().slice(0, 8);
 
-                onChange("price", value);
-              }}
-              type="text"
-              inputMode="numeric"
-              className="input input-primary w-full max-w-xs"
-              spellCheck={false}
-              autoCorrect="off"
-              autoComplete="off"
-              autoCapitalize="off"
-              error={inputError}
-            />
+                    onChange("price", value);
+                  }}
+                  type="text"
+                  inputMode="numeric"
+                  className="input input-primary w-full max-w-xs"
+                  spellCheck={false}
+                  autoCorrect="off"
+                  autoComplete="off"
+                  autoCapitalize="off"
+                  error={inputError}
+                />
+              </>
+            )}
           </div>
         </>
       )}

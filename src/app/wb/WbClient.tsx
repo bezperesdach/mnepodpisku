@@ -27,6 +27,7 @@ export type UserData = {
 
 type StateType = {
   userData: UserData;
+  confirmationShow: boolean;
   confirmationType: ConfirmationType;
   confirmationSent: boolean;
   title: string;
@@ -53,6 +54,7 @@ type ActionType =
   | { type: "change_user_data_value"; payload: { name: string; value: string } }
   | { type: "change_allow_to_next_stage"; payload: boolean }
   | { type: "change_cheque_sent"; payload: boolean }
+  | { type: "change_confirmation_show"; payload: boolean }
   | { type: "change_chat_message_sent"; payload: boolean }
   | { type: "change_confirmation_sent"; payload: boolean }
   | { type: "change_access_code_acknowledgement"; payload: boolean };
@@ -68,6 +70,7 @@ const initialState: StateType = {
     secondAccessCode: "",
     priceDate: "",
   },
+  confirmationShow: false,
   confirmationType: "",
   confirmationSent: false,
   accessCodeAcknowledge: true,
@@ -96,6 +99,9 @@ const reducer = (state: StateType, action: ActionType) => {
     }
     case "change_title":
       return { ...state, title: action.payload };
+
+    case "change_confirmation_show":
+      return { ...state, confirmationShow: action.payload };
 
     case "change_user_data_value":
       return { ...state, userData: { ...state.userData, [action.payload.name]: action.payload.value } };
@@ -155,6 +161,8 @@ function WbActivate() {
           {state.activationStep === 1 && (
             <ActivationStep3
               userData={state.userData}
+              confirmationShow={state.confirmationShow}
+              changeConfirmationShow={(value) => dispatch({ type: "change_confirmation_show", payload: value })}
               changeConfirmationType={(value) => dispatch({ type: "change_confirmation_type", payload: value })}
               confirmationType={state.confirmationType}
               confirmationSent={state.confirmationSent}
