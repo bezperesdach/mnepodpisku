@@ -51,7 +51,7 @@ const playstation_topup = {
 	name: "PlayStation пополнение",
 	value: "playstation",
 	src: "/catalogue_icons/bw/playstation.png",
-	keywords: ["psn","плейстейшн","псн","ps4","ps5"]
+	keywords: ["psn","плейстейшн","псн","ps4","ps5","пополнение","лиры"]
 }
 
 const playstation_account = {
