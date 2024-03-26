@@ -48,7 +48,6 @@ function ActivationStep1({ code, changeCode, changeAllowToNextStage, changeTitle
         Прохождение активации займет 5-10 минут, чтобы приступить - введите код с карточки
       </p>
       <TextInput
-        maxWidth
         label="Введите уникальный код"
         value={code}
         onChange={validateCode}

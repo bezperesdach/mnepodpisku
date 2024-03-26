@@ -96,7 +96,6 @@ const ActivationStep1 = ({
       </p>
 
       <TextInput
-        maxWidth
         label="Код с карточки"
         value={userData.code}
         onChange={(el) => validateCode(el.currentTarget.value.toUpperCase().slice(0, 9))}

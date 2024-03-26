@@ -173,7 +173,6 @@ const ActivationStep2: React.FC<Props> = ({
         {/* Other content here */}
 
         <TextInput
-          maxWidth
           label="Email"
           value={email}
           onChange={validateInput}
@@ -188,7 +187,6 @@ const ActivationStep2: React.FC<Props> = ({
         />
 
         <TextInput
-          maxWidth
           label="Пароль"
           value={password}
           onChange={validateInput}
@@ -203,7 +201,6 @@ const ActivationStep2: React.FC<Props> = ({
         />
 
         <TextInput
-          maxWidth
           label="Резервный код"
           placeholder="Например, FQ9aLc"
           toolTip="Доступен при включенном 2FA. Обычно состоит из 6 символов. Пример - FQ9aLc. Найти можно по инструкции ниже"
@@ -221,7 +218,6 @@ const ActivationStep2: React.FC<Props> = ({
 
         {(activationType === "ps_plus" || activationType === "ps_ea_play") && (
           <TextInput
-            maxWidth
             label="2 Резервный код"
             placeholder="Например, Lo7Qlx"
             toolTip="Доступен при включенном 2FA. Обычно состоит из 6 символов. Пример - Lo7Qlx. Найти можно по инструкции ниже"

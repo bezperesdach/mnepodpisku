@@ -177,7 +177,6 @@ const ActivationStep3 = ({
                 </div>
 
                 <TextInput
-                  maxWidth
                   label="Укажите сумму приобретения в валюте вашей страны"
                   hidden={!confirmationSent}
                   value={userData.price}
@@ -235,7 +234,6 @@ const ActivationStep3 = ({
                 </div>
 
                 <TextInput
-                  maxWidth
                   label="Укажите сумму чека в рублях"
                   hidden={!confirmationSent}
                   value={userData.price}

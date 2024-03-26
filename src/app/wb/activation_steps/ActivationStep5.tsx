@@ -207,7 +207,6 @@ const ActivationStep4: React.FC<Props> = ({
           <p className="text-center">Введите данные своего PlayStation аккаунта</p>
 
           <TextInput
-            maxWidth
             label="Email"
             value={userData.email}
             onChange={validateInput}
@@ -222,7 +221,6 @@ const ActivationStep4: React.FC<Props> = ({
           />
 
           <TextInput
-            maxWidth
             label="Пароль"
             value={userData.password}
             onChange={validateInput}
@@ -237,7 +235,6 @@ const ActivationStep4: React.FC<Props> = ({
           />
 
           <TextInput
-            maxWidth
             label="Резервный код"
             placeholder="Например, FQ9aLc"
             toolTip="Доступен при включенном 2FA. Обычно состоит из 6 символов. Пример - FQ9aLc. Найти можно по инструкции ниже"
@@ -255,7 +252,6 @@ const ActivationStep4: React.FC<Props> = ({
 
           {userData.type === "ps_plus" && (
             <TextInput
-              maxWidth
               label="2 Резервный код"
               placeholder="Например, Lo7Qlx"
               toolTip="Доступен при включенном 2FA. Обычно состоит из 6 символов. Пример - Lo7Qlx. Найти можно по инструкции ниже"
@@ -314,7 +310,6 @@ const ActivationStep4: React.FC<Props> = ({
           <p className="text-center">На него будет зарегистрирован новый Турецкий аккаунт PlayStation!</p>
 
           <TextInput
-            maxWidth
             label="Email"
             value={userData.email}
             onChange={validateInput}

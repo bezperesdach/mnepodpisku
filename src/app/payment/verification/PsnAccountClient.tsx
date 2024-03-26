@@ -61,7 +61,6 @@ function PsnAccountClient({ code }: Props) {
           <p className=" text-muted-foreground">Укажите почту на которую будет создан аккаунт PlayStation</p>
 
           <TextInput
-            maxWidth
             value={value}
             onChange={validateEmail}
             type="text"
