@@ -9,8 +9,6 @@ import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 
-// import PlayStationTopup from "@/../public";
-
 const Banners = [
   {
     title: "ПОПОЛНЕНИЕ PLAYSTATION",
