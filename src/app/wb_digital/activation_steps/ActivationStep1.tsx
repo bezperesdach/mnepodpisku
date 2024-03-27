@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ConfirmationType, UserData } from "../WbClient";
+import { UserData } from "../WbClient";
 import TextInput from "@/components/TextInput/TextInput";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 type Props = {
   userData: UserData;
