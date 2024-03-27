@@ -14,19 +14,19 @@ import { cn } from "@/lib/utils";
 const Banners = [
   {
     title: "ПОПОЛНЕНИЕ PLAYSTATION",
-    description: "Доступно для Турецких аккаунтов",
+    description: "Успей на весеннюю распродажу PSN",
     callToAction: "ПОПОЛНИТЬ",
-    image: "/images/PlaystationTopup.webp",
+    image: "/images/Playstation_topup.webp",
     alt: "Playstation пополнение банер",
-    titleClass: "text-xl font-bold tracking-tight text-[#d72eb5] bg-white px-4 py-2 mr-auto md:text-4xl",
+    titleClass: "text-xl font-bold tracking-tight text-[#125ea8] bg-white px-4 py-2 mr-auto md:text-4xl",
     titleStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
-    descriptionClass: "text-sm leading-7 max-w-xs bg-[#4f4f4f] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
+    descriptionClass: "text-sm leading-7 max-w-xs bg-[#155fa8] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
     descriptionStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
-    callToActionClass: "max-w-sm h-10 z-10 bg-[#d72eb5] hover:bg-[#c03ba5] font-bold text-lg border-r-2 border-b-2 border-[#deb004]",
+    callToActionClass: "max-w-sm h-10 z-10 bg-[#155fa8] hover:bg-[#1d4c7b] font-bold text-lg",
     href: "playstation",
   },
   {
