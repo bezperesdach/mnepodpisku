@@ -9,7 +9,7 @@ import ActivationStep6 from "./activation_steps/ActivationStep6";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-export type Types = "пополнение" | "игра" | "аккаунт" | "аккаунт_баланс" | "одноразовая_карта" | "ps_plus" | "";
+export type Types = "пополнение" | "игра" | "аккаунт" | "аккаунт_баланс" | "одноразовая_карта" | "ps_plus" | "spotify" | "";
 
 export type ConfirmationType = "cheque" | "message" | "";
 

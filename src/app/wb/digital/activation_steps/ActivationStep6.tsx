@@ -27,6 +27,8 @@ const ActivationStep5 = ({ userData, changeTitle }: Props) => {
 
   const actionName = (type: string | undefined) => {
     switch (type) {
+      case "spotify":
+        return "АКТИВАЦИЯ SPOTIFY PREMIUM";
       case "пополнение":
         return "АКТИВАЦИЯ ПОПОЛНЕНИЯ ТУРЕЦКОГО АККАУНТА PSN";
       case "ps_plus":
@@ -58,6 +60,12 @@ const ActivationStep5 = ({ userData, changeTitle }: Props) => {
             </>
           )}
           {(userData.type === "аккаунт" || userData.type === "аккаунт_баланс") && <p>EMAIL {userData.email}</p>}
+          {userData.type === "spotify" && (
+            <>
+              <p>EMAIL {userData.email}</p>
+              <p>ПАРОЛЬ {userData.password}</p>
+            </>
+          )}
         </div>
         <Button
           className={cn("", {
@@ -66,14 +74,25 @@ const ActivationStep5 = ({ userData, changeTitle }: Props) => {
           onClick={() => {
             copyCode();
 
+            let data = "";
+
+            if (userData.type === "пополнение" || userData.type === "игра" || userData.type === "ps_plus") {
+              data += `\nEMAIL - ${userData.email}\nПАРОЛЬ - ${userData.password}\nРЕЗЕРВНЫЙ КОД - ${userData.accessCode}`;
+              if (userData.type === "ps_plus") {
+                data += `\n2 РЕЗЕРВНЫЙ КОД - ${userData.secondAccessCode}`;
+              }
+            }
+
+            if (userData.type === "аккаунт" || userData.type === "аккаунт_баланс") {
+              data += `\nEMAIL - ${userData.email}`;
+            }
+
+            if (userData.type === "spotify") {
+              data += `\nEMAIL - ${userData.email}\nПАРОЛЬ - ${userData.password}`;
+            }
+
             // @ts-ignore: Clipboard.copy defined in root.tsx
-            Clipboard.copy(
-              `${actionName(userData.type)}\nID ПОКУПКИ ${userData.code}${userData.email ? "\nEMAIL - " + userData.email : ""}${
-                userData.password ? "\nПАРОЛЬ - " + userData.password : ""
-              }${userData.accessCode ? "\nРЕЗЕРВНЫЙ КОД - " + userData.accessCode : ""}${
-                userData.secondAccessCode ? "\n2 РЕЗЕРВНЫЙ КОД - " + userData.secondAccessCode : ""
-              }`
-            );
+            Clipboard.copy(`${actionName(userData.type)}\nID ПОКУПКИ ${userData.code}${data}`);
           }}
         >
           {canCopyCode ? "НАЖМИТЕ ДЛЯ КОПИРОВАНИЯ" : "СКОПИРОВАНО"}

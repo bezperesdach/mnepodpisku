@@ -189,6 +189,12 @@ const ActivationStep4: React.FC<Props> = ({
       } else {
         changeAllowToNextStage(false);
       }
+    } else if (userData.type === "spotify") {
+      if (errors.email === "" && userData.email.length > 0 && errors.password === "" && userData.password.length > 0) {
+        changeAllowToNextStage(true);
+      } else {
+        changeAllowToNextStage(false);
+      }
     } else {
       changeAllowToNextStage(false);
     }
@@ -202,6 +208,38 @@ const ActivationStep4: React.FC<Props> = ({
 
   return (
     <div className="flex flex-col justify-between items-center px-6 py-2 w-full min-h-[320px]">
+      {userData.type === "spotify" && (
+        <div className="flex flex-col justify-start items-center gap-2 w-full">
+          <p className="text-center">Введите данные своего Spotify аккаунта</p>
+          <TextInput
+            label="Email"
+            value={userData.email}
+            onChange={validateInput}
+            name="email"
+            type="email"
+            className="input input-primary w-full max-w-xs"
+            spellCheck={false}
+            autoCorrect="off"
+            autoComplete="off"
+            autoCapitalize="off"
+            error={errors.email}
+          />
+
+          <TextInput
+            label="Пароль"
+            value={userData.password}
+            onChange={validateInput}
+            name="password"
+            type="text"
+            className="input input-primary w-full max-w-xs"
+            spellCheck={false}
+            autoCorrect="off"
+            autoComplete="off"
+            autoCapitalize="off"
+            error={errors.password}
+          />
+        </div>
+      )}
       {(userData.type === "пополнение" || userData.type === "игра" || userData.type === "ps_plus") && (
         <div className="flex flex-col justify-start items-center gap-2 w-full">
           <p className="text-center">Введите данные своего PlayStation аккаунта</p>

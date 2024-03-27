@@ -38,6 +38,13 @@ const ActivationStep4: React.FC<Props> = ({ userData, onChange, changeAllowToNex
         </p>
         <Button
           className="w-full"
+          variant={userData.type === "spotify" ? "default" : "secondary"}
+          onClick={() => onChange("type", "spotify")}
+        >
+          ПОДПИСКА SPOTIFY PREMIUM
+        </Button>
+        <Button
+          className="w-full"
           variant={userData.type === "пополнение" ? "default" : "secondary"}
           onClick={() => onChange("type", "пополнение")}
         >
