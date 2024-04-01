@@ -78,10 +78,6 @@ const ActivationStep3: React.FC<Props> = ({ userData, activationType, changeTitl
           Вышлите данное сообщение <strong className="text-yellow-400 font-bold">ТЕКСТОМ</strong> удобным для вас способом ниже:
         </p>
         <div className="flex gap-4 mt-2 mb-2">
-          <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
-            <Image width={46} height={46} src="/socials_icons/vk_compact.png" alt="Вк лого" />
-          </a>
-
           <a href="https://t.me/pstopup" target="_blank" rel="noopener noreferrer">
             <Image width={46} height={46} src="/socials_icons/telegram_icon.png" alt="Telegram лого" />
           </a>
