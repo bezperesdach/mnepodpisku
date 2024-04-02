@@ -633,12 +633,18 @@ const ActivationStep4: React.FC<Props> = ({
             {modalType === "WhereToFind" && (
               <>
                 <p className="mt-4 border-2 border-yellow-300 p-2 rounded-lg text-lg">
-                  Резервные коды нужны для входа в аккаунт PSN при <strong>включенном 2FA</strong>, для включения 2FA ознакомьтесь с
-                  нашей{" "}
-                  <Link href="/guides/kak_vkluchit_2fa_na_akaunte_psn" className="text-yellow-500 font-semibold underline">
-                    ИНСТРУКЦИЕЙ
-                  </Link>
+                  Резервные коды нужны для входа в аккаунт PSN при <strong>включенном 2FA</strong>, для включения 2FA нажмите на кнопку
+                  ниже
                 </p>
+
+                <Button
+                  className="my-4"
+                  onClick={() => {
+                    setModalType("Enable2FA");
+                  }}
+                >
+                  Включить резервные коды
+                </Button>
 
                 <p className="my-4">
                   Для того чтобы получить резервный код через веб-браузер вашего компьютера, необходимо перейти на официальный сайт Sony
@@ -999,12 +1005,18 @@ const ActivationStep4: React.FC<Props> = ({
             {modalType === "WhereToFind" && (
               <>
                 <p className="mt-4 border-2 border-yellow-300 p-2 rounded-lg text-lg">
-                  Резервные коды нужны для входа в аккаунт PSN при <strong>включенном 2FA</strong>, для включения 2FA ознакомьтесь с
-                  нашей{" "}
-                  <Link href="/guides/kak_vkluchit_2fa_na_akaunte_psn" className="text-yellow-400 font-semibold underline">
-                    ИНСТРУКЦИЕЙ
-                  </Link>
+                  Резервные коды нужны для входа в аккаунт PSN при <strong>включенном 2FA</strong>, для включения 2FA нажмите на кнопку
+                  ниже
                 </p>
+
+                <Button
+                  className="my-4"
+                  onClick={() => {
+                    setModalType("Enable2FA");
+                  }}
+                >
+                  Включить резервные коды
+                </Button>
 
                 <p className="my-4">
                   Для того чтобы получить резервный код через веб-браузер вашего компьютера, необходимо перейти на официальный сайт Sony
