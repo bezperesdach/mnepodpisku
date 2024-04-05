@@ -234,7 +234,7 @@ const ActivationStep3 = ({
                 </div>
 
                 <TextInput
-                  label="Укажите сумму чека в рублях"
+                  label="Укажите сумму чека которая указана в самом конце чека"
                   hidden={!confirmationSent}
                   value={userData.price}
                   onChange={(e) => {
