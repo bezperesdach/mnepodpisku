@@ -4,6 +4,7 @@ Disallow: /wb
 Disallow: /digi
 Disallow: /activate
 Disallow: /get_discount
+Disallow: /rbx
 
 
 
