@@ -2,7 +2,6 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { ProductHero } from "@/components/product-hero";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";
 import { Metadata } from "next";
-// import FormComponent from "./FormComponent";
 
 export const metadata: Metadata = {
   title: "Код активации",
