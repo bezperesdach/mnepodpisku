@@ -39,17 +39,18 @@ export function ProductHero({ icon, title, description, tags }: Props) {
             <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight">{title}</h1>
           </div>
 
-          <div className="relative flex gap-2 overflow-x-auto no-scrollbar">
-            {tags.map((tag, i) => (
-              <div key={i} className="flex flex-nowrap gap-1 items-center bg-[#1b2a63] font-medium px-2 py-1 w-fit rounded-lg">
-                {tag.icon}
-                <p className="whitespace-nowrap">{tag.text}</p>
-              </div>
-            ))}
+          {tags!! && tags.length > 1 && (
+            <div className="relative flex gap-2 overflow-x-auto no-scrollbar">
+              {tags.map((tag, i) => (
+                <div key={i} className="flex flex-nowrap gap-1 items-center bg-[#1b2a63] font-medium px-2 py-1 w-fit rounded-lg">
+                  {tag.icon}
+                  <p className="whitespace-nowrap">{tag.text}</p>
+                </div>
+              ))}
 
-            <div className="sticky right-0 flex items-center py-0 px-3 bg-gradient-to-r from-transparent to-[#0c1430]" />
-          </div>
-
+              <div className="sticky right-0 flex items-center py-0 px-3 bg-gradient-to-r from-transparent to-[#0c1430]" />
+            </div>
+          )}
           <p className=" text-muted-foreground">{description}</p>
         </div>
       </div>
