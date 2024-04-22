@@ -1,25 +1,18 @@
 "use client";
 
-import AmountOptions from "@/components/AmountOptions/AmountOptions";
-import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
-import { getPsnBalancePrice } from "@/serverActions/calculatePriceActions";
-import { getPsnBalancePaymentLink } from "@/serverActions/createPaymentUrls";
 import { cn } from "@/lib/utils";
-import { HashIcon, SyncIcon } from "@primer/octicons-react";
-import { useFormik } from "formik";
-import { useContext, useEffect, useState } from "react";
-import * as Yup from "yup";
+import { SyncIcon } from "@primer/octicons-react";
+
+import { useState } from "react";
+
 import TextInputV2 from "@/components/TextInput/TextInput";
 import { Button } from "@/components/ui/button";
-import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
-import { ym } from "@/utils/ym";
 import { useRouter } from "next/navigation";
 import { VerifyCodeResponse } from "../api/verify_code/[...slug]/route";
 
 export default function FormComponent() {
   const router = useRouter();
   const [value, setValue] = useState("");
-  const [responseCode, setResponseCode] = useState<VerifyCodeResponse>({ codeFound: false, robloxCode: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState("");
 
@@ -49,8 +42,6 @@ export default function FormComponent() {
       }
 
       const result = (await response.json()) as VerifyCodeResponse;
-
-      setResponseCode(result);
 
       if (result.codeFound) {
         router.push(`/rbx/${result.robloxCode}`);
