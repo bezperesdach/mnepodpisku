@@ -37,8 +37,12 @@ export default function FormComponent() {
         },
       });
 
+      if (response.status === 429) {
+        throw new Error(`От вас уже недавно поступал запрос проверки, пожалуйста, попробуйте повторить запрос чуть позже`);
+      }
+
       if (!response.ok) {
-        throw new Error(`Error! status: ${response.status}`);
+        throw new Error(`Неожиданная ошибка, попробуйте позже`);
       }
 
       const result = (await response.json()) as VerifyCodeResponse;
@@ -52,7 +56,7 @@ export default function FormComponent() {
       }
     } catch (err) {
       if (err instanceof Error) {
-        setErr("Поле кода не может быть пустым");
+        setErr(err.message);
         setTimeout(() => setErr(""), 2500);
         setIsLoading(false);
       } else {
