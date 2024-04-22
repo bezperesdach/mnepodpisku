@@ -38,7 +38,7 @@ export default function FormComponent() {
       });
 
       if (response.status === 429) {
-        throw new Error(`От вас уже недавно поступал запрос проверки, пожалуйста, попробуйте повторить запрос чуть позже`);
+        throw new Error(`От вас уже недавно поступал запрос проверки, пожалуйста, повторите запрос через несколько минут`);
       }
 
       if (!response.ok) {
@@ -57,7 +57,7 @@ export default function FormComponent() {
     } catch (err) {
       if (err instanceof Error) {
         setErr(err.message);
-        setTimeout(() => setErr(""), 2500);
+        setTimeout(() => setErr(""), 10000);
         setIsLoading(false);
       } else {
         setErr("Неожиданная ошибка, попробуйте позже");
