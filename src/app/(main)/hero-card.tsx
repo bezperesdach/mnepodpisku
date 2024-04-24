@@ -12,19 +12,20 @@ import { cn } from "@/lib/utils";
 const Banners = [
   {
     title: "ПОПОЛНЕНИЕ PLAYSTATION",
-    description: "Успей на весеннюю распродажу PSN",
+    description: "Пополнение по выгодному курсу",
     callToAction: "ПОПОЛНИТЬ",
-    image: "/images/Playstation_topup.webp",
+    image: "/images/Playstation_topup_may.webp",
     alt: "Playstation пополнение банер",
-    titleClass: "text-xl font-bold tracking-tight text-[#125ea8] bg-white px-4 py-2 mr-auto md:text-4xl",
+    titleClass: "text-xl font-bold tracking-tight text-[#231d8c] bg-white px-4 py-2 mr-auto md:text-4xl",
     titleStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
-    descriptionClass: "text-sm leading-7 max-w-xs bg-[#155fa8] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
+    descriptionClass:
+      "text-sm font-medium leading-7 max-w-xs bg-gradient-to-b from-[#2120aa] to-[#110f4f] border-solid border-[1px] border-white px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
     descriptionStyle: {
-      clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+      // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
-    callToActionClass: "max-w-sm h-10 z-10 bg-[#155fa8] hover:bg-[#1d4c7b] font-bold text-lg",
+    callToActionClass: "max-w-sm h-10 z-10 bg-[#2120aa] hover:bg-[#231d8c] font-bold text-lg",
     href: "playstation",
   },
   {
