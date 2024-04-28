@@ -70,9 +70,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <Script id="Yandex-Metrica" strategy="afterInteractive">
         {yandexMetrica}
       </Script>
-      <Script id="Copy-Code">{`window.Clipboard = (function(window, document, navigator) {
+      <Script id="Copy-Code">{`window.CopyToClipboard = async function(text) {
 
 let scrollPos;
+
+let copySuccess = false;
 
 var textArea,
     copy;
@@ -87,19 +89,18 @@ function createTextArea(text) {
     document.body.appendChild(textArea);
 }
 
-function selectText() {
+async function selectText() {
     var range,
         selection;
 
     if (navigator.clipboard) {
-      (navigator.clipboard).writeText(textArea.value).then(
-        function () {
-          // console.log('Text successfully copied to clipboard');
-        },
-        function (err) {
-          console.error('Unable to copy text to clipboard', err);
-        }
-      );
+      const clipboard = await navigator.clipboard;
+      try{
+        await clipboard.writeText(textArea.value);
+        copySuccess = true;
+      }catch(err){
+        throw new Error('Wasnt able to copy'+err);
+      }
     }else{
       if (isOS()) {
         range = document.createRange();
@@ -108,8 +109,10 @@ function selectText() {
         selection.removeAllRanges();
         selection.addRange(range);
         textArea.setSelectionRange(0, 999999);
+        copySuccess = true;
     } else {
         textArea.select();
+        copySuccess = true;
     }
     }
 }
@@ -120,16 +123,17 @@ function copyToClipboard() {
 }
 
 
-copy = function(text) {
-    createTextArea(text);
-    selectText();
-    copyToClipboard();
-};
+
+createTextArea(text);
+await selectText();
+copyToClipboard();
+
 
 return {
-    copy: copy
+    copySuccess
 };
-})(window, document, navigator);`}</Script>
+
+};`}</Script>
     </html>
   );
 }

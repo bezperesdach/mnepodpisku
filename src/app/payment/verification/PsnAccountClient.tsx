@@ -4,17 +4,28 @@ import LeaveVkReview from "@/components/LeaveVkReview/LeaveVkReview";
 import TextInput from "@/components/TextInput/TextInput";
 
 // import Link from "next/link";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { SyncIcon } from "@primer/octicons-react";
 
 type Props = {
   code: string;
 };
 
 function PsnAccountClient({ code }: Props) {
+  const [allowCopyTest, setAllowCopyTest] = useState(false);
+  const [testingCopy, setTestingCopy] = useState(true);
+  const [copySuccess, setCopySuccess] = useState(true);
+
   const [canCopyCode, setCanCopyCode] = useState(true);
+
+  const allowCopyTestRun = () => {
+    if (!allowCopyTest) {
+      setAllowCopyTest(true);
+    }
+  };
 
   const copyCode = () => {
     setCanCopyCode(false);
@@ -22,6 +33,24 @@ function PsnAccountClient({ code }: Props) {
       setCanCopyCode(true);
     }, 500);
   };
+
+  useEffect(() => {
+    if (allowCopyTest) {
+      const copyTest = async () => {
+        try {
+          await window.CopyToClipboard("");
+        } catch (err) {
+          console.log(err);
+          setCopySuccess(false);
+        } finally {
+          setTestingCopy(false);
+        }
+      };
+      copyTest();
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allowCopyTest]);
 
   const [error, setError] = useState("");
   const [value, setValue] = useState("");
@@ -48,7 +77,7 @@ function PsnAccountClient({ code }: Props) {
   };
 
   return (
-    <div className="flex flex-col justify-start items-center w-full">
+    <div className="flex flex-col justify-start items-center w-full" onClick={allowCopyTestRun}>
       <LeaveVkReview />
 
       <div className="w-full flex gap-4 max-w-screen-lg mt-4 mb-6 mx-2 p-6 rounded-3xl bg-[#0c1430]">
@@ -76,45 +105,54 @@ function PsnAccountClient({ code }: Props) {
           {error === "" && value !== "" && (
             <>
               <p className="text-3xl font-semibold tracking-tight">Шаг 2</p>
-              <p className=" text-muted-foreground">Скопируйте сообщение ниже</p>
+              {testingCopy ? (
+                <div className="flex justify-center items-center min-h-[180px]">
+                  <SyncIcon className="animate-spin" />
+                </div>
+              ) : (
+                <>
+                  <p className=" text-muted-foreground">Скопируйте сообщение ниже</p>
 
-              <p className="flex gap-2 justify-between items-center p-3 mt-2 mb-4 bg-background rounded-md cursor-pointer">
-                АКТИВАЦИЯ АККАУНТА PSN
-                <br /> Мой код активации - {code}
-                <br />
-                Моя почта - {value}
-              </p>
+                  <p className="flex gap-2 justify-between items-center p-3 mt-2 mb-4 bg-background rounded-md cursor-pointer">
+                    АКТИВАЦИЯ АККАУНТА PSN
+                    <br /> Мой код активации - {code}
+                    <br />
+                    Моя почта - {value}
+                  </p>
 
-              <Button
-                className={cn("", {
-                  "pointer-events-none": !canCopyCode,
-                })}
-                onClick={() => {
-                  copyCode();
+                  {copySuccess && (
+                    <Button
+                      className={cn("", {
+                        "pointer-events-none": !canCopyCode,
+                      })}
+                      onClick={() => {
+                        copyCode();
 
-                  // @ts-ignore: Clipboard.copy defined in root.tsx
-                  Clipboard.copy(`АКТИВАЦИЯ АККАУНТА PSN\nМой код активации - ${code}\nМоя почта - ${value}`);
-                }}
-              >
-                {canCopyCode ? `НАЖМИТЕ, ЧТОБЫ СКОПИРОВАТЬ` : "СКОПИРОВАНО"}
-              </Button>
+                        window.CopyToClipboard(`АКТИВАЦИЯ АККАУНТА PSN\nМой код активации - ${code}\nМоя почта - ${value}`);
+                      }}
+                    >
+                      {canCopyCode ? `НАЖМИТЕ, ЧТОБЫ СКОПИРОВАТЬ` : "СКОПИРОВАНО"}
+                    </Button>
+                  )}
 
-              <p className="text-3xl font-semibold tracking-tight">Шаг 3</p>
-              <p className=" text-muted-foreground">Вышлите скопированное соообщение удобным вам способом</p>
+                  <p className="text-3xl font-semibold tracking-tight">Шаг 3</p>
+                  <p className=" text-muted-foreground">Вышлите скопированное сообщение удобным вам способом</p>
 
-              <div className="flex gap-4 mt-2 mb-10">
-                <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
-                  <Image src="/socials_icons/vk_compact.png" alt="vk" width={48} height={48} />
-                </a>
+                  <div className="flex gap-4 mt-2 mb-10">
+                    <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
+                      <Image src="/socials_icons/vk_compact.png" alt="vk" width={48} height={48} />
+                    </a>
 
-                <a href="https://t.me/pstopup" target="_blank" rel="noopener noreferrer">
-                  <Image src="/socials_icons/telegram_icon.png" alt="telegram" width={48} height={48} />
-                </a>
+                    <a href="https://t.me/pstopup" target="_blank" rel="noopener noreferrer">
+                      <Image src="/socials_icons/telegram_icon.png" alt="telegram" width={48} height={48} />
+                    </a>
 
-                <a className="flex gap-1 items-center" href="https://wa.me/79939011007" target="_blank" rel="noopener noreferrer">
-                  <Image src="/socials_icons/whatsapp_icon.png" alt="whatsapp" width={48} height={48} />
-                </a>
-              </div>
+                    <a className="flex gap-1 items-center" href="https://wa.me/79939011007" target="_blank" rel="noopener noreferrer">
+                      <Image src="/socials_icons/whatsapp_icon.png" alt="whatsapp" width={48} height={48} />
+                    </a>
+                  </div>
+                </>
+              )}
             </>
           )}
           {!(error === "" && value !== "") && (

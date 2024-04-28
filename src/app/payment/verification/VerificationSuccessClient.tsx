@@ -3,14 +3,18 @@
 import LeaveVkReview from "@/components/LeaveVkReview/LeaveVkReview";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { SyncIcon } from "@primer/octicons-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   code: string;
 };
 
 function VerificationSuccessClient({ code }: Props) {
+  const [testingCopy, setTestingCopy] = useState(true);
+  const [copySuccess, setCopySuccess] = useState(true);
+
   const [canCopyCode, setCanCopyCode] = useState(true);
 
   const copyCode = () => {
@@ -19,6 +23,22 @@ function VerificationSuccessClient({ code }: Props) {
       setCanCopyCode(true);
     }, 500);
   };
+
+  useEffect(() => {
+    const copyTest = async () => {
+      try {
+        await window.CopyToClipboard("");
+      } catch (err) {
+        console.log(err);
+        setCopySuccess(false);
+      } finally {
+        setTestingCopy(false);
+      }
+    };
+    copyTest();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="flex flex-col justify-start items-center w-full">
@@ -33,41 +53,50 @@ function VerificationSuccessClient({ code }: Props) {
           </p>
 
           <p className="text-3xl font-semibold tracking-tight">Шаг 1</p>
-          <p className=" text-muted-foreground">Скопируйте сообщение ниже</p>
+          {testingCopy ? (
+            <div className="flex justify-center items-center min-h-[180px]">
+              <SyncIcon className="animate-spin" />
+            </div>
+          ) : (
+            <>
+              <p className=" text-muted-foreground">Скопируйте сообщение ниже</p>
 
-          <p className="flex gap-2 justify-between items-center p-3 mt-2 mb-4 bg-background rounded-md cursor-pointer">
-            Мой код активации - {code}
-          </p>
+              <p className="flex gap-2 justify-between items-center p-3 mt-2 mb-4 bg-background rounded-md cursor-text">
+                Мой код активации - {code}
+              </p>
 
-          <Button
-            className={cn("", {
-              "pointer-events-none": !canCopyCode,
-            })}
-            onClick={() => {
-              copyCode();
+              {copySuccess && (
+                <Button
+                  className={cn("", {
+                    "pointer-events-none": !canCopyCode,
+                  })}
+                  onClick={() => {
+                    copyCode();
 
-              // @ts-ignore: Clipboard.copy defined in root.tsx
-              Clipboard.copy(`Мой код активации - ${code}`);
-            }}
-          >
-            {canCopyCode ? `НАЖМИТЕ, ЧТОБЫ СКОПИРОВАТЬ` : "СКОПИРОВАНО"}
-          </Button>
-          <p className="text-3xl font-semibold tracking-tight">Шаг 2</p>
-          <p className=" text-muted-foreground">Вышлите данное сообщение в удобный вам мессенджер</p>
+                    window.CopyToClipboard(`Мой код активации - ${code}`);
+                  }}
+                >
+                  {canCopyCode ? `НАЖМИТЕ, ЧТОБЫ СКОПИРОВАТЬ` : "СКОПИРОВАНО"}
+                </Button>
+              )}
+              <p className="text-3xl font-semibold tracking-tight">Шаг 2</p>
+              <p className=" text-muted-foreground">Вышлите скопированное сообщение в удобный вам мессенджер</p>
 
-          <div className="flex gap-4 mt-2">
-            <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
-              <Image src="/socials_icons/vk_compact.png" alt="vk" width={48} height={48} />
-            </a>
+              <div className="flex gap-4 mt-2">
+                <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
+                  <Image src="/socials_icons/vk_compact.png" alt="vk" width={48} height={48} />
+                </a>
 
-            <a href="https://t.me/pstopup" target="_blank" rel="noopener noreferrer">
-              <Image src="/socials_icons/telegram_icon.png" alt="telegram" width={48} height={48} />
-            </a>
+                <a href="https://t.me/pstopup" target="_blank" rel="noopener noreferrer">
+                  <Image src="/socials_icons/telegram_icon.png" alt="telegram" width={48} height={48} />
+                </a>
 
-            <a className="flex gap-1 items-center" href="https://wa.me/79939011007" target="_blank" rel="noopener noreferrer">
-              <Image src="/socials_icons/whatsapp_icon.png" alt="whatsapp" width={48} height={48} />
-            </a>
-          </div>
+                <a className="flex gap-1 items-center" href="https://wa.me/79939011007" target="_blank" rel="noopener noreferrer">
+                  <Image src="/socials_icons/whatsapp_icon.png" alt="whatsapp" width={48} height={48} />
+                </a>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
