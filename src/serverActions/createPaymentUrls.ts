@@ -158,7 +158,7 @@ export async function getPsEaPlayPaymentLink(duration: string) {
         {
           id: process.env.DIGISELLER_PS_EA_PLAY_OPTION_ID,
           value: {
-            id: process.env[`DIGISELLER_PS_EA_PLAY_${duration.toUpperCase()}_VARIANT_ID`],
+            id: process.env[`DIGISELLER_PS_EA_PLAY_${duration.toUpperCase()}MONTH_VARIANT_ID`],
           },
         },
       ],
