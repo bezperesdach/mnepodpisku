@@ -5,7 +5,37 @@ Disallow: /digi
 Disallow: /activate
 Disallow: /get_discount
 Disallow: /rbx
+Allow: /playstation$
+Disallow: /playstation
+Allow: /playstation_plus$
+Disallow: /playstation_plus
+Allow: /spotify$
+Disallow: /spotify
+Allow: /playstation_account$
+Disallow: /playstation_account
+Allow: /adobe_creative_cloud$
+Disallow: /adobe_creative_cloud
+Allow: /discord$
+Disallow: /discord
+Allow: /youtube$
+Disallow: /youtube
+Allow: /netflix$
+Disallow: /netflix
+Allow: /tinder$
+Disallow: /tinder
+Allow: /xbox_game_pass$
+Disallow: /xbox_game_pass
+
+Disallow: /gde_posmotret_rezervnyi_kod
+Disallow: /kak_otpravit_chek_wb
+Disallow: /kak_otrpavit_soobshenie_prodavcu_wb
+Disallow: /kak_privyazat_kartu_k_turezkomu_akauntu_psn
+Disallow: /kak_vkluchit_2fa_na_akaunte_psn
 
 
 
-Clean-param: amount&dur&sub
+
+
+
+
+Clean-param: amount&dur&sub&etext?_ym_debug
