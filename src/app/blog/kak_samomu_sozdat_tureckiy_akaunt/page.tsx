@@ -20,10 +20,10 @@ import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Как создать Турецкий PlayStation аккаунт",
-  description: "Как самостоятельно создать Турецкий PlayStation аккаунт в 2023 для PS4/PS5 без VPN и не получить бан на аккаунт",
+  description: "Как самостоятельно создать Турецкий PlayStation аккаунт в 2024 для PS4/PS5 без VPN и не получить бан на аккаунт",
   openGraph: {
-    title: "Как создать Турецкий PlayStation аккаунт 2023",
-    description: "Как самостоятельно создать Турецкий PlayStation аккаунт в 2023 для PS4/PS5 без VPN и не получить бан на аккаунт",
+    title: "Как создать Турецкий PlayStation аккаунт 2024",
+    description: "Как самостоятельно создать Турецкий PlayStation аккаунт в 2024 для PS4/PS5 без VPN и не получить бан на аккаунт",
     url: "/blog/kak_samomu_sozdat_tureckiy_akaunt",
     images: ["/og_images_generated/blog/kak_samomu_sozdat_tureckiy_akaunt/og_image.png"],
     type: "article",
@@ -46,7 +46,7 @@ async function KakSamomuSozdatTureckiyAkaunt({}) {
       <div className="mt-10 bg-accent rounded-lg flex flex-col items-center pt-6 pb-12 px-5">
         <div className="flex w-full max-w-[1029px] flex-col mb-8 max-md:max-w-full">
           <h2 className="text-white text-4xl font-black self-stretch mt-12 max-md:max-w-full max-md:mt-10">
-            Как создать турецкий аккаунт в PSN в 2023 <br />и не словить бан?
+            Как создать турецкий аккаунт в PSN в 2024 <br />и не словить бан?
           </h2>
           <div className="bg-white self-stretch shrink-0 h-px mt-6 max-md:max-w-full"></div>
           <div className="text-white text-2xl self-stretch mt-10 max-md:max-w-full">
@@ -85,7 +85,7 @@ async function KakSamomuSozdatTureckiyAkaunt({}) {
               аккаунта!
             </li>
             <li className="mb-2">
-              📧 Почта. Важно знать, что в 2023 году регистрация на российские почтовые сервисы (с доменом .ru) может негативно
+              📧 Почта. Важно знать, что в 2024 году регистрация на российские почтовые сервисы (с доменом .ru) может негативно
               сказаться в дальнейшем на ваш аккаунт (возможен бан)
             </li>
             <li className="mb-2">
