@@ -1,0 +1,25 @@
+// "use client";
+
+// import HeroChoose from "@/components/HeroChoose/HeroChoose";
+
+// const Description = () => {
+//   return (
+//     <div className="mt-10">
+//       <h2 className="text-xl lg:text-2xl font-bold" id="description">
+//         Описание
+//       </h2>
+//       <p className="text-lg font-medium mt-4">
+//         С помощью данной услуги вы сможете самостоятельно пополнить нужный сервис или оплатить услугу используя турецкую одноразовую
+//         карту
+//       </p>
+
+//       <HeroChoose
+//         firstText="Укажите сумму баланса"
+//         secondText="Оплатите удобным для вас способом"
+//         thirdText="Получите одноразовую карту с балансом"
+//       />
+//     </div>
+//   );
+// };
+
+// export default Description;
