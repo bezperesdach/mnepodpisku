@@ -9,13 +9,10 @@ import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 
-const Banners = [
+const PlayStation_Style = [
+  // may - 0
   {
-    title: "ПОПОЛНЕНИЕ PLAYSTATION",
-    description: "Пополнение по выгодному курсу",
-    callToAction: "ПОПОЛНИТЬ",
     image: "/images/Playstation_topup_may.webp",
-    alt: "Playstation пополнение банер",
     titleClass: "text-xl font-bold tracking-tight text-[#231d8c] bg-white px-4 py-2 mr-auto md:text-4xl",
     titleStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
@@ -26,6 +23,36 @@ const Banners = [
       // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
     callToActionClass: "max-w-sm h-10 z-10 bg-[#2120aa] hover:bg-[#231d8c] font-bold text-lg",
+  },
+  // may2 - 1
+  {
+    image: "/images/Playstation_topup_may_2.webp",
+    titleClass:
+      "text-xl font-bold tracking-tight text-[#1a0a2c] bg-[#fe6aac] border-b-4 border-r-4 border-white px-4 py-2 mr-auto md:text-4xl",
+    titleStyle: {
+      // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+    },
+    descriptionClass:
+      "text-sm font-medium leading-7 max-w-xs bg-[#08073d] border-b-2 border-r-2 border-white px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
+    descriptionStyle: {
+      // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+    },
+    callToActionClass: "max-w-sm h-10 z-10 text-[#1a0a2c] bg-[#ff6baf] hover:bg-[#af4275] font-bold text-lg",
+  },
+];
+
+const Banners = [
+  {
+    title: "ПОПОЛНЕНИЕ PLAYSTATION",
+    description: "Пополнение по выгодному курсу",
+    callToAction: "ПОПОЛНИТЬ",
+    image: PlayStation_Style[1].image,
+    alt: "Playstation пополнение банер",
+    titleClass: PlayStation_Style[1].titleClass,
+    titleStyle: PlayStation_Style[1].titleStyle,
+    descriptionClass: PlayStation_Style[1].descriptionClass,
+    descriptionStyle: PlayStation_Style[1].descriptionStyle,
+    callToActionClass: PlayStation_Style[1].callToActionClass,
     href: "playstation",
   },
   {
