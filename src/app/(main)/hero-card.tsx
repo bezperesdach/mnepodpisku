@@ -68,8 +68,7 @@ const PlayStation_Plus_Style = [
   // 1
   {
     image: "/images/PlaystationPlus_june.jpg",
-    titleClass:
-      "flex gap-2 items-center text-xl font-bold tracking-tight text-[#ffffff] px-4 py-2 mr-auto md:text-4xl bg-gradient-to-r from-[#5d17b7] to-[#2959b6] xs:from-transparent xs:to-transparent",
+    titleClass: "flex gap-2 items-center text-xl font-bold tracking-tight text-[#ffffff] px-4 py-2 mr-auto md:text-4xl ",
     titleStyle: {
       // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -99,8 +98,8 @@ const Banners = [
   {
     title: (
       <>
-        <Image src="/catalogue_icons/ps_plus.png" alt="img" width={48} height={48} />
         <span>ПОДПИСКА PS PLUS</span>
+        <Image src="/catalogue_icons/ps_plus.png" alt="img" width={48} height={48} />
       </>
     ),
     description: "",
