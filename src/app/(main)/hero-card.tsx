@@ -41,8 +41,35 @@ const PlayStation_Style = [
   },
   // june - 2
   {
-    image: "/images/Playstation_topup_june.webp",
+    image: "/images/Playstation_topup_june.jpg",
     titleClass: "text-xl font-bold tracking-tight text-[#ffffff] px-4 py-2 mr-auto md:text-4xl",
+    titleStyle: {
+      // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+    },
+    descriptionClass: "text-sm font-medium leading-7 max-w-xs text-[#ffffff] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
+    descriptionStyle: {
+      // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+    },
+    callToActionClass:
+      "max-w-sm h-10 z-10 text-[#01429c] bg-[#ffffff] hover:bg-[#ffffff] border-2 border-transparent hover:border-[#59c8fe] font-bold text-lg",
+  },
+];
+
+const PlayStation_Plus_Style = [
+  // 0
+  {
+    image: "/images/PlaystationPlus.webp",
+    titleClass: "text-xl font-bold tracking-tight text-[#fcc000] bg-[#000000] px-4 py-2 mr-auto md:text-4xl",
+    titleStyle: {},
+    descriptionClass: "leading-7 max-w-xs text-black px-2 md:px-4 py-[1px] md:py-1",
+    descriptionStyle: {},
+    callToActionClass: "max-w-sm h-10 z-10 bg-[#333333] hover:bg-[#000000] font-bold text-lg border-r-2 border-b-2 border-[#fcc000]",
+  },
+  // 1
+  {
+    image: "/images/PlaystationPlus_june.jpg",
+    titleClass:
+      "flex gap-2 items-center text-xl font-bold tracking-tight text-[#ffffff] px-4 py-2 mr-auto md:text-4xl bg-gradient-to-r from-[#5d17b7] to-[#2959b6] xs:from-transparent xs:to-transparent",
     titleStyle: {
       // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -70,16 +97,21 @@ const Banners = [
     href: "playstation",
   },
   {
-    title: "ПОДПИСКА PS PLUS",
-    description: "Доступно для Турецких аккаунтов",
+    title: (
+      <>
+        <Image src="/catalogue_icons/ps_plus.png" alt="img" width={48} height={48} />
+        <span>ПОДПИСКА PS PLUS</span>
+      </>
+    ),
+    description: "",
     callToAction: "ПРИОБРЕСТИ",
-    image: "/images/PlaystationPlus.webp",
+    image: PlayStation_Plus_Style[1].image,
     alt: "Playstation plus банер",
-    titleClass: "text-xl font-bold tracking-tight text-[#fcc000] bg-[#000000] px-4 py-2 mr-auto md:text-4xl",
-    titleStyle: {},
-    descriptionClass: "leading-7 max-w-xs text-black px-2 md:px-4 py-[1px] md:py-1",
-    descriptionStyle: {},
-    callToActionClass: "max-w-sm h-10 z-10 bg-[#333333] hover:bg-[#000000] font-bold text-lg border-r-2 border-b-2 border-[#fcc000]",
+    titleClass: PlayStation_Plus_Style[1].titleClass,
+    titleStyle: PlayStation_Plus_Style[1].titleStyle,
+    descriptionClass: PlayStation_Plus_Style[1].descriptionClass,
+    descriptionStyle: PlayStation_Plus_Style[1].descriptionStyle,
+    callToActionClass: PlayStation_Plus_Style[1].callToActionClass,
     href: "playstation_plus",
   },
   {
@@ -115,7 +147,7 @@ export function HeroCard() {
   }, [api]);
 
   return (
-    <div className="w-full flex justify-center items-center mt-6">
+    <div className="w-full flex justify-center items-center mt-6 ">
       <div className="w-full max-w-screen-lg px-2 ">
         <div className="w-full flex flex-col gap-2">
           <Carousel
@@ -151,6 +183,7 @@ export function HeroCard() {
                           alt={item.alt}
                           style={{ objectFit: "cover" }}
                           fill={true}
+                          quality={95}
                         />
                         <Skeleton className="absolute w-full h-full rounded-3xl" />
                       </div>
