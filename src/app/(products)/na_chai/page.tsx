@@ -9,10 +9,10 @@ import { ProductHero } from "@/components/product-hero";
 import { getAmountFromSlug } from "@/utils/utils";
 
 export const metadata: Metadata = {
-  title: "Благодтворительность",
+  title: "Благотворительность",
   description: "Страница приема безвозмездных пожертвований, помоги нам приобрести чай и печеньки и сделать наш сервис еще лучше",
   openGraph: {
-    title: "Благодтворительность",
+    title: "Благотворительность",
     description: "Страница приема безвозмездных пожертвований, помоги нам приобрести чай и печеньки и сделать наш сервис еще лучше",
     url: "/na_chai",
     images: ["/og_images_catalogue/na_chai.png"],
@@ -28,11 +28,11 @@ export default function PsEaPlay({ params }: { params: { slug: string } }) {
   return (
     <div className="flex flex-col">
       <Breadcrumbs>
-        <BreadcrumbItem>Благодтворительность</BreadcrumbItem>
+        <BreadcrumbItem>Благотворительность</BreadcrumbItem>
       </Breadcrumbs>
 
       <ProductHero
-        icon={{ src: "/catalogue_icons/playstation_top_up.jpg", alt: "Благодтворительность" }}
+        icon={{ src: "/catalogue_icons/playstation_top_up.jpg", alt: "Благотворительность" }}
         title="Пожертвование на развитие и улучшение проекта"
         description="Воспользовавшись данной услугой вы можете пожертвовать любую сумму, которая пойдет на развитие и улучшение нашего проекта"
         tags={[]}
