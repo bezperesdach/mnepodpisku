@@ -137,6 +137,18 @@ export default function Playstation({ params }: { params: { slug: string } }) {
             </a>
           </p>
         </Question>
+
+        <Question title="На что можно потратить деньги из кошелька PSN?">
+          <p>
+            На деньги из кошелька вы сможете приобрести игры, дополнения к играм, внутри-игровую валюту и подписки(кроме PS PLUS)
+            <br />
+            <br />
+            Если вы хотите приобрести PS PLUS, воспользуйтесь данной{" "}
+            <a className="link text-primary" href="/playstation_plus" target="_blank" rel="noopener noreferrer">
+              услугой
+            </a>{" "}
+          </p>
+        </Question>
       </Faq>
 
       {/* <InstructionsSection>
