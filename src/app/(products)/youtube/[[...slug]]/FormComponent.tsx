@@ -43,9 +43,9 @@ export default function FormComponent({ receivedDuration }: Props) {
   useEffect(() => {
     const updatePrices = async (duration: string) => {
       if (duration === "1") {
-        history.pushState({ duration }, "", `/youtube`);
+        window.history.replaceState(window.history.state, "", `/youtube`);
       } else {
-        history.pushState({ duration }, "", `/youtube/${duration}`);
+        window.history.replaceState(window.history.state, "", `/youtube/${duration}`);
       }
 
       const updatedPrices = await getYoutubePrice(duration);

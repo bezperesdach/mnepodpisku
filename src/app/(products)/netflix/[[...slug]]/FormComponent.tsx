@@ -46,9 +46,9 @@ export default function FormComponent({ subscriptionType }: Props) {
   useEffect(() => {
     const updatePrices = async (values: { subscriptionType: string; duration: string }) => {
       if (values.subscriptionType === "basic" && values.duration === "1") {
-        history.pushState({ values }, "", `/netflix`);
+        window.history.replaceState(window.history.state, "", `/netflix`);
       } else {
-        history.pushState({ values }, "", `/netflix/${values.subscriptionType}/${values.duration}`);
+        window.history.replaceState(window.history.state, "", `/netflix/${values.subscriptionType}/${values.duration}`);
       }
 
       const updatedPrices = await getNetflixPrice(values);

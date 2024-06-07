@@ -46,9 +46,9 @@ export default function FormComponent({ subscriptionType }: Props) {
   useEffect(() => {
     const updatePrices = async (values: { subscriptionType: string; duration: string }) => {
       if (values.subscriptionType === "plus" && values.duration === "1") {
-        history.pushState({ values }, "", `/tinder`);
+        window.history.replaceState(window.history.state, "", `/tinder`);
       } else {
-        history.pushState({ values }, "", `/tinder/${values.subscriptionType}/${values.duration}`);
+        window.history.replaceState(window.history.state, "", `/tinder/${values.subscriptionType}/${values.duration}`);
       }
 
       const updatedPrices = await getTinderPrice(values);

@@ -46,9 +46,9 @@ export default function FormComponent({ subscriptionType }: Props) {
   useEffect(() => {
     const updatePrices = async (values: { subscriptionType: string; duration: string }) => {
       if (values.subscriptionType === "essential" && values.duration === "1") {
-        history.pushState({ values }, "", `/playstation_plus`);
+        window.history.replaceState(window.history.state, "", `/playstation_plus`);
       } else {
-        history.pushState({ values }, "", `/playstation_plus/${values.subscriptionType}/${values.duration}`);
+        window.history.replaceState(window.history.state, "", `/playstation_plus/${values.subscriptionType}/${values.duration}`);
       }
 
       const updatedPrices = await getPsnPsPlusPrice(values);

@@ -43,9 +43,9 @@ export default function FormComponent({ receivedDuration }: Props) {
   useEffect(() => {
     const updatePrices = async (duration: string) => {
       if (duration === "1") {
-        history.pushState({ duration }, "", `/adobe_creative_cloud`);
+        window.history.replaceState(window.history.state, "", `/adobe_creative_cloud`);
       } else {
-        history.pushState({ duration }, "", `/adobe_creative_cloud/${duration}`);
+        window.history.replaceState(window.history.state, "", `/adobe_creative_cloud/${duration}`);
       }
 
       const updatedPrices = await getAdobeCCPrice(duration);

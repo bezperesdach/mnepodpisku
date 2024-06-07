@@ -53,9 +53,9 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
   useEffect(() => {
     const updatePrices = async (values: { amount: string; oneTimeCard: boolean }) => {
       if (parseInt(values.amount) > 100) {
-        history.pushState({ values: values.amount }, "", `/playstation/${values.amount}`);
+        window.history.replaceState(window.history.state, "", `/playstation/${values.amount}`);
       } else {
-        history.pushState({ values: values.amount }, "", `/playstation`);
+        window.history.replaceState(window.history.state, "", `/playstation`);
       }
 
       const updatedPrices = await getPsnBalancePrice(values);

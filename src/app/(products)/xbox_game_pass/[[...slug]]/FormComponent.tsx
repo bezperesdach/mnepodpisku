@@ -46,9 +46,9 @@ export default function FormComponent({ subscriptionType }: Props) {
   useEffect(() => {
     const updatePrices = async (values: { subscriptionType: string; duration: string }) => {
       if (values.subscriptionType === "ultimate" && values.duration === "1") {
-        history.pushState({ values }, "", `/xbox_game_pass`);
+        window.history.replaceState(window.history.state, "", `/xbox_game_pass`);
       } else {
-        history.pushState({ values }, "", `/xbox_game_pass/${values.subscriptionType}/${values.duration}`);
+        window.history.replaceState(window.history.state, "", `/xbox_game_pass/${values.subscriptionType}/${values.duration}`);
       }
 
       const updatedPrices = await getXboxPrice(values);

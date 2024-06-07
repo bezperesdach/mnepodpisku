@@ -46,9 +46,9 @@ export default function FormComponent({ subscriptionType }: Props) {
   useEffect(() => {
     const updatePrices = async (values: { subscriptionType: string; duration: string }) => {
       if (values.subscriptionType === "nitro_basic" && values.duration === "1") {
-        history.pushState({ values }, "", `/discord`);
+        window.history.replaceState(window.history.state, "", `/discord`);
       } else {
-        history.pushState({ values }, "", `/discord/${values.subscriptionType}/${values.duration}`);
+        window.history.replaceState(window.history.state, "", `/discord/${values.subscriptionType}/${values.duration}`);
       }
 
       const updatedPrices = await getDiscordPrice(values);
