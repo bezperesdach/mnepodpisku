@@ -53,12 +53,26 @@ const PlayStation_Style = [
     callToActionClass:
       "max-w-sm h-10 z-10 text-[#01429c] bg-[#ffffff] hover:bg-[#ffffff] border-2 border-transparent hover:border-[#59c8fe] font-bold text-lg",
   },
+  // june - 3
+  {
+    image: "/images/Playstation_topup_june_2.jpg",
+    titleClass: "text-xl font-bold tracking-tight text-[#fc247f] bg-white px-4 py-2 mr-auto md:text-4xl",
+    titleStyle: {
+      clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+    },
+    descriptionClass:
+      "text-sm font-medium leading-7 max-w-xs text-[#ffffff] bg-[#fc247f] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
+    descriptionStyle: {
+      clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+    },
+    callToActionClass: "max-w-sm h-10 z-10 text-[#ffffff] bg-[#009ad8] hover:bg-[#017aaa] font-bold text-lg",
+  },
 ];
 
 const PlayStation_Plus_Style = [
   // 0
   {
-    image: "/images/PlaystationPlus.webp",
+    image: "/images/PlaystationPlus_2.jpg",
     titleClass: "text-xl font-bold tracking-tight text-[#fcc000] bg-[#000000] px-4 py-2 mr-auto md:text-4xl",
     titleStyle: {},
     descriptionClass: "leading-7 max-w-xs text-black px-2 md:px-4 py-[1px] md:py-1",
@@ -84,33 +98,28 @@ const PlayStation_Plus_Style = [
 const Banners = [
   {
     title: "ПОПОЛНЕНИЕ PLAYSTATION",
-    description: "Пополнение по выгодному курсу",
+    description: "Летние скидки до 75% в PSN",
     callToAction: "ПОПОЛНИТЬ",
-    image: PlayStation_Style[2].image,
+    image: PlayStation_Style[3].image,
     alt: "Playstation пополнение банер",
-    titleClass: PlayStation_Style[2].titleClass,
-    titleStyle: PlayStation_Style[2].titleStyle,
-    descriptionClass: PlayStation_Style[2].descriptionClass,
-    descriptionStyle: PlayStation_Style[2].descriptionStyle,
-    callToActionClass: PlayStation_Style[2].callToActionClass,
+    titleClass: PlayStation_Style[3].titleClass,
+    titleStyle: PlayStation_Style[3].titleStyle,
+    descriptionClass: PlayStation_Style[3].descriptionClass,
+    descriptionStyle: PlayStation_Style[3].descriptionStyle,
+    callToActionClass: PlayStation_Style[3].callToActionClass,
     href: "playstation",
   },
   {
-    title: (
-      <>
-        <span>ПОДПИСКА PS PLUS</span>
-        <Image src="/catalogue_icons/ps_plus.png" alt="img" width={48} height={48} />
-      </>
-    ),
-    description: "",
+    title: "ПОДПИСКА PS PLUS",
+    description: "Получи доступ к сотням игр",
     callToAction: "ПРИОБРЕСТИ",
-    image: PlayStation_Plus_Style[1].image,
+    image: PlayStation_Plus_Style[0].image,
     alt: "Playstation plus банер",
-    titleClass: PlayStation_Plus_Style[1].titleClass,
-    titleStyle: PlayStation_Plus_Style[1].titleStyle,
-    descriptionClass: PlayStation_Plus_Style[1].descriptionClass,
-    descriptionStyle: PlayStation_Plus_Style[1].descriptionStyle,
-    callToActionClass: PlayStation_Plus_Style[1].callToActionClass,
+    titleClass: PlayStation_Plus_Style[0].titleClass,
+    titleStyle: PlayStation_Plus_Style[0].titleStyle,
+    descriptionClass: PlayStation_Plus_Style[0].descriptionClass,
+    descriptionStyle: PlayStation_Plus_Style[0].descriptionStyle,
+    callToActionClass: PlayStation_Plus_Style[0].callToActionClass,
     href: "playstation_plus",
   },
   {
