@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ru" className={cn(inter.className, "dark")} style={{ colorScheme: "dark" }}>
       <AppContextProvider>
         <body className="bg-background font-sans antialiased">
-          <NextTopLoader color="#6d28d9" height={4} crawlSpeed={300} crawl={false} speed={300} zIndex={9999} />
+          <NextTopLoader color="#6d28d9" height={4} crawlSpeed={300} crawl={false} showSpinner={false} speed={300} zIndex={9999} />
           {/* <script
             id="theme-switcher"
             dangerouslySetInnerHTML={{
