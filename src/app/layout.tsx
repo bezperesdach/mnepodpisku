@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { AppContextProvider } from "@/components/AppContextWrapper/AppContextWrapper";
+import NextTopLoader from "@/components/next-top-loader";
 
 import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -14,17 +15,6 @@ export const metadata: Metadata = {
   description: "Сервис оформления подписок на различные сервис. Безопасно, быстро, дешево.",
   metadataBase: new URL("https://mnepodpisku.ru"),
 };
-
-// const setInitialTheme = `
-//     function getUserPreference() {
-//       if(window.localStorage.getItem('theme')) {
-//         return window.localStorage.getItem('theme')
-//       }
-//       return 'dark';
-//     }
-
-//     document.documentElement.dataset.theme = getUserPreference();
-//   `;
 
 const yandexMetrica = `
   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -46,6 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ru" className={cn(inter.className, "dark")} style={{ colorScheme: "dark" }}>
       <AppContextProvider>
         <body className="bg-background font-sans antialiased">
+          <NextTopLoader color="#6d28d9" height={4} crawlSpeed={300} crawl={false} speed={300} zIndex={9999} />
           {/* <script
             id="theme-switcher"
             dangerouslySetInnerHTML={{

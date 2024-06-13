@@ -7,6 +7,10 @@ export const activationTypes: Record<ActivationTypes, string> = activationTypesN
 
 export type ActivationTypes = (typeof activationTypesNames)[number];
 
+export const isActivationType = (value: string): value is ActivationTypes => {
+  return activationTypesNames.includes(value as ActivationTypes);
+};
+
 export const verifyActivationType = (activationType: string): activationType is ActivationTypes => {
   return activationTypesNames.includes(activationType as ActivationTypes);
 };
