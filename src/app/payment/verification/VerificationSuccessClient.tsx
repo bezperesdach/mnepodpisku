@@ -12,6 +12,7 @@ type Props = {
 };
 
 function VerificationSuccessClient({ code }: Props) {
+  const [allowCopyTest, setAllowCopyTest] = useState(false);
   const [testingCopy, setTestingCopy] = useState(true);
   const [copySuccess, setCopySuccess] = useState(true);
 
@@ -25,20 +26,22 @@ function VerificationSuccessClient({ code }: Props) {
   };
 
   useEffect(() => {
-    const copyTest = async () => {
-      try {
-        await window.CopyToClipboard("");
-      } catch (err) {
-        console.log(err);
-        setCopySuccess(false);
-      } finally {
-        setTestingCopy(false);
-      }
-    };
-    copyTest();
+    if (allowCopyTest) {
+      const copyTest = async () => {
+        try {
+          await window.CopyToClipboard("");
+        } catch (err) {
+          console.log(err);
+          setCopySuccess(false);
+        } finally {
+          setTestingCopy(false);
+        }
+      };
+      copyTest();
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [allowCopyTest]);
 
   return (
     <div className="flex flex-col justify-start items-center w-full">
@@ -48,53 +51,65 @@ function VerificationSuccessClient({ code }: Props) {
         <div className="flex flex-col gap-2 w-full">
           <h1 className="text-3xl font-semibold tracking-tight">Благодарим за покупку!</h1>
 
-          <p className=" text-muted-foreground">
-            Мы успешно проверили вашу оплата! Отправьте нам сообщение ниже в любой удобный для вас мессенджер!
+          <p className=" text-muted-foreground mb-4">
+            Мы успешно проверили вашу оплата! Нажмите на кнопку ниже чтобы приступить к активации!
           </p>
 
-          <p className="text-3xl font-semibold tracking-tight">Шаг 1</p>
-          {testingCopy ? (
-            <div className="flex justify-center items-center min-h-[180px]">
-              <SyncIcon className="animate-spin" />
-            </div>
-          ) : (
+          {!allowCopyTest && (
+            <Button
+              onClick={() => {
+                setAllowCopyTest(true);
+              }}
+            >
+              ПОЛУЧИТЬ ТОВАР
+            </Button>
+          )}
+
+          {allowCopyTest && (
             <>
-              <p className=" text-muted-foreground">Скопируйте сообщение ниже</p>
+              <p className="text-3xl font-semibold tracking-tight">Шаг 1</p>
+              {testingCopy ? (
+                <div className="flex justify-center items-center min-h-[180px]">
+                  <SyncIcon className="animate-spin" />
+                </div>
+              ) : (
+                <>
+                  <p className=" text-muted-foreground">Скопируйте сообщение ниже</p>
 
-              <p className="flex gap-2 justify-between items-center p-3 mt-2 mb-4 bg-background rounded-md cursor-text">
-                Мой код активации - {code}
-              </p>
+                  <p className="flex gap-2 justify-between items-center p-3 mt-2 mb-4 bg-background rounded-md cursor-text">
+                    Мой код активации - {code}
+                  </p>
 
-              {copySuccess && (
-                <Button
-                  className={cn("", {
-                    "pointer-events-none": !canCopyCode,
-                  })}
-                  onClick={() => {
-                    copyCode();
+                  {copySuccess && (
+                    <Button
+                      className={cn("", {
+                        "pointer-events-none": !canCopyCode,
+                      })}
+                      onClick={() => {
+                        copyCode();
 
-                    window.CopyToClipboard(`Мой код активации - ${code}`);
-                  }}
-                >
-                  {canCopyCode ? `НАЖМИТЕ, ЧТОБЫ СКОПИРОВАТЬ` : "СКОПИРОВАНО"}
-                </Button>
+                        window.CopyToClipboard(`Мой код активации - ${code}`);
+                      }}
+                    >
+                      {canCopyCode ? `НАЖМИТЕ, ЧТОБЫ СКОПИРОВАТЬ` : "СКОПИРОВАНО"}
+                    </Button>
+                  )}
+                  <p className="text-3xl font-semibold tracking-tight">Шаг 2</p>
+                  <p className=" text-muted-foreground">Вышлите скопированное сообщение в удобный вам мессенджер</p>
+
+                  <div className="flex gap-4 mt-2">
+                    <a href="https://t.me/pstopup" target="_blank" rel="noopener noreferrer">
+                      <Image src="/socials_icons/telegram_icon.png" alt="telegram" width={48} height={48} />
+                    </a>
+
+                    <a className="flex gap-1 items-center" href="https://wa.me/79939011007" target="_blank" rel="noopener noreferrer">
+                      <Image src="/socials_icons/whatsapp_icon.png" alt="whatsapp" width={48} height={48} />
+                    </a>
+                  </div>
+
+                  <p className="text-muted-foreground">(Нажмите на один из логотипов выше чтобы открыть)</p>
+                </>
               )}
-              <p className="text-3xl font-semibold tracking-tight">Шаг 2</p>
-              <p className=" text-muted-foreground">Вышлите скопированное сообщение в удобный вам мессенджер</p>
-
-              <div className="flex gap-4 mt-2">
-                <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
-                  <Image src="/socials_icons/vk_compact.png" alt="vk" width={48} height={48} />
-                </a>
-
-                <a href="https://t.me/pstopup" target="_blank" rel="noopener noreferrer">
-                  <Image src="/socials_icons/telegram_icon.png" alt="telegram" width={48} height={48} />
-                </a>
-
-                <a className="flex gap-1 items-center" href="https://wa.me/79939011007" target="_blank" rel="noopener noreferrer">
-                  <Image src="/socials_icons/whatsapp_icon.png" alt="whatsapp" width={48} height={48} />
-                </a>
-              </div>
             </>
           )}
         </div>
