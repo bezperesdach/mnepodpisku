@@ -90,7 +90,9 @@ async function selectText() {
         await clipboard.writeText(textArea.value);
         copySuccess = true;
       }catch(err){
+        document.body.removeChild(textArea);
         throw new Error('Wasnt able to copy'+err);
+        
       }
     }else{
       if (isOS()) {
