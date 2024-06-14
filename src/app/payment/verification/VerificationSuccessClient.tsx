@@ -61,7 +61,7 @@ function VerificationSuccessClient({ code }: Props) {
                 setAllowCopyTest(true);
               }}
             >
-              ПОЛУЧИТЬ ТОВАР
+              НАЧАТЬ АКТИВАЦИЮ
             </Button>
           )}
 
