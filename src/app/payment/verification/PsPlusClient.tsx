@@ -25,7 +25,7 @@ function PsPlusClient({ code }: Props) {
           </p>
           <Button asChild>
             <Link className="mt-4" href={`/activate/digi?uniquecode=${code}&name=${activationTypes.ps_plus}`}>
-              Получить подписку
+              ПОЛУЧИТЬ ПОДПИСКУ
             </Link>
           </Button>
         </div>

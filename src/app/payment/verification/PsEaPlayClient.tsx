@@ -25,7 +25,7 @@ function PsEaPlayClient({ code }: Props) {
           </p>
           <Button asChild>
             <Link className="mt-4" href={`/activate/digi?uniquecode=${code}&name=${activationTypes.ps_ea_play}`}>
-              Получить подписку
+              ПОЛУЧИТЬ ПОДПИСКУ
             </Link>
           </Button>
         </div>

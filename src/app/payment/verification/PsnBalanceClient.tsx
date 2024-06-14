@@ -20,14 +20,14 @@ function PsnBalanceClient({ code }: Props) {
         <div className="flex flex-col gap-2 w-full">
           <h1 className="text-3xl font-semibold tracking-tight">Благодарим за покупку пополнения!</h1>
           <p className="text-muted-foreground">
-            Мы успешно проверили вашу оплату! Нажмите на кнопку ниже и получите лиры к себе на аккаунт :)
+            Мы успешно проверили вашу оплату! Нажмите на кнопку ниже и получите лиры на свой аккаунт :)
           </p>
           <Button asChild>
             <Link
               className="btn btn-secondary text-white mt-2"
               href={`/activate/digi?uniquecode=${code}&name=${activationTypes.psn_balance}`}
             >
-              Получить лиры на свой аккаунт
+              ПОЛУЧИТЬ ЛИРЫ
             </Link>
           </Button>
         </div>

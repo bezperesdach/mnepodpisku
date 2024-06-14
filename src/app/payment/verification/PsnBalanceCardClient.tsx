@@ -85,10 +85,6 @@ function PsnBalanceCardClient({ code }: Props) {
               <p className=" text-muted-foreground">Вышлите скопированное сообщение удобным вам способом</p>
 
               <div className="flex gap-4 mt-2">
-                <a href="https://vk.com/im?sel=-221413404" target="_blank" rel="noopener noreferrer">
-                  <Image src="/socials_icons/vk_compact.png" alt="vk" width={48} height={48} />
-                </a>
-
                 <a href="https://t.me/pstopup" target="_blank" rel="noopener noreferrer">
                   <Image src="/socials_icons/telegram_icon.png" alt="telegram" width={48} height={48} />
                 </a>

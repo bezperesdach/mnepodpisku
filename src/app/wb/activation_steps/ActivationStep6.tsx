@@ -140,6 +140,7 @@ const ActivationStep5 = ({ userData, confirmationType, changeTitle }: Props) => 
               <Image width={48} height={48} src="/socials_icons/whatsapp_icon.png" alt="Whatsapp лого" />
             </a>
           </div>
+          <p className="text-muted-foreground">(Нажмите на один из логотипов выше чтобы открыть)</p>
         </div>
       )}
     </div>

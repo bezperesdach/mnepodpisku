@@ -122,6 +122,7 @@ const ActivationStep3: React.FC<Props> = ({ userData, activationType, changeTitl
               <Image width={46} height={46} src="/socials_icons/whatsapp_icon.png" alt="Whatsapp лого" />
             </a>
           </div>
+          <p className="text-muted-foreground">(Нажмите на один из логотипов выше чтобы открыть)</p>
         </div>
       )}
     </div>
