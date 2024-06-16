@@ -155,6 +155,27 @@ export function NavbarSearch({ ...props }: DialogProps) {
                 <span>{service.name}</span>
               </CommandItem>
             ))}
+            <CommandItem
+              className="cursor-pointer"
+              keywords={["Мои покупки", "Приобретения"]}
+              key={"my_purchases"}
+              value={"my_purchases"}
+              onSelect={() => {
+                runCommand(() => window.open("https://oplata.info", "_blank", "noopener,noreferrer"));
+              }}
+            >
+              {/* <div className="relative flex justify-center items-center mr-2 h-5 w-5 ">
+                <Image
+                  className="w-auto h-full"
+                  src={service.src}
+                  alt={service.name}
+                  fill
+                  style={{ objectFit: "contain" }}
+                  sizes="20vw"
+                />
+              </div> */}
+              <span>Мои покупки</span>
+            </CommandItem>
           </CommandGroup>
         </CommandList>
       </CommandDialog>
