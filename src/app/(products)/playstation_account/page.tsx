@@ -12,13 +12,11 @@ import { AlsoRecommendToBuy } from "@/components/also-recommend-to-buy";
 import { ProductHero } from "@/components/product-hero";
 
 export const metadata: Metadata = {
-  title: "Cоздание турецкого аккаунта playstation",
-  description:
-    "Узнайте, как получить турецкий аккаунт PlayStation! Предлагаем профессиональную помощь и инструкции по регистрации. Купите услугу прямо сейчас!",
+  title: "Cоздание турецкого аккаунта PlayStation",
+  description: "Приобрести турецкий аккаунт PlayStation на свою почту в 1 клик. После входа в аккаунт все данные можно сменить.",
   openGraph: {
-    title: "Cоздание турецкого аккаунта playstation",
-    description:
-      "Узнайте, как получить турецкий аккаунт PlayStation! Предлагаем профессиональную помощь и инструкции по регистрации. Купите услугу прямо сейчас!",
+    title: "Cоздание турецкого аккаунта PlayStation",
+    description: "Приобрести турецкий аккаунт PlayStation на свою почту в 1 клик. После входа в аккаунт все данные можно сменить.",
     url: "/playstation_account",
     images: ["/og_images_catalogue/playstation_account.png"],
 
