@@ -1,4 +1,4 @@
-import { useDebounce } from "usehooks-ts";
+import { useDebounceValue } from "usehooks-ts";
 import ExpandableText from "./ExpandableText";
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
 };
 
 const InputError = ({ error }: Props) => {
-  const debouncedError = useDebounce(error, 200);
+  const [debouncedError, _] = useDebounceValue(error, 200);
 
   return (
     <ExpandableText expanded={!!debouncedError}>

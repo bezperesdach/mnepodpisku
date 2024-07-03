@@ -16,10 +16,10 @@ import { Button } from "./button";
 import { cn } from "@/lib/utils";
 import { services } from "@/lib/services_list";
 import { useRouter } from "next/navigation";
-import { DialogProps } from "@radix-ui/react-alert-dialog";
+// import { DialogProps } from "@radix-ui/react-alert-dialog";
 import Image from "next/image";
 
-export function NavbarSearch({ ...props }: DialogProps) {
+export function NavbarSearch(/* { ...props }: DialogProps */) {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
 
@@ -36,7 +36,7 @@ export function NavbarSearch({ ...props }: DialogProps) {
           "relative h-full w-full justify-start rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none md:w-40 lg:w-64 min-w-[42px]"
         )}
         onClick={() => setOpen(true)}
-        {...props}
+        // {...props}
       >
         <span className="inline-flex sm:hidden lg:inline-flex">Поиск по сайту...</span>
         <span className="hidden md:inline-flex lg:hidden">Поиск...</span>
