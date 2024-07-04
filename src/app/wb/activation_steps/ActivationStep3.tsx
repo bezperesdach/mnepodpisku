@@ -275,6 +275,11 @@ const ActivationStep3 = ({
                 Убедитесь, что вы вошли под учетной записью, через которую была совершена покупка
               </p>
 
+              <p className="my-4 border-2 border-yellow-300 p-2 rounded-lg sm:text-lg">
+                <span className="font-black">ВНИМАНИЕ!</span> Отправить сообщение продавцу можно только с сайта Wildberries,{" "}
+                <span className="font-black text-red-400">В ПРИЛОЖЕНИИ ТАКОГО ФУНКЦИОНАЛА НЕТ!</span>
+              </p>
+
               <Button asChild>
                 <Link
                   href="https://www.wildberries.ru/security/login?returnUrl=https%3A%2F%2Fwww.wildberries.ru%2Fsecurity%2Flogin%2F/"
@@ -342,6 +347,15 @@ const ActivationStep3 = ({
                 placeholder="blur"
                 className="mt-6 justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto"
               />
+
+              <p className="mt-4 border-2 border-yellow-300 p-2 rounded-lg text-lg">
+                <span className="font-black text-yellow-400">НЕ НАШЛИ КНОПКУ &quot;ЧАТ С ПРОДАВЦОМ&quot;?</span> <br />
+                <br />
+                ОТПРАВИТЬ СООБЩЕНИЕ ПРОДАВЦУ МОЖНО ТОЛЬКО <span className="font-black text-yellow-400">С САЙТА WILDBERRIES</span>,{" "}
+                <br />
+                <br />
+                <span className="font-black text-red-400">В ПРИЛОЖЕНИИ ТАКОГО ФУНКЦИОНАЛА НЕТ!</span>
+              </p>
 
               <p className="my-4">
                 В открывшемся окне Вам будет предложено отправить первое сообщение, которое поможет нам увидеть, что Ваша карточка была
@@ -419,6 +433,7 @@ const ActivationStep3 = ({
               <p className="my-4">
                 После этого Вам необходимо перейти в раздел <strong>"Чеки"</strong>
               </p>
+
               <Image
                 src={ImageDeskCheque2}
                 alt="Открыть раздел чеки"
@@ -556,6 +571,7 @@ const ActivationStep3 = ({
                 <br />
                 <span className="font-black text-red-400">В ПРИЛОЖЕНИИ ТАКОГО ФУНКЦИОНАЛА НЕТ!</span>
               </p>
+
               <Image
                 src={ImageMessageMob5}
                 alt="Чат с продавцом"
