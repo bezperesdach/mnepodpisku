@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";
 import { ProductHero } from "@/components/product-hero";
 import { FlameIcon, StarFillIcon } from "@primer/octicons-react";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Купить Youtube premium 2024",
@@ -64,6 +65,58 @@ export default function Youtube({ params }: { params: { slug: string | string[] 
       <Reviews />
 
       <Faq>
+        <Question title="Как оплатить за пределами РФ?">
+          <p>
+            Наша платежный провайдер <b>Robokassa</b> принимает карты <b>MasterCard всего мира</b>. Выберите необходимую вам услуг и
+            нажмите <b>ОПЛАТИТЬ</b>. После этого вы будете переадресованы на страницу оплаты, на ней выберите способ оплаты как на фото
+            ниже
+            <Image
+              src="/payment_method.jpg"
+              alt="Открыть payment management"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto my-2"
+            />
+            Укажите свой email на который будет выслана инструкция по активации и чек, нажмите оплатить. На следующей странице вы
+            сможете безопасно ввести данные свой карты и оплатить свою покупку
+            <br />
+            <br /> Если вы находитесь <b>за пределами РФ и СНГ</b>, вы можете выбрать способ оплаты <b>PayPal</b> доступный на странице
+            оплаты в <b>ВЫБОР СПОСОБА ОПЛАТЫ</b>
+            <br />
+            <br />
+            По картам MasterCard <b>запрещенные страны</b> -{" "}
+            <span className=" text-xs">
+              Украина, Азербайджан, США, Афганистан, Багамы, Центрально-Африканская Республика, Демократическая Республика Конго, Куба,
+              Гана, Иран, Ирак, Ливан, Ливия, Мали, Мьянма, Монголия, Пакистан, Корея, Палестина, Судан, Сомали, Южный Судан, Сирия,
+              Турция, Тринидад и Тобаго, Венесуэла, Йемен, Зимбабве
+            </span>
+          </p>
+        </Question>
+        <Question title="Как оплатить через СБП?">
+          <p>
+            Выберите необходимую вам услуг и нажмите <b>ОПЛАТИТЬ</b>. После этого вы будете переадресованы на страницу оплаты, на ней
+            выберите способ оплаты как на фото ниже
+            <Image
+              src="/payment_method.jpg"
+              alt="Открыть payment management"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto my-2"
+            />
+            Укажите свой email на который будет выслана инструкция по активации и чек, нажмите оплатить. На следующей странице вы
+            найдете кнопку оплаты через СБП
+            <Image
+              src="/sbp.jpg"
+              alt="Открыть payment management"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="justify-center rounded-md lg:w-1/3 sm:w-1/2 w-full h-auto my-2"
+            />
+          </p>
+        </Question>
         <Question title="Как это работает?">
           <p>
             После успешной оплаты вам на почту придет письмо с ссылкой на активацию пополнения

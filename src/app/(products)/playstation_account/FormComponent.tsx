@@ -73,7 +73,7 @@ export default function FormComponent() {
             onClick={generatePaymentLink}
           >
             {!loading && !isSubmitting ? (
-              <p>КУПИТЬ {value && <span className="text-[#fee525] text-xl font-bold">{value}₽</span>}</p>
+              <p>ОПЛАТИТЬ {value && <span className="text-[#fee525] text-xl font-bold">{value}₽</span>}</p>
             ) : (
               <SyncIcon className="animate-spin" />
             )}
