@@ -112,16 +112,17 @@ const PlayStation_Style = [
   // aug1 - 7
   {
     image: "/images/Playstation_topup_august_1.jpg",
-    titleClass: "text-xl font-bold tracking-tight text-[#4270CC] bg-white px-4 py-2 mr-auto md:text-4xl",
+    titleClass: "text-xl font-bold tracking-tight text-[#5F55B4] bg-[#FED48F] px-4 py-2 mr-auto md:text-4xl border-[#5F55B4] border-4",
     titleStyle: {
-      clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+      // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
     descriptionClass:
-      "text-sm font-medium leading-7 max-w-xs text-[#ffffff] bg-[#ff478d] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
+      "text-sm font-bold leading-7 max-w-xs text-[#FED48F] bg-[#5F55B4] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base border-[#FED48F] border-2 ",
     descriptionStyle: {
-      clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+      // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
-    callToActionClass: "max-w-sm h-10 z-10 text-[#ffffff] bg-[#ff478d] hover:bg-[#ffffff] hover:text-[#4270CC] font-bold text-lg",
+    callToActionClass:
+      "max-w-sm h-10 z-10 text-[#5F55B4] bg-[#FED790] hover:bg-[#5F55B4] border-[#5F55B4] border-2 hover:border-[#FED790] hover:text-[#FED790] font-bold text-lg",
   },
 ];
 
@@ -154,7 +155,7 @@ const PlayStation_Plus_Style = [
 const Banners = [
   {
     title: "ПОПОЛНЕНИЕ PLAYSTATION",
-    description: "PSN скидки до 75% в августе",
+    description: "СКИДКИ ДО 75%",
     callToAction: "ПОПОЛНИТЬ",
     image: PlayStation_Style[7].image,
     alt: "Playstation пополнение банер",
