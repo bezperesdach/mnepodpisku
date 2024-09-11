@@ -137,7 +137,22 @@ const PlayStation_Style = [
       // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
     callToActionClass:
-      "max-w-sm h-10 z-10 text-[#313131] bg-[#1DFA39] hover:bg-[#FFFFFF] border-transpaernt border-2 hover:border-[#313131] hover:text-[#313131] font-bold text-lg",
+      "max-w-sm h-10 z-10 text-[#313131] bg-[#1DFA39] hover:bg-[#FFFFFF] border-transparent border-2 hover:border-[#313131] hover:text-[#313131] font-bold text-lg",
+  },
+  // september - 9
+  {
+    image: "/images/Playstation_topup_2024_september.jpg",
+    titleClass: "text-xl font-bold tracking-tight text-[#6e41e4] bg-[#ffffff] px-4 py-2 mr-auto md:text-4xl rounded-xl",
+    titleStyle: {
+      // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+    },
+    descriptionClass:
+      "text-sm font-bold leading-7 max-w-xs text-[#ffffff] bg-[#6e41e4] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base rounded-md ",
+    descriptionStyle: {
+      // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+    },
+    callToActionClass:
+      "max-w-sm h-10 z-10 text-[#6e41e4] bg-[#ffffff] hover:bg-[#6e41e4]  hover:text-[#ffffff] font-bold text-lg rounded-sm",
   },
 ];
 
@@ -170,15 +185,15 @@ const PlayStation_Plus_Style = [
 const Banners = [
   {
     title: "ПОПОЛНЕНИЕ PLAYSTATION",
-    description: "СКИДКИ ДО 80%",
+    description: "СКИДКИ ДО 75% В СЕНТЯБРЕ",
     callToAction: "ПОПОЛНИТЬ",
-    image: PlayStation_Style[8].image,
+    image: PlayStation_Style[9].image,
     alt: "Playstation пополнение банер",
-    titleClass: PlayStation_Style[8].titleClass,
-    titleStyle: PlayStation_Style[8].titleStyle,
-    descriptionClass: PlayStation_Style[8].descriptionClass,
-    descriptionStyle: PlayStation_Style[8].descriptionStyle,
-    callToActionClass: PlayStation_Style[8].callToActionClass,
+    titleClass: PlayStation_Style[9].titleClass,
+    titleStyle: PlayStation_Style[9].titleStyle,
+    descriptionClass: PlayStation_Style[9].descriptionClass,
+    descriptionStyle: PlayStation_Style[9].descriptionStyle,
+    callToActionClass: PlayStation_Style[9].callToActionClass,
     href: "playstation",
   },
   {
