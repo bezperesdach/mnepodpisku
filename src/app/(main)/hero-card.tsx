@@ -83,7 +83,7 @@ const PlayStation_Style = [
   },
   // july - 5
   {
-    image: "/images/Playstation_topup_july.jpg",
+    image: "/images/Playstation_topup_july.avif",
     titleClass: "text-xl font-bold tracking-tight text-[#d53c40] bg-white px-4 py-2 mr-auto md:text-4xl",
     titleStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
