@@ -83,7 +83,7 @@ const PlayStation_Style = [
   },
   // july - 5
   {
-    image: "/images/Playstation_topup_july.jpg",
+    image: "/images/Playstation_topup_july.avif",
     titleClass: "text-xl font-bold tracking-tight text-[#d53c40] bg-white px-4 py-2 mr-auto md:text-4xl",
     titleStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
@@ -213,15 +213,15 @@ const PlayStation_Plus_Style = [
 const Banners = [
   {
     title: "ПОПОЛНЕНИЕ PLAYSTATION",
-    description: "ОСЕННИЕ СКИДКИ ДО 75%",
+    description: "СКИДКИ ДО 75%",
     callToAction: "ПОПОЛНИТЬ",
-    image: PlayStation_Style[11].image,
+    image: PlayStation_Style[5].image,
     alt: "Playstation пополнение банер",
-    titleClass: PlayStation_Style[11].titleClass,
-    titleStyle: PlayStation_Style[11].titleStyle,
-    descriptionClass: PlayStation_Style[11].descriptionClass,
-    descriptionStyle: PlayStation_Style[11].descriptionStyle,
-    callToActionClass: PlayStation_Style[11].callToActionClass,
+    titleClass: PlayStation_Style[5].titleClass,
+    titleStyle: PlayStation_Style[5].titleStyle,
+    descriptionClass: PlayStation_Style[5].descriptionClass,
+    descriptionStyle: PlayStation_Style[5].descriptionStyle,
+    callToActionClass: PlayStation_Style[5].callToActionClass,
     href: "playstation",
   },
   {
