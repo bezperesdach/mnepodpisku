@@ -274,7 +274,7 @@ async function KakSamomuSozdatTureckiyAkaunt({}) {
         </div>
         <div className="text-1xl justify-center  px-6 py-4 max-md:max-w-full ">
           Если вы столкнулись со сложностями или попросту нет времени, не отчаивайтесь! <br />
-          Самый простой способ решения проблемы купить турецкий аккаунт PS за символическую сумму в "мнеподписку.рф" <br />
+          Самый простой способ решения проблемы купить турецкий аккаунт PS за символическую сумму в "mnepodpisku.ru" <br />
           Мы создадим его для вас сами на вашу почту, а все его данные вы сможете сменить позже <br />
         </div>
         <Button className="text-2xl font-black w-full min-h-[48px]" asChild>

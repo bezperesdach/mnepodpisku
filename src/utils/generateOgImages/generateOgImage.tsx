@@ -56,7 +56,7 @@ async function writeFile(directory: string, filename: string, buffer: any) {
   }
 }
 
-export async function generateOgImage({ path, title = "МНЕПОДПИСКУ.РФ", text }: Props) {
+export async function generateOgImage({ path, title = "MNEPODPISKU.RU", text }: Props) {
   if (typeof path !== "string") {
     throw new Error("Path is missing");
   }

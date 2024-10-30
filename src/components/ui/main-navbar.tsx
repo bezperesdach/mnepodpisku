@@ -9,7 +9,7 @@ export function MainNavbar() {
         <Link className="flex flex-1 gap-1 items-center justify-start" href="/">
           <Image className="" src="/site_logo.webp" width={42} height={42} alt="логотип" />
 
-          <p className="text-2xl font-bold">МНЕПОДПИСКУ.РФ</p>
+          <p className="text-2xl font-bold">МНЕПОДПИСКУ.RU</p>
         </Link>
         <div className="h-8 w-full sm:w-auto flex-none">
           <NavbarSearch />

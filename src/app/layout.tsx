@@ -11,7 +11,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ weight: ["100", "300", "400", "500", "700", "900"], subsets: ["cyrillic"] });
 
 export const metadata: Metadata = {
-  title: "МнеПодписку.рф",
+  title: "mnepodpisku.ru",
   description: "Сервис оформления подписок на различные сервис. Безопасно, быстро, дешево.",
   metadataBase: new URL("https://mnepodpisku.ru"),
 };
