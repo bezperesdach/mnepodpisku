@@ -121,7 +121,7 @@ export function Footer({}) {
             <div className="flex flex-col lg:flex-row flex-wrap gap-1 lg:gap-4">
               <p className="font-bold">ПН: ❌</p>
               <p className="font-bold">ВТ-ПТ: 13:00-15:00 и 17:00-21:00 МСК</p>
-              <p className="font-bold">СБ-ВС: 14:00-18:00 МСК</p>
+              <p className="font-bold">СБ-ВС: 14:00-17:00 МСК</p>
             </div>
           </div>
 
