@@ -7,7 +7,6 @@ import Reviews from "@/components/Reviews/review";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";
 import Image from "next/image";
-import { StarFillIcon } from "@primer/octicons-react";
 import { AlsoRecommendToBuy } from "@/components/also-recommend-to-buy";
 import { ProductHero } from "@/components/product-hero";
 
@@ -161,10 +160,6 @@ export default function PlayStationAccountV2() {
 
         <Question title="Можно ли менять данные аккаунта?">
           <p>Да, после входа в аккаунт вы сможете изменить абсолютно все данные аккаунта</p>
-        </Question>
-
-        <Question title="Нужен ли VPN?">
-          <p>Нет, вы сможете делать абсолютно все в аккаунте без использования VPN</p>
         </Question>
       </Faq>
     </div>

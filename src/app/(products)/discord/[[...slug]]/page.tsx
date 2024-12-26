@@ -7,7 +7,7 @@ import Reviews from "@/components/Reviews/review";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";
 import { ProductHero } from "@/components/product-hero";
-import { FlameIcon, StarFillIcon } from "@primer/octicons-react";
+import { FlameIcon } from "@primer/octicons-react";
 import Image from "next/image";
 
 export const metadata: Metadata = {

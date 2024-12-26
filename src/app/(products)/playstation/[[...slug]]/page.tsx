@@ -12,7 +12,7 @@ import { headers } from "next/headers";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";
 import Image from "next/image";
-import { FlameIcon, StarFillIcon } from "@primer/octicons-react";
+import { FlameIcon } from "@primer/octicons-react";
 import { AlsoRecommendToBuy } from "@/components/also-recommend-to-buy";
 import { ProductHero } from "@/components/product-hero";
 import { getAmountFromSlug } from "@/utils/utils";

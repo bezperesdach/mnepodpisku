@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";
 import { ProductHero } from "@/components/product-hero";
 import Image from "next/image";
-import { FlameIcon, StarFillIcon } from "@primer/octicons-react";
+import { FlameIcon } from "@primer/octicons-react";
 
 export const metadata: Metadata = {
   title: "Купить Spotify Premium 2024",

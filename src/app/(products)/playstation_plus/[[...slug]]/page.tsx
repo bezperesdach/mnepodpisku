@@ -5,7 +5,7 @@ import FormComponent from "./FormComponent";
 import { Metadata } from "next";
 import Reviews from "@/components/Reviews/review";
 import { AlsoRecommendToBuy } from "@/components/also-recommend-to-buy";
-import { FlameIcon, StarFillIcon } from "@primer/octicons-react";
+import { FlameIcon } from "@primer/octicons-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";
 import Image from "next/image";
