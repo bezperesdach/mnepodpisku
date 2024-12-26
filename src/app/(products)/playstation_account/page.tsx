@@ -8,6 +8,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BreadcrumbItem } from "@/components/ui/breadcrumb";
 import Image from "next/image";
 import { AlsoRecommendToBuy } from "@/components/also-recommend-to-buy";
+import { FlameIcon } from "@primer/octicons-react";
 import { ProductHero } from "@/components/product-hero";
 
 export const metadata: Metadata = {
@@ -46,6 +47,10 @@ export default function PlayStationAccountV2() {
               </div>
             ),
             text: "ТУРЦИЯ",
+          },
+          {
+            icon: <FlameIcon className="text-[#f95721]" />,
+            text: "ВЫГОДНО",
           },
           // {
           //   icon: <StarFillIcon className="text-primary" />,

@@ -39,7 +39,7 @@ export function ProductHero({ icon, title, description, tags }: Props) {
             <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight">{title}</h1>
           </div>
 
-          {tags!! && tags.length > 1 && (
+          {tags!! && tags.length >= 1 && (
             <div className="relative flex gap-2 overflow-x-auto no-scrollbar">
               {tags.map((tag, i) => (
                 <div key={i} className="flex flex-nowrap gap-1 items-center bg-[#1b2a63] font-medium px-2 py-1 w-fit rounded-lg">
