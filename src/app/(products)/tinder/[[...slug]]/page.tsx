@@ -135,10 +135,6 @@ export default function Tinder({ params }: { params: { slug: string | string[] |
           </p>
         </Question>
 
-        <Question title="Работает ли Tinder в России?">
-          <p>Тиндером в россии можно пользоваться исключительно через ВПН и браузер. Без VPN тиндер не работает</p>
-        </Question>
-
         <Question title="Как быстро я получу промокод на Tinder Gold?">
           <p>После отправки заявки среднее время выполнения заказа 5-30 минут в рабочие часы</p>
         </Question>

@@ -53,10 +53,10 @@ export default function Youtube({ params }: { params: { slug: string | string[] 
             icon: <FlameIcon className="text-[#f95721]" />,
             text: "ВЫГОДНО",
           },
-          {
-            icon: <StarFillIcon className="text-primary" />,
-            text: "НЕ НУЖЕН VPN",
-          },
+          // {
+          //   icon: <StarFillIcon className="text-primary" />,
+          //   text: "НЕ НУЖЕН VPN",
+          // },
         ]}
       />
 

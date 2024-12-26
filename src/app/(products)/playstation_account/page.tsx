@@ -48,10 +48,10 @@ export default function PlayStationAccountV2() {
             ),
             text: "ТУРЦИЯ",
           },
-          {
-            icon: <StarFillIcon className="text-primary" />,
-            text: "НЕ НУЖЕН VPN",
-          },
+          // {
+          //   icon: <StarFillIcon className="text-primary" />,
+          //   text: "НЕ НУЖЕН VPN",
+          // },
         ]}
       />
 

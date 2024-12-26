@@ -67,10 +67,10 @@ export default function Playstation({ params }: { params: { slug: string } }) {
             icon: <FlameIcon className="text-[#f95721]" />,
             text: "ВЫГОДНЫЙ КУРС",
           },
-          {
-            icon: <StarFillIcon className="text-primary" />,
-            text: "НЕ НУЖЕН VPN",
-          },
+          // {
+          //   icon: <StarFillIcon className="text-primary" />,
+          //   text: "НЕ НУЖЕН VPN",
+          // },
         ]}
       />
 

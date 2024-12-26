@@ -72,10 +72,10 @@ export default function PlayStationAccount({ params }: { params: { slug: string 
             icon: <FlameIcon className="text-[#f95721]" />,
             text: "ВЫГОДНО",
           },
-          {
-            icon: <StarFillIcon className="text-primary" />,
-            text: "НЕ НУЖЕН VPN",
-          },
+          // {
+          //   icon: <StarFillIcon className="text-primary" />,
+          //   text: "НЕ НУЖЕН VPN",
+          // },
         ]}
       />
 

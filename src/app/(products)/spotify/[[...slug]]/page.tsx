@@ -70,10 +70,10 @@ export default function PsEaPlay({ params }: { params: { slug: string | string[]
             icon: <FlameIcon className="text-[#f95721]" />,
             text: "ВЫГОДНО",
           },
-          {
-            icon: <StarFillIcon className="text-primary" />,
-            text: "НЕ НУЖЕН VPN",
-          },
+          // {
+          //   icon: <StarFillIcon className="text-primary" />,
+          //   text: "НЕ НУЖЕН VPN",
+          // },
         ]}
       />
 
@@ -148,7 +148,7 @@ export default function PsEaPlay({ params }: { params: { slug: string | string[]
           <p>Нет, даже если у вас стоит другой регион, мы сами сменим его на нужный и оформим подписку</p>
         </Question>
         <Question title="Работает ли Spotify в России?">
-          <p>Для работы Spotify в России может понадобиться однократный вход через VPN</p>
+          <p>Для работы Spotify в России может понадобиться однократный вход через Турцию</p>
         </Question>
 
         <Question title="Сколько времени занимает активация Spotify premium?">
