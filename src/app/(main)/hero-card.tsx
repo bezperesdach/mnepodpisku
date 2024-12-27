@@ -258,7 +258,7 @@ const PlayStation_Plus_Style = [
 const Banners = [
   {
     title: "СКОРО ВЕРНЕМСЯ!",
-    description: "УЗНАЙТЕ КАК МЫ РАБОТАЕМ В ЭТИ ПРАЗДНИКИ",
+    description: "Узнайте расписание нашей работы в эти праздники",
     callToAction: "ПОДРОБНЕЕ",
     image: "/images/Playstation_topup_2024_december_holiday.avif",
     alt: "Расписание работы на праздниках",
