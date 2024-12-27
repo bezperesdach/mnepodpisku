@@ -4,19 +4,24 @@ import { HomeIcon } from "@primer/octicons-react";
 
 type Props = {
   children: ReactElement;
+  disableHome?: boolean;
 };
 
-export function Breadcrumbs({ children }: Props) {
+export function Breadcrumbs({ children, disableHome }: Props) {
   return (
     <div className="w-full flex justify-center items-center mt-4">
       <Breadcrumb className="w-full max-w-screen-lg px-4">
         <BreadcrumbList>
-          <BreadcrumbItem className="flex gap-1">
-            <BreadcrumbLink className="flex gap-1 justify-center items-center" href="/">
-              <HomeIcon /> Главная
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
+          {!disableHome && (
+            <>
+              <BreadcrumbItem className="flex gap-1">
+                <BreadcrumbLink className="flex gap-1 justify-center items-center" href="/">
+                  <HomeIcon /> Главная
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+            </>
+          )}
           {children}
         </BreadcrumbList>
       </Breadcrumb>

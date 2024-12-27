@@ -2,7 +2,6 @@ export const dynamic = "force-static";
 /* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import React from "react";
-import GoBack from "../GoBack";
 import Image from "next/image";
 import { Metadata } from "next";
 
@@ -17,6 +16,9 @@ import Image8 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/8.pn
 import Image9 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/9.png";
 import Image10 from "@/../public/blog_data/kak_samomu_sozdat_tureckiy_akaunt/10.png";
 import { Button } from "@/components/ui/button";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { BookIcon } from "@primer/octicons-react";
 
 export const metadata: Metadata = {
   title: "Как создать Турецкий PlayStation аккаунт",
@@ -35,9 +37,20 @@ export const metadata: Metadata = {
 
 async function KakSamomuSozdatTureckiyAkaunt({}) {
   return (
-    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-10">
-      <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
-        <GoBack />
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto px-2 sm:px-4 mb-10">
+      <Breadcrumbs disableHome={true}>
+        <>
+          <BreadcrumbItem className="flex gap-1">
+            <BreadcrumbLink className="flex gap-1 justify-center items-center" href="/blog">
+              <BookIcon /> Блог
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>Как создать турецкий аккаунт</BreadcrumbItem>
+        </>
+      </Breadcrumbs>
+
+      <div className="flex items-center gap-4 mt-6">
         <h1 className="text-3xl font-semibold tracking-tight" id="heading">
           Как создать турецкий аккаунт в PS Store на PS4/PS5
         </h1>

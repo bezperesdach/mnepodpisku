@@ -3,6 +3,9 @@ export const dynamic = "force-static";
 import React from "react";
 import GoBack from "../GoBack";
 import { Metadata } from "next";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { BookIcon } from "@primer/octicons-react";
 
 export const metadata: Metadata = {
   title: "Расписание нашей работы в новогодние праздники",
@@ -21,19 +24,28 @@ export const metadata: Metadata = {
 
 async function RaspisanieRabotiNogodniePrazdniki({}) {
   return (
-    <div className="flex flex-col w-full max-w-screen-lg mx-auto mt-8 sm:mt-10 px-2 sm:px-4 mb-10">
-      <div className="flex flex-col min-[1240px]:flex-row items-center gap-4">
-        <GoBack />
+    <div className="flex flex-col w-full max-w-screen-lg mx-auto px-2 sm:px-4 mb-10">
+      <Breadcrumbs disableHome={true}>
+        <>
+          <BreadcrumbItem className="flex gap-1">
+            <BreadcrumbLink className="flex gap-1 justify-center items-center" href="/blog">
+              <BookIcon /> Блог
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>Расписание нашей работы в новогодние праздники</BreadcrumbItem>
+        </>
+      </Breadcrumbs>
+
+      <div className="flex items-center gap-4 mt-6">
         <h1 className="text-3xl font-semibold tracking-tight" id="heading">
           Расписание нашей работы в новогодние праздники
         </h1>
       </div>
 
       <div className=" items-left ">
-        <div className="text-3xl font-black self-stretch mt-12 px-6 max-md:max-w-full max-md:mt-10">
-          🎉 Друзья, поздравляем с наступающим Новым годом! 🎄
-        </div>
-        <div className="text-1xl justify-center  px-6 py-4 max-md:max-w-full ">
+        <div className="text-3xl font-black self-stretch mt-12 max-md:mt-10">🎉 Друзья, поздравляем с наступающим Новым годом! 🎄</div>
+        <div className="text-1xl justify-center py-4 ">
           ✨ Спасибо, что были с нами в этом году и доверяли нашему сервису! 💙 Ваша поддержка — это наша мотивация становиться лучше.
           <br />
           <br />
