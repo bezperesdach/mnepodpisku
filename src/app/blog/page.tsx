@@ -5,6 +5,10 @@ const posts = [
     name: "Как самостоятельно создать турецкий аккаунт?",
     url: "/blog/kak_samomu_sozdat_tureckiy_akaunt",
   },
+  {
+    name: "Расписание нашей работы в новогодние праздники",
+    url: "/blog/raspisanie_raboti_v_nogodnie_prazdniki",
+  },
 ];
 
 export const metadata: Metadata = {
