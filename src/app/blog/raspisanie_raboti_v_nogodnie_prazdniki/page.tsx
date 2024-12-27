@@ -1,12 +1,8 @@
 export const dynamic = "force-static";
 /* eslint-disable react/no-unescaped-entities */
-import Link from "next/link";
 import React from "react";
 import GoBack from "../GoBack";
-import Image from "next/image";
 import { Metadata } from "next";
-
-import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Расписание нашей работы в новогодние праздники",
