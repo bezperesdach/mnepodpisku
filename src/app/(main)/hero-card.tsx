@@ -256,24 +256,24 @@ const PlayStation_Plus_Style = [
 ];
 
 const Banners = [
-  {
-    title: "СКОРО ВЕРНЕМСЯ!",
-    description: "Узнайте расписание нашей работы в эти праздники",
-    callToAction: "ПОДРОБНЕЕ",
-    image: "/images/Playstation_topup_2024_december_holiday.avif",
-    alt: "Расписание работы на праздниках",
-    titleClass: "text-xl font-bold tracking-tight text-primary bg-white px-4 py-2 mr-auto md:text-4xl",
-    titleStyle: {
-      clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
-    },
-    descriptionClass:
-      "text-sm font-medium leading-7 max-w-xs text-[#ffffff] bg-primary px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
-    descriptionStyle: {
-      clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
-    },
-    callToActionClass: "max-w-sm h-10 z-10 text-[#ffffff] bg-primary hover:bg-primary font-bold text-lg",
-    href: "blog/raspisanie_raboti_v_nogodnie_prazdniki",
-  },
+  // {
+  //   title: "СКОРО ВЕРНЕМСЯ!",
+  //   description: "Узнайте расписание нашей работы в эти праздники",
+  //   callToAction: "ПОДРОБНЕЕ",
+  //   image: "/images/Playstation_topup_2024_december_holiday.avif",
+  //   alt: "Расписание работы на праздниках",
+  //   titleClass: "text-xl font-bold tracking-tight text-primary bg-white px-4 py-2 mr-auto md:text-4xl",
+  //   titleStyle: {
+  //     clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+  //   },
+  //   descriptionClass:
+  //     "text-sm font-medium leading-7 max-w-xs text-[#ffffff] bg-primary px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
+  //   descriptionStyle: {
+  //     clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
+  //   },
+  //   callToActionClass: "max-w-sm h-10 z-10 text-[#ffffff] bg-primary hover:bg-primary font-bold text-lg",
+  //   href: "blog/raspisanie_raboti_v_nogodnie_prazdniki",
+  // },
   {
     title: "ПОПОЛНЕНИЕ PLAYSTATION",
     description: "СКИДКИ ДО 75%",
