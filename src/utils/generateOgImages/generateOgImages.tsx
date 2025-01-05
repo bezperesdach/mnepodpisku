@@ -26,7 +26,7 @@ import { metadata as kak_privyazat_kartu_k_turezkomu_akauntu_psn } from "@/app/g
 import { metadata as kak_privyazat_kartu_k_turezkomu_akauntu_psn_komputer } from "@/app/guides/kak_privyazat_kartu_k_turezkomu_akauntu_psn_komputer/page";
 import { metadata as kak_privyazat_kartu_k_turezkomu_akauntu_psn_telefon } from "@/app/guides/kak_privyazat_kartu_k_turezkomu_akauntu_psn_telefon/page";
 
-import { metadata as raspisanie_raboti_v_nogodnie_prazdniki } from "@/app/blog/raspisanie_raboti_v_nogodnie_prazdniki/page";
+// import { metadata as raspisanie_raboti_v_nogodnie_prazdniki } from "@/app/blog/raspisanie_raboti_v_nogodnie_prazdniki/page";
 
 import { metadata as get_discount } from "@/app/get_discount/page";
 import { metadata as get_discount_wb } from "@/app/get_discount/wb/page";
@@ -143,10 +143,10 @@ const pages: Page[] = [
     path: get_discount_site.openGraph?.url,
     text: get_discount_site.openGraph?.title,
   },
-  {
-    path: raspisanie_raboti_v_nogodnie_prazdniki.openGraph?.url,
-    text: raspisanie_raboti_v_nogodnie_prazdniki.openGraph?.title,
-  },
+  // {
+  //   path: raspisanie_raboti_v_nogodnie_prazdniki.openGraph?.url,
+  //   text: raspisanie_raboti_v_nogodnie_prazdniki.openGraph?.title,
+  // },
 ];
 
 const generate = async () => {
