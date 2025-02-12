@@ -6,15 +6,16 @@
     xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
     xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:xmp="http://ns.adobe.com/xap/1.0/"
     xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
     xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/"
-    xmlns:xmp="http://ns.adobe.com/xap/1.0/"
    exif:ExifVersion="0231"
    tiff:Orientation="1"
    xmpMM:DocumentID="24CD0C9BEBCAED1F0C877AA2B2F33056"
    xmpMM:OriginalDocumentID="24CD0C9BEBCAED1F0C877AA2B2F33056"
-   xmpMM:InstanceID="xmp.iid:b6fbca9b-200f-5141-8b46-7892af9a7f23"
+   xmpMM:InstanceID="xmp.iid:e51ddd6f-ddfc-eb42-ab9b-1e57d8d3b524"
    dc:format="image/avif"
+   xmp:MetadataDate="2025-02-12T13:55:52+03:00"
    crs:Version="16.2"
    crs:ProcessVersion="15.4"
    crs:WhiteBalance="As Shot"
@@ -116,14 +117,19 @@
    crs:HasCrop="False"
    crs:AlreadyApplied="False"
    photoshop:SidecarForExtension="AVIF"
-   photoshop:EmbeddedXMPDigest="00000000000000000000000000000000"
-   xmp:MetadataDate="2025-02-06T17:08:22+03:00">
+   photoshop:EmbeddedXMPDigest="00000000000000000000000000000000">
    <xmpMM:History>
     <rdf:Seq>
      <rdf:li
       stEvt:action="saved"
       stEvt:instanceID="xmp.iid:b6fbca9b-200f-5141-8b46-7892af9a7f23"
       stEvt:when="2025-02-06T17:08:22+03:00"
+      stEvt:softwareAgent="Adobe Photoshop Camera Raw 16.2 (Windows)"
+      stEvt:changed="/metadata"/>
+     <rdf:li
+      stEvt:action="saved"
+      stEvt:instanceID="xmp.iid:e51ddd6f-ddfc-eb42-ab9b-1e57d8d3b524"
+      stEvt:when="2025-02-12T13:55:52+03:00"
       stEvt:softwareAgent="Adobe Photoshop Camera Raw 16.2 (Windows)"
       stEvt:changed="/metadata"/>
     </rdf:Seq>
