@@ -23,14 +23,38 @@ module.exports = {
 		policies: [
 			{
 				userAgent: '*',
-				allow: ['/playstation$', '/playstation_plus$', '/spotify$', '/playstation_account$', '/adobe_creative_cloud$', '/discord$'
-					, '/youtube$', '/netflix$', '/tinder$', '/xbox_game_pass$'],
-				disallow: ['/cdn-cgi/l/email-protection', '/payment/verification', '/wb', '/digi', '/activate', '/get_discount', '/rbx', '/playstation', '/playstation_plus', '/spotify', '/playstation_account', '/adobe_creative_cloud', '/discord'
-					, '/youtube', '/netflix', '/tinder', '/xbox_game_pass', '/gde_posmotret_rezervnyi_kod',
-					'/kak_otpravit_chek_wb',
-					'/kak_otrpavit_soobshenie_prodavcu_wb',
-					'/kak_privyazat_kartu_k_turezkomu_akauntu_psn',
-					'/kak_vkluchit_2fa_na_akaunte_psn', '/guides']
+				allow: [
+					'/playstation',
+					'/playstation_plus',
+					'/spotify',
+					'/playstation_account$',
+					'/adobe_creative_cloud',
+					'/discord',
+					'/youtube',
+					'/netflix',
+					'/tinder',
+					'/xbox_game_pass'],
+				disallow: [
+					'/',
+					'/cdn-cgi/l/email-protection',
+					'/payment/verification',
+					'/wb',
+					'/digi',
+					'/activate',
+					'/get_discount',
+					'/rbx',
+					'/playstation/',
+					'/playstation_plus/',
+					'/spotify/',
+					'/playstation_account/',
+					'/adobe_creative_cloud/',
+					'/discord/',
+					'/youtube/',
+					'/netflix/',
+					'/tinder/',
+					'/xbox_game_pass/',
+					'/guides',
+					'/api']
 			},
 		],
 		transformRobotsTxt: async (_, robotsTxt) => `${robotsTxt}\n\nClean-param: amount&dur&sub&etext&_ym_debug`,
