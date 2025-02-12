@@ -111,7 +111,7 @@ export async function GET() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${process.env.VK_SERVICE_KEY}`,
         },
-        next: { revalidate: 60 * 60 * 24 },
+        next: { revalidate: 60 * 60 * 24, tags: ["review"] },
       }
     );
 

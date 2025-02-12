@@ -1,6 +1,6 @@
 //uses REVALIDATE_REVIEWS_SECRET as slug to revalidate reviews
 
-import { revalidatePath } from "next/cache";
+import { revalidateTag } from "next/cache";
 
 export async function GET(_: Request, { params }: { params: { slug: string } }) {
   const slug = params.slug[0];
@@ -19,8 +19,7 @@ export async function GET(_: Request, { params }: { params: { slug: string } }) 
 
   console.log("Revalidate reviews route was accessed using REVALIDATE_REVIEWS_SECRET");
 
-  revalidatePath("/api/reviews/get_reviews");
-  revalidatePath("/api/reviews/get_reviews_count");
+  revalidateTag("review");
 
   return new Response("Revalidated");
 }
