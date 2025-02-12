@@ -17,7 +17,14 @@ export async function GET(_: Request, { params }: { params: { slug: string } }) 
     });
   }
 
-  console.log("Revalidate reviews route was accessed using REVALIDATE_REVIEWS_SECRET");
+  const date = new Date().toLocaleString("en-GB", {
+    timeZone: "Europe/Moscow",
+  });
+
+  const red = "\x1b[31m";
+  const reset = "\x1b[0m"; // Reset color
+
+  console.log(`${red}${date}${reset}: Revalidate reviews route was accessed using REVALIDATE_REVIEWS_SECRET`);
 
   revalidateTag("review");
 
