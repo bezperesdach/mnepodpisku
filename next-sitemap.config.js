@@ -23,6 +23,7 @@ module.exports = {
 			{
 				userAgent: '*',
 				allow: [
+					'/$',
 					'/adobe_creative_cloud',
 					'/discord',
 					'/youtube',
