@@ -38,7 +38,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
   const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
-    initialValues: { amount: receivedAmount ?? "100", oneTimeCard: !!card ?? false },
+    initialValues: { amount: receivedAmount ?? "100", oneTimeCard: !!card },
     validationSchema: TopUpSchema,
     onSubmit: async (values) => {
       formik.setSubmitting(true);
