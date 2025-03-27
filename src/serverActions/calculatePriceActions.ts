@@ -58,6 +58,8 @@ export async function getPsnBalancePrice(values: { amount: string }) {
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
+    console.log(data);
+
     return { calculated: data.count >= 300 ? salesCalculator(data.count, data.amount) : undefined, sale: Math.round(data.amount) };
   } catch (error) {
     if (error instanceof Error) {
@@ -281,40 +283,40 @@ export async function getSpotifyPrice(values: { subscriptionType: string; durati
 
 export async function getTinderPrice(values: { subscriptionType: string; duration: string }) {
   try {
-    const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
+    // const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
-    calcUrl.searchParams.append("product_id", process.env.DIGISELLER_TINDER_BASE_ID!);
-    calcUrl.searchParams.append("currency", "RBX");
+    // calcUrl.searchParams.append("product_id", process.env.DIGISELLER_TINDER_BASE_ID!);
+    // calcUrl.searchParams.append("currency", "RBX");
 
-    if (values.subscriptionType !== "plus" || values.duration !== "1") {
-      calcUrl.searchParams.append(
-        "options[]",
-        `${process.env.DIGISELLER_TINDER_OPTION_ID!}:${
-          process.env[`DIGISELLER_TINDER_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`]
-        }`
-      );
-    }
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    // if (values.subscriptionType !== "plus" || values.duration !== "1") {
+    //   calcUrl.searchParams.append(
+    //     "options[]",
+    //     `${process.env.DIGISELLER_TINDER_OPTION_ID!}:${
+    //       process.env[`DIGISELLER_TINDER_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`]
+    //     }`
+    //   );
+    // }
+    // const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
 
-    if (!response.ok) {
-      // Handle non-successful HTTP response (e.g., 404, 500, etc.)
-      // throw new Error(`Failed to fetch data. Status: ${response.status}`);
-      return { calculated: undefined, sale: undefined };
-    }
+    // if (!response.ok) {
+    //   // Handle non-successful HTTP response (e.g., 404, 500, etc.)
+    //   // throw new Error(`Failed to fetch data. Status: ${response.status}`);
+    //   return { calculated: undefined, sale: undefined };
+    // }
 
-    const responseData = await response.json();
+    // const responseData = await response.json();
 
-    const data: {
-      price: number;
-      count: number;
-      amount: number;
-      currency: string;
-      commission: number;
-      free_pay: boolean | null;
-      sale_info: { common_base_price: number; sale_percent: number };
-    } = responseData.data;
+    // const data: {
+    //   price: number;
+    //   count: number;
+    //   amount: number;
+    //   currency: string;
+    //   commission: number;
+    //   free_pay: boolean | null;
+    //   sale_info: { common_base_price: number; sale_percent: number };
+    // } = responseData.data;
 
-    return { sale: data.amount };
+    return { sale: undefined };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -334,41 +336,41 @@ export async function getTinderPrice(values: { subscriptionType: string; duratio
 
 export async function getXboxPrice(values: { subscriptionType: string; duration: string }) {
   try {
-    const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
+    // const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
-    calcUrl.searchParams.append("product_id", process.env.DIGISELLER_XBOX_GAME_PASS_ULTIMATE_BASE_ID!);
-    calcUrl.searchParams.append("currency", "RBX");
+    // calcUrl.searchParams.append("product_id", process.env.DIGISELLER_XBOX_GAME_PASS_ULTIMATE_BASE_ID!);
+    // calcUrl.searchParams.append("currency", "RBX");
 
-    if (values.subscriptionType !== "ultimate" || values.duration !== "1") {
-      calcUrl.searchParams.append(
-        "options[]",
-        `${process.env.DIGISELLER_XBOX_GAME_PASS_ULTIMATE_OPTION_ID!}:${process.env[
-          `DIGISELLER_XBOX_GAME_PASS_ULTIMATE_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`
-        ]!}`
-      );
-    }
+    // if (values.subscriptionType !== "ultimate" || values.duration !== "1") {
+    //   calcUrl.searchParams.append(
+    //     "options[]",
+    //     `${process.env.DIGISELLER_XBOX_GAME_PASS_ULTIMATE_OPTION_ID!}:${process.env[
+    //       `DIGISELLER_XBOX_GAME_PASS_ULTIMATE_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`
+    //     ]!}`
+    //   );
+    // }
 
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    // const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
 
-    if (!response.ok) {
-      // Handle non-successful HTTP response (e.g., 404, 500, etc.)
-      // throw new Error(`Failed to fetch data. Status: ${response.status}`);
-      return { calculated: undefined, sale: undefined };
-    }
+    // if (!response.ok) {
+    //   // Handle non-successful HTTP response (e.g., 404, 500, etc.)
+    //   // throw new Error(`Failed to fetch data. Status: ${response.status}`);
+    //   return { calculated: undefined, sale: undefined };
+    // }
 
-    const responseData = await response.json();
+    // const responseData = await response.json();
 
-    const data: {
-      price: number;
-      count: number;
-      amount: number;
-      currency: string;
-      commission: number;
-      free_pay: boolean | null;
-      sale_info: { common_base_price: number; sale_percent: number };
-    } = responseData.data;
+    // const data: {
+    //   price: number;
+    //   count: number;
+    //   amount: number;
+    //   currency: string;
+    //   commission: number;
+    //   free_pay: boolean | null;
+    //   sale_info: { common_base_price: number; sale_percent: number };
+    // } = responseData.data;
 
-    return { sale: data.amount };
+    return { sale: undefined };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -388,39 +390,39 @@ export async function getXboxPrice(values: { subscriptionType: string; duration:
 
 export async function getYoutubePrice(duration: string) {
   try {
-    const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
+    // const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
-    calcUrl.searchParams.append("product_id", process.env.DIGISELLER_YOUTUBE_PREMIUM_BASE_ID!);
-    calcUrl.searchParams.append("currency", "RBX");
+    // calcUrl.searchParams.append("product_id", process.env.DIGISELLER_YOUTUBE_PREMIUM_BASE_ID!);
+    // calcUrl.searchParams.append("currency", "RBX");
 
-    if (duration !== "1") {
-      calcUrl.searchParams.append(
-        "options[]",
-        `${process.env.DIGISELLER_YOUTUBE_PREMIUM_OPTION_ID!}:${process.env[`DIGISELLER_YOUTUBE_PREMIUM_${duration}MONTH_VARIANT_ID`]!}`
-      );
-    }
+    // if (duration !== "1") {
+    //   calcUrl.searchParams.append(
+    //     "options[]",
+    //     `${process.env.DIGISELLER_YOUTUBE_PREMIUM_OPTION_ID!}:${process.env[`DIGISELLER_YOUTUBE_PREMIUM_${duration}MONTH_VARIANT_ID`]!}`
+    //   );
+    // }
 
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    // const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
 
-    if (!response.ok) {
-      // Handle non-successful HTTP response (e.g., 404, 500, etc.)
-      // throw new Error(`Failed to fetch data. Status: ${response.status}`);
-      return { calculated: undefined, sale: undefined };
-    }
+    // if (!response.ok) {
+    //   // Handle non-successful HTTP response (e.g., 404, 500, etc.)
+    //   // throw new Error(`Failed to fetch data. Status: ${response.status}`);
+    //   return { calculated: undefined, sale: undefined };
+    // }
 
-    const responseData = await response.json();
+    // const responseData = await response.json();
 
-    const data: {
-      price: number;
-      count: number;
-      amount: number;
-      currency: string;
-      commission: number;
-      free_pay: boolean | null;
-      sale_info: { common_base_price: number; sale_percent: number };
-    } = responseData.data;
+    // const data: {
+    //   price: number;
+    //   count: number;
+    //   amount: number;
+    //   currency: string;
+    //   commission: number;
+    //   free_pay: boolean | null;
+    //   sale_info: { common_base_price: number; sale_percent: number };
+    // } = responseData.data;
 
-    return { sale: data.amount };
+    return { sale: undefined };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -440,40 +442,40 @@ export async function getYoutubePrice(duration: string) {
 
 export async function getAdobeCCPrice(duration: string) {
   try {
-    const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
+    // const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
-    calcUrl.searchParams.append("product_id", process.env.DIGISELLER_ADOBE_CREATIVE_CLOUD_BASE_ID!);
-    calcUrl.searchParams.append("currency", "RBX");
+    // calcUrl.searchParams.append("product_id", process.env.DIGISELLER_ADOBE_CREATIVE_CLOUD_BASE_ID!);
+    // calcUrl.searchParams.append("currency", "RBX");
 
-    if (duration !== "1") {
-      calcUrl.searchParams.append(
-        "options[]",
-        `${process.env.DIGISELLER_ADOBE_CREATIVE_CLOUD_OPTION_ID!}:${process.env[
-          `DIGISELLER_ADOBE_CREATIVE_CLOUD_${duration}MONTH_VARIANT_ID`
-        ]!}`
-      );
-    }
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    // if (duration !== "1") {
+    //   calcUrl.searchParams.append(
+    //     "options[]",
+    //     `${process.env.DIGISELLER_ADOBE_CREATIVE_CLOUD_OPTION_ID!}:${process.env[
+    //       `DIGISELLER_ADOBE_CREATIVE_CLOUD_${duration}MONTH_VARIANT_ID`
+    //     ]!}`
+    //   );
+    // }
+    // const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
 
-    if (!response.ok) {
-      // Handle non-successful HTTP response (e.g., 404, 500, etc.)
-      // throw new Error(`Failed to fetch data. Status: ${response.status}`);
-      return { calculated: undefined, sale: undefined };
-    }
+    // if (!response.ok) {
+    //   // Handle non-successful HTTP response (e.g., 404, 500, etc.)
+    //   // throw new Error(`Failed to fetch data. Status: ${response.status}`);
+    //   return { calculated: undefined, sale: undefined };
+    // }
 
-    const responseData = await response.json();
+    // const responseData = await response.json();
 
-    const data: {
-      price: number;
-      count: number;
-      amount: number;
-      currency: string;
-      commission: number;
-      free_pay: boolean | null;
-      sale_info: { common_base_price: number; sale_percent: number };
-    } = responseData.data;
+    // const data: {
+    //   price: number;
+    //   count: number;
+    //   amount: number;
+    //   currency: string;
+    //   commission: number;
+    //   free_pay: boolean | null;
+    //   sale_info: { common_base_price: number; sale_percent: number };
+    // } = responseData.data;
 
-    return { sale: data.amount };
+    return { sale: undefined };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -493,40 +495,40 @@ export async function getAdobeCCPrice(duration: string) {
 
 export async function getDiscordPrice(values: { subscriptionType: string; duration: string }) {
   try {
-    const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
+    // const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
-    calcUrl.searchParams.append("product_id", process.env.DIGISELLER_DISCORD_BASE_ID!);
-    calcUrl.searchParams.append("currency", "RBX");
+    // calcUrl.searchParams.append("product_id", process.env.DIGISELLER_DISCORD_BASE_ID!);
+    // calcUrl.searchParams.append("currency", "RBX");
 
-    if (values.subscriptionType !== "nitro_basic" || values.duration !== "1") {
-      calcUrl.searchParams.append(
-        "options[]",
-        `${process.env.DIGISELLER_DISCORD_OPTION_ID!}:${process.env[
-          `DIGISELLER_DISCORD_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`
-        ]!}`
-      );
-    }
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    // if (values.subscriptionType !== "nitro_basic" || values.duration !== "1") {
+    //   calcUrl.searchParams.append(
+    //     "options[]",
+    //     `${process.env.DIGISELLER_DISCORD_OPTION_ID!}:${process.env[
+    //       `DIGISELLER_DISCORD_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`
+    //     ]!}`
+    //   );
+    // }
+    // const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
 
-    if (!response.ok) {
-      // Handle non-successful HTTP response (e.g., 404, 500, etc.)
-      // throw new Error(`Failed to fetch data. Status: ${response.status}`);
-      return { calculated: undefined, sale: undefined };
-    }
+    // if (!response.ok) {
+    //   // Handle non-successful HTTP response (e.g., 404, 500, etc.)
+    //   // throw new Error(`Failed to fetch data. Status: ${response.status}`);
+    //   return { calculated: undefined, sale: undefined };
+    // }
 
-    const responseData = await response.json();
+    // const responseData = await response.json();
 
-    const data: {
-      price: number;
-      count: number;
-      amount: number;
-      currency: string;
-      commission: number;
-      free_pay: boolean | null;
-      sale_info: { common_base_price: number; sale_percent: number };
-    } = responseData.data;
+    // const data: {
+    //   price: number;
+    //   count: number;
+    //   amount: number;
+    //   currency: string;
+    //   commission: number;
+    //   free_pay: boolean | null;
+    //   sale_info: { common_base_price: number; sale_percent: number };
+    // } = responseData.data;
 
-    return { sale: data.amount };
+    return { sale: undefined };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -546,40 +548,40 @@ export async function getDiscordPrice(values: { subscriptionType: string; durati
 
 export async function getNetflixPrice(values: { subscriptionType: string; duration: string }) {
   try {
-    const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
+    // const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
-    calcUrl.searchParams.append("product_id", process.env.DIGISELLER_NETFLIX_BASE_ID!);
-    calcUrl.searchParams.append("currency", "RBX");
+    // calcUrl.searchParams.append("product_id", process.env.DIGISELLER_NETFLIX_BASE_ID!);
+    // calcUrl.searchParams.append("currency", "RBX");
 
-    if (values.subscriptionType !== "basic" || values.duration !== "1") {
-      calcUrl.searchParams.append(
-        "options[]",
-        `${process.env.DIGISELLER_NETFLIX_OPTION_ID}:${
-          process.env[`DIGISELLER_NETFLIX_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`]
-        }`
-      );
-    }
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    // if (values.subscriptionType !== "basic" || values.duration !== "1") {
+    //   calcUrl.searchParams.append(
+    //     "options[]",
+    //     `${process.env.DIGISELLER_NETFLIX_OPTION_ID}:${
+    //       process.env[`DIGISELLER_NETFLIX_${values.duration}MONTH_${values.subscriptionType.toUpperCase()}_VARIANT_ID`]
+    //     }`
+    //   );
+    // }
+    // const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
 
-    if (!response.ok) {
-      // Handle non-successful HTTP response (e.g., 404, 500, etc.)
-      // throw new Error(`Failed to fetch data. Status: ${response.status}`);
-      return { calculated: undefined, sale: undefined };
-    }
+    // if (!response.ok) {
+    //   // Handle non-successful HTTP response (e.g., 404, 500, etc.)
+    //   // throw new Error(`Failed to fetch data. Status: ${response.status}`);
+    //   return { calculated: undefined, sale: undefined };
+    // }
 
-    const responseData = await response.json();
+    // const responseData = await response.json();
 
-    const data: {
-      price: number;
-      count: number;
-      amount: number;
-      currency: string;
-      commission: number;
-      free_pay: boolean | null;
-      sale_info: { common_base_price: number; sale_percent: number };
-    } = responseData.data;
+    // const data: {
+    //   price: number;
+    //   count: number;
+    //   amount: number;
+    //   currency: string;
+    //   commission: number;
+    //   free_pay: boolean | null;
+    //   sale_info: { common_base_price: number; sale_percent: number };
+    // } = responseData.data;
 
-    return { sale: data.amount };
+    return { sale: undefined };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class

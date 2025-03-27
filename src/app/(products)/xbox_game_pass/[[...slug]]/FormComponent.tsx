@@ -116,16 +116,11 @@ export default function FormComponent({ subscriptionType }: Props) {
             </div>
 
             <Button
-              className={cn("sticky bottom-0 mt-6 text-lg h-12", {
+              className={cn("pointer-events-none bg-secondary text-muted-foreground sticky bottom-0 mt-6 text-lg h-12", {
                 "bg-accent/50 text-muted-foreground": !value,
-                "pointer-events-none": formik.isSubmitting,
               })}
             >
-              {!loading && !formik.isSubmitting && value ? (
-                <p>ОПЛАТИТЬ {value && <span className="text-[#fee525] text-xl font-bold">{value}₽</span>}</p>
-              ) : (
-                <SyncIcon className="animate-spin" />
-              )}
+              Нет в наличии
             </Button>
             <p className=" text-muted-foreground text-sm text-center">
               Нажимая на кнопку «Оплатить», вы соглашаетесь с{" "}
