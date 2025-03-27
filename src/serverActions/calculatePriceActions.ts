@@ -8,24 +8,10 @@ export async function saveComment() {
   return { calculated: 150, value: 100 };
 }
 
-const salesCalculator = (amount: number, price: number) => {
-  let discount = 0;
+const salesCalculator = (amount: number) => {
+  const price = 3.42 * 1.45;
 
-  if (amount > 2399) {
-    discount = 0.05;
-  } else if (amount > 1499) {
-    discount = 0.04;
-  } else if (amount > 1199) {
-    discount = 0.03;
-  } else if (amount > 599) {
-    discount = 0.02;
-  } else if (amount > 299) {
-    discount = 0.01;
-  } else if (amount > 99) {
-    discount = 0;
-  }
-
-  const discountAmount = price / (1 - discount);
+  const discountAmount = amount * price;
 
   return Math.round(discountAmount);
 };
@@ -58,9 +44,7 @@ export async function getPsnBalancePrice(values: { amount: string }) {
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    console.log(data);
-
-    return { calculated: data.count >= 300 ? salesCalculator(data.count, data.amount) : undefined, sale: Math.round(data.amount) };
+    return { calculated: data.count >= 300 ? salesCalculator(data.count) : undefined, sale: Math.round(data.amount) };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
