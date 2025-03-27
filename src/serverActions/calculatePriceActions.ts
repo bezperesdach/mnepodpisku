@@ -44,7 +44,7 @@ export async function getPsnBalancePrice(values: { amount: string }) {
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { calculated: data.count >= 300 ? salesCalculator(data.count) : undefined, sale: Math.round(data.amount) };
+    return { calculated: data.count >= 100 ? salesCalculator(data.count) : undefined, sale: Math.round(data.amount) };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -88,7 +88,7 @@ export async function getPsnAccountPrice() {
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { calculated: roundDownToMaxHundreds(Math.round(data.price * 2)), sale: data.price };
+    return { calculated: roundDownToMaxHundreds(Math.round(data.price * 3)), sale: data.price };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -142,7 +142,9 @@ export async function getPsnPsPlusPrice(values: { subscriptionType: string; dura
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { sale: data.amount };
+    let calculated = Math.round(data.amount * 1.14);
+
+    return { sale: data.amount, calculated };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -194,7 +196,9 @@ export async function getPsEaPlayPrice(duration: string) {
       sale_info: { common_base_price: number; sale_percent: number };
     } = responseData.data;
 
-    return { sale: data.amount };
+    const calculated = Math.round(data.amount * 1.16);
+
+    return { sale: data.amount, calculated };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class

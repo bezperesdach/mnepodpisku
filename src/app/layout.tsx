@@ -7,6 +7,7 @@ import NextTopLoader from "@/components/next-top-loader";
 
 import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AprilDeals } from "@/components/AprilDeals";
 
 const inter = Inter({ weight: ["100", "300", "400", "500", "700", "900"], subsets: ["cyrillic"] });
 
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* <WeAreOnBrakerBanner /> */}
           <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
             <div vaul-drawer-wrapper="" className="bg-background min-h-[100vh]">
+              <AprilDeals />
               {children}
             </div>
           </ThemeProvider>

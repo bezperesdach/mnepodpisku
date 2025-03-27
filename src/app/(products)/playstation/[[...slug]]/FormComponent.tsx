@@ -13,6 +13,7 @@ import TextInputV2 from "@/components/TextInput/TextInput";
 import { Button } from "@/components/ui/button";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { ym } from "@/utils/ym";
+import { AprilDealsPrice } from "@/components/AprilDealsPrice";
 
 type Props = {
   receivedAmount?: string;
@@ -121,7 +122,8 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
             </p>
 
             <div className="flex flex-col gap-2 w-full justify-between mt-6">
-              <div className="flex justify-between w-full pb-1 border-b-[1px]">
+              <AprilDealsPrice loading={loading} calculatedAmount={calculatedAmount} value={value} />
+              {/* <div className="flex justify-between w-full pb-1 border-b-[1px]">
                 <p className="text-lg text-muted-foreground">Заплатите</p>
                 <div className="flex gap-1 items-center text-lg text-muted-foreground">
                   {loading && <SyncIcon className="animate-spin" />}
@@ -136,7 +138,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
                     </>
                   )}
                 </div>
-              </div>
+              </div> */}
               <div className="flex justify-between w-full pb-1 border-b-[1px] mt-2">
                 <p className="text-lg text-muted-foreground">Получите</p>
                 {formik.values.amount && !formik.errors.amount && (
