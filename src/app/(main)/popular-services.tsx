@@ -10,12 +10,14 @@ const services: Service[] = [
     name: "PlayStation Пополнение",
     value: "playstation",
     imageSrc: "/catalogue_icons/playstation_top_up.jpg",
+    sale: "-35%",
     alt: "Playstation Пополнение",
   },
   {
     name: "PlayStation Plus",
     value: "playstation_plus",
     imageSrc: "/catalogue_icons/playstation_plus.jpg",
+    sale: "-30%",
     alt: "PlayStation Plus баннер",
   },
   {
@@ -41,8 +43,15 @@ export function PopularServices() {
         </div>
         <div className="grid md:flex gap-x-4 gap-y-6 md:gap-4 w-full grid-cols-2 md:basis-1/4 mt-6">
           {services.map((item) => (
-            <Link href={"/" + item.value} key={item.value} className="flex-1 flex-shrink-0 rounded-md ">
+            <Link href={"/" + item.value} key={item.value} className="relative flex-1 flex-shrink-0 rounded-md ">
               <div className="min-h-[120px] xs:min-h-[160px] sm:min-h-[170px] lg:min-h-[180px] relative rounded-3xl overflow-hidden">
+                {item.sale && (
+                  <div className="absolute left-0 bottom-4 z-[20] bg-[#000000] pl-2 p-1 rounded-r-xl">
+                    <p>
+                      до <span className="font-bold text-xl">{item.sale}</span>
+                    </p>
+                  </div>
+                )}
                 <Image
                   className="hover:scale-125 transition-all z-10"
                   src={item.imageSrc}

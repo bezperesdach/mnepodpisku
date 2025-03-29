@@ -9,6 +9,7 @@ export type Service = {
   value: string;
   imageSrc: string;
   alt: string;
+  sale?: string;
 };
 
 const services: Service[] = [
@@ -59,6 +60,7 @@ const services: Service[] = [
     value: "playstation",
     imageSrc: "/catalogue_icons/playstation_top_up.webp",
     alt: "Playstation пополнение",
+    sale: "-35%",
   },
 
   {
@@ -66,6 +68,7 @@ const services: Service[] = [
     value: "playstation_plus",
     imageSrc: "/catalogue_icons/playstation_plus.webp",
     alt: "PlayStation Plus баннер",
+    sale: "-30%",
   },
   {
     name: "PlayStation Ea Play",
@@ -93,8 +96,15 @@ export function AllServices() {
 
         <div className="grid gap-x-4 gap-y-6 md:gap-4 w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6">
           {services.map((item) => (
-            <Link href={"/" + item.value} key={item.value} className="flex-1 flex-shrink-0 rounded-md ">
+            <Link href={"/" + item.value} key={item.value} className="relative flex-1 flex-shrink-0 rounded-md ">
               <div className="min-h-[120px] xs:min-h-[160px] sm:min-h-[170px] lg:min-h-[180px] relative rounded-3xl overflow-hidden">
+                {item.sale && (
+                  <div className="absolute left-0 bottom-4 z-[20] bg-[#000000] pl-2 p-1 rounded-r-xl">
+                    <p>
+                      до <span className="font-bold text-xl">{item.sale}</span>
+                    </p>
+                  </div>
+                )}
                 <Image
                   className="hover:scale-125 transition-all z-10"
                   src={item.imageSrc}
