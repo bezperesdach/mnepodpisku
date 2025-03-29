@@ -349,7 +349,7 @@ const Banners = [
   // },
   {
     title: "ПОПОЛНЕНИЕ PLAYSTATION",
-    description: "СКИДКИ ДО 75%",
+    description: "PSN СКИДКИ ДО 75%",
     callToAction: "ПОПОЛНИТЬ",
     image: PlayStation_Style[19].image,
     alt: "Playstation пополнение банер",
