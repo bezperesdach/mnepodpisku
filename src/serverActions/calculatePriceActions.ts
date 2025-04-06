@@ -231,27 +231,27 @@ export async function getSpotifyPrice(values: { subscriptionType: string; durati
         }`
       );
     }
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
+    // const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600 } });
 
-    if (!response.ok) {
-      // Handle non-successful HTTP response (e.g., 404, 500, etc.)
-      // throw new Error(`Failed to fetch data. Status: ${response.status}`);
-      return { calculated: undefined, sale: undefined };
-    }
+    // if (!response.ok) {
+    //   // Handle non-successful HTTP response (e.g., 404, 500, etc.)
+    //   // throw new Error(`Failed to fetch data. Status: ${response.status}`);
+    //   return { calculated: undefined, sale: undefined };
+    // }
 
-    const responseData = await response.json();
+    // const responseData = await response.json();
 
-    const data: {
-      price: number;
-      count: number;
-      amount: number;
-      currency: string;
-      commission: number;
-      free_pay: boolean | null;
-      sale_info: { common_base_price: number; sale_percent: number };
-    } = responseData.data;
+    // const data: {
+    //   price: number;
+    //   count: number;
+    //   amount: number;
+    //   currency: string;
+    //   commission: number;
+    //   free_pay: boolean | null;
+    //   sale_info: { common_base_price: number; sale_percent: number };
+    // } = responseData.data;
 
-    return { sale: data.amount };
+    return { sale: undefined };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
