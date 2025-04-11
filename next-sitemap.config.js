@@ -37,7 +37,11 @@ module.exports = {
 					'/playstation_account',
 					'/adobe_creative_cloud',
 					'/blog',
-					'/reviews'],
+					'/reviews',
+					'/favicon.svg',
+					'/favicon.ico',
+					'/favicon.png'
+				],
 				disallow: [
 					'/',
 					'/adobe_creative_cloud/',
