@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* <WeAreOnBrakerBanner /> */}
           <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
             <div vaul-drawer-wrapper="" className="bg-background min-h-[100vh]">
-              <AprilDeals />
+              {/* <AprilDeals /> */}
               {children}
             </div>
           </ThemeProvider>

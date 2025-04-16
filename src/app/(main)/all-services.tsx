@@ -60,7 +60,7 @@ const services: Service[] = [
     value: "playstation",
     imageSrc: "/catalogue_icons/playstation_top_up.webp",
     alt: "Playstation пополнение",
-    sale: "-35%",
+    // sale: "-35%",
   },
 
   {
@@ -68,7 +68,7 @@ const services: Service[] = [
     value: "playstation_plus",
     imageSrc: "/catalogue_icons/playstation_plus.webp",
     alt: "PlayStation Plus баннер",
-    sale: "-30%",
+    // sale: "-30%",
   },
   {
     name: "PlayStation Ea Play",

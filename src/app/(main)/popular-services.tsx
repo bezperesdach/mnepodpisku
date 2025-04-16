@@ -10,14 +10,14 @@ const services: Service[] = [
     name: "PlayStation Пополнение",
     value: "playstation",
     imageSrc: "/catalogue_icons/playstation_top_up.jpg",
-    sale: "-35%",
+    // sale: "-35%",
     alt: "Playstation Пополнение",
   },
   {
     name: "PlayStation Plus",
     value: "playstation_plus",
     imageSrc: "/catalogue_icons/playstation_plus.jpg",
-    sale: "-30%",
+    // sale: "-30%",
     alt: "PlayStation Plus баннер",
   },
   {
