@@ -12,7 +12,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
-import { AprilDealsPrice } from "@/components/AprilDealsPrice";
+// import { AprilDealsPrice } from "@/components/AprilDealsPrice";
 
 type Props = {
   receivedDuration?: string;

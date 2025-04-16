@@ -13,7 +13,7 @@ import TextInputV2 from "@/components/TextInput/TextInput";
 import { Button } from "@/components/ui/button";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { ym } from "@/utils/ym";
-import { AprilDealsPrice } from "@/components/AprilDealsPrice";
+// import { AprilDealsPrice } from "@/components/AprilDealsPrice";
 
 type Props = {
   receivedAmount?: string;

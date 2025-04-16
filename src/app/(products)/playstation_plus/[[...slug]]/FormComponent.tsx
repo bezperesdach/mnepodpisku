@@ -12,7 +12,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Button } from "@/components/ui/button";
-import { AprilDealsPrice } from "@/components/AprilDealsPrice";
+// import { AprilDealsPrice } from "@/components/AprilDealsPrice";
 
 type Props = {
   subscriptionType?: {

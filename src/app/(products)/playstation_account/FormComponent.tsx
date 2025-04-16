@@ -9,7 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { Button } from "@/components/ui/button";
 import { SyncIcon } from "@primer/octicons-react";
-import { AprilDealsPrice } from "@/components/AprilDealsPrice";
+// import { AprilDealsPrice } from "@/components/AprilDealsPrice";
 
 export default function FormComponent() {
   const { dispatch } = useContext(AppContext);
