@@ -300,6 +300,21 @@ const PlayStation_Style = [
     callToActionClass:
       "max-w-sm h-10 z-10 text-[#ffffff] bg-[#007CE7] hover:bg-[#ffffff]  hover:text-[#007CE7] font-bold text-lg border-2 border-[#007CE7]",
   },
+  // 20
+  {
+    image: "/images/Playstation_topup_2025_april_2.avif",
+    titleClass: "text-xl font-bold tracking-tight text-[#ffffff] bg-[#ff2d77] px-4 py-2 mr-auto md:text-4xl",
+    titleStyle: {
+      // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
+    },
+    descriptionClass:
+      "text-sm font-bold leading-7 max-w-xs text-[#ffffff] bg-[#01a8c5] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
+    descriptionStyle: {
+      // textShadow: "-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000",
+    },
+    callToActionClass:
+      "max-w-sm h-10 z-10 text-[#ffffff] bg-[#ff2d77] hover:bg-[#ffffff]  hover:text-[#ff2d77] font-bold text-lg border-2 border-[#ff2d77]",
+  },
 ];
 
 const PlayStation_Plus_Style = [
@@ -351,13 +366,13 @@ const Banners = [
     title: "ПОПОЛНЕНИЕ PLAYSTATION",
     description: "PSN СКИДКИ ДО 75%",
     callToAction: "ПОПОЛНИТЬ",
-    image: PlayStation_Style[19].image,
+    image: PlayStation_Style[20].image,
     alt: "Playstation пополнение банер",
-    titleClass: PlayStation_Style[19].titleClass,
-    titleStyle: PlayStation_Style[19].titleStyle,
-    descriptionClass: PlayStation_Style[19].descriptionClass,
-    descriptionStyle: PlayStation_Style[19].descriptionStyle,
-    callToActionClass: PlayStation_Style[19].callToActionClass,
+    titleClass: PlayStation_Style[20].titleClass,
+    titleStyle: PlayStation_Style[20].titleStyle,
+    descriptionClass: PlayStation_Style[20].descriptionClass,
+    descriptionStyle: PlayStation_Style[20].descriptionStyle,
+    callToActionClass: PlayStation_Style[20].callToActionClass,
     href: "playstation",
   },
   {
