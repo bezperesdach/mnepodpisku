@@ -14,6 +14,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_may.webp",
     titleClass: "text-xl font-bold tracking-tight text-[#231d8c] bg-white px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -29,6 +30,7 @@ const PlayStation_Style = [
     image: "/images/Playstation_topup_may_2.webp",
     titleClass:
       "text-xl font-bold tracking-tight text-[#1a0a2c] bg-[#fe6aac] border-b-4 border-r-4 border-white px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -43,6 +45,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_june.jpg",
     titleClass: "text-xl font-bold tracking-tight text-[#ffffff] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -57,6 +60,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_june_2.jpg",
     titleClass: "text-xl font-bold tracking-tight text-[#fc247f] bg-white px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -71,6 +75,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_june_3.jpg",
     titleClass: "text-xl font-bold tracking-tight text-[#0D0D53] bg-white px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -85,6 +90,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_july.avif",
     titleClass: "text-xl font-bold tracking-tight text-[#d53c40] bg-white px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -99,6 +105,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_july_2.jpg",
     titleClass: "text-xl font-bold tracking-tight text-[#ff0070] bg-white px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -113,6 +120,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_august_1.jpg",
     titleClass: "text-xl font-bold tracking-tight text-[#5F55B4] bg-[#FED48F] px-4 py-2 mr-auto md:text-4xl border-[#5F55B4] border-4",
+    innerTitleClass: "",
     titleStyle: {
       // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -128,6 +136,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_august_2.jpg",
     titleClass: "text-xl font-bold tracking-tight text-[#313131] bg-[#1DFA39] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -143,6 +152,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_2024_september.jpg",
     titleClass: "text-xl font-bold tracking-tight text-[#6e41e4] bg-[#ffffff] px-4 py-2 mr-auto md:text-4xl rounded-xl",
+    innerTitleClass: "",
     titleStyle: {
       // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -158,6 +168,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_2024_september_2.jpg",
     titleClass: "text-xl font-bold tracking-tight text-[#ffffff] bg-[#ff443a] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
     },
@@ -172,6 +183,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_2024_october.jpg",
     titleClass: "text-xl font-bold tracking-tight text-[#FAF6CF] bg-[#401061] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
     },
@@ -186,6 +198,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_2024_november_1.avif",
     titleClass: "text-xl font-bold tracking-tight text-[#ffffff] bg-[#db3da9] px-4 py-2 mr-auto md:text-4xl border-2 border-[#783a6d]",
+    innerTitleClass: "",
     titleStyle: {
       // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
     },
@@ -201,6 +214,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_2024_december_1.avif",
     titleClass: "text-xl font-bold tracking-tight text-[#ffffff] bg-[#007CE7] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
     },
@@ -216,6 +230,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_2024_december_2.avif",
     titleClass: "text-xl font-bold tracking-tight text-[#fcda77] bg-[#007de8] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
     },
@@ -232,6 +247,7 @@ const PlayStation_Style = [
     image: "/images/Playstation_topup_2025_january.avif",
     titleClass:
       "text-xl font-bold tracking-tight text-[#ffffff] bg-gradient-to-bl from-fuchsia-300 via-purple-700 to-fuchsia-500 px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
     },
@@ -247,6 +263,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_2025_february.avif",
     titleClass: "text-xl font-bold tracking-tight text-[#060100] bg-[#faf0da] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
     },
@@ -261,6 +278,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_2025_february_2.avif",
     titleClass: "text-xl font-bold tracking-tight text-[#ae006b] bg-[#ffffff] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
     },
@@ -275,6 +293,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_2025_march.avif",
     titleClass: "text-xl font-bold tracking-tight text-[#ffffff] bg-[#0070a0] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
     },
@@ -289,6 +308,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_2025_april.avif",
     titleClass: "text-xl font-bold tracking-tight text-[#ffffff] bg-[#007de8] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
     },
@@ -304,6 +324,7 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_2025_april_2.avif",
     titleClass: "text-xl font-bold tracking-tight text-[#ffffff] bg-[#ff2d77] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {
       // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
     },
@@ -315,6 +336,22 @@ const PlayStation_Style = [
     callToActionClass:
       "max-w-sm h-10 z-10 text-[#ffffff] bg-[#ff2d77] hover:bg-[#ffffff]  hover:text-[#ff2d77] font-bold text-lg border-2 border-[#ff2d77]",
   },
+  // 21
+  {
+    image: "/images/Playstation_topup_2025_may.avif",
+    titleClass: "text-xl font-bold tracking-tight text-[#ffffff] bg-[#ffffff] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "bg-gradient-to-bl from-[#00b0cc] to-[#008aa4] bg-clip-text text-transparent",
+    titleStyle: {
+      // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
+    },
+    descriptionClass:
+      "text-sm font-bold leading-7 max-w-xs text-[#ffffff] bg-gradient-to-bl from-[#00b0cc] to-[#008aa4] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
+    descriptionStyle: {
+      // textShadow: "-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000",
+    },
+    callToActionClass:
+      "max-w-sm h-10 z-10 text-[#ffffff] bg-gradient-to-bl from-[#00b0cc] to-[#008aa4] hover:bg-[#ffffff] font-bold text-lg border-2 border-transparent hover:border-[#ffffff]",
+  },
 ];
 
 const PlayStation_Plus_Style = [
@@ -322,6 +359,7 @@ const PlayStation_Plus_Style = [
   {
     image: "/images/PlaystationPlus_2.jpg",
     titleClass: "text-xl font-bold tracking-tight text-[#fcc000] bg-[#000000] px-4 py-2 mr-auto md:text-4xl",
+    innerTitleClass: "",
     titleStyle: {},
     descriptionClass: "leading-7 max-w-xs text-black px-2 md:px-4 py-[1px] md:py-1",
     descriptionStyle: {},
@@ -331,6 +369,7 @@ const PlayStation_Plus_Style = [
   {
     image: "/images/PlaystationPlus_june.jpg",
     titleClass: "flex gap-2 items-center text-xl font-bold tracking-tight text-[#ffffff] px-4 py-2 mr-auto md:text-4xl ",
+    innerTitleClass: "",
     titleStyle: {
       // clipPath: "polygon(1% 0%, 100% 0%, 99% 100%, 0% 100%)",
     },
@@ -366,13 +405,14 @@ const Banners = [
     title: "ПОПОЛНЕНИЕ PLAYSTATION",
     description: "PSN СКИДКИ ДО 75%",
     callToAction: "ПОПОЛНИТЬ",
-    image: PlayStation_Style[20].image,
+    image: PlayStation_Style[21].image,
     alt: "Playstation пополнение банер",
-    titleClass: PlayStation_Style[20].titleClass,
-    titleStyle: PlayStation_Style[20].titleStyle,
-    descriptionClass: PlayStation_Style[20].descriptionClass,
-    descriptionStyle: PlayStation_Style[20].descriptionStyle,
-    callToActionClass: PlayStation_Style[20].callToActionClass,
+    titleClass: PlayStation_Style[21].titleClass,
+    innerTitleClass: PlayStation_Style[21].innerTitleClass,
+    titleStyle: PlayStation_Style[21].titleStyle,
+    descriptionClass: PlayStation_Style[21].descriptionClass,
+    descriptionStyle: PlayStation_Style[21].descriptionStyle,
+    callToActionClass: PlayStation_Style[21].callToActionClass,
     href: "playstation",
   },
   {
@@ -441,7 +481,7 @@ export function HeroCard() {
                     <div className="flex flex-col justify-between rounded-3xl border bg-card text-card-foreground shadow p-4 md:p-8 h-full">
                       <div className="flex flex-col gap-2 z-10">
                         <p className={item.titleClass} style={item.titleStyle}>
-                          {item.title}
+                          <span className={item.innerTitleClass}>{item.title}</span>
                         </p>
                         <p className={item.descriptionClass} style={item.descriptionStyle}>
                           {item.description}
