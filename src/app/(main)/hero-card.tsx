@@ -340,17 +340,17 @@ const PlayStation_Style = [
   {
     image: "/images/Playstation_topup_2025_may.avif",
     titleClass: "text-xl font-bold tracking-tight text-[#ffffff] bg-[#ffffff] px-4 py-2 mr-auto md:text-4xl",
-    innerTitleClass: "bg-gradient-to-bl from-[#00b0cc] to-[#008aa4] bg-clip-text text-transparent",
+    innerTitleClass: "bg-gradient-to-b from-[#00b0cc] to-[#008aa4] bg-clip-text text-transparent",
     titleStyle: {
       // textShadow: "-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000",
     },
     descriptionClass:
-      "text-sm font-bold leading-7 max-w-xs text-[#ffffff] bg-gradient-to-bl from-[#00b0cc] to-[#008aa4] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
+      "text-sm font-bold leading-7 max-w-xs text-[#ffffff] bg-gradient-to-b from-[#00b0cc] to-[#008aa4] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
     descriptionStyle: {
       // textShadow: "-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000",
     },
     callToActionClass:
-      "max-w-sm h-10 z-10 text-[#ffffff] bg-gradient-to-bl from-[#00b0cc] to-[#008aa4] hover:bg-[#ffffff] font-bold text-lg border-2 border-transparent hover:border-[#ffffff]",
+      "max-w-sm h-10 z-10 text-[#ffffff] bg-gradient-to-b from-[#00b0cc] to-[#008aa4] hover:bg-[#ffffff] font-bold text-lg border-2 border-transparent hover:border-[#ffffff]",
   },
 ];
 
