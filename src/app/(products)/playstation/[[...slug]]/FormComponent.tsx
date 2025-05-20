@@ -1,11 +1,11 @@
 "use client";
 
-import AmountOptions from "@/components/AmountOptions/AmountOptions";
+// import AmountOptions from "@/components/AmountOptions/AmountOptions";
 import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
 import { getPsnBalancePrice } from "@/serverActions/calculatePriceActions";
 import { getPsnBalancePaymentLink } from "@/serverActions/createPaymentUrls";
 import { cn } from "@/lib/utils";
-import { HashIcon, SyncIcon } from "@primer/octicons-react";
+import { SyncIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { useContext, useEffect, useState } from "react";
 import * as Yup from "yup";
