@@ -25,7 +25,7 @@ const TopUpSchema = Yup.object().shape({
   amount: Yup.number()
     .required("Необходимо заполнить")
     .test("Сумма больше 100", "Минимальная сумма 100 лир", (value) => value >= 100)
-    .test("Сумма меньше 5000", "Максимальная сумма 5000 лир", (value) => value <= 5000)
+    .test("Сумма меньше 600", "Максимальная сумма 600 лир", (value) => value <= 600)
 
     .test("Кратное 10", "Сумма должна быть кратна 10", (value) => value % 10 === 0),
   oneTimeCard: Yup.boolean(),
