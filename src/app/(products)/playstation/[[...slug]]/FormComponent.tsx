@@ -1,6 +1,5 @@
 "use client";
 
-// import AmountOptions from "@/components/AmountOptions/AmountOptions";
 import { AppContext } from "@/components/AppContextWrapper/AppContextWrapper";
 import { getPsnBalancePrice } from "@/serverActions/calculatePriceActions";
 import { getPsnBalancePaymentLink } from "@/serverActions/createPaymentUrls";
@@ -8,29 +7,16 @@ import { cn } from "@/lib/utils";
 import { SyncIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { useContext, useEffect, useState } from "react";
-import * as Yup from "yup";
-// import TextInputV2 from "@/components/TextInput/TextInput";
 import { Button } from "@/components/ui/button";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { ym } from "@/utils/ym";
 import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
-// import { AprilDealsPrice } from "@/components/AprilDealsPrice";
 
 type Props = {
   receivedAmount?: string;
   card?: string;
   ip: string | null;
 };
-
-const TopUpSchema = Yup.object().shape({
-  amount: Yup.number()
-    .required("Необходимо заполнить")
-    .test("Сумма больше 100", "Минимальная сумма 100 лир", (value) => value >= 100)
-    .test("Сумма меньше 600", "Максимальная сумма 600 лир", (value) => value <= 600)
-
-    .test("Кратное 10", "Сумма должна быть кратна 10", (value) => value % 250 === 0),
-  oneTimeCard: Yup.boolean(),
-});
 
 export default function FormComponent({ receivedAmount, ip, card }: Props) {
   const { dispatch } = useContext(AppContext);
@@ -41,7 +27,6 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
 
   const formik = useFormik({
     initialValues: { amount: receivedAmount ?? "250", oneTimeCard: !!card },
-    validationSchema: TopUpSchema,
     onSubmit: async (values) => {
       formik.setSubmitting(true);
 
@@ -54,7 +39,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
 
   useEffect(() => {
     const updatePrices = async (values: { amount: string; oneTimeCard: boolean }) => {
-      if (parseInt(values.amount) > 100) {
+      if (parseInt(values.amount) > 250) {
         window.history.replaceState(window.history.state, "", `/playstation/${values.amount}`);
       } else {
         window.history.replaceState(window.history.state, "", `/playstation`);
@@ -69,23 +54,8 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
     setLoading(true);
 
     const values = formik.values;
-    const error = formik.errors.amount;
+    updatePrices(values);
 
-    if (values.amount && !error) {
-      if (Number(values.amount) >= 100) {
-        updatePrices(values);
-      }
-    } else {
-      setLoading(false);
-      setCalculatedAmount(undefined);
-      setValue(undefined);
-    }
-
-    if (value && error) {
-      setLoading(false);
-      setCalculatedAmount(undefined);
-      setValue(undefined);
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formik.values, formik.errors.amount]);
 
