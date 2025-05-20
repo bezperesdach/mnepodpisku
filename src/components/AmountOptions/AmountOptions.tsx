@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 
-const options = [100, 200, 300, 500, 600];
+const options = [250, 500, 750, 1000, 1250, 1500];
 
 type Props = {
   className?: string;

@@ -22,7 +22,7 @@ export const getAmountFromSlug = (slug: string | string[] | undefined) => {
 
   if (amount) {
     const num = parseInt(amount, 10);
-    if (!isNaN(num) && Number.isInteger(num)) {
+    if (!isNaN(num) && Number.isInteger(num) && Number(num) % 250 === 0) {
       return amount;
     }
   }

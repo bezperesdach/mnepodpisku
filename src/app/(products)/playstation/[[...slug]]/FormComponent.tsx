@@ -9,10 +9,11 @@ import { HashIcon, SyncIcon } from "@primer/octicons-react";
 import { useFormik } from "formik";
 import { useContext, useEffect, useState } from "react";
 import * as Yup from "yup";
-import TextInputV2 from "@/components/TextInput/TextInput";
+// import TextInputV2 from "@/components/TextInput/TextInput";
 import { Button } from "@/components/ui/button";
 import RedirectingToPayment from "@/components/RedirectingToPayment/RedirectingToPayment";
 import { ym } from "@/utils/ym";
+import ToggleSelect from "@/components/ToggleSelect/ToggleSelect";
 // import { AprilDealsPrice } from "@/components/AprilDealsPrice";
 
 type Props = {
@@ -27,7 +28,7 @@ const TopUpSchema = Yup.object().shape({
     .test("Сумма больше 100", "Минимальная сумма 100 лир", (value) => value >= 100)
     .test("Сумма меньше 600", "Максимальная сумма 600 лир", (value) => value <= 600)
 
-    .test("Кратное 10", "Сумма должна быть кратна 10", (value) => value % 10 === 0),
+    .test("Кратное 10", "Сумма должна быть кратна 10", (value) => value % 250 === 0),
   oneTimeCard: Yup.boolean(),
 });
 
@@ -39,7 +40,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
   const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
-    initialValues: { amount: receivedAmount ?? "100", oneTimeCard: !!card },
+    initialValues: { amount: receivedAmount ?? "250", oneTimeCard: !!card },
     validationSchema: TopUpSchema,
     onSubmit: async (values) => {
       formik.setSubmitting(true);
@@ -95,9 +96,22 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
           <div className="w-full flex flex-col gap-2 max-w-screen-lg mx-2 p-6 rounded-3xl bg-[#0c1430]">
             <p className="text-2xl md:text-3xl font-semibold tracking-tight">Укажите сумму пополнения</p>
 
-            <AmountOptions className="mt-4" setValue={(value) => formik.setFieldValue("amount", value)} />
+            {/* <AmountOptions className="mt-4" setValue={(value) => formik.setFieldValue("amount", value)} /> */}
 
-            <TextInputV2
+            <ToggleSelect
+              options={[
+                { name: "250₺", value: "250" },
+                { name: "500₺", value: "500" },
+                { name: "750₺", value: "750" },
+                { name: "1000₺", value: "1000" },
+                { name: "1250₺", value: "1250" },
+                { name: "1500₺", value: "1500" },
+              ]}
+              value={formik.values.amount}
+              onSelect={(value) => formik.setFieldValue("amount", value)}
+            />
+
+            {/* <TextInputV2
               className="mt-4"
               icon={<HashIcon className="text-inherit" />}
               type="number"
@@ -107,7 +121,7 @@ export default function FormComponent({ receivedAmount, ip, card }: Props) {
               placeholder="От 100 Лир"
               error={formik.errors.amount}
               {...formik.getFieldProps("amount")}
-            />
+            /> */}
           </div>
         </div>
         <div className="w-full flex justify-center items-center mt-6">
