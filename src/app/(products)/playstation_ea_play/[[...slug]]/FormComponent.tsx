@@ -70,10 +70,7 @@ export default function FormComponent({ receivedDuration }: Props) {
             <p className="text-2xl md:text-3xl font-semibold tracking-tight">Выберите срок подписки</p>
 
             <ToggleSelect
-              options={[
-                { name: "1 мес.", value: "1" },
-                { name: "12 мес.", value: "12" },
-              ]}
+              options={[{ name: "1 мес.", value: "1" }]}
               value={formik.values.duration}
               onSelect={(value) => formik.setFieldValue("duration", value)}
             />
