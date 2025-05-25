@@ -108,6 +108,7 @@ export async function getPsnAccountPrice() {
 
 export async function getPsnPsPlusPrice(values: { subscriptionType: string; duration: string }) {
   try {
+    console.log(values);
     // const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
     // calcUrl.searchParams.append("product_id", process.env.DIGISELLER_PS_PLUS_BASE_ID!);
@@ -164,6 +165,7 @@ export async function getPsnPsPlusPrice(values: { subscriptionType: string; dura
 
 export async function getPsEaPlayPrice(duration: string) {
   try {
+    console.log(duration);
     // const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
     // calcUrl.searchParams.append("product_id", process.env.DIGISELLER_PS_EA_PLAY_BASE_ID!);
