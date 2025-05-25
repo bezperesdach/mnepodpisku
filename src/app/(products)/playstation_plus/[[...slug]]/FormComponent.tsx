@@ -86,7 +86,11 @@ export default function FormComponent({ subscriptionType }: Props) {
             <p className="mt-4 text-2xl md:text-3xl font-semibold tracking-tight">Выберите срок подписки</p>
 
             <ToggleSelect
-              options={[{ name: "1 мес.", value: "1" }]}
+              options={[
+                { name: "1 мес.", value: "1" },
+                { name: "3 мес.", value: "3" },
+                { name: "12 мес.", value: "12" },
+              ]}
               value={formik.values.duration}
               onSelect={(value) => formik.setFieldValue("duration", value)}
             />
@@ -122,7 +126,7 @@ export default function FormComponent({ subscriptionType }: Props) {
                 </div>
               </div>
             </div>
-            <Button
+            {/* <Button
               className={cn("sticky bottom-0 mt-6 text-lg h-12", {
                 "bg-accent/50 text-muted-foreground": !value,
                 "pointer-events-none": formik.isSubmitting,
@@ -133,6 +137,13 @@ export default function FormComponent({ subscriptionType }: Props) {
               ) : (
                 <SyncIcon className="animate-spin" />
               )}
+            </Button> */}
+            <Button
+              className={cn("pointer-events-none bg-secondary text-muted-foreground sticky bottom-0 mt-6 text-lg h-12", {
+                "bg-accent/50 text-muted-foreground": !value,
+              })}
+            >
+              Нет в наличии
             </Button>
             <p className=" text-muted-foreground text-sm text-center">
               Нажимая на кнопку «Оплатить», вы соглашаетесь с{" "}

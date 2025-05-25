@@ -108,43 +108,43 @@ export async function getPsnAccountPrice() {
 
 export async function getPsnPsPlusPrice(values: { subscriptionType: string; duration: string }) {
   try {
-    const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
+    // const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
-    calcUrl.searchParams.append("product_id", process.env.DIGISELLER_PS_PLUS_BASE_ID!);
-    calcUrl.searchParams.append("currency", "RBX");
+    // calcUrl.searchParams.append("product_id", process.env.DIGISELLER_PS_PLUS_BASE_ID!);
+    // calcUrl.searchParams.append("currency", "RBX");
 
-    if (values.subscriptionType !== "essential" || values.duration !== "1") {
-      calcUrl.searchParams.append(
-        "options[]",
-        `${process.env.DIGISELLER_PS_PLUS_OPTION_ID!}:${
-          process.env[`DIGISELLER_PS_PLUS_${values.subscriptionType.toUpperCase()}_${values.duration}MONTH_VARIANT_ID`]
-        }`
-      );
-    }
+    // if (values.subscriptionType !== "essential" || values.duration !== "1") {
+    //   calcUrl.searchParams.append(
+    //     "options[]",
+    //     `${process.env.DIGISELLER_PS_PLUS_OPTION_ID!}:${
+    //       process.env[`DIGISELLER_PS_PLUS_${values.subscriptionType.toUpperCase()}_${values.duration}MONTH_VARIANT_ID`]
+    //     }`
+    //   );
+    // }
 
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600, tags: ["price"] } });
+    // const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600, tags: ["price"] } });
 
-    if (!response.ok) {
-      // Handle non-successful HTTP response (e.g., 404, 500, etc.)
-      // throw new Error(`Failed to fetch data. Status: ${response.status}`);
-      return { calculated: undefined, sale: undefined };
-    }
+    // if (!response.ok) {
+    //   // Handle non-successful HTTP response (e.g., 404, 500, etc.)
+    //   // throw new Error(`Failed to fetch data. Status: ${response.status}`);
+    //   return { calculated: undefined, sale: undefined };
+    // }
 
-    const responseData = await response.json();
+    // const responseData = await response.json();
 
-    const data: {
-      price: number;
-      count: number;
-      amount: number;
-      currency: string;
-      commission: number;
-      free_pay: boolean | null;
-      sale_info: { common_base_price: number; sale_percent: number };
-    } = responseData.data;
+    // const data: {
+    //   price: number;
+    //   count: number;
+    //   amount: number;
+    //   currency: string;
+    //   commission: number;
+    //   free_pay: boolean | null;
+    //   sale_info: { common_base_price: number; sale_percent: number };
+    // } = responseData.data;
 
-    let calculated = Math.round(data.amount * 1.14);
+    // let calculated = Math.round(data.amount * 1.14);
 
-    return { sale: data.amount, calculated };
+    return { sale: undefined };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
@@ -164,41 +164,41 @@ export async function getPsnPsPlusPrice(values: { subscriptionType: string; dura
 
 export async function getPsEaPlayPrice(duration: string) {
   try {
-    const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
+    // const calcUrl = new URL(`https://api.digiseller.ru/api/products/price/calc`);
 
-    calcUrl.searchParams.append("product_id", process.env.DIGISELLER_PS_EA_PLAY_BASE_ID!);
-    calcUrl.searchParams.append("currency", "RBX");
+    // calcUrl.searchParams.append("product_id", process.env.DIGISELLER_PS_EA_PLAY_BASE_ID!);
+    // calcUrl.searchParams.append("currency", "RBX");
 
-    if (duration !== "1") {
-      calcUrl.searchParams.append(
-        "options[]",
-        `${process.env.DIGISELLER_PS_EA_PLAY_OPTION_ID}:${process.env[`DIGISELLER_PS_EA_PLAY_${duration}MONTH_VARIANT_ID`]}`
-      );
-    }
+    // if (duration !== "1") {
+    //   calcUrl.searchParams.append(
+    //     "options[]",
+    //     `${process.env.DIGISELLER_PS_EA_PLAY_OPTION_ID}:${process.env[`DIGISELLER_PS_EA_PLAY_${duration}MONTH_VARIANT_ID`]}`
+    //   );
+    // }
 
-    const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600, tags: ["price"] } });
+    // const response = await fetch(calcUrl.toString(), { next: { revalidate: 3600, tags: ["price"] } });
 
-    if (!response.ok) {
-      // Handle non-successful HTTP response (e.g., 404, 500, etc.)
-      // throw new Error(`Failed to fetch data. Status: ${response.status}`);
-      return { calculated: undefined, sale: undefined };
-    }
+    // if (!response.ok) {
+    //   // Handle non-successful HTTP response (e.g., 404, 500, etc.)
+    //   // throw new Error(`Failed to fetch data. Status: ${response.status}`);
+    //   return { calculated: undefined, sale: undefined };
+    // }
 
-    const responseData = await response.json();
+    // const responseData = await response.json();
 
-    const data: {
-      price: number;
-      count: number;
-      amount: number;
-      currency: string;
-      commission: number;
-      free_pay: boolean | null;
-      sale_info: { common_base_price: number; sale_percent: number };
-    } = responseData.data;
+    // const data: {
+    //   price: number;
+    //   count: number;
+    //   amount: number;
+    //   currency: string;
+    //   commission: number;
+    //   free_pay: boolean | null;
+    //   sale_info: { common_base_price: number; sale_percent: number };
+    // } = responseData.data;
 
-    const calculated = Math.round(data.amount * 1.16);
+    // const calculated = Math.round(data.amount * 1.16);
 
-    return { sale: data.amount, calculated };
+    return { sale: undefined };
   } catch (error) {
     if (error instanceof Error) {
       // Check if the error is an instance of the Error class
