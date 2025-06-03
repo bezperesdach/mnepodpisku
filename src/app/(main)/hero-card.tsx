@@ -378,7 +378,7 @@ const PlayStation_Style = [
       // textShadow: "0 0 6px #ffffff",
     },
     descriptionClass:
-      "text-sm font-bold leading-7 max-w-xs text-[#ffffff] bg-[#f005b2] px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
+      "text-sm font-bold leading-7 max-w-xs text-[#ffffff] bg-transparent px-2 md:px-4 py-[1px] md:py-1 mr-auto md:text-base",
     descriptionStyle: {
       // textShadow: "-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000",
     },
